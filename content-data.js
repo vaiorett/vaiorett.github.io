@@ -55,7 +55,7 @@ window.PORTFOLIO_CONTENT = {
     "home.zh.capTitle": "用作品说明能力",
     "home.zh.aboutTitle": "从空间到产品，\n持续积累制作经验。",
     "home.zh.aboutIntro": [
-      "我是刘志，也使用 Violet_Kokoro 这个名字。",
+      "我是刘志，也使用 Vaiorett 这个名字。",
       "我做过产品数字化、家具渲染、建筑绘图与室内设计协作，参与模型制作、图纸表达、材质灯光和视觉内容交付。",
       "目前正在学习 AI 视频创作，探索三维制作与 AIGC 的结合。"
     ],

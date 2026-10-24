@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-24T15:40:24.786Z",
+  "updatedAt": "2026-10-24T15:43:10.671Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
