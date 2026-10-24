@@ -1,7 +1,7 @@
 window.PORTFOLIO_CONTENT = {
   "version": 1,
   "values": {
-    "site.brand": "VIOLET_KOKORO",
+    "site.brand": "Vaiorett",
     "site.email": "violet_kokoro@163.com",
     "ui.zh.name": "刘志",
     "ui.zh.title": "刘志 · 建筑可视化、三维建模与数字资产作品集",
