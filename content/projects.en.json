@@ -1,0 +1,74 @@
+{
+  "yunba-depot": {
+    "title": "Jinan High-tech Loop · Yunba Depot",
+    "categoryName": "Architecture",
+    "role": "Architectural modeling / Visualization",
+    "desc": "Aerial and perspective views of the depot, showing building massing, façades and the relationship between architecture and its site.",
+    "context": "Architectural visualization work undertaken at BYD Survey and Design Co., Ltd. The project name follows the original portfolio.",
+    "tasks": ["Contributed to building and site models to communicate massing and façades.", "Produced aerial and perspective visualizations for design presentations.", "Helped the team organize models and rendered images for delivery."],
+    "note": "Team project. My contribution was architectural modeling and visualization; overall design belongs to the original team."
+  },
+  "digital-assets": {
+    "title": "Product Digitization & 3D Assets",
+    "categoryName": "Digital assets",
+    "role": "Asset production / Topology & materials",
+    "desc": "High-detail product assets connecting digital capture, model optimization and material creation for digital product delivery.",
+    "context": "At Matrix Industrial Technology (Shenzhen) Co., Ltd., I created digital product assets and documented production workflows.",
+    "tasks": ["Created high-detail product assets, optimized topology and developed materials.", "Documented workflows, accuracy requirements, production standards and delivery specifications.", "Prepared deliverable assets to support B2B digital product deployment."],
+    "note": "Commercial project. The images document digital capture and asset production."
+  },
+  "grandstand": {
+    "title": "Racetrack Grandstand & Facilities",
+    "categoryName": "Architecture",
+    "role": "Design modeling / Architectural visualization",
+    "desc": "Models and rendered views supporting the design of a racetrack grandstand and associated spaces, with a focus on façades, massing and spatial relationships.",
+    "context": "Project work at BYD Survey and Design Co., Ltd. I built models from design proposals and supported architectural and façade presentations.",
+    "tasks": ["Supported the visual development of grandstand architecture and façade proposals.", "Modeled the racetrack, grandstand and associated facilities and produced rendered views.", "Updated models and viewpoints to support design discussions."],
+    "note": "Team project. My contribution was design modeling and architectural visualization; overall design belongs to the original team."
+  },
+  "pedestrian-bridge": {
+    "title": "Pedestrian Bridge & Site",
+    "categoryName": "Architecture",
+    "role": "Site modeling / Rendering",
+    "desc": "Bridge and site models based on the designer’s proposal, with rendered views from multiple angles to support design communication.",
+    "context": "Project work at BYD Survey and Design Co., Ltd., providing visual support for design discussions, supplier coordination and planning submissions.",
+    "tasks": ["Modeled the pedestrian bridge and its real-world site from the design proposal.", "Produced multiple views of the bridge, roads and surrounding environment.", "Updated the work as the design evolved and prepared images for coordination and planning submissions."],
+    "note": "Team project. My responsibilities were bridge and site modeling and rendered images."
+  },
+  "residential": {
+    "title": "Shiguangxu Rental Housing · Guiyang Shawen" ,
+    "categoryName": "Architecture",
+    "role": "Model production / Residential visualization",
+    "desc": "Architectural models and rendered views exploring the relationship between residential buildings, public spaces and the site.",
+    "context": "Residential project work undertaken at BYD Survey and Design Co., Ltd. The project name follows the original portfolio.",
+    "tasks": ["Contributed to residential building and site models.", "Supported design and drawing presentations and produced rendered images.", "Helped the team prepare architectural visualizations for communication."],
+    "note": "Team project. My contribution was modeling and architectural visualization; overall design belongs to the original team."
+  },
+  "product-rendering": {
+    "title": "Furniture Product Rendering",
+    "categoryName": "Product rendering",
+    "role": "Materials / Lighting & rendering",
+    "desc": "Furniture visualizations focused on materials, lighting and atmosphere for e-commerce and product promotion.",
+    "context": "At Shenzhen Yaqi Furniture Co., Ltd., I produced furniture visualizations across multiple batches in response to product operations needs.",
+    "tasks": ["Developed furniture materials and lighting, refining composition and atmosphere.", "Revised images based on operations feedback for e-commerce and promotional delivery.", "Organized material and lighting workflows and standardized render outputs."],
+    "note": "Commercial project. My responsibilities were product rendering and visual presentation."
+  },
+  "interior": {
+    "title": "Interior Spaces & Atmosphere",
+    "categoryName": "Interior",
+    "role": "Spatial modeling / Rendering",
+    "desc": "Interior design and visualization studies exploring spatial layout, materials and natural light.",
+    "context": "Interior work from the original portfolio, demonstrating spatial modeling, material coordination and rendered presentation.",
+    "tasks": ["Built interior concept models around spatial functions.", "Adjusted materials, lighting and camera views to communicate atmosphere.", "Used rendered images to support design discussions and presentations."],
+    "note": "Interior visualization work combining space, materials and lighting."
+  },
+  "cgi": {
+    "title": "CGI & Material Studies",
+    "categoryName": "CGI",
+    "role": "Modeling & material visualization",
+    "desc": "Explorations of 3D models, textures and lighting through changes in surfaces and materials.",
+    "context": "CGI and other studies from the original portfolio, including models, material effects and production process images.",
+    "tasks": ["Compared base models with their materialized appearance.", "Documented work on surface textures, details and lighting."],
+    "note": "Personal CGI studies showing models, material effects and the production process."
+  }
+}
