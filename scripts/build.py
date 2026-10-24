@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Generate both static locales. Python standard library only; no hosting build required."""
 import json
+import hashlib
 from html import escape as e
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://vaiorett.github.io/'
+GALLERY_VERSION = hashlib.sha256((ROOT/'gallery-data.js').read_bytes()).hexdigest()[:12]
 PROJECTS = {p['id']: p for p in json.loads((ROOT/'site-data.json').read_text())}
 EN = json.loads((ROOT/'content/projects.en.json').read_text())
 PROFILE = json.loads((ROOT/'content/profile.json').read_text())
@@ -44,7 +46,7 @@ def head(lang,file,title,desc,image):
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}style.css"><link rel="stylesheet" href="{root}portfolio.css">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script>
-<script src="{root}gallery-data.js" defer></script><script src="{root}app.js" defer></script>
+<script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js" defer></script>
 </head><body data-root="{root}">
 '''
 

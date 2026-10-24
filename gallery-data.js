@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-10-24T14:39:11.807Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -34,7 +34,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
-      "cover": "image-grandstand-cover.webp",
+      "cover": "images/uploads/image-d3705430-be19-4067-b1c1-dac0ec2400bc.jpeg",
       "images": [
         {
           "id": "grandstand-overview",
@@ -44,6 +44,34 @@ window.PORTFOLIO_GALLERIES = {
           "kind": "collage",
           "captionEn": "Project overview",
           "altEn": "Racetrack Grandstand & Facilities — project overview"
+        },
+        {
+          "id": "image-d3705430-be19-4067-b1c1-dac0ec2400bc",
+          "src": "images/uploads/image-d3705430-be19-4067-b1c1-dac0ec2400bc.jpeg",
+          "caption": "屏幕截图_20260730_003440.png_2K_202607300224",
+          "alt": "赛车场看台与配套空间效果图",
+          "kind": "image"
+        },
+        {
+          "id": "image-3111813e-aaea-45e6-ba2f-88fe8c35ac5b",
+          "src": "images/uploads/image-3111813e-aaea-45e6-ba2f-88fe8c35ac5b.png",
+          "caption": "a1ad96450067043a697227804361de529",
+          "alt": "赛车场看台与配套空间效果图",
+          "kind": "image"
+        },
+        {
+          "id": "image-df4efa92-a0c9-4c84-8fcf-29e2dde2340c",
+          "src": "images/uploads/image-df4efa92-a0c9-4c84-8fcf-29e2dde2340c.png",
+          "caption": "ad644720375143b6af0018763c2f59a3",
+          "alt": "赛车场看台与配套空间效果图",
+          "kind": "image"
+        },
+        {
+          "id": "image-84db5153-a01f-4edd-accb-1e59af0f6533",
+          "src": "images/uploads/image-84db5153-a01f-4edd-accb-1e59af0f6533.png",
+          "caption": "ChatGPT 图像 2026年9月27日 01_32_22",
+          "alt": "赛车场看台与配套空间效果图",
+          "kind": "image"
         }
       ]
     },

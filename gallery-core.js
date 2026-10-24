@@ -22,7 +22,7 @@
   function merge(base,local,remote){
     validate(remote);const merged=clone(remote);const conflicts=[];
     for(const [id,value] of Object.entries(local.projects)){
-      if(JSON.stringify(value)===JSON.stringify(base.projects[id])) continue;
+      if(JSON.stringify(value)===JSON.stringify(base.projects[id]) || JSON.stringify(value)===JSON.stringify(remote.projects[id])) continue;
       if(!remote.projects[id] || JSON.stringify(remote.projects[id])!==JSON.stringify(base.projects[id])) conflicts.push(value.title);
       else merged.projects[id]=clone(value);
     }
@@ -44,7 +44,7 @@
     const tree=[];const uploads=usedFiles(data,files);let done=0;
     for(const [filePath,blob] of uploads){
       if(!safePath(filePath))throw new Error('图片路径不正确。');
-      progress('正在上传图片 '+(++done)+' / '+uploads.length);
+      progress('正在上传图片 '+(++done)+' / '+uploads.length+'（'+(blob.size/1024/1024).toFixed(1)+' MB）');
       const result=await api(path+'/git/blobs','POST',{content:base64(new Uint8Array(await blob.arrayBuffer())),encoding:'base64'});
       tree.push({path:filePath,mode:'100644',type:'blob',sha:result.sha});
     }
@@ -55,10 +55,33 @@
     const commit=await api(path+'/git/commits','POST',{message:'更新作品图片与画廊说明',tree:newTree.sha,parents:[session.base]});
     const latest=await api(refPath);
     if(latest.object.sha!==session.base)throw new Error('发布期间仓库出现了新修改。请重新连接后重试，草稿会保留。');
+    progress('正在提交发布结果');
     const result=await api(path+'/git/refs/heads/'+encodeURIComponent(session.branch),'PATCH',{sha:commit.sha,force:false});
     if(result.object.sha!==commit.sha)throw new Error('未能确认提交结果，请到 GitHub 查看后重新连接。');
     return commit.sha;
   }
-  const core={OWNER,REPO,clone,safePath,validate,serialize,parse,merge,usedFiles,base64,publish};
+  function httpError(status,message='',headers={}){
+    let text;
+    if(status===401) text='授权令牌无效或已过期，请重新连接。';
+    else if(status===429 || (status===403 && (headers.remaining==='0' || headers.retryAfter || /rate limit|abuse detection/i.test(message)))){
+      const seconds=Number(headers.retryAfter);
+      text='GitHub 暂时限制了请求频率（'+status+'）。'+(Number.isFinite(seconds)&&seconds>0?'请至少等待 '+Math.ceil(seconds)+' 秒后再试。':'请稍后再试，不要连续点击发布。')+'这不一定是令牌权限问题。';
+    }else if(status===403 && /resource not accessible/i.test(message)){
+      text='当前令牌没有完成此操作所需的权限（403）。请检查该令牌是否选中 vaiorett.github.io，且 Repository permissions → Contents 为 Read and write；账号能访问仓库不代表令牌有写入权限。';
+    }else if(status===403) text='GitHub 拒绝了此操作（403）。请核对令牌的仓库范围、Contents 读写权限及 GitHub 的访问限制；仅凭 403 还不能确定具体原因。';
+    else if(status===404) text='无法访问作品仓库或文件（404）。请确认令牌已选中 vaiorett.github.io。';
+    else if(status===409) text='仓库状态有变化（409）。请重新连接后再发布，先导出当前修改作为备份。';
+    else if(status===422) text='GitHub 未接受此次数据或分支更新（422）。请先查看仓库提交记录，再重新连接核对。';
+    else if(status>=500) text='GitHub 服务暂时无法完成请求（'+status+'）。请稍后重试；若发生在最后提交阶段，请先查看仓库记录。';
+    else text='GitHub 请求未完成（HTTP '+status+'），请先导出备份后再检查。';
+    const error=new Error(text);error.status=status;return error;
+  }
+  function requestTimeout(path,method){return method==='POST' && path.endsWith('/git/blobs')?180000:30000;}
+  function networkError(error,timeout){
+    if(error.name==='AbortError')return new Error('此次请求超过 '+Math.round(timeout/1000)+' 秒未完成。大图上传或网络较慢时可能超时；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
+    if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
+    return error;
+  }
+  const core={OWNER,REPO,clone,safePath,validate,serialize,parse,merge,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);
