@@ -2,7 +2,7 @@ window.PORTFOLIO_CONTENT = {
   "version": 1,
   "values": {
     "site.brand": "Vaiorett",
-    "site.email": "violet_kokoro@163.com",
+    "site.email": "violetevergarden455100@gmail.com",
     "ui.zh.name": "刘志",
     "ui.zh.title": "刘志 · 建筑可视化、三维建模与数字资产作品集",
     "ui.zh.description": "刘志的求职作品集：建筑可视化、三维建模、产品数字化与材质渲染。查看 8 组真实项目、个人职责、工作经历与简历。",
