@@ -11,7 +11,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-product-rendering-full.webp",
           "caption": "项目作品总览",
           "alt": "家具产品渲染作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Furniture Product Rendering — project overview"
         }
       ]
     },
@@ -24,7 +26,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-digital-assets-full.webp",
           "caption": "项目作品总览",
           "alt": "产品数字化与三维资产作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Product Digitization & 3D Assets — project overview"
         }
       ]
     },
@@ -37,7 +41,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-grandstand-full.webp",
           "caption": "项目作品总览",
           "alt": "赛车场看台与配套空间作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Racetrack Grandstand & Facilities — project overview"
         }
       ]
     },
@@ -50,7 +56,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-pedestrian-bridge-full.webp",
           "caption": "项目作品总览",
           "alt": "人行天桥与场地作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Pedestrian Bridge & Site — project overview"
         }
       ]
     },
@@ -63,7 +71,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-yunba-depot-full.webp",
           "caption": "项目作品总览",
           "alt": "济南高新环线云巴车辆基地作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Jinan High-tech Loop · Yunba Depot — project overview"
         }
       ]
     },
@@ -76,7 +86,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-residential-full.webp",
           "caption": "项目作品总览",
           "alt": "贵阳沙文保租房时光序作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview"
         }
       ]
     },
@@ -89,7 +101,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-interior-full.webp",
           "caption": "项目作品总览",
           "alt": "室内空间与氛围作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Interior Spaces & Atmosphere — project overview"
         }
       ]
     },
@@ -102,7 +116,9 @@ window.PORTFOLIO_GALLERIES = {
           "src": "image-cgi-full.webp",
           "caption": "项目作品总览",
           "alt": "材质与 CGI 探索作品总览",
-          "kind": "collage"
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "CGI & Material Studies — project overview"
         }
       ]
     }
