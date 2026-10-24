@@ -52,8 +52,10 @@ for path,page in pages.items():
     if path.name.startswith('work-'):
         id=path.stem[5:];source=json.loads((ROOT/'site-data.json').read_text())
         original=next(p for p in source if p['id']==id)
+        current=json.loads((ROOT/'content-data.js').read_text().split(' = ',1)[1].strip().rstrip(';'))['values']
+        original={key:current.get(f'project.{id}.zh.{key}',value) for key,value in original.items()}
         if not english:
-            for fact in [original['title'],original['role'],original['context'],original['note'],*original['tasks']]:assert fact in path.read_text(),(path,fact)
+            for fact in [original['title'],original['role'],original['context'],original['note'],*original['tasks']]:assert fact in ''.join(page.text),(path,fact)
 # All original binary work and the public résumé remain byte-for-byte unchanged.
 original=subprocess.check_output(['git','ls-tree','--name-only','HEAD'],cwd=ROOT,text=True).splitlines()
 for file in original:
@@ -62,4 +64,4 @@ for file in original:
 urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==18
 for path in ['manage.html','更新图片说明.html']:
     assert 'noindex,follow' in (ROOT/path).read_text()
-print(f'PASS: 18 static pages, {checks} local asset/link references, bilingual SEO, translated English prose, original project facts and all 17 original media/PDF files.')
+print(f'PASS: 18 static pages, {checks} local asset/link references, bilingual SEO, translated English prose, current canonical project text and all 17 original media/PDF files.')

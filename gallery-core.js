@@ -34,7 +34,7 @@
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
   }
   function base64(bytes){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}
-  async function publish(data,files,session,api,progress){
+  async function publish(data,files,session,api,progress,textFiles={}){
     validate(data);
     const path='/repos/'+OWNER+'/'+REPO;
     const refPath=path+'/git/ref/heads/'+encodeURIComponent(session.branch);
@@ -51,8 +51,13 @@
     progress('正在保存作品顺序与说明');
     const manifest=await api(path+'/git/blobs','POST',{content:serialize(data),encoding:'utf-8'});
     tree.push({path:'gallery-data.js',mode:'100644',type:'blob',sha:manifest.sha});
+    for(const [filePath,content] of Object.entries(textFiles)){
+      if(!(filePath==='content-data.js'||/^(?:en\/)?(?:index|work-[a-z0-9-]+)\.html$/.test(filePath)) || typeof content!=='string')throw new Error('文字发布文件不正确。');
+      tree.push({path:filePath,mode:'100644',type:'blob',content});
+    }
+    progress('正在保存中英文网页、图片与文字');
     const newTree=await api(path+'/git/trees','POST',{base_tree:parent.tree.sha,tree});
-    const commit=await api(path+'/git/commits','POST',{message:'更新作品图片与画廊说明',tree:newTree.sha,parents:[session.base]});
+    const commit=await api(path+'/git/commits','POST',{message:'更新作品集图片与中英文文字',tree:newTree.sha,parents:[session.base]});
     const latest=await api(refPath);
     if(latest.object.sha!==session.base)throw new Error('发布期间仓库出现了新修改。请重新连接后重试，草稿会保留。');
     progress('正在提交发布结果');
