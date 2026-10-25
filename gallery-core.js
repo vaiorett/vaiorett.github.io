@@ -1,23 +1,11 @@
 (function (root) {
   'use strict';
+  const V=typeof module!=='undefined'&&module.exports?require('./video-core.js'):root.VideoCore;
   const OWNER='vaiorett', REPO='vaiorett.github.io';
   const PREFIX='window.PORTFOLIO_GALLERIES = ';
   function clone(value){return JSON.parse(JSON.stringify(value));}
   function safePath(path){return typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');}
-  function videoInfo(input){
-    const raw=String(input||'').trim();let bvid='',page=1;
-    if(/^BV[0-9A-Za-z]{10}$/.test(raw))bvid=raw;
-    else{
-      let url;try{url=new URL(raw);}catch{throw new Error('请粘贴 B 站完整视频链接或 BV 号。');}
-      if(url.hostname==='b23.tv')throw new Error('请先在浏览器打开 b23.tv 短链接，再复制地址栏中包含 BV 号的完整链接。');
-      if(url.protocol!=='https:'||url.username||url.password||url.port||!['www.bilibili.com','bilibili.com','m.bilibili.com','player.bilibili.com'].includes(url.hostname))throw new Error('仅支持 HTTPS 的 B 站视频链接。');
-      if(url.hostname==='player.bilibili.com'&&url.pathname==='/player.html')bvid=url.searchParams.get('bvid')||'';
-      else bvid=url.pathname.match(/^\/video\/(BV[0-9A-Za-z]{10})\/?$/)?.[1]||'';
-      const p=url.searchParams.get('p');if(p!==null){if(!/^[1-9][0-9]{0,3}$/.test(p))throw new Error('视频分 P 序号不正确。');page=Number(p);}
-      if(!/^BV[0-9A-Za-z]{10}$/.test(bvid))throw new Error('链接中没有有效的 BV 号，请使用普通 B 站视频链接。');
-    }
-    return {bvid,page,url:'https://www.bilibili.com/video/'+bvid+'/?p='+page,embed:'https://player.bilibili.com/player.html?bvid='+bvid+'&p='+page+'&autoplay=0&danmaku=0'};
-  }
+  const videoInfo=V.info;
   function validate(data){
     if(!data || data.version!==1 || !data.projects || typeof data.projects!=='object') throw new Error('作品数据格式不正确。');
     for(const [id,project] of Object.entries(data.projects)){
@@ -28,7 +16,7 @@
         const videoIds=new Set();
         for(const video of project.videos){
           if(!video||typeof video.id!=='string'||videoIds.has(video.id)||typeof video.title!=='string'||typeof video.titleEn!=='string'||video.title.length>300||video.titleEn.length>300)throw new Error('视频资料不完整。');
-          videoInfo(video.url);videoIds.add(video.id);
+          videoInfo(video.url);for(const key of ['poster','posterOverride'])if(video[key]&&!V.imageURL(video[key]))throw new Error('视频封面地址不正确。');videoIds.add(video.id);
         }
       }
       const ids=new Set();
@@ -43,11 +31,14 @@
   }
   function serialize(data){validate(data);return PREFIX+JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')+';\n';}
   function parse(source){if(!source.startsWith(PREFIX))throw new Error('仓库中的作品数据格式不正确。');return validate(JSON.parse(source.slice(PREFIX.length).trim().replace(/;$/,'')));}
+  const posterKeys=['poster','posterFor','posterUpdatedAt','providerTitle'];
+  function withoutPosters(project){if(!project)return project;const p=clone(project);for(const video of p.videos||[])for(const key of posterKeys)delete video[key];return p;}
+  function mergePosterUpdate(local,remote){const result=clone(local);for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
   function merge(base,local,remote){
     validate(remote);const merged=clone(remote);const conflicts=[];
     for(const [id,value] of Object.entries(local.projects)){
       if(JSON.stringify(value)===JSON.stringify(base.projects[id]) || JSON.stringify(value)===JSON.stringify(remote.projects[id])) continue;
-      if(JSON.stringify(remote.projects[id])!==JSON.stringify(base.projects[id])) conflicts.push(value.title);
+      if(JSON.stringify(remote.projects[id])!==JSON.stringify(base.projects[id])){if(remote.projects[id]&&JSON.stringify(withoutPosters(remote.projects[id]))===JSON.stringify(withoutPosters(base.projects[id])))merged.projects[id]=mergePosterUpdate(value,remote.projects[id]);else conflicts.push(value.title);}
       else merged.projects[id]=clone(value);
     }
     if(conflicts.length)throw new Error('这些项目已在线上被修改，请先导出草稿再核对：'+conflicts.join('、'));
@@ -55,7 +46,7 @@
   }
   function coverPath(project){const item=project.images.find(i=>i.src===project.cover);return item?.thumbnail||project.cover;}
   function usedFiles(data,files){
-    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);});});
+    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
   }
   function base64(bytes){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}
@@ -112,6 +103,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,validate,serialize,parse,merge,coverPath,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

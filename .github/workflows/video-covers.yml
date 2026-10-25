@@ -1,0 +1,55 @@
+name: Refresh video covers
+on:
+  push:
+    branches: [main]
+    paths:
+      - gallery-data.js
+      - scripts/refresh_video_posters.py
+      - scripts/video_core.py
+      - .github/workflows/video-covers.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: video-cover-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+      - name: Read official covers and update static pages
+        id: covers
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/refresh_video_posters.py
+            if git diff --quiet -- gallery-data.js; then
+              echo 'changed=false' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            python3 scripts/build.py
+            git add gallery-data.js content-data.js content-templates.js index.html work-*.html en/*.html sitemap.xml robots.txt
+            git commit -m 'Update official video covers'
+            if git push origin HEAD:main; then
+              echo 'changed=true' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          done
+          echo 'Repository changed during cover refresh; please run this workflow again.'
+          exit 1
+      - name: Publish refreshed pages
+        if: steps.covers.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
