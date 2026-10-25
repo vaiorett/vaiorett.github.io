@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-25T07:27:40.640798Z",
+  "updatedAt": "2026-10-25T07:41:56.602Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -67,6 +67,14 @@ window.PORTFOLIO_GALLERIES = {
           "altEn": "Pedestrian Bridge & Site — project overview",
           "width": 443,
           "height": 1920
+        }
+      ],
+      "videos": [
+        {
+          "id": "video-7cb88245-e5ba-43a7-8f26-fa112e803afa",
+          "url": "https://www.youtube.com/watch?v=nKWEiId-yEc",
+          "title": "youtube-测试",
+          "titleEn": "youtube-test"
         }
       ]
     },
