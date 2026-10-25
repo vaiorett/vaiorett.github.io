@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-25T04:30:45.011Z",
+  "updatedAt": "2026-10-25T05:04:04.868Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -103,6 +103,14 @@ window.PORTFOLIO_GALLERIES = {
           "caption": "浅色石材",
           "alt": "贵阳沙文保租房时光序效果图",
           "kind": "image"
+        }
+      ],
+      "videos": [
+        {
+          "id": "video-b6f9ef27-e193-45e7-b1a8-5d8de6bc9d18",
+          "url": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
+          "title": "测试视频",
+          "titleEn": "1111"
         }
       ]
     },
