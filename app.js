@@ -110,3 +110,11 @@ if(dialog && lightboxItems.length){
   dialog.addEventListener('close',()=>{document.body.style.overflow='';if(lastTrigger)lastTrigger.focus();});
   dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
 }
+
+// Only load the official Bilibili player after a visitor chooses to watch.
+document.querySelectorAll('[data-video-embed]').forEach(button=>button.addEventListener('click',()=>{
+  let url;try{url=new URL(button.dataset.videoEmbed);}catch{return;}
+  if(url.origin!=='https://player.bilibili.com'||url.pathname!=='/player.html'||!/^BV[0-9A-Za-z]{10}$/.test(url.searchParams.get('bvid')||''))return;
+  const frame=document.createElement('iframe');frame.src=url.href;frame.title=button.dataset.videoTitle||localized('项目视频','Project video');frame.allow='fullscreen; picture-in-picture';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';frame.className='video-player';
+  const screen=button.closest('.video-screen');screen.replaceChildren(frame);frame.focus();
+}));

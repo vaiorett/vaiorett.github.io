@@ -18,6 +18,7 @@ UI = {
 'zh': dict(name='刘志', title='刘志 · 建筑可视化、三维建模与数字资产作品集',description='刘志的求职作品集：建筑可视化、三维建模、产品数字化与材质渲染。查看 8 组真实项目、个人职责、工作经历与简历。',work='作品',capabilities='专业能力',about='关于',contact='联系',resume='简历 PDF',resume_full='查看简历（中文 PDF）',skip='跳到主要内容',nav='主导航',home='作品集首页',back='返回作品选集',role='个人职责',tools='使用工具',category='项目类型',context='项目背景',tasks='我的工作',gallery='作品与过程',overview='项目作品总览',open='打开原图',note='职责与署名',source='原作品页面',next='下一个项目',close='关闭',previous='上一张图片',nextimage='下一张图片',zoom='作品大图',top='回到顶部',copy='复制邮箱',manager='作品管理（中文）',filter='按作品方向筛选',all='全部作品',architecture='建筑可视化',assets='三维资产',product='产品渲染',studies='空间与 CGI',experience='工作经历',education='教育经历',certificates='证书',alltools='工具与技能',footer='建筑 · 模型 · 视觉',view='查看项目'),
 'en': dict(name='Liu Zhi', title='Liu Zhi · Architectural Visualization & 3D Portfolio',description='Portfolio of Liu Zhi: architectural visualization, 3D modeling, product digitization and rendering. Explore eight projects, individual contributions, experience and résumé.',work='Work',capabilities='Capabilities',about='About',contact='Contact',resume='Résumé PDF',resume_full='View résumé (Chinese PDF)',skip='Skip to main content',nav='Main navigation',home='Portfolio home',back='Back to selected work',role='My contribution',tools='Tools',category='Project type',context='Project context',tasks='What I did',gallery='Work & process',overview='Project overview',open='Open original image',note='Contribution & credits',source='Original portfolio',next='Next project',close='Close',previous='Previous image',nextimage='Next image',zoom='Image viewer',top='Back to top',copy='Copy email',manager='Manage images (Chinese)',filter='Filter projects by discipline',all='All work',architecture='Architecture',assets='3D assets',product='Product rendering',studies='Interior & CGI',experience='Experience',education='Education',certificates='Certificates',alltools='Tools & skills',footer='Architecture · Models · Visuals',view='View project')}
 
+DEFAULT_PROJECTS={id:{'category':GROUP.get(id,'architecture'),'source':PROJECTS[id]['source']} for id in ORDER}
 # The same inert templates and typed fields are used by the browser editor.
 FIELDS={}; VALUES={}
 LABELS={'name':'姓名','title':'标题','description':'搜索摘要','desc':'项目简介','role':'个人职责','tools':'使用工具','context':'项目背景','tasks':'我的工作（每行一项）','note':'职责与署名'}
@@ -34,6 +35,7 @@ CAPS={
 'en':[['Architecture','From design proposals and drawings to building models, site models and rendered views.','SketchUp / AutoCAD / 3ds Max'],['3D modeling & digitization','Digital capture, high-detail assets, topology optimization and material creation.','RealityCapture / Blender / UE5'],['Materials, lighting & rendering','Materials, composition and light to communicate product detail and spatial atmosphere.','3ds Max / V-Ray / Chaos Vantage']]}
 BRAND=field('site.brand','VIOLET_KOKORO',label='网站署名（原 VIOLET_KOKORO）')
 EMAIL=field('site.email','violet_kokoro@163.com','email','联系邮箱')
+PHONE=field('site.phone','17551573719',label='手机 / 微信')
 for lang in UI:
     for key,value in list(UI[lang].items()): UI[lang][key]=field(f'ui.{lang}.{key}',value,label=LABELS.get(key,'栏目 / 按钮：'+value))
     for key,value in list(HOME[lang].items()): HOME[lang][key]=field(f'home.{lang}.{key}',value,'paragraphs' if key=='aboutIntro' else 'multiline',HOME_LABELS[key])
@@ -82,9 +84,9 @@ def head(lang,file,title,desc,image):
 <meta property="og:locale:alternate" content="{'zh_CN' if lang=='en' else 'en_US'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{root}style.css"><link rel="stylesheet" href="{root}portfolio.css">
+<link rel="stylesheet" href="{root}style.css"><link rel="stylesheet" href="{root}portfolio.css?v=20261025-projects">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script>
-<script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js" defer></script>
+<script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js?v=20261025-projects" defer></script>
 </head><body data-root="{root}">
 '''
 
@@ -94,7 +96,7 @@ def header(lang,file):
     return f'''<a class="skip-link" href="#main">{t['skip']}</a>
 <header class="site-header"><div class="nav-wrap">
 <a class="brand" href="./index.html" aria-label="{t['name']} · {t['home']}"><span class="brand-mark">V<span>•</span></span><span class="brand-name">{t['name']}<span>{BRAND}</span></span></a>
-<nav aria-label="{t['nav']}"><a href="./index.html#work">{t['work']}</a><a href="./index.html#capabilities">{t['capabilities']}</a><a href="./index.html#about">{t['about']}</a><a href="./index.html#contact">{t['contact']}</a><a class="resume-nav" href="{root}liu-zhi-resume.pdf" target="_blank" rel="noopener">{t['resume']} ↗</a></nav>
+<nav aria-label="{t['nav']}"><a href="./index.html#work">{t['work']}</a><a href="./index.html#capabilities">{t['capabilities']}</a><a href="./index.html#about">{t['about']}</a><a href="./index.html#contact">{t['contact']}</a><a class="resume-nav" href="{root}liu-zhi-resume.pdf?v=20261025-contact" target="_blank" rel="noopener">{t['resume']} ↗</a></nav>
 <div class="language-switch" role="group" aria-label="Language / 语言">{languages}</div>
 </div></header>'''
 
@@ -120,55 +122,58 @@ def about(lang):
 def home(lang):
     t=UI[lang];root='../' if lang=='en' else './'; hero=project('yunba-depot',lang)
     groups=[('all','all','08'),('architecture','architecture','04'),('assets','assets','01'),('product','product','01'),('studies','studies','02')]
-    filters=''.join(f'<button type="button" class="filter {"active" if i==0 else ""}" data-filter="{key}" aria-pressed="{str(i==0).lower()}">{t[label]} <span>{n}</span></button>' for i,(key,label,n) in enumerate(groups))
+    filters=''.join(f'<button type="button" class="filter {"active" if i==0 else ""}" data-filter="{key}" aria-pressed="{str(i==0).lower()}">{t[label]} <span>@@total.{key}@@</span></button>' for i,(key,label,n) in enumerate(groups))
     cards=[]
     for index,id in enumerate(ORDER):
         p=project(id,lang);group=GROUP.get(id,'architecture')
         cards.append(f'''<article class="project-card" data-project-card="{id}" data-category="{group}"><a href="./work-{id}.html" class="project-link"><div class="project-image"><img src="{root}{GALLERY[id]['cover']}" alt="{e(p['title'])}" loading="lazy" decoding="async" width="800" height="570"><span class="image-number">{index+1:02d}</span><span class="project-open" aria-hidden="true">↗</span></div><div class="project-meta"><span class="eyebrow">{t[group]}</span></div><h3>{e(p['title'])}</h3><p class="project-role">{e(p['role'])}</p><p class="card-description">{e(p['desc'])}</p><p class="card-tools">{e(' / '.join(p['tools']))}</p></a></article>''')
     h= head(lang,'index.html',t['title'],t['description'],GALLERY['yunba-depot']['cover'])+header(lang,'index.html')
-    h+=f'''<main id="main"><section class="hero wrap" aria-labelledby="intro-title"><div class="hero-copy"><p class="eyebrow accent">{t['name']} / {HOME[lang]['kicker']}</p><h1 id="intro-title">{HOME[lang]['hero']}<br><span>{HOME[lang]['heroAccent']}</span></h1><p class="hero-intro">{HOME[lang]['intro']}</p><div class="hero-actions"><a class="button primary" href="#work">{t['work']} ↓</a><a class="text-link" href="{root}liu-zhi-resume.pdf" target="_blank" rel="noopener">{t['resume_full']} ↗</a></div></div><a class="hero-art" href="./work-yunba-depot.html" aria-label="{e(hero['title'])}"><img src="{root}{GALLERY['yunba-depot']['cover']}" alt="{e(hero['title'])}" width="1033" height="634" fetchpriority="high"><div class="hero-art-caption"><span>01 / {t['architecture']}</span><span>{e(hero['title'])} <b aria-hidden="true">↗</b></span><span>{e(hero['role'])}</span></div></a></section>
-<section id="work" class="work-section wrap" aria-labelledby="work-title"><div class="section-top"><div><p class="eyebrow accent">01 / {t['work']}</p><h2 id="work-title">{HOME[lang]['workTitle']}<span class="section-count">08</span></h2></div><p class="section-description">{HOME[lang]['workIntro']}</p></div><div class="filter-bar" role="group" aria-label="{t['filter']}" hidden>{filters}</div><p class="sr-only" id="filter-status" aria-live="polite"></p><div class="project-grid">{''.join(cards)}</div></section>
+    h+=f'''<main id="main"><section class="hero wrap" aria-labelledby="intro-title"><div class="hero-copy"><p class="eyebrow accent">{t['name']} / {HOME[lang]['kicker']}</p><h1 id="intro-title">{HOME[lang]['hero']}<br><span>{HOME[lang]['heroAccent']}</span></h1><p class="hero-intro">{HOME[lang]['intro']}</p><div class="hero-actions"><a class="button primary" href="#work">{t['work']} ↓</a><a class="text-link" href="{root}liu-zhi-resume.pdf?v=20261025-contact" target="_blank" rel="noopener">{t['resume_full']} ↗</a></div></div><a class="hero-art" href="./work-yunba-depot.html" aria-label="{e(hero['title'])}"><img src="{root}{GALLERY['yunba-depot']['cover']}" alt="{e(hero['title'])}" width="1033" height="634" fetchpriority="high"><div class="hero-art-caption"><span>01 / {t['architecture']}</span><span>{e(hero['title'])} <b aria-hidden="true">↗</b></span><span>{e(hero['role'])}</span></div></a></section>
+<section id="work" class="work-section wrap" aria-labelledby="work-title"><div class="section-top"><div><p class="eyebrow accent">01 / {t['work']}</p><h2 id="work-title">{HOME[lang]['workTitle']}<span class="section-count">@@total.all@@</span></h2></div><p class="section-description">{HOME[lang]['workIntro']}</p></div><div class="filter-bar" role="group" aria-label="{t['filter']}" hidden>{filters}</div><p class="sr-only" id="filter-status" aria-live="polite"></p><div class="project-grid">@@cards.{lang}@@</div></section>
 {capabilities(lang)}{about(lang)}
-<section id="contact" class="contact-section wrap"><p class="eyebrow accent">04 / {t['contact']}</p><h2>{HOME[lang]['contactTitle']}</h2><div class="contact-bottom"><p>{HOME[lang]['contactIntro']}</p><div class="contact-links"><a href="mailto:{EMAIL}">{EMAIL} ↗</a><button type="button" class="copy-email" data-email="{EMAIL}" hidden>{t['copy']}</button></div></div><p class="copy-status" role="status"></p></section></main>'''
+<section id="contact" class="contact-section wrap"><p class="eyebrow accent">04 / {t['contact']}</p><h2>{HOME[lang]['contactTitle']}</h2><div class="contact-bottom"><p>{HOME[lang]['contactIntro']}</p><div class="contact-links"><span class="contact-phone">{'手机 / 微信' if lang=='zh' else 'Phone / WeChat'}：{PHONE}</span><a href="mailto:{EMAIL}">{EMAIL} ↗</a><button type="button" class="copy-email" data-email="{EMAIL}" hidden>{t['copy']}</button></div></div><p class="copy-status" role="status"></p></section></main>'''
     return h+footer(lang)
 
 def detail(lang,id):
     p=project(id,lang);t=UI[lang];root='../' if lang=='en' else './';file=f'work-{id}.html';g=GALLERY[id]
     gallery=['@@gallery.'+id+'.'+lang+'@@']
     nextid=ORDER[(ORDER.index(id)+1)%len(ORDER)];nextp=project(nextid,lang)
-    return head(lang,file,p['title']+' · '+t['name'],p['desc'],g['cover'])+header(lang,file)+f'''<main id="main" class="project-page wrap"><a class="back-link" href="./index.html#work">← {t['back']}</a><p class="eyebrow accent">{t[GROUP.get(id,'architecture')]}</p><h1>{e(p['title'])}</h1><p class="project-lead">{e(p['desc'])}</p>
-<div class="project-facts"><div><span>{t['category']}</span><strong>{t[GROUP.get(id,'architecture')]}</strong></div><div><span>{t['role']}</span><strong>{e(p['role'])}</strong></div><div><span>{t['tools']}</span><strong>{e(' / '.join(p['tools']))}</strong></div></div>
+    return head(lang,file,p['title']+' · '+t['name'],p['desc'],g['cover'])+header(lang,file)+f'''<main id="main" class="project-page wrap"><a class="back-link" href="./index.html#work">← {t['back']}</a><p class="eyebrow accent">@@category.{id}.{lang}@@</p><h1>{e(p['title'])}</h1><p class="project-lead">{e(p['desc'])}</p>
+<div class="project-facts"><div><span>{t['category']}</span><strong>@@category.{id}.{lang}@@</strong></div><div><span>{t['role']}</span><strong>{e(p['role'])}</strong></div><div><span>{t['tools']}</span><strong>{e(' / '.join(p['tools']))}</strong></div></div>
 <figure class="project-preview"><img data-project-preview="{id}" src="{root}{g['cover']}" alt="{e(p['title'])}" width="1033" height="634" fetchpriority="high"><figcaption>{e(p['role'])}</figcaption></figure>
 <div class="detail-overview"><div><h2>{t['context']}</h2><p>{e(p['context'])}</p></div><div><h2>{t['tasks']}</h2><ul>{''.join(f'<li>{e(task)}</li>' for task in p['tasks'])}</ul></div></div>
+@@videos.{id}.{lang}@@
 <div class="gallery-heading"><h2>{t['gallery']}</h2><span data-gallery-count>@@count.{id}@@ / {t['open']}</span></div><div class="work-gallery" data-gallery="{id}" data-title="{e(p['title'])}" data-root="{root}">{''.join(gallery)}</div>
-<div class="work-note"><div><h2>{t['note']}</h2><p>{e(p['note'])}</p></div><a href="{p['source']}" target="_blank" rel="noopener">{t['source']} ↗</a></div><a class="next-project" href="./work-{nextid}.html"><span>{t['next']}</span><strong>{e(nextp['title'])} ↗</strong></a></main>
+<div class="work-note"><div><h2>{t['note']}</h2><p>{e(p['note'])}</p></div>@@source.{id}.{lang}@@</div>@@next.{id}.{lang}@@</main>
 <dialog class="lightbox" aria-label="{t['zoom']}"><div class="lightbox-toolbar"><span>{e(p['title'])}</span><div class="lightbox-controls"><button type="button" class="previous-image" aria-label="{t['previous']}">←</button><span class="lightbox-position"></span><button type="button" class="next-image" aria-label="{t['nextimage']}">→</button><button type="button" class="close-lightbox" aria-label="{t['close']}">{t['close']} ✕</button></div></div><div class="lightbox-scroll"><img alt=""></div></dialog>'''+footer(lang)
+
+def card_template(lang):
+    root='../' if lang=='en' else './';id='__project__'
+    return f'<article class="project-card" data-project-card="{id}" data-category="@@group.{id}@@"><a href="./work-{id}.html" class="project-link"><div class="project-image"><img src="{root}@@cover.{id}@@" alt="@@project.{id}.{lang}.title@@" loading="lazy" decoding="async" width="800" height="570"><span class="image-number">@@number.{id}@@</span><span class="project-open" aria-hidden="true">↗</span></div><div class="project-meta"><span class="eyebrow">@@category.{id}.{lang}@@</span></div><h3>@@project.{id}.{lang}.title@@</h3><p class="project-role">@@project.{id}.{lang}.role@@</p><p class="card-description">@@project.{id}.{lang}.desc@@</p><p class="card-tools">@@project.{id}.{lang}.tools@@</p></a></article>'
 
 def build():
     from content_render import render, serialize
     old_path=ROOT/'content-data.js'
     old=json.loads(old_path.read_text().split(' = ',1)[1].strip().rstrip(';')) if old_path.exists() else {'version':1,'values':{}}
-    values={key:old['values'].get(key,value) for key,value in VALUES.items()}
-    content={'version':1,'values':values}
-    pages={};urls=[]
-    for lang in UI:
-        prefix='en/' if lang=='en' else ''
-        pages[prefix+'index.html']=home(lang);urls.append(canonical(lang,'index.html'))
-        for id in ORDER:
-            file=f'work-{id}.html';pages[prefix+file]=detail(lang,id);urls.append(canonical(lang,file))
-    # Array fields own their wrappers, allowing any number of tools, tasks or paragraphs.
-    for path,html in pages.items():
-        for key,definition in FIELDS.items():
-            wrapper={'tasks':'li','tags':'span','paragraphs':'p'}.get(definition['type'])
-            if wrapper:html=html.replace(f'<{wrapper}>@@{key}@@</{wrapper}>',f'@@{key}@@')
-        pages[path]=html
-    templates={'version':1,'fields':FIELDS,'pages':pages}
+    values={**VALUES,**old['values']}
+    content={'version':1,'values':values,'projects':old.get('projects',DEFAULT_PROJECTS)}
+    pages={('en/' if lang=='en' else '')+'index.html':home(lang) for lang in UI}
+    details={lang:detail(lang,'grandstand').replace('grandstand','__project__') for lang in UI}
+    for collection in [pages,details]:
+        for path,html in collection.items():
+            # Arrays own wrappers so the number of entries is editable.
+            html=re.sub(r'<li>(@@project\.[\w.-]+\.tasks@@)</li>',r'\1',html)
+            for key,definition in FIELDS.items():
+                wrapper={'tasks':'li','tags':'span','paragraphs':'p'}.get(definition['type'])
+                if wrapper:html=html.replace(f'<{wrapper}>@@{key}@@</{wrapper}>',f'@@{key}@@')
+            collection[path]=html
+    templates={'version':2,'fields':FIELDS,'pages':pages,'details':details,'cards':{lang:card_template(lang) for lang in UI},'projects':DEFAULT_PROJECTS}
     (ROOT/'content-data.js').write_text(serialize('PORTFOLIO_CONTENT',content))
     (ROOT/'content-templates.js').write_text(serialize('PORTFOLIO_TEMPLATES',templates))
     galleries=json.loads((ROOT/'gallery-data.js').read_text().split(' = ',1)[1].strip().rstrip(';'))
-    for path,html in render(content,templates,galleries).items():
+    output=render(content,templates,galleries)
+    for path,html in output.items():
         (ROOT/path).parent.mkdir(exist_ok=True);(ROOT/path).write_text(html)
-    (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{url}</loc></url>\n' for url in urls)+'</urlset>\n')
     (ROOT/'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: '+BASE+'sitemap.xml\n')
-    print(f'Generated {len(urls)} bilingual pages, editable text and inert templates.')
+    print(f'Generated {len(output)-1} bilingual pages and sitemap, preserving current projects and text.')
 if __name__=='__main__': build()

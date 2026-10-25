@@ -3,6 +3,7 @@ window.PORTFOLIO_CONTENT = {
   "values": {
     "site.brand": "Vaiorett",
     "site.email": "violetevergarden455100@gmail.com",
+    "site.phone": "17551573719",
     "ui.zh.name": "刘志",
     "ui.zh.title": "刘志 · 建筑可视化、三维建模与数字资产作品集",
     "ui.zh.description": "刘志的求职作品集：建筑可视化、三维建模、产品数字化与材质渲染。查看 8 组真实项目、个人职责、工作经历与简历。",
@@ -445,5 +446,39 @@ window.PORTFOLIO_CONTENT = {
       "Interior Decoration Designer, Level 3",
       "ISO 9001:2015 Internal Auditor Certificate"
     ]
+  },
+  "projects": {
+    "yunba-depot": {
+      "category": "architecture",
+      "source": "https://violetkokoro.portfoliobox.net/blog/post3dummy"
+    },
+    "digital-assets": {
+      "category": "assets",
+      "source": "https://violetkokoro.portfoliobox.net/blog/dyjvykqruyedipnl"
+    },
+    "grandstand": {
+      "category": "architecture",
+      "source": "https://violetkokoro.portfoliobox.net/blog/post6dummy"
+    },
+    "pedestrian-bridge": {
+      "category": "architecture",
+      "source": "https://violetkokoro.portfoliobox.net/blog/post5dummy"
+    },
+    "residential": {
+      "category": "architecture",
+      "source": "https://violetkokoro.portfoliobox.net/blog/post2dummy"
+    },
+    "product-rendering": {
+      "category": "product",
+      "source": "https://violetkokoro.portfoliobox.net/blog/pjgdvmzwpsgclbnu"
+    },
+    "interior": {
+      "category": "studies",
+      "source": "https://violetkokoro.portfoliobox.net/blog/lnpyob3eqls4i20a"
+    },
+    "cgi": {
+      "category": "studies",
+      "source": "https://violetkokoro.portfoliobox.net/blog/cgi"
+    }
   }
 };
