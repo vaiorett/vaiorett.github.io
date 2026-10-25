@@ -47,13 +47,13 @@ window.PORTFOLIO_CONTENT = {
     "home.zh.kicker": "个人作品集",
     "home.zh.hero": "数字视觉与三维工程",
     "home.zh.heroAccent": "建模制图、材质光影\n与 AI 工作流。",
-    "home.zh.intro": "兼具工程制图的严谨与视觉表现的审美。\n覆盖三维数字化、空间与产品渲染、CAD 图纸协作及 AIGC 提效流程。",
+    "home.zh.intro": "经验丰富的三维建模、工程制图与视觉表现实践，兼具工程严谨度与视觉审美。\n覆盖三维数字化、空间与产品渲染、CAD 图纸协作及 AIGC 提效流程。",
     "home.zh.workTitle": "精选项目",
     "home.zh.workIntro": "查看作品、制作内容与个人职责。\n团队项目保留原团队设计署名。",
     "home.zh.capTitle": "用作品说明能力",
     "home.zh.aboutTitle": "跨工具执行力，\n兼顾视觉品质与流程规范。",
     "home.zh.aboutIntro": [
-      "我是 Vaiorett，专注于数字视觉表现、三维数字化工程与 AI 辅助工作流实践。",
+      "我是 Vaiorett，经验丰富的数字视觉表现、三维数字化工程与 AI 辅助工作流实践者。",
       "过往经历涵盖三维数字化工程师、产品渲染、建筑 CAD 制图与室内设计协作，熟悉从图纸深化、高精度建模、材质灯光到图文排版（Photoshop / InDesign）的完整制作与交付链路。",
       "同时具备工商企业管理学习背景与 ISO 9001:2015 内审员证，熟练使用 Linux（Fedora KDE / Ubuntu GNOME）环境及 ComfyUI、Stable Diffusion、大语言模型等工具优化内容制作与技术文档流程。"
     ],
@@ -112,13 +112,13 @@ window.PORTFOLIO_CONTENT = {
     "home.en.kicker": "PORTFOLIO",
     "home.en.hero": "Digital visuals &\n3D engineering.",
     "home.en.heroAccent": "Modeling, drafting &\nAI workflows.",
-    "home.en.intro": "Combining engineering precision with visual craft. Spanning 3D digitization, spatial & product rendering, CAD documentation, and AIGC workflows.",
+    "home.en.intro": "Experienced across 3D modeling, engineering drafting, and visual craft. Spanning 3D digitization, spatial & product rendering, CAD documentation, and AIGC workflows.",
     "home.en.workTitle": "Selected work.",
     "home.en.workIntro": "Explore the images, process and my contribution.\nTeam projects credit the original design team.",
     "home.en.capTitle": "Skills, grounded in work.",
     "home.en.aboutTitle": "Cross-tool execution,\nfrom visuals to systems.",
     "home.en.aboutIntro": [
-      "I’m Vaiorett, focusing on digital visualization, 3D digitization engineering, and AI-assisted workflows.",
+      "I’m Vaiorett, an experienced practitioner in digital visualization, 3D digitization engineering, and AI-assisted workflows.",
       "My production background spans 3D digitization, product rendering, architectural CAD drafting, and interior design collaboration—covering drawing development, high-detail modeling, materials, lighting, and editorial layout (Photoshop / InDesign).",
       "With studies in Business Administration and ISO 9001:2015 Internal Auditor certification, I also work comfortably in Linux (Fedora KDE / Ubuntu GNOME) and use ComfyUI, Stable Diffusion, and LLMs to streamline visual and documentation workflows."
     ],
