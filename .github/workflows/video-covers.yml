@@ -40,7 +40,7 @@ jobs:
             fi
             python3 scripts/build.py
             git add gallery-data.js content-data.js content-templates.js index.html work-*.html en/*.html sitemap.xml robots.txt
-            git commit -m 'Update official video covers'
+            git commit -m 'Update video cover metadata'
             if git push origin HEAD:main; then
               echo 'changed=true' >> "$GITHUB_OUTPUT"
               exit 0

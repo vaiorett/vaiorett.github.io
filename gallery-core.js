@@ -31,9 +31,9 @@
   }
   function serialize(data){validate(data);return PREFIX+JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')+';\n';}
   function parse(source){if(!source.startsWith(PREFIX))throw new Error('仓库中的作品数据格式不正确。');return validate(JSON.parse(source.slice(PREFIX.length).trim().replace(/;$/,'')));}
-  const posterKeys=['poster','posterFor','posterUpdatedAt','providerTitle'];
+  const posterKeys=['poster','posterFor','posterUpdatedAt','providerTitle','posterStatus','posterError','posterAttemptedAt'];
   function withoutPosters(project){if(!project)return project;const p=clone(project);for(const video of p.videos||[])for(const key of posterKeys)delete video[key];return p;}
-  function mergePosterUpdate(local,remote){const result=clone(local);for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
+  function mergePosterUpdate(local,remote){const result=clone(local);for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterAttemptedAt||latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
   function merge(base,local,remote){
     validate(remote);const merged=clone(remote);const conflicts=[];
     for(const [id,value] of Object.entries(local.projects)){

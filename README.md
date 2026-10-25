@@ -118,3 +118,5 @@ YouTube 直接识别高清封面，缺少 maxres 时退回 hq，再退回项目�
 验证新增 `node tests/video-cards.test.cjs` 和 `python3 tests/video-posters.test.py`：平台识别、伪域名/错误链接、封面 URL 变更与自选优先级、自动封面并发合并、文字转义与双渲染一致性、服务端官方域名检查、缓存与重取及用户标题保留。浏览器实测 B 站/YouTube 真封面加载、管理页粘贴 YouTube 自动出现封面；直链播放后点击暂停/继续通过。YouTube 测试环境要求登录，未宣称已通过实际播放。参考官方说明 https://player.bilibili.com/ 、https://developers.google.com/youtube/player_parameters 。
 
 封面读取补充：管理页先尝试直接读取官方 API；浏览器跨域失败时交给发布任务。发布任务使用完整客户端请求头，并依次读取官方 API、移动视频页和桌面视频页的封面元数据。全部失败时保留旧封面并明确报告失败，不把“任务成功退出”当作封面已获取。
+
+实际服务限制：GitHub 托管任务可能收到 B 站 HTTP 412 风控拒绝。此时会记录 `posterStatus=unavailable` 和尝试时间、保留旧/项目封面并显示管理页状态，不伪报封面已获取，也不反复自动请求；只有新视频或明确重新获取才再尝试。管理页提供“上传封面”，使用同一 WebP 转换流程。YouTube 的确定性封面地址无需该服务端读取。
