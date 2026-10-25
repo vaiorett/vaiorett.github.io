@@ -71,7 +71,7 @@ def head(lang,file,title,desc,image):
 <html lang="{'en' if lang=='en' else 'zh-CN'}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark"><title>{e(title)}</title>
+<meta name="color-scheme" content="light dark"><script src="{root}theme.js?v=20261025-theme"></script><title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="zh-CN" href="{canonical('zh',file)}">
@@ -84,11 +84,17 @@ def head(lang,file,title,desc,image):
 <meta property="og:locale:alternate" content="{'zh_CN' if lang=='en' else 'en_US'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{root}style.css"><link rel="stylesheet" href="{root}portfolio.css?v=20261025-projects">
+<link rel="stylesheet" href="{root}style.css?v=20261025-theme"><link rel="stylesheet" href="{root}portfolio.css?v=20261025-theme">
+<link rel="stylesheet" href="{root}theme.css?v=20261025-theme">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script>
-<script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js?v=20261025-projects" defer></script>
+<script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js?v=20261025-theme" defer></script>
 </head><body data-root="{root}">
 '''
+
+def theme_control(lang):
+    label='显示主题' if lang=='zh' else 'Appearance'
+    options=[('system','跟随系统' if lang=='zh' else 'System'),('light','浅色' if lang=='zh' else 'Light'),('dark','深色' if lang=='zh' else 'Dark')]
+    return f'<label class="theme-control"><span class="sr-only">{label}</span><select data-theme-select aria-label="{label}">'+''.join(f'<option value="{value}">{text}</option>' for value,text in options)+'</select></label>'
 
 def header(lang,file):
     t=UI[lang];root='../' if lang=='en' else './'
@@ -98,7 +104,7 @@ def header(lang,file):
 <a class="brand" href="./index.html" aria-label="{t['name']} · {t['home']}"><span class="brand-mark">V<span>•</span></span><span class="brand-name">{t['name']}<span>{BRAND}</span></span></a>
 <nav aria-label="{t['nav']}"><a href="./index.html#work">{t['work']}</a><a href="./index.html#capabilities">{t['capabilities']}</a><a href="./index.html#about">{t['about']}</a><a href="./index.html#contact">{t['contact']}</a><a class="resume-nav" href="{root}liu-zhi-resume.pdf?v=20261025-contact" target="_blank" rel="noopener">{t['resume']} ↗</a></nav>
 <div class="language-switch" role="group" aria-label="Language / 语言">{languages}</div>
-</div></header>'''
+{theme_control(lang)}</div></header>'''
 
 def footer(lang):
     t=UI[lang];root='../' if lang=='en' else './'

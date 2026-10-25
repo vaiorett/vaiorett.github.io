@@ -62,17 +62,18 @@ if (backTop) {
 
 const galleryData=window.PORTFOLIO_GALLERIES;
 const validImagePath=path=>typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');
+const displayCover=p=>p.images.find(i=>i.src===p.cover)?.thumbnail||p.cover;
 if(galleryData && galleryData.projects){
   document.querySelectorAll('[data-project-card]').forEach(card=>{
     const project=galleryData.projects[card.dataset.projectCard];
-    if(project && validImagePath(project.cover))card.querySelector('img').src=assetRoot+project.cover;
+    if(project && validImagePath(project.cover))card.querySelector('img').src=assetRoot+displayCover(project);
   });
   const heroImage=document.querySelector('.hero-art>img');
   const heroProject=galleryData.projects['yunba-depot'];
-  if(heroImage && heroProject && validImagePath(heroProject.cover))heroImage.src=assetRoot+heroProject.cover;
+  if(heroImage && heroProject && validImagePath(heroProject.cover))heroImage.src=assetRoot+displayCover(heroProject);
 }
 document.querySelectorAll('[data-project-preview]').forEach(image => {
-  const cover = galleryData?.projects?.[image.dataset.projectPreview]?.cover;
+  const p=galleryData?.projects?.[image.dataset.projectPreview];const cover=p?displayCover(p):null;
   if (validImagePath(cover)) image.src = assetRoot + cover;
 });
 const gallery=document.querySelector('[data-gallery]');
@@ -87,7 +88,7 @@ if(projectGallery){
   projectGallery.images.filter(item=>validImagePath(item.src)).forEach((item,index)=>{
     const figure=document.createElement('figure');figure.className='gallery-item'+(item.kind==='collage'?' legacy':'');
     const button=document.createElement('button');button.type='button';button.className='gallery-button';button.dataset.galleryIndex=String(lightboxItems.length);button.setAttribute('aria-label',localized('放大查看第 '+(index+1)+' 张：', 'Enlarge image '+(index+1)+': ')+imageCaption(item));
-    const image=document.createElement('img');image.src=root+item.src;image.alt=imageAlt(item);image.loading='lazy';button.append(image);figure.append(button);
+    const image=document.createElement('img');image.src=root+(validImagePath(item.thumbnail)?item.thumbnail:item.src);if(item.width&&item.height){image.width=item.width;image.height=item.height;}image.alt=imageAlt(item);image.loading='lazy';button.append(image);figure.append(button);
     const caption=document.createElement('figcaption');caption.textContent=String(index+1).padStart(2,'0')+' / '+imageCaption(item);figure.append(caption);gallery.append(figure);lightboxItems.push({...item,url:root+item.src});
   });
   document.querySelector('[data-gallery-count]').textContent=localized(lightboxItems.length+' 张图片 · 点击放大查看',lightboxItems.length+' image'+(lightboxItems.length===1?'':'s')+' · Click to enlarge');

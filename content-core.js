@@ -75,7 +75,7 @@
   function gallery(id,lang){const prefix=lang==='en'?'../':'./';return galleries.projects[id].images.map((item,i)=>{
    const caption=(lang==='en'?item.captionEn:item.caption)||v['ui.'+lang+'.overview'];
    const alt=(lang==='en'?item.altEn:item.alt)||v['project.'+id+'.'+lang+'.title'];
-   return '<figure class="gallery-item '+(item.kind==='collage'?'legacy':'')+'"><a class="gallery-button" href="'+prefix+esc(item.src)+'" aria-label="'+esc(v['ui.'+lang+'.open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.src)+'" alt="'+esc(alt)+'" loading="lazy"></a><figcaption>'+String(i+1).padStart(2,'0')+' / '+esc(caption)+'</figcaption></figure>';
+   return '<figure class="gallery-item '+(item.kind==='collage'?'legacy':'')+'"><a class="gallery-button" href="'+prefix+esc(item.src)+'" aria-label="'+esc(v['ui.'+lang+'.open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.thumbnail||item.src)+'" alt="'+esc(alt)+'" loading="lazy"'+(item.width&&item.height?' width="'+item.width+'" height="'+item.height+'"':'')+'></a><figcaption>'+String(i+1).padStart(2,'0')+' / '+esc(caption)+'</figcaption></figure>';
   }).join('');}
   function videos(id,lang){
    const items=galleries.projects[id].videos||[];if(!items.length)return '';
@@ -96,7 +96,7 @@
    if(key.startsWith('videos.')){const[,id,lang]=key.split('.');return videos(id,lang);}
    if(key.startsWith('source.')){const[,id,lang]=key.split('.');return meta[id].source?'<a href="'+esc(meta[id].source)+'" target="_blank" rel="noopener">'+esc(v['ui.'+lang+'.source'])+' ↗</a>':'';}
    if(key.startsWith('next.')){const[,id,lang]=key.split('.'),next=order[(order.indexOf(id)+1)%order.length];return '<a class="next-project" href="./work-'+next+'.html"><span>'+esc(v['ui.'+lang+'.next'])+'</span><strong>'+esc(v['project.'+next+'.'+lang+'.title'])+' ↗</strong></a>';}
-   if(key.startsWith('cover.'))return esc(galleries.projects[key.slice(6)].cover);
+   if(key.startsWith('cover.'))return esc(G.coverPath(galleries.projects[key.slice(6)]));
    if(key.startsWith('count.'))return String(galleries.projects[key.slice(6)].images.length);
    if(key.startsWith('gallery.')){const[,id,lang]=key.split('.');return gallery(id,lang);}
    throw new Error('未识别的文字字段：'+key);
@@ -104,7 +104,7 @@
   const result={},pages={...templates.pages};
   for(const id of order)for(const lang of ['zh','en'])pages[(lang==='en'?'en/':'')+'work-'+id+'.html']=templates.details[lang].replaceAll('__project__',id);
   for(const[path,html]of Object.entries(pages))result[path]=html.split(/(<script type="application\/ld\+json">[\s\S]*?<\/script>)/g).map(part=>part.startsWith('<script type="application/ld+json">')?part.replace(/@@([\w.-]+)@@/g,(_,key)=>{
-   const value=Object.hasOwn(fields,key)?v[key]:galleries.projects[key.slice(6)].cover;
+   const value=Object.hasOwn(fields,key)?v[key]:G.coverPath(galleries.projects[key.slice(6)]);
    return JSON.stringify(value).slice(1,-1).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
   }):part.replace(/@@([\w.-]+)@@/g,replace)).join('');
   result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+Object.keys(pages).map(path=>'<url><loc>https://vaiorett.github.io/'+path.replace(/index\.html$/,'')+'</loc></url>\n').join('')+'</urlset>\n';
