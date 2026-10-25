@@ -14,7 +14,7 @@ class OpenGraph(HTMLParser):
         attrs=dict(attrs)
         if tag=='meta' and attrs.get('property') in ['og:image','og:title']:self.meta[attrs['property']]=attrs.get('content','')
 def request(url):
-    with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0','Accept-Encoding':'gzip, deflate','Referer':'https://www.bilibili.com/'}),timeout=18) as response:
+    with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','Accept':'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8','Accept-Language':'zh-CN,zh;q=0.9,en;q=0.8','Accept-Encoding':'gzip, deflate','Referer':'https://www.bilibili.com/'}),timeout=18) as response:
         data=response.read(4*1024*1024)
         if data[:2]==b'\x1f\x8b':data=gzip.decompress(data)
         elif response.headers.get('Content-Encoding')=='deflate':data=zlib.decompress(data)
@@ -32,12 +32,17 @@ def fetch_bilibili(video):
             data=result['data'];poster=data.get('pic','').replace('http://','https://',1)
             if valid_poster(poster):return poster,data.get('title','')
     except Exception:pass
-    parser=OpenGraph();parser.feed(request(v['url']))
-    poster=parser.meta.get('og:image','').replace('http://','https://',1)
-    if not valid_poster(poster):raise ValueError('Official cover unavailable')
-    return poster,parser.meta.get('og:title','').removesuffix('_哔哩哔哩_bilibili')
+    last=None
+    for url in ['https://m.bilibili.com/video/'+v['bvid']+'/?p='+str(v['page']),v['url']]:
+        try:
+            parser=OpenGraph();parser.feed(request(url))
+            poster=parser.meta.get('og:image','').replace('http://','https://',1)
+            if valid_poster(poster):return poster,parser.meta.get('og:title','').removesuffix('_哔哩哔哩_bilibili')
+        except Exception as error:last=error
+    if last:raise last
+    raise ValueError('Official cover unavailable')
 
-def refresh(data,fetch=fetch_bilibili):
+def refresh(data,fetch=fetch_bilibili,failures=None):
     changed=False
     for project in data['projects'].values():
         for video in project.get('videos',[]):
@@ -49,9 +54,14 @@ def refresh(data,fetch=fetch_bilibili):
                 if not valid_poster(poster):raise ValueError('Invalid cover host')
                 video.update(poster=poster,posterFor=v['url'],providerTitle=title,posterUpdatedAt=datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'))
                 changed=True;print('Updated official video cover:',v['bvid'])
-            except Exception as error:print('Cover unavailable; project cover remains:',v['bvid'],type(error).__name__)
+            except Exception as error:
+                message=f"{v['bvid']} {type(error).__name__} {getattr(error,'code','')}";print('::warning::Official cover unavailable; existing cover remains: '+message)
+                if failures is not None:failures.append(message)
     if changed:data['updatedAt']=datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z')
     return changed
 if __name__=='__main__':
     path=ROOT/'gallery-data.js';data=json.loads(path.read_text().split(' = ',1)[1].strip().rstrip(';'))
-    if refresh(data):path.write_text('window.PORTFOLIO_GALLERIES = '+json.dumps(data,ensure_ascii=False,indent=2).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')+';\n')
+    failures=[]
+    if refresh(data,failures=failures):path.write_text('window.PORTFOLIO_GALLERIES = '+json.dumps(data,ensure_ascii=False,indent=2).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')+';\n')
+
+    if failures:raise SystemExit('Could not refresh all requested official covers; existing covers are retained.')

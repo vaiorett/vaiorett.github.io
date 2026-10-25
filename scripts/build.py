@@ -71,7 +71,7 @@ def head(lang,file,title,desc,image):
 <html lang="{'en' if lang=='en' else 'zh-CN'}">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark"><script src="{root}theme.js?v=20261025-video"></script><title>{e(title)}</title>
+<meta name="color-scheme" content="light dark"><script src="{root}theme.js?v=20261025-video2"></script><title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
 <link rel="alternate" hreflang="zh-CN" href="{canonical('zh',file)}">
@@ -84,10 +84,10 @@ def head(lang,file,title,desc,image):
 <meta property="og:locale:alternate" content="{'zh_CN' if lang=='en' else 'en_US'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{root}style.css?v=20261025-video"><link rel="stylesheet" href="{root}portfolio.css?v=20261025-video">
-<link rel="stylesheet" href="{root}theme.css?v=20261025-video">
+<link rel="stylesheet" href="{root}style.css?v=20261025-video2"><link rel="stylesheet" href="{root}portfolio.css?v=20261025-video2">
+<link rel="stylesheet" href="{root}theme.css?v=20261025-video2">
 <script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script>
-<script src="{root}video-core.js?v=20261025-video" defer></script><script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js?v=20261025-video" defer></script>
+<script src="{root}video-core.js?v=20261025-video2" defer></script><script src="{root}gallery-data.js?v={GALLERY_VERSION}" defer></script><script src="{root}app.js?v=20261025-video2" defer></script>
 </head><body data-root="{root}">
 '''
 

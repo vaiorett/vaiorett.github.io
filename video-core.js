@@ -23,6 +23,11 @@
   }
   return {provider:'bilibili',bvid,page,url:'https://www.bilibili.com/video/'+bvid+'/?p='+page,embed:'https://player.bilibili.com/player.html?bvid='+bvid+'&p='+page+'&autoplay=1&danmaku=0&poster=1',poster:'',posterFallback:''};
  }
+ async function fetchCover(input){
+  const v=info(input);if(v.provider==='youtube')return {poster:v.poster,posterFor:v.url};if(v.provider!=='bilibili')return null;
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),7000);
+  try{const response=await fetch('https://api.bilibili.com/x/web-interface/view?bvid='+v.bvid,{credentials:'omit',signal:controller.signal,referrerPolicy:'no-referrer'});if(!response.ok)throw new Error('Cover response '+response.status);const result=await response.json(),url=String(result.data?.pic||'').replace(/^http:/,'https:');let host;try{host=new URL(url).hostname;}catch{}if(result.code!==0||!imageURL(url)||!(host==='hdslb.com'||host?.endsWith('.hdslb.com')))throw new Error('Official cover unavailable');return {poster:url,posterFor:v.url,providerTitle:String(result.data.title||'')};}finally{clearTimeout(timer);}
+ }
  function poster(item,fallback){const v=info(item.url);const value=item.posterOverride||(item.posterFor===v.url?item.poster:'')||v.poster||fallback;return imageURL(value)?value:fallback;}
  function asset(url,lang){return local(url)?(lang==='en'?'../':'./')+url:url;}
  function markup(items,lang,fallback){
@@ -32,5 +37,5 @@
    return '<article class="project-video"><div class="video-screen"><button type="button" class="video-play" data-video-url="'+esc(v.url)+'" data-video-title="'+esc(title)+'" aria-label="'+esc((zh?'播放视频：':'Play video: ')+title)+'"><img class="video-poster" src="'+esc(asset(cover,lang))+'" alt="" loading="lazy" referrerpolicy="no-referrer" data-poster-fallback="'+esc(v.posterFallback||asset(fallback,lang))+'" data-project-poster="'+esc(asset(fallback,lang))+'"><span class="video-shade" aria-hidden="true"></span><span class="video-play-icon" aria-hidden="true">▶</span><span class="video-provider">'+esc(label)+'</span><span class="video-poster-title">'+esc(title)+'</span></button></div><div class="video-caption"><h3>'+esc(title)+'</h3><a href="'+esc(v.url)+'" target="_blank" rel="noopener">'+esc(open)+' ↗</a></div><p class="video-play-status" role="status" aria-live="polite"></p></article>';
   }).join('')+'</section>';
  }
- const api={info,imageURL,poster,markup};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.VideoCore=api;
+ const api={info,imageURL,fetchCover,poster,markup};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.VideoCore=api;
 })(typeof window!=='undefined'?window:globalThis);
