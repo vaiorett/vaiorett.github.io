@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-25T07:15:22.502276Z",
+  "updatedAt": "2026-10-25T07:27:40.640798Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -147,7 +147,10 @@ window.PORTFOLIO_GALLERIES = {
           "posterFor": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
           "providerTitle": "影视飓风员工，开什么车？",
           "posterUpdatedAt": "2026-10-25T07:15:22.502257Z",
-          "posterRefresh": "2026-10-25T07:17:46.040234Z"
+          "posterRefresh": "2026-10-25T07:17:46.040234Z",
+          "posterStatus": "unavailable",
+          "posterError": "HTTP 412",
+          "posterAttemptedAt": "2026-10-25T07:27:40.640772Z"
         }
       ]
     },
