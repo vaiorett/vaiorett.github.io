@@ -167,7 +167,8 @@ document.querySelectorAll('.video-poster').forEach(image=>{
 document.querySelectorAll('[data-video-url]').forEach(button=>button.addEventListener('click',()=>{
  const V=window.VideoCore;let info;try{info=V.info(button.dataset.videoUrl);}catch{return;}
  const card=button.closest('.project-video'),screen=card.querySelector('.video-screen'),status=card.querySelector('.video-play-status'),title=button.dataset.videoTitle||localized('项目视频','Project video');
- let player;
+ const sourceLink=card.querySelector('.video-options-panel a')?.getAttribute('href')||info.url;
+ let player,headBar=null;
  if(info.provider==='file'){
   player=document.createElement('video');player.controls=true;player.playsInline=true;player.preload='metadata';player.src=info.url;player.setAttribute('aria-label',title);
   const cover=button.querySelector('img');if(cover&&!cover.hidden)player.poster=cover.src;
@@ -179,18 +180,31 @@ document.querySelectorAll('[data-video-url]').forEach(button=>button.addEventLis
   if(info.provider==='bilibili'){
    player.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms');
    embedUrl='https://www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&bvid='+encodeURIComponent(info.bvid)+'&page='+(info.page||1)+'&p='+(info.page||1)+'&autoplay=1&danmaku=0&hideDanmakuButton=1&high_quality=1';
+   const matched=(projectGallery?.videos||[]).find(v=>{try{return V.info(v.url).bvid===info.bvid;}catch{return false;}});
+   const displayTitle=(matched?.providerTitle||title).trim();
+   headBar=document.createElement('div');headBar.className='video-yt-head is-initial';
+   const bIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>';
+   const titleLink=document.createElement('a');titleLink.className='video-yt-title';titleLink.href=sourceLink;titleLink.target='_blank';titleLink.rel='noopener';
+   const avatar=document.createElement('span');avatar.className='video-yt-avatar';avatar.innerHTML=bIcon;
+   const textSpan=document.createElement('span');textSpan.className='video-yt-text';textSpan.textContent=displayTitle;
+   titleLink.append(avatar,textSpan);
+   const watchLink=document.createElement('a');watchLink.className='video-yt-watch';watchLink.href=sourceLink;watchLink.target='_blank';watchLink.rel='noopener';
+   watchLink.textContent=localized('在 Bilibili 观看 ↗','Watch on Bilibili ↗');
+   headBar.append(titleLink,watchLink);
+   setTimeout(()=>headBar.classList.remove('is-initial'),3200);
+   if(!matched?.providerTitle&&V.fetchCover){V.fetchCover(info.url).then(meta=>{if(meta?.providerTitle)textSpan.textContent=meta.providerTitle;}).catch(()=>{});}
   }else if(info.provider==='youtube'){
    embedUrl='https://www.youtube.com/embed/'+info.id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1';
    if(location.protocol.startsWith('http')&&location.hostname!=='127.0.0.1')embedUrl+='&origin='+encodeURIComponent(location.origin);
   }
   player.src=embedUrl;
  }
- player.className='video-player';screen.replaceChildren(player);
+ player.className='video-player';
+ if(headBar)screen.replaceChildren(player,headBar);else screen.replaceChildren(player);
  const toolbar=card.querySelector('.video-toolbar');
- if(info.provider!=='bilibili'){
-  toolbar.hidden=false;
-  const close=document.createElement('button');close.type='button';close.className='video-collapse';close.textContent='×';close.setAttribute('aria-label',localized('收起视频','Close video'));close.title=close.getAttribute('aria-label');toolbar.prepend(close);
-  close.addEventListener('click',()=>{if(info.provider==='file'){player.pause();player.removeAttribute('src');player.load();}screen.replaceChildren(button);close.remove();toolbar.hidden=true;toolbar.querySelector('details').open=false;status.textContent='';button.focus();});
- }
+ toolbar.hidden=false;
+ card.querySelectorAll('.video-collapse').forEach(b=>b.remove());
+ const close=document.createElement('button');close.type='button';close.className='video-collapse';close.textContent='×';close.setAttribute('aria-label',localized('收起视频','Close video'));close.title=close.getAttribute('aria-label');toolbar.prepend(close);
+ close.addEventListener('click',()=>{if(info.provider==='file'){player.pause();player.removeAttribute('src');player.load();}screen.replaceChildren(button);close.remove();toolbar.hidden=true;toolbar.querySelector('details').open=false;status.textContent='';button.focus();});
  if(info.provider==='file')player.play().catch(()=>{status.textContent=localized('点击视频画面或播放键开始播放。','Press play to start the video.');});
 }));
