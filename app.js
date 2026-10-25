@@ -40,6 +40,50 @@ if (requestedFilter) {
   const button = filters.find(item => item.dataset.filter === requestedFilter);
   if (button) filterProjects(button, false);
 }
+const requestedRole = (new URLSearchParams(location.search).get('role') || '').toLowerCase();
+const rolePresets = {
+  visual: {
+    zh: { title: 'Vaiorett · 视觉设计与 AIGC 工作流作品集', hero: '数字视觉设计与', accent: 'AIGC 生成式工作流。', intro: '围绕产品、空间与品牌视觉，结合三维渲染、平面排版（Photoshop / InDesign）与 ComfyUI / Stable Diffusion 生成式管线，高效交付高质量视觉内容。', contactTitle: '寻找视觉设计、渲染\n与 AIGC 创作机会。', contactIntro: '专注非销售类的视觉设计、AIGC 内容制作、产品与空间表现及图文排版岗位，欢迎通过邮件联系。' },
+    en: { title: 'Vaiorett · Visual Design & AIGC Workflow Portfolio', hero: 'Visual design &', accent: 'AIGC workflows.', intro: 'Combining 3D rendering, editorial layout (Photoshop / InDesign), and ComfyUI / Stable Diffusion generative pipelines for product and spatial visuals.', contactTitle: 'Open to visual design\n& AIGC roles.', contactIntro: 'Focused on non-sales roles in visual design, AIGC content production, product rendering, and layout.' }
+  },
+  engineering: {
+    zh: { title: 'Vaiorett · 工程制图与三维数字化技术作品集', hero: '工程制图与', accent: '三维数字化技术。', intro: '从 AutoCAD / 天正建筑 / Revit 图纸深化，到工业与建筑三维建模（UG / Blender / 3ds Max）、实景扫描重建与数字资产标准化交付。', contactTitle: '寻找工程制图、建模\n与数字化技术岗位。', contactIntro: '专注非销售类的 CAD / BIM 工程制图、三维数字化工程师、工业与建筑建模及技术支持岗位，欢迎通过邮件联系。' },
+    en: { title: 'Vaiorett · CAD Drafting & 3D Digitization Engineering Portfolio', hero: 'CAD drafting &', accent: '3D digitization.', intro: 'From AutoCAD / TArch / Revit drawing development to industrial & architectural 3D modeling (UG / Blender / 3ds Max) and photogrammetry asset delivery.', contactTitle: 'Open to CAD drafting\n& 3D engineering roles.', contactIntro: 'Focused on non-sales roles in CAD/BIM drafting, 3D digitization engineering, and technical modeling.' }
+  },
+  ops: {
+    zh: { title: 'Vaiorett · 数字化项目协作与技术文控作品集', hero: '数字化项目协作与', accent: '技术文控 · 流程规范。', intro: '结合三维与工程制图实战背景、工商企业管理知识、ISO 9001:2015 内审员资质与 AI / MS Office 提效工具，推进设计协作与标准化技术文档管理。', contactTitle: '寻找项目协作、文控\n与数字化运营岗位。', contactIntro: '专注非销售类的设计项目协调、技术文档与数字资产管理、ISO 质量体系文控及数字化运营支持岗位，欢迎通过邮件联系。' },
+    en: { title: 'Vaiorett · Project Coordination & Technical Documentation Portfolio', hero: 'Project coordination &', accent: 'technical documentation.', intro: 'Combining 3D/CAD production experience, Business Administration studies, ISO 9001:2015 Internal Auditor certification, and AI/Office workflows for structured project delivery.', contactTitle: 'Open to coordination &\ndocumentation roles.', contactIntro: 'Focused on non-sales roles in design coordination, technical documentation, ISO quality control, and digital operations.' }
+  },
+  tech: {
+    zh: { title: 'Vaiorett · 数字化工具链与 Linux / AI 技术支持作品集', hero: '数字化工具链与', accent: 'Linux · AI 技术支持。', intro: '熟悉 Linux（Fedora KDE / Ubuntu GNOME）桌面环境、本地 AI 工作流（ComfyUI / Stable Diffusion）部署及三维数字资产管线维护与排障。', contactTitle: '寻找数字化工具支持\n与系统技术运维岗位。', contactIntro: '专注非销售类的 Linux 桌面与工具链支持、AIGC 环境部署、数字资产归档及技术运维支持岗位，欢迎通过邮件联系。' },
+    en: { title: 'Vaiorett · Linux, AI Toolchain & 3D Technical Support Portfolio', hero: 'Digital toolchains &', accent: 'Linux · AI support.', intro: 'Experienced with Linux desktops (Fedora KDE / Ubuntu GNOME), local AI workflow deployment (ComfyUI / Stable Diffusion), and 3D digital asset pipelines.', contactTitle: 'Open to technical support\n& Linux/AI workflow roles.', contactIntro: 'Focused on non-sales roles in Linux desktop support, AI toolchain deployment, and digital asset management.' }
+  }
+};
+rolePresets.aigc = rolePresets.visual;
+rolePresets.cad = rolePresets.engineering;
+rolePresets.coord = rolePresets.ops;
+rolePresets.linux = rolePresets.tech;
+if (rolePresets[requestedRole]) {
+  const preset = rolePresets[requestedRole][english ? 'en' : 'zh'];
+  document.title = preset.title;
+  const h1 = document.getElementById('intro-title');
+  if (h1) {
+    h1.textContent = preset.hero;
+    h1.append(document.createElement('br'));
+    const span = document.createElement('span');
+    span.innerHTML = preset.accent.replace(/\n/g, '<br>');
+    h1.append(span);
+  }
+  const introEl = document.querySelector('.hero-intro');
+  if (introEl) introEl.innerHTML = preset.intro.replace(/\n/g, '<br>');
+  const contactH2 = document.querySelector('#contact h2');
+  if (contactH2) contactH2.innerHTML = preset.contactTitle.replace(/\n/g, '<br>');
+  const contactP = document.querySelector('#contact > div > p:last-child');
+  if (contactP) contactP.textContent = preset.contactIntro;
+  document.querySelectorAll('[data-language], .brand, .site-header nav a').forEach(link => {
+    try { const url = new URL(link.href, location.href); url.searchParams.set('role', requestedRole); link.href = url.pathname + url.search + url.hash; } catch {}
+  });
+}
 window.addEventListener('hashchange', () => document.querySelectorAll('[data-language]').forEach(link => { const url = new URL(link.href); url.hash = location.hash; link.href = url.href; }));
 const copy = document.querySelector('.copy-email');
 if (copy) copy.hidden = false;
