@@ -130,7 +130,10 @@ document.querySelectorAll('[data-video-url]').forEach(button=>button.addEventLis
  }else{
   player=document.createElement('iframe');player.title=title;player.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen';player.allowFullscreen=true;player.referrerPolicy='strict-origin-when-cross-origin';
   let embedUrl=info.embed;
-  if(info.provider==='youtube'){
+  if(info.provider==='bilibili'){
+   player.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms');
+   embedUrl='https://www.bilibili.com/blackboard/html5mobileplayer.html?isOutside=true&bvid='+encodeURIComponent(info.bvid)+'&page='+(info.page||1)+'&p='+(info.page||1)+'&autoplay=1&danmaku=0&hideDanmakuButton=1&high_quality=1';
+  }else if(info.provider==='youtube'){
    embedUrl='https://www.youtube.com/embed/'+info.id+'?autoplay=1&playsinline=1&rel=0&modestbranding=1';
    if(location.protocol.startsWith('http')&&location.hostname!=='127.0.0.1')embedUrl+='&origin='+encodeURIComponent(location.origin);
   }
