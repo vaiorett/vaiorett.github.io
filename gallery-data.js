@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-25T05:04:04.868Z",
+  "updatedAt": "2026-10-25T05:28:11.425362Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -13,7 +13,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "家具产品渲染作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Furniture Product Rendering — project overview"
+          "altEn": "Furniture Product Rendering — project overview",
+          "width": 392,
+          "height": 1920
         }
       ]
     },
@@ -28,7 +30,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "产品数字化与三维资产作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Product Digitization & 3D Assets — project overview"
+          "altEn": "Product Digitization & 3D Assets — project overview",
+          "width": 1028,
+          "height": 1920
         }
       ]
     },
@@ -43,7 +47,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "赛车场看台与配套空间作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Racetrack Grandstand & Facilities — project overview"
+          "altEn": "Racetrack Grandstand & Facilities — project overview",
+          "width": 344,
+          "height": 1920
         }
       ]
     },
@@ -58,7 +64,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "人行天桥与场地作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Pedestrian Bridge & Site — project overview"
+          "altEn": "Pedestrian Bridge & Site — project overview",
+          "width": 443,
+          "height": 1920
         }
       ]
     },
@@ -73,13 +81,15 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "济南高新环线云巴车辆基地作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Jinan High-tech Loop · Yunba Depot — project overview"
+          "altEn": "Jinan High-tech Loop · Yunba Depot — project overview",
+          "width": 1033,
+          "height": 1920
         }
       ]
     },
     "residential": {
       "title": "贵阳沙文保租房时光序",
-      "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.jpg",
+      "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
       "images": [
         {
           "id": "residential-overview",
@@ -88,21 +98,43 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "贵阳沙文保租房时光序作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview"
+          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
+          "width": 345,
+          "height": 1920
         },
         {
           "id": "image-564e8735-1959-4f8d-ab5c-6f5ee48a6282",
-          "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.jpg",
+          "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
           "caption": "640-lines-scale-2_00x-gigapixel",
           "alt": "贵阳沙文保租房时光序效果图",
-          "kind": "image"
+          "kind": "image",
+          "thumbnail": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282-cover.webp",
+          "width": 2160,
+          "height": 3192,
+          "upload": {
+            "originalBytes": 5336973,
+            "bytes": 1304820,
+            "width": 2160,
+            "height": 3192,
+            "preset": "balanced"
+          }
         },
         {
           "id": "image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3",
-          "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.jpg",
+          "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.webp",
           "caption": "浅色石材",
           "alt": "贵阳沙文保租房时光序效果图",
-          "kind": "image"
+          "kind": "image",
+          "thumbnail": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3-cover.webp",
+          "width": 1654,
+          "height": 1654,
+          "upload": {
+            "originalBytes": 1157607,
+            "bytes": 245682,
+            "width": 1654,
+            "height": 1654,
+            "preset": "balanced"
+          }
         }
       ],
       "videos": [
@@ -125,7 +157,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "室内空间与氛围作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "Interior Spaces & Atmosphere — project overview"
+          "altEn": "Interior Spaces & Atmosphere — project overview",
+          "width": 303,
+          "height": 1920
         }
       ]
     },
@@ -140,7 +174,9 @@ window.PORTFOLIO_GALLERIES = {
           "alt": "材质与 CGI 探索作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
-          "altEn": "CGI & Material Studies — project overview"
+          "altEn": "CGI & Material Studies — project overview",
+          "width": 1085,
+          "height": 1920
         }
       ]
     }

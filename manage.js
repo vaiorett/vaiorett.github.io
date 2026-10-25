@@ -1,6 +1,6 @@
 'use strict';
 (async function(){
- const C=window.GalleryCore, T=window.ContentCore, $=id=>document.getElementById(id);
+ const C=window.GalleryCore, T=window.ContentCore, I=window.ImageProcess, $=id=>document.getElementById(id);
  let base=C.clone(C.validate(window.PORTFOLIO_GALLERIES)),data=C.clone(base),files=new Map(),selected=Object.keys(data.projects)[0],session=null,token='',savingTimer,busy=false;
  const urls=new Map();let db=null;
  let templates=T.validateTemplates(window.PORTFOLIO_TEMPLATES),textBase=T.clone(T.validate(window.PORTFOLIO_CONTENT,templates)),textData=T.clone(textBase),editorTab='images',textLanguage='zh';
@@ -11,7 +11,7 @@
  function hasChanges(){return JSON.stringify(base.projects)!==JSON.stringify(data.projects)||JSON.stringify(textBase.values)!==JSON.stringify(textData.values)||JSON.stringify(T.projects(textBase,templates))!==JSON.stringify(T.projects(textData,templates));}
  function updatePublish(){ $('publish-button').disabled=!session||busy||!hasChanges(); }
  async function saveDraft(){
-  try{if(!db)throw new Error();files=new Map(C.usedFiles(data,files));await dbWrite({base:C.clone(base),data:C.clone(data),files:Array.from(files.entries()),selected,textBase:T.clone(textBase),textData:T.clone(textData)});status('draft-status','草稿已保存在当前浏览器。');}
+  try{if(!db)throw new Error();files=new Map(C.usedFiles(data,files));for(const[path,url]of urls)if(!files.has(path)){URL.revokeObjectURL(url);urls.delete(path);}await dbWrite({base:C.clone(base),data:C.clone(data),files:Array.from(files.entries()),selected,textBase:T.clone(textBase),textData:T.clone(textData)});status('draft-status','草稿已保存在当前浏览器。');}
   catch{status('draft-status','浏览器未能保存草稿，请导出更新文件后再关闭页面。',true);}
   updatePublish();
  }
@@ -33,7 +33,7 @@
    const visual=element('div');const image=element('img','editor-preview');image.src=preview(item.src);image.alt=item.alt||p.title;visual.append(image);
    const controls=element('div','editor-image-tools');controls.append(button('替换此图',()=>{$('replace-file').dataset.imageId=item.id;$('replace-file').click();}));
    const coverLabel=element('label','cover-label');const radio=element('input','cover-picker');radio.type='radio';radio.name='cover';radio.checked=p.cover===item.src;radio.setAttribute('aria-label','第 '+(index+1)+' 张设为封面');radio.addEventListener('change',()=>{p.cover=item.src;render();changed();});coverLabel.append(radio,document.createTextNode('设为封面'));controls.append(coverLabel);visual.append(controls);card.append(visual);
-   const fields=element('div','editor-fields');const top=element('div','editor-position');top.append(element('span','',String(index+1).padStart(2,'0')+' / '+String(p.images.length).padStart(2,'0')),element('span','',item.kind==='collage'?'现有作品总览':'独立图片'));fields.append(top);
+   const fields=element('div','editor-fields');if(item.upload){const meta=item.upload;fields.append(element('p','compression-info',formatBytes(meta.originalBytes)+' → WebP '+formatBytes(meta.bytes)+' · '+meta.width+' × '+meta.height+' px'));}const top=element('div','editor-position');top.append(element('span','',String(index+1).padStart(2,'0')+' / '+String(p.images.length).padStart(2,'0')),element('span','',item.kind==='collage'?'现有作品总览':'独立图片'));fields.append(top);
    for(const[key,label]of[['caption','图片说明'],['alt','图片描述（便于理解画面）'],['captionEn','English caption（英文说明）'],['altEn','English image description（英文图片描述）']]){const id='image-'+key+'-'+index;const l=element('label','',label);l.htmlFor=id;const input=element('input');input.id=id;input.value=item[key]||'';input.maxLength=300;input.addEventListener('input',()=>{item[key]=input.value;changed();});fields.append(l,input);}
    const actions=element('div','image-actions');actions.append(button('↑ 上移',()=>move(index,index-1),index===0),button('↓ 下移',()=>move(index,index+1),index===p.images.length-1));
    const remove=button('从展示中移除',()=>{p.images.splice(index,1);if(p.cover===item.src)p.cover=p.images[0]?.src||'project-placeholder.webp';render();changed();},p.images.length===1&&!p.videos?.length,'remove-image');if(p.images.length===1)remove.title='请先添加替代图片，再移除最后一张。';actions.append(remove);fields.append(actions);card.append(fields);list.append(card);
@@ -117,21 +117,36 @@
  $('preview-button').addEventListener('click',()=>{
   try{const desired=desiredGallery();let path=(textLanguage==='en'?'en/':'')+(editorTab==='site'?'index.html':'work-'+selected+'.html');let html=pageFiles(desired)[path];
    for(const[file]of C.usedFiles(data,files))html=html.split((textLanguage==='en'?'../':'./')+file).join(preview(file));
-   const baseURL=new URL(textLanguage==='en'?'./en/':'./',location.href).href;html=html.replace('<head>','<head><base href="'+T.esc(baseURL)+'">');
+   const baseURL=new URL(textLanguage==='en'?'./en/':'./',location.href).href;html=html.replace('<html ', '<html data-theme="'+document.documentElement.dataset.theme+'" ');html=html.replace('<head>','<head><base href="'+T.esc(baseURL)+'">');
    $('content-preview').srcdoc=html;$('preview-dialog').showModal();$('close-preview').focus();
   }catch(error){status('draft-status',error.message,true);}
  });
  $('close-preview').addEventListener('click',()=>$('preview-dialog').close());
  function decodeFile(file){if(!file.content)throw new Error('GitHub 未返回完整文件，请重试。');return new TextDecoder().decode(Uint8Array.from(atob(file.content.replace(/\s/g,'')),c=>c.charCodeAt(0)));}
- async function verifyImage(file){if(file.size>8*1024*1024)throw new Error('“'+file.name+'”超过 8 MB，请先调整文件体积。');if(!/\.(jpe?g|png|webp|avif)$/i.test(file.name)||!/^image\/(jpeg|png|webp|avif)$/.test(file.type))throw new Error('请选择 JPG、PNG、WebP 或 AVIF 图片。');const temp=URL.createObjectURL(file);try{const img=new Image();img.src=temp;await img.decode();if(!img.naturalWidth)throw new Error();}catch{throw new Error('无法读取图片“'+file.name+'”。');}finally{URL.revokeObjectURL(temp);}}
+ function formatBytes(bytes){return bytes>=1024*1024?(bytes/1024/1024).toFixed(2)+' MB':Math.max(1,Math.round(bytes/1024))+' KB';}
  async function addFiles(incoming,replacement){
   if(busy)return;const incomingFiles=Array.from(incoming);if(!incomingFiles.length)return;
-  try{for(const file of incomingFiles)await verifyImage(file);const p=data.projects[selected];
-   for(const file of incomingFiles){const id='image-'+crypto.randomUUID();const ext=file.name.split('.').pop().toLowerCase();const path='images/uploads/'+id+'.'+ext;files.set(path,file);
-    if(replacement){const item=p.images.find(i=>i.id===replacement);if(!item)throw new Error('找不到要替换的图片。');if(p.cover===item.src)p.cover=path;item.src=path;item.kind='image';}
-    else {if(!p.images.length)p.cover=path;p.images.push({id,src:path,caption:file.name.replace(/\.[^.]+$/,''),alt:p.title+'效果图',kind:'image'});}
-   }render();changed();await saveDraft();
-  }catch(error){status('draft-status',error.message,true);}
+  const projectId=selected;setBusy(true);clearTimeout(savingTimer);status('image-process-status','正在准备图片转换…');
+  try{
+   for(const file of incomingFiles)I.validateFile(file);
+   const prepared=[];for(const[index,file]of incomingFiles.entries()){
+    status('image-process-status','正在转换 '+(index+1)+' / '+incomingFiles.length+'：'+file.name);
+    prepared.push({file,result:await I.convert(file,$('image-quality').value)});
+   }
+   const p=data.projects[projectId];if(replacement&&!p.images.some(i=>i.id===replacement))throw new Error('找不到要替换的图片。');
+   let before=0,after=0;
+   for(const {file,result}of prepared){
+    const id='image-'+crypto.randomUUID(),path='images/uploads/'+id+'.webp';files.set(path,result.blob);let thumbnail;
+    if(result.thumbnail){thumbnail='images/uploads/'+id+'-cover.webp';files.set(thumbnail,result.thumbnail);}
+    const record={src:path,kind:'image',width:result.width,height:result.height,upload:{originalBytes:result.originalBytes,bytes:result.bytes,width:result.width,height:result.height,preset:result.preset}};if(thumbnail)record.thumbnail=thumbnail;
+    if(replacement){const item=p.images.find(i=>i.id===replacement);if(p.cover===item.src)p.cover=path;delete item.thumbnail;Object.assign(item,record);}
+    else{if(!p.images.length)p.cover=path;p.images.push({id,caption:file.name.replace(/\.[^.]+$/,''),alt:p.title+'效果图',...record});}
+    before+=result.originalBytes;after+=result.bytes+(result.thumbnail?.size||0);
+   }
+   render();changed();clearTimeout(savingTimer);await saveDraft();
+   const difference=before?Math.round((1-after/before)*100):0;
+   status('image-process-status','已转换 '+prepared.length+' 张：'+formatBytes(before)+' → '+formatBytes(after)+'（含封面小图）'+(difference>=0?'，减少约 '+difference+'%。':'；本批转换后体积增加约 '+Math.abs(difference)+'%，可选择“更小文件”重新添加。'));
+  }catch(error){status('image-process-status',error.message+' 本批图片未加入，原草稿已保留。',true);}finally{setBusy(false);}
  }
  $('image-files').addEventListener('change',async e=>{await addFiles(e.target.files);e.target.value='';});
  $('replace-file').addEventListener('change',async e=>{await addFiles(e.target.files,e.target.dataset.imageId);e.target.value='';});

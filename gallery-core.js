@@ -34,6 +34,8 @@
       const ids=new Set();
       for(const item of project.images){
         if(!item || typeof item.id!=='string' || ids.has(item.id) || !safePath(item.src) || typeof item.caption!=='string' || typeof item.alt!=='string') throw new Error('图片资料不完整。');
+        if(item.thumbnail!==undefined&&!safePath(item.thumbnail))throw new Error('封面小图路径不正确。');
+        if((item.width!==undefined||item.height!==undefined)&&(!Number.isInteger(item.width)||!Number.isInteger(item.height)||item.width<1||item.height<1))throw new Error('图片尺寸资料不正确。');
         ids.add(item.id);
       }
     }
@@ -51,8 +53,9 @@
     if(conflicts.length)throw new Error('这些项目已在线上被修改，请先导出草稿再核对：'+conflicts.join('、'));
     return merged;
   }
+  function coverPath(project){const item=project.images.find(i=>i.src===project.cover);return item?.thumbnail||project.cover;}
   function usedFiles(data,files){
-    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>paths.add(i.src));});
+    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);});});
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
   }
   function base64(bytes){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}
@@ -109,6 +112,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,validate,serialize,parse,merge,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,validate,serialize,parse,merge,coverPath,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

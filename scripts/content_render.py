@@ -12,6 +12,8 @@ def render(content,templates,galleries):
     for id in order:
         for lang in ['zh','en']:
             for key in ['title','desc','role','context','note','tools','tasks']:fields[f'project.{id}.{lang}.{key}']={'type':key if key in ['tools','tasks'] else 'text'}
+    def cover(id):
+        p=galleries['projects'][id];item=next((i for i in p['images'] if i['src']==p['cover']),{});return item.get('thumbnail') or p['cover']
     def text(key):
         value=values[key];kind=fields[key]['type']
         if kind in ['tags','tasks','paragraphs']:
@@ -25,7 +27,8 @@ def render(content,templates,galleries):
         for i,item in enumerate(p['images']):
             caption=(item.get('captionEn') if lang=='en' else item['caption']) or values['ui.'+lang+'.overview']
             alt=(item.get('altEn') if lang=='en' else item['alt']) or values[f'project.{id}.{lang}.title']
-            result+=f'<figure class="gallery-item {"legacy" if item.get("kind")=="collage" else ""}"><a class="gallery-button" href="{root}{esc(item["src"])}" aria-label="{esc(values["ui."+lang+".open"])}: {esc(caption)}"><img src="{root}{esc(item["src"])}" alt="{esc(alt)}" loading="lazy"></a><figcaption>{i+1:02d} / {esc(caption)}</figcaption></figure>'
+            dimensions=f' width="{item["width"]}" height="{item["height"]}"' if item.get('width') and item.get('height') else ''
+            result+=f'<figure class="gallery-item {"legacy" if item.get("kind")=="collage" else ""}"><a class="gallery-button" href="{root}{esc(item["src"])}" aria-label="{esc(values["ui."+lang+".open"])}: {esc(caption)}"><img src="{root}{esc(item.get("thumbnail") or item["src"])}" alt="{esc(alt)}" loading="lazy"{dimensions}></a><figcaption>{i+1:02d} / {esc(caption)}</figcaption></figure>'
         return result
     def videos(id,lang):
         items=galleries['projects'][id].get('videos',[])
@@ -64,7 +67,7 @@ def render(content,templates,galleries):
             _,id,lang=key.split('.');return '<a href="'+esc(meta[id]['source'])+'" target="_blank" rel="noopener">'+esc(values['ui.'+lang+'.source'])+' ↗</a>' if meta[id].get('source') else ''
         if key.startswith('next.'):
             _,id,lang=key.split('.');n=order[(order.index(id)+1)%len(order)];return '<a class="next-project" href="./work-'+n+'.html"><span>'+esc(values['ui.'+lang+'.next'])+'</span><strong>'+esc(values['project.'+n+'.'+lang+'.title'])+' ↗</strong></a>'
-        if key.startswith('cover.'):return esc(galleries['projects'][key[6:]]['cover'])
+        if key.startswith('cover.'):return esc(cover(key[6:]))
         if key.startswith('count.'):return str(len(galleries['projects'][key[6:]]['images']))
         if key.startswith('gallery.'):
             _,id,lang=key.split('.');return gallery(id,lang)
@@ -72,7 +75,7 @@ def render(content,templates,galleries):
     def schema(m):
         def sub(t):
             key=t[1]
-            value=values[key] if key in fields else galleries['projects'][key[6:]]['cover']
+            value=values[key] if key in fields else cover(key[6:])
             return json.dumps(value,ensure_ascii=False)[1:-1].replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
         return re.sub(r'@@([\w.-]+)@@',sub,m[0])
     result={};pages=dict(templates['pages'])
