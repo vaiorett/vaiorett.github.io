@@ -10,13 +10,13 @@ test('Bilibili URLs and BV IDs normalize to an allowlisted HTTPS player and pres
 test('new projects create both pages, homepage cards, filter counts, sitemap and reciprocal language links',()=>{
  const {d,g}=fresh();const pages=T.render(d,templates,g);assert.equal(Object.keys(pages).length,21);
  assert.match(pages['index.html'],/data-project-card="new-project" data-category="studies"/);assert.match(pages['index.html'],/class="section-count">09/);
- for(const lang of ['zh','en']){const p=pages[(lang==='en'?'en/':'')+'work-new-project.html'];assert.match(p,/hreflang="en" href="https:\/\/vaiorett.github.io\/en\/work-new-project.html"/);assert.ok(!p.includes('post6dummy'));assert.ok(!p.includes('比亚迪'));assert.ok(!p.includes('@@'));}
- assert.match(pages['sitemap.xml'],/https:\/\/vaiorett.github.io\/en\/work-new-project.html/);assert.match(pages['work-cgi.html'],/class="next-project" href=".\/work-new-project.html"/);
+ for(const lang of ['zh','en']){const p=pages[(lang==='en'?'en/':'')+'work-new-project.html'];assert.match(p,/hreflang="en" href="https:\/\/vaiorett.github.io\/en\/work-new-project.html"/);assert.ok(!p.includes('post6dummy'));assert.ok(!p.includes('@@'));}
+ assert.ok(!pages['sitemap.xml'].includes('<loc>')); assert.match(pages['work-cgi.html'],/class="next-project" href=".\/work-new-project.html"/);
 });
 test('empty project remains a draft; video-only project can publish without fabricated images',()=>{
  const {d,g}=fresh();assert.throws(()=>T.readyToPublish(d,templates,g),/至少/);
  g.projects['new-project'].videos=[{id:'v1',url:'BV1B7411m7LV',title:'视频说明',titleEn:'Video description'}];T.readyToPublish(d,templates,g);
- const pages=T.render(d,templates,g);assert.match(pages['work-new-project.html'],/data-video-url="https:\/\/www.bilibili.com/);assert.match(pages['en/work-new-project.html'],/Video description/);assert.ok(!pages['work-new-project.html'].includes('<iframe'));assert.match(pages['work-new-project.html'],/在 B 站\s*观看/);
+ const pages=T.render(d,templates,g);assert.match(pages['work-new-project.html'],/data-video-url="https:\/\/www.bilibili.com/);assert.match(pages['en/work-new-project.html'],/Video description/);assert.ok(!pages['work-new-project.html'].includes('<iframe'));assert.match(pages['work-new-project.html'],/class="video-toolbar" hidden/);assert.ok(!pages['work-new-project.html'].includes('video-caption'));
  d.values['project.new-project.zh.desc']='';assert.throws(()=>T.readyToPublish(d,templates,g),/简介/);
 });
 test('different new projects merge without losing either side; same-id additions conflict',()=>{

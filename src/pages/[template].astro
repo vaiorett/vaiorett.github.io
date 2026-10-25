@@ -1,0 +1,8 @@
+---
+import Home from '../components/Home.astro';
+import Project from '../components/Project.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+export function getStaticPaths(){return ['zh','en'].flatMap(lang=>['home','project','card'].map(kind=>({params:{template:kind+'-'+lang},props:{lang,kind}})));}
+const {lang,kind}=Astro.props;
+---
+{kind==='home'?<Home lang={lang}/>:kind==='project'?<Project lang={lang}/>:<ProjectCard lang={lang}/>}

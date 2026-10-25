@@ -1,6 +1,7 @@
 (function(root){
  'use strict';
  const G=typeof module!=='undefined'&&module.exports?require('./gallery-core.js'):root.GalleryCore;
+ const L=typeof module!=='undefined'&&module.exports?require('./layout-core.js'):root.LayoutCore;
  const PREFIX='window.PORTFOLIO_CONTENT = ', TEMPLATE_PREFIX='window.PORTFOLIO_TEMPLATES = ';
  const clone=value=>JSON.parse(JSON.stringify(value));
  const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -35,6 +36,8 @@
    if(!/^[a-z0-9][a-z0-9-]{0,63}$/.test(id)||['__proto__','constructor','prototype'].includes(id)||!p||!categories.includes(p.category))throw new Error('项目分类或地址不正确。');
    if(p.source){let u;try{u=new URL(p.source);}catch{throw new Error('项目来源链接不正确。');}if(u.protocol!=='https:'||u.username||u.password)throw new Error('项目来源链接不正确。');}
   }
+  const allowed=fieldsFor(data,templates);
+  for(const key of Object.keys(data.values))if(!Object.hasOwn(allowed,key))throw new Error('草稿含有旧版或未允许的字段，请使用当前管理页重新填写公开内容。');
   for(const [key,f]of Object.entries(fieldsFor(data,templates))){
    const v=data.values[key];const list=arrayTypes.has(f.type);
    if(list?(!Array.isArray(v)||v.length>100||v.some(s=>typeof s!=='string'||s.length>6000)):(typeof v!=='string'||v.length>6000))throw new Error('请检查字段：'+f.label);
@@ -72,11 +75,7 @@
    if(kind==='multiline')return esc(value).replace(/\n/g,'<br>');
    return esc(value);
   }
-  function gallery(id,lang){const prefix=lang==='en'?'../':'./';return galleries.projects[id].images.map((item,i)=>{
-   const caption=(lang==='en'?item.captionEn:item.caption)||v['ui.'+lang+'.overview'];
-   const alt=(lang==='en'?item.altEn:item.alt)||v['project.'+id+'.'+lang+'.title'];
-   return '<figure class="gallery-item '+(item.kind==='collage'?'legacy':'')+'"><a class="gallery-button" href="'+prefix+esc(item.src)+'" aria-label="'+esc(v['ui.'+lang+'.open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.thumbnail||item.src)+'" alt="'+esc(alt)+'" loading="lazy"'+(item.width&&item.height?' width="'+item.width+'" height="'+item.height+'"':'')+'></a><figcaption>'+String(i+1).padStart(2,'0')+' / '+esc(caption)+'</figcaption></figure>';
-  }).join('');}
+  function gallery(id,lang){return L.markup(galleries.projects[id],lang,{overview:v['ui.'+lang+'.overview'],title:v['project.'+id+'.'+lang+'.title'],open:v['ui.'+lang+'.open']});}
   function videos(id,lang){return G.videoMarkup(galleries.projects[id].videos||[],lang,G.coverPath(galleries.projects[id]));}
   function resolve(html){return html.replace(/@@([\w.-]+)@@/g,replace);}
   function replace(_,key){
@@ -101,7 +100,7 @@
    const value=Object.hasOwn(fields,key)?v[key]:G.coverPath(galleries.projects[key.slice(6)]);
    return JSON.stringify(value).slice(1,-1).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
   }):part.replace(/@@([\w.-]+)@@/g,replace)).join('');
-  result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+Object.keys(pages).map(path=>'<url><loc>https://vaiorett.github.io/'+path.replace(/index\.html$/,'')+'</loc></url>\n').join('')+'</urlset>\n';
+  result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   return result;
  }
  const core={clone,esc,arrayTypes,pagePath,categories,projects,fieldsFor,addProject,readyToPublish,validateTemplates,validate,serialize,parse,parseTemplates,merge,render};

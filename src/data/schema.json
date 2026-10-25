@@ -1,0 +1,1114 @@
+{
+  "fields": {
+    "site.brand": {
+      "type": "text",
+      "label": "网站署名"
+    },
+    "site.email": {
+      "type": "email",
+      "label": "联系邮箱"
+    },
+    "ui.zh.name": {
+      "type": "text",
+      "label": "公开名称（使用品牌名）"
+    },
+    "ui.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "ui.zh.description": {
+      "type": "text",
+      "label": "搜索摘要"
+    },
+    "ui.zh.work": {
+      "type": "text",
+      "label": "栏目 / 按钮：作品"
+    },
+    "ui.zh.capabilities": {
+      "type": "text",
+      "label": "栏目 / 按钮：专业能力"
+    },
+    "ui.zh.about": {
+      "type": "text",
+      "label": "栏目 / 按钮：关于"
+    },
+    "ui.zh.contact": {
+      "type": "text",
+      "label": "栏目 / 按钮：联系"
+    },
+    "ui.zh.skip": {
+      "type": "text",
+      "label": "栏目 / 按钮：跳到主要内容"
+    },
+    "ui.zh.nav": {
+      "type": "text",
+      "label": "栏目 / 按钮：主导航"
+    },
+    "ui.zh.home": {
+      "type": "text",
+      "label": "栏目 / 按钮：作品集首页"
+    },
+    "ui.zh.back": {
+      "type": "text",
+      "label": "栏目 / 按钮：返回作品选集"
+    },
+    "ui.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "ui.zh.tools": {
+      "type": "text",
+      "label": "使用工具"
+    },
+    "ui.zh.category": {
+      "type": "text",
+      "label": "栏目 / 按钮：项目类型"
+    },
+    "ui.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "ui.zh.tasks": {
+      "type": "text",
+      "label": "我的工作（每行一项）"
+    },
+    "ui.zh.gallery": {
+      "type": "text",
+      "label": "栏目 / 按钮：作品与过程"
+    },
+    "ui.zh.overview": {
+      "type": "text",
+      "label": "栏目 / 按钮：项目作品总览"
+    },
+    "ui.zh.open": {
+      "type": "text",
+      "label": "栏目 / 按钮：打开原图"
+    },
+    "ui.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "ui.zh.source": {
+      "type": "text",
+      "label": "栏目 / 按钮：原作品页面"
+    },
+    "ui.zh.next": {
+      "type": "text",
+      "label": "栏目 / 按钮：下一个项目"
+    },
+    "ui.zh.close": {
+      "type": "text",
+      "label": "栏目 / 按钮：关闭"
+    },
+    "ui.zh.previous": {
+      "type": "text",
+      "label": "栏目 / 按钮：上一张图片"
+    },
+    "ui.zh.nextimage": {
+      "type": "text",
+      "label": "栏目 / 按钮：下一张图片"
+    },
+    "ui.zh.zoom": {
+      "type": "text",
+      "label": "栏目 / 按钮：作品大图"
+    },
+    "ui.zh.top": {
+      "type": "text",
+      "label": "栏目 / 按钮：回到顶部"
+    },
+    "ui.zh.copy": {
+      "type": "text",
+      "label": "栏目 / 按钮：复制邮箱"
+    },
+    "ui.zh.manager": {
+      "type": "text",
+      "label": "栏目 / 按钮：作品管理（中文）"
+    },
+    "ui.zh.filter": {
+      "type": "text",
+      "label": "栏目 / 按钮：按作品方向筛选"
+    },
+    "ui.zh.all": {
+      "type": "text",
+      "label": "栏目 / 按钮：全部作品"
+    },
+    "ui.zh.architecture": {
+      "type": "text",
+      "label": "栏目 / 按钮：建筑可视化"
+    },
+    "ui.zh.assets": {
+      "type": "text",
+      "label": "栏目 / 按钮：三维资产"
+    },
+    "ui.zh.product": {
+      "type": "text",
+      "label": "栏目 / 按钮：产品渲染"
+    },
+    "ui.zh.studies": {
+      "type": "text",
+      "label": "栏目 / 按钮：空间与 CGI"
+    },
+    "ui.zh.experience": {
+      "type": "text",
+      "label": "栏目 / 按钮：工作经历"
+    },
+    "ui.zh.education": {
+      "type": "text",
+      "label": "栏目 / 按钮：教育经历"
+    },
+    "ui.zh.certificates": {
+      "type": "text",
+      "label": "栏目 / 按钮：证书"
+    },
+    "ui.zh.alltools": {
+      "type": "text",
+      "label": "栏目 / 按钮：工具与技能"
+    },
+    "ui.zh.footer": {
+      "type": "text",
+      "label": "栏目 / 按钮：建筑 · 模型 · 视觉"
+    },
+    "ui.zh.view": {
+      "type": "text",
+      "label": "栏目 / 按钮：查看项目"
+    },
+    "home.zh.kicker": {
+      "type": "multiline",
+      "label": "首页上方小标题"
+    },
+    "home.zh.hero": {
+      "type": "multiline",
+      "label": "首页大标题"
+    },
+    "home.zh.heroAccent": {
+      "type": "multiline",
+      "label": "首页大标题（强调部分）"
+    },
+    "home.zh.intro": {
+      "type": "multiline",
+      "label": "首页简介"
+    },
+    "home.zh.workTitle": {
+      "type": "multiline",
+      "label": "作品栏目标题"
+    },
+    "home.zh.workIntro": {
+      "type": "multiline",
+      "label": "作品栏目说明"
+    },
+    "home.zh.capTitle": {
+      "type": "multiline",
+      "label": "专业能力栏目标题"
+    },
+    "home.zh.aboutTitle": {
+      "type": "multiline",
+      "label": "关于栏目标题"
+    },
+    "home.zh.aboutIntro": {
+      "type": "paragraphs",
+      "label": "自我介绍（每行一段）"
+    },
+    "home.zh.contactTitle": {
+      "type": "multiline",
+      "label": "联系栏目标题"
+    },
+    "home.zh.contactIntro": {
+      "type": "multiline",
+      "label": "求职意向 / 联系说明"
+    },
+    "cap.zh.0.0": {
+      "type": "text",
+      "label": "能力 1 · 标题"
+    },
+    "cap.zh.0.1": {
+      "type": "text",
+      "label": "能力 1 · 说明"
+    },
+    "cap.zh.0.2": {
+      "type": "text",
+      "label": "能力 1 · 使用工具"
+    },
+    "cap.zh.1.0": {
+      "type": "text",
+      "label": "能力 2 · 标题"
+    },
+    "cap.zh.1.1": {
+      "type": "text",
+      "label": "能力 2 · 说明"
+    },
+    "cap.zh.1.2": {
+      "type": "text",
+      "label": "能力 2 · 使用工具"
+    },
+    "cap.zh.2.0": {
+      "type": "text",
+      "label": "能力 3 · 标题"
+    },
+    "cap.zh.2.1": {
+      "type": "text",
+      "label": "能力 3 · 说明"
+    },
+    "cap.zh.2.2": {
+      "type": "text",
+      "label": "能力 3 · 使用工具"
+    },
+    "ui.en.name": {
+      "type": "text",
+      "label": "公开名称（使用品牌名）"
+    },
+    "ui.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "ui.en.description": {
+      "type": "text",
+      "label": "搜索摘要"
+    },
+    "ui.en.work": {
+      "type": "text",
+      "label": "栏目 / 按钮：Work"
+    },
+    "ui.en.capabilities": {
+      "type": "text",
+      "label": "栏目 / 按钮：Capabilities"
+    },
+    "ui.en.about": {
+      "type": "text",
+      "label": "栏目 / 按钮：About"
+    },
+    "ui.en.contact": {
+      "type": "text",
+      "label": "栏目 / 按钮：Contact"
+    },
+    "ui.en.skip": {
+      "type": "text",
+      "label": "栏目 / 按钮：Skip to main content"
+    },
+    "ui.en.nav": {
+      "type": "text",
+      "label": "栏目 / 按钮：Main navigation"
+    },
+    "ui.en.home": {
+      "type": "text",
+      "label": "栏目 / 按钮：Portfolio home"
+    },
+    "ui.en.back": {
+      "type": "text",
+      "label": "栏目 / 按钮：Back to selected work"
+    },
+    "ui.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "ui.en.tools": {
+      "type": "text",
+      "label": "使用工具"
+    },
+    "ui.en.category": {
+      "type": "text",
+      "label": "栏目 / 按钮：Project type"
+    },
+    "ui.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "ui.en.tasks": {
+      "type": "text",
+      "label": "我的工作（每行一项）"
+    },
+    "ui.en.gallery": {
+      "type": "text",
+      "label": "栏目 / 按钮：Work & process"
+    },
+    "ui.en.overview": {
+      "type": "text",
+      "label": "栏目 / 按钮：Project overview"
+    },
+    "ui.en.open": {
+      "type": "text",
+      "label": "栏目 / 按钮：Open original image"
+    },
+    "ui.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "ui.en.source": {
+      "type": "text",
+      "label": "栏目 / 按钮：Original portfolio"
+    },
+    "ui.en.next": {
+      "type": "text",
+      "label": "栏目 / 按钮：Next project"
+    },
+    "ui.en.close": {
+      "type": "text",
+      "label": "栏目 / 按钮：Close"
+    },
+    "ui.en.previous": {
+      "type": "text",
+      "label": "栏目 / 按钮：Previous image"
+    },
+    "ui.en.nextimage": {
+      "type": "text",
+      "label": "栏目 / 按钮：Next image"
+    },
+    "ui.en.zoom": {
+      "type": "text",
+      "label": "栏目 / 按钮：Image viewer"
+    },
+    "ui.en.top": {
+      "type": "text",
+      "label": "栏目 / 按钮：Back to top"
+    },
+    "ui.en.copy": {
+      "type": "text",
+      "label": "栏目 / 按钮：Copy email"
+    },
+    "ui.en.manager": {
+      "type": "text",
+      "label": "栏目 / 按钮：Manage images (Chinese)"
+    },
+    "ui.en.filter": {
+      "type": "text",
+      "label": "栏目 / 按钮：Filter projects by discipline"
+    },
+    "ui.en.all": {
+      "type": "text",
+      "label": "栏目 / 按钮：All work"
+    },
+    "ui.en.architecture": {
+      "type": "text",
+      "label": "栏目 / 按钮：Architecture"
+    },
+    "ui.en.assets": {
+      "type": "text",
+      "label": "栏目 / 按钮：3D assets"
+    },
+    "ui.en.product": {
+      "type": "text",
+      "label": "栏目 / 按钮：Product rendering"
+    },
+    "ui.en.studies": {
+      "type": "text",
+      "label": "栏目 / 按钮：Interior & CGI"
+    },
+    "ui.en.experience": {
+      "type": "text",
+      "label": "栏目 / 按钮：Experience"
+    },
+    "ui.en.education": {
+      "type": "text",
+      "label": "栏目 / 按钮：Education"
+    },
+    "ui.en.certificates": {
+      "type": "text",
+      "label": "栏目 / 按钮：Certificates"
+    },
+    "ui.en.alltools": {
+      "type": "text",
+      "label": "栏目 / 按钮：Tools & skills"
+    },
+    "ui.en.footer": {
+      "type": "text",
+      "label": "栏目 / 按钮：Architecture · Models · Visuals"
+    },
+    "ui.en.view": {
+      "type": "text",
+      "label": "栏目 / 按钮：View project"
+    },
+    "home.en.kicker": {
+      "type": "multiline",
+      "label": "首页上方小标题"
+    },
+    "home.en.hero": {
+      "type": "multiline",
+      "label": "首页大标题"
+    },
+    "home.en.heroAccent": {
+      "type": "multiline",
+      "label": "首页大标题（强调部分）"
+    },
+    "home.en.intro": {
+      "type": "multiline",
+      "label": "首页简介"
+    },
+    "home.en.workTitle": {
+      "type": "multiline",
+      "label": "作品栏目标题"
+    },
+    "home.en.workIntro": {
+      "type": "multiline",
+      "label": "作品栏目说明"
+    },
+    "home.en.capTitle": {
+      "type": "multiline",
+      "label": "专业能力栏目标题"
+    },
+    "home.en.aboutTitle": {
+      "type": "multiline",
+      "label": "关于栏目标题"
+    },
+    "home.en.aboutIntro": {
+      "type": "paragraphs",
+      "label": "自我介绍（每行一段）"
+    },
+    "home.en.contactTitle": {
+      "type": "multiline",
+      "label": "联系栏目标题"
+    },
+    "home.en.contactIntro": {
+      "type": "multiline",
+      "label": "求职意向 / 联系说明"
+    },
+    "cap.en.0.0": {
+      "type": "text",
+      "label": "能力 1 · 标题"
+    },
+    "cap.en.0.1": {
+      "type": "text",
+      "label": "能力 1 · 说明"
+    },
+    "cap.en.0.2": {
+      "type": "text",
+      "label": "能力 1 · 使用工具"
+    },
+    "cap.en.1.0": {
+      "type": "text",
+      "label": "能力 2 · 标题"
+    },
+    "cap.en.1.1": {
+      "type": "text",
+      "label": "能力 2 · 说明"
+    },
+    "cap.en.1.2": {
+      "type": "text",
+      "label": "能力 2 · 使用工具"
+    },
+    "cap.en.2.0": {
+      "type": "text",
+      "label": "能力 3 · 标题"
+    },
+    "cap.en.2.1": {
+      "type": "text",
+      "label": "能力 3 · 说明"
+    },
+    "cap.en.2.2": {
+      "type": "text",
+      "label": "能力 3 · 使用工具"
+    },
+    "project.product-rendering.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.product-rendering.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.product-rendering.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.product-rendering.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.product-rendering.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.product-rendering.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.product-rendering.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.product-rendering.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.product-rendering.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.product-rendering.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.product-rendering.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.product-rendering.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.product-rendering.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.product-rendering.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.digital-assets.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.digital-assets.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.digital-assets.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.digital-assets.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.digital-assets.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.digital-assets.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.digital-assets.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.digital-assets.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.digital-assets.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.digital-assets.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.digital-assets.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.digital-assets.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.digital-assets.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.digital-assets.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.grandstand.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.grandstand.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.grandstand.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.grandstand.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.grandstand.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.grandstand.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.grandstand.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.grandstand.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.grandstand.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.grandstand.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.grandstand.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.grandstand.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.grandstand.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.grandstand.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.pedestrian-bridge.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.pedestrian-bridge.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.pedestrian-bridge.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.pedestrian-bridge.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.pedestrian-bridge.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.pedestrian-bridge.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.pedestrian-bridge.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.pedestrian-bridge.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.pedestrian-bridge.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.pedestrian-bridge.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.pedestrian-bridge.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.pedestrian-bridge.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.pedestrian-bridge.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.pedestrian-bridge.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.yunba-depot.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.yunba-depot.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.yunba-depot.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.yunba-depot.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.yunba-depot.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.yunba-depot.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.yunba-depot.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.yunba-depot.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.yunba-depot.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.yunba-depot.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.yunba-depot.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.yunba-depot.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.yunba-depot.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.yunba-depot.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.residential.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.residential.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.residential.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.residential.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.residential.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.residential.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.residential.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.residential.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.residential.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.residential.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.residential.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.residential.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.residential.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.residential.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.interior.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.interior.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.interior.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.interior.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.interior.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.interior.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.interior.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.interior.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.interior.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.interior.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.interior.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.interior.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.interior.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.interior.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.cgi.zh.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.cgi.zh.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.cgi.zh.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.cgi.zh.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.cgi.zh.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.cgi.zh.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.cgi.zh.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "project.cgi.en.title": {
+      "type": "text",
+      "label": "标题"
+    },
+    "project.cgi.en.desc": {
+      "type": "text",
+      "label": "项目简介"
+    },
+    "project.cgi.en.role": {
+      "type": "text",
+      "label": "个人职责"
+    },
+    "project.cgi.en.context": {
+      "type": "text",
+      "label": "项目背景"
+    },
+    "project.cgi.en.note": {
+      "type": "text",
+      "label": "职责与署名"
+    },
+    "project.cgi.en.tools": {
+      "type": "tools",
+      "label": "使用工具"
+    },
+    "project.cgi.en.tasks": {
+      "type": "tasks",
+      "label": "我的工作（每行一项）"
+    },
+    "profile.experience.0.zh.0": {
+      "type": "text",
+      "label": "工作经历 1 · 职位"
+    },
+    "profile.experience.0.zh.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.0.zh.2": {
+      "type": "text",
+      "label": "工作经历 1 · 说明"
+    },
+    "profile.experience.0.en.0": {
+      "type": "text",
+      "label": "工作经历 1 · 职位"
+    },
+    "profile.experience.0.en.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.0.en.2": {
+      "type": "text",
+      "label": "工作经历 1 · 说明"
+    },
+    "profile.experience.1.zh.0": {
+      "type": "text",
+      "label": "工作经历 2 · 职位"
+    },
+    "profile.experience.1.zh.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.1.zh.2": {
+      "type": "text",
+      "label": "工作经历 2 · 说明"
+    },
+    "profile.experience.1.en.0": {
+      "type": "text",
+      "label": "工作经历 2 · 职位"
+    },
+    "profile.experience.1.en.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.1.en.2": {
+      "type": "text",
+      "label": "工作经历 2 · 说明"
+    },
+    "profile.experience.2.zh.0": {
+      "type": "text",
+      "label": "工作经历 3 · 职位"
+    },
+    "profile.experience.2.zh.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.2.zh.2": {
+      "type": "text",
+      "label": "工作经历 3 · 说明"
+    },
+    "profile.experience.2.en.0": {
+      "type": "text",
+      "label": "工作经历 3 · 职位"
+    },
+    "profile.experience.2.en.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.2.en.2": {
+      "type": "text",
+      "label": "工作经历 3 · 说明"
+    },
+    "profile.experience.3.zh.0": {
+      "type": "text",
+      "label": "工作经历 4 · 职位"
+    },
+    "profile.experience.3.zh.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.3.zh.2": {
+      "type": "text",
+      "label": "工作经历 4 · 说明"
+    },
+    "profile.experience.3.en.0": {
+      "type": "text",
+      "label": "工作经历 4 · 职位"
+    },
+    "profile.experience.3.en.1": {
+      "type": "text",
+      "label": "制作领域（不填写单位名称）"
+    },
+    "profile.experience.3.en.2": {
+      "type": "text",
+      "label": "工作经历 4 · 说明"
+    },
+    "profile.education.0.zh.0": {
+      "type": "text",
+      "label": "学习方向"
+    },
+    "profile.education.0.zh.1": {
+      "type": "text",
+      "label": "教育经历 1 · 专业"
+    },
+    "profile.education.0.en.0": {
+      "type": "text",
+      "label": "学习方向"
+    },
+    "profile.education.0.en.1": {
+      "type": "text",
+      "label": "教育经历 1 · 专业"
+    },
+    "profile.education.1.zh.0": {
+      "type": "text",
+      "label": "学习方向"
+    },
+    "profile.education.1.zh.1": {
+      "type": "text",
+      "label": "教育经历 2 · 专业"
+    },
+    "profile.education.1.en.0": {
+      "type": "text",
+      "label": "学习方向"
+    },
+    "profile.education.1.en.1": {
+      "type": "text",
+      "label": "教育经历 2 · 专业"
+    },
+    "profile.tools": {
+      "type": "tags",
+      "label": "工具与技能（每行一项）"
+    },
+    "profile.certificates.zh": {
+      "type": "paragraphs",
+      "label": "证书（每行一项）"
+    },
+    "profile.certificates.en": {
+      "type": "paragraphs",
+      "label": "证书（每行一项）"
+    }
+  },
+  "projects": {
+    "yunba-depot": {
+      "category": "architecture"
+    },
+    "digital-assets": {
+      "category": "assets"
+    },
+    "grandstand": {
+      "category": "architecture"
+    },
+    "pedestrian-bridge": {
+      "category": "architecture"
+    },
+    "residential": {
+      "category": "architecture"
+    },
+    "product-rendering": {
+      "category": "product"
+    },
+    "interior": {
+      "category": "studies"
+    },
+    "cgi": {
+      "category": "studies"
+    }
+  }
+}

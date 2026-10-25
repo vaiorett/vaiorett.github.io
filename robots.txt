@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://vaiorett.github.io/sitemap.xml

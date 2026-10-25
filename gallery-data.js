@@ -79,14 +79,14 @@ window.PORTFOLIO_GALLERIES = {
       ]
     },
     "yunba-depot": {
-      "title": "济南高新环线云巴车辆基地",
+      "title": "轨道交通车辆基地",
       "cover": "image-yunba-depot-cover.webp",
       "images": [
         {
           "id": "yunba-depot-overview",
           "src": "image-yunba-depot-full.webp",
           "caption": "项目作品总览",
-          "alt": "济南高新环线云巴车辆基地作品总览",
+          "alt": "轨道交通车辆基地作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
           "altEn": "Jinan High-tech Loop · Yunba Depot — project overview",
@@ -96,14 +96,14 @@ window.PORTFOLIO_GALLERIES = {
       ]
     },
     "residential": {
-      "title": "贵阳沙文保租房时光序",
+      "title": "住宅与公共空间",
       "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
       "images": [
         {
           "id": "residential-overview",
           "src": "image-residential-full.webp",
           "caption": "项目作品总览",
-          "alt": "贵阳沙文保租房时光序作品总览",
+          "alt": "住宅与公共空间作品总览",
           "kind": "collage",
           "captionEn": "Project overview",
           "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
@@ -114,7 +114,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-564e8735-1959-4f8d-ab5c-6f5ee48a6282",
           "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
           "caption": "640-lines-scale-2_00x-gigapixel",
-          "alt": "贵阳沙文保租房时光序效果图",
+          "alt": "住宅与公共空间效果图",
           "kind": "image",
           "thumbnail": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282-cover.webp",
           "width": 2160,
@@ -131,7 +131,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3",
           "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.webp",
           "caption": "浅色石材",
-          "alt": "贵阳沙文保租房时光序效果图",
+          "alt": "住宅与公共空间效果图",
           "kind": "image",
           "thumbnail": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3-cover.webp",
           "width": 1654,

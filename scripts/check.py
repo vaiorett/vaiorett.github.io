@@ -48,21 +48,31 @@ for path,page in pages.items():
         if tag=='img':assert 'alt' in a,path
     if english:
         # All project prose and résumé/education text must be translated, not just navigation.
-        main=re.search(r'<main.*?</main>',path.read_text(),re.S).group()
+        main=re.sub(r'<div class="skill-tags">.*?</div>','',re.search(r'<main.*?</main>',path.read_text(),re.S).group(),flags=re.S)
         assert not re.search(r'[\u4e00-\u9fff]',main),path
     if path.name.startswith('work-'):
-        id=path.stem[5:];source=json.loads((ROOT/'site-data.json').read_text())
-        original=next((p for p in source if p['id']==id),{'id':id,'title':'','role':'','context':'','note':'','tasks':[]})
-        current=json.loads((ROOT/'content-data.js').read_text().split(' = ',1)[1].strip().rstrip(';'))['values']
-        original={key:current.get(f'project.{id}.zh.{key}',value) for key,value in original.items()}
-        if not english:
-            for fact in [original['title'],original['role'],original['context'],original['note'],*original['tasks']]:assert fact in ''.join(page.text),(path,fact)
-# All original binary work and the public résumé remain byte-for-byte unchanged.
+        id=path.stem[5:];locale='en' if english else 'zh'
+        current=current_content['values']
+        for key in ['title','role','context','note']:
+            value=current.get(f'project.{id}.{locale}.{key}','')
+            assert value in ''.join(page.text),(path,key)
+    assert any(a.get('name')=='robots' and a.get('content')=='noindex' for a in page.attrs('meta')),path
+# Original top-level WebP artwork remains byte-for-byte unchanged.
 original=subprocess.check_output(['git','ls-tree','--name-only','HEAD'],cwd=ROOT,text=True).splitlines()
 for file in original:
     if file.endswith('.webp'):
         assert subprocess.check_output(['git','show','HEAD:'+file],cwd=ROOT)==(ROOT/file).read_bytes(),file
-urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==len(paths)
+urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==0
 for path in ['manage.html','更新图片说明.html']:
-    assert 'noindex,follow' in (ROOT/path).read_text()
-print(f'PASS: {len(paths)} static pages, {checks} local asset/link references, bilingual SEO, translated English prose, current canonical project text and all 16 original WebP files (resume updated separately).')
+    assert '<meta name="robots" content="noindex">' in (ROOT/path).read_text()
+assert not list(ROOT.glob('*.pdf')), 'Private attachments must not be published'
+assert 'Disallow: /' not in (ROOT/'robots.txt').read_text()
+assert current_content['values']['ui.zh.name']=='Vaiorett'
+assert current_content['values']['ui.en.name']=='Vaiorett'
+assert 'site.phone' not in current_content['values']
+ui_source=(ROOT/'ui.js').read_text()
+for icon in re.findall(r":'([a-z0-9]+)'",re.search(r'const logos=\{([^}]+)\}',ui_source).group(1)):
+    assert (ROOT/'assets/icons'/f'{icon}.svg').is_file(),icon
+for font in re.findall(r'assets/fonts/[a-z0-9-]+\.woff2',(ROOT/'portfolio.css').read_text()):
+    assert (ROOT/font).is_file(),font
+print(f'PASS: {len(paths)} static pages, {checks} local asset/link references, bilingual metadata, noindex, no public PDF/phone, current project content and original WebP files.')

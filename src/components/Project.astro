@@ -1,0 +1,14 @@
+---
+import Portfolio from '../layouts/Portfolio.astro';
+const {lang}=Astro.props,root=lang==='en'?'../':'./',t=k=>`@@ui.${lang}.${k}@@`,p=k=>`@@project.__project__.${lang}.${k}@@`;
+---
+<Portfolio lang={lang} project={true}>
+<div class="project-page wrap"><a class="back-link" href="./index.html#work">← {t('back')}</a><header class="project-heading"><p class="eyebrow accent">{`@@category.__project__.${lang}@@`}</p><h1>{p('title')}</h1><p class="project-lead">{p('desc')}</p></header>
+<div class="project-facts"><div><span>{t('category')}</span><strong>{`@@category.__project__.${lang}@@`}</strong></div><div><span>{t('role')}</span><strong>{p('role')}</strong></div><div><span>{t('tools')}</span><strong>{p('tools')}</strong></div></div>
+<div class="detail-overview"><section><h2>{t('context')}</h2><p>{p('context')}</p></section><section><h2>{t('tasks')}</h2><ul>{p('tasks')}</ul></section></div>
+{`@@videos.__project__.${lang}@@`}
+<section class="gallery-section"><div class="gallery-heading"><h2>{t('gallery')}</h2><span data-gallery-count>{lang==='zh'?'@@count.__project__@@ 张图片 · 点击放大查看':'@@count.__project__@@ images · Click to enlarge'}</span></div><div class="project-gallery" data-gallery="__project__" data-root={root} data-title={p('title')}>{`@@gallery.__project__.${lang}@@`}</div></section>
+<section class="work-note"><div><h2>{t('note')}</h2><p>{p('note')}</p></div>{`@@source.__project__.${lang}@@`}</section>{`@@next.__project__.${lang}@@`}
+</div>
+<dialog class="lightbox" aria-label={t('zoom')}><div class="lightbox-toolbar"><span></span><div class="lightbox-controls"><span class="lightbox-position"></span><button type="button" class="previous-image" aria-label={t('previous')}>←</button><button type="button" class="next-image" aria-label={t('nextimage')}>→</button><button type="button" class="close-lightbox">{t('close')} ×</button></div></div><div class="lightbox-scroll"><img alt=""></div></dialog>
+</Portfolio>

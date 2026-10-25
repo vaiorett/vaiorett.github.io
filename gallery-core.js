@@ -16,14 +16,17 @@
         const videoIds=new Set();
         for(const video of project.videos){
           if(!video||typeof video.id!=='string'||videoIds.has(video.id)||typeof video.title!=='string'||typeof video.titleEn!=='string'||video.title.length>300||video.titleEn.length>300)throw new Error('视频资料不完整。');
-          videoInfo(video.url);for(const key of ['poster','posterOverride'])if(video[key]&&!V.imageURL(video[key]))throw new Error('视频封面地址不正确。');videoIds.add(video.id);
+          videoInfo(video.url);if(video.playbackUrl&&videoInfo(video.playbackUrl).provider!=='file')throw new Error('纯净播放版本需要 HTTPS MP4 / WebM 直链。');for(const key of ['poster','posterOverride'])if(video[key]&&!V.imageURL(video[key]))throw new Error('视频封面地址不正确。');videoIds.add(video.id);
         }
       }
+      if(project.layout!==undefined&&!['auto','stack','grid','story'].includes(project.layout))throw new Error('项目排版选项不正确。');
       const ids=new Set();
       for(const item of project.images){
         if(!item || typeof item.id!=='string' || ids.has(item.id) || !safePath(item.src) || typeof item.caption!=='string' || typeof item.alt!=='string') throw new Error('图片资料不完整。');
         if(item.thumbnail!==undefined&&!safePath(item.thumbnail))throw new Error('封面小图路径不正确。');
         if((item.width!==undefined||item.height!==undefined)&&(!Number.isInteger(item.width)||!Number.isInteger(item.height)||item.width<1||item.height<1))throw new Error('图片尺寸资料不正确。');
+        if(item.layout!==undefined&&!['auto','full','half'].includes(item.layout))throw new Error('图片排版选项不正确。');
+        for(const key of ['body','bodyEn'])if(item[key]!==undefined&&(typeof item[key]!=='string'||item[key].length>6000))throw new Error('图文说明最多 6000 字。');
         ids.add(item.id);
       }
     }

@@ -25,7 +25,7 @@ def info(raw):
             return dict(provider='youtube',id=id,url='https://www.youtube.com/watch?v='+id,embed='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0',poster='https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg',posterFallback='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg')
         elif re.search(r'\.(?:mp4|webm)$',u.path,re.I):return dict(provider='file',url=raw,embed=raw,poster='',posterFallback='')
         else:raise ValueError('Unsupported video provider')
-    return dict(provider='bilibili',bvid=bvid,page=page,url=f'https://www.bilibili.com/video/{bvid}/?p={page}',embed=f'https://player.bilibili.com/player.html?bvid={bvid}&p={page}&autoplay=1&danmaku=0&poster=1',poster='',posterFallback='')
+    return dict(provider='bilibili',bvid=bvid,page=page,url=f'https://www.bilibili.com/video/{bvid}/?p={page}',embed=f'https://player.bilibili.com/player.html?bvid={bvid}&p={page}&autoplay=1&danmaku=0&high_quality=1&as_wide=1&poster=1',poster='',posterFallback='')
 
 def image_url(value):
     if local(value):return True
@@ -44,7 +44,8 @@ def markup(items,lang,fallback):
     zh=lang=='zh';out='<section id="project-videos" class="project-videos" aria-label="'+('项目视频' if zh else 'Project videos')+'"><h2>'+('项目视频' if zh else 'Project videos')+'</h2>'
     for i,item in enumerate(items):
         v=info(item['url']);title=(item['title'] if zh else item['titleEn']) or ('项目视频 ' if zh else 'Project video ')+str(i+1)
-        label=('B 站' if zh else 'Bilibili') if v['provider']=='bilibili' else 'YouTube' if v['provider']=='youtube' else '视频' if zh else 'Video'
-        cover=poster(item,fallback);link=('打开视频' if v['provider']=='file' else '在 '+label+' 观看') if zh else ('Open video' if v['provider']=='file' else 'Watch on '+label)
-        out+='<article class="project-video"><div class="video-screen"><button type="button" class="video-play" data-video-url="'+esc(v['url'])+'" data-video-title="'+esc(title)+'" aria-label="'+esc(('播放视频：' if zh else 'Play video: ')+title)+'"><img class="video-poster" src="'+esc(asset(cover,lang))+'" alt="" loading="lazy" referrerpolicy="no-referrer" data-poster-fallback="'+esc(v['posterFallback'] or asset(fallback,lang))+'" data-project-poster="'+esc(asset(fallback,lang))+'"><span class="video-shade" aria-hidden="true"></span><span class="video-play-icon" aria-hidden="true">▶</span><span class="video-provider">'+esc(label)+'</span><span class="video-poster-title">'+esc(title)+'</span></button></div><div class="video-caption"><h3>'+esc(title)+'</h3><a href="'+esc(v['url'])+'" target="_blank" rel="noopener">'+esc(link)+' ↗</a></div><p class="video-play-status" role="status" aria-live="polite"></p></article>'
+        playback=info(item['playbackUrl']) if item.get('playbackUrl') else v
+        cover=poster(item,fallback);help='播放选项' if zh else 'Playback options'
+        note='若出现登录验证或无法播放，可打开视频来源。第三方播放器的推荐、画质及验证由平台控制。' if zh else 'If sign-in is required or playback is unavailable, open the video source. Recommendations, quality and verification are controlled by the platform.'
+        out+='<article class="project-video"><div class="video-screen"><button type="button" class="video-play" data-video-url="'+esc(playback['url'])+'" data-video-title="'+esc(title)+'" aria-label="'+esc(('播放视频：' if zh else 'Play video: ')+title)+'"><img class="video-poster" src="'+esc(asset(cover,lang))+'" alt="" loading="lazy" referrerpolicy="no-referrer" data-poster-fallback="'+esc(v['posterFallback'] or asset(fallback,lang))+'" data-project-poster="'+esc(asset(fallback,lang))+'"><span class="video-shade" aria-hidden="true"></span><span class="video-play-icon" aria-hidden="true">▶</span></button></div><div class="video-toolbar" hidden><details class="video-options"><summary aria-label="'+help+'" title="'+help+'">⋯</summary><div class="video-options-panel"><p>'+note+'</p><a href="'+esc(v['url'])+'" target="_blank" rel="noopener">'+('打开视频来源' if zh else 'Open video source')+' ↗</a></div></details></div><p class="video-play-status" role="status" aria-live="polite"></p></article>'
     return out+'</section>'

@@ -1,0 +1,11 @@
+{
+  "name": "vaiorett-portfolio",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "build": "astro build && node scripts/collect-templates.mjs && sass src/styles/portfolio.scss portfolio.css --no-source-map --style=compressed && python3 scripts/build.py",
+    "test": "node --test tests/*.test.cjs && python3 tests/video-posters.test.py && python3 scripts/check.py",
+    "preview": "python3 -m http.server 8770 --bind 127.0.0.1"
+  },
+  "devDependencies": {"astro": "7.4.2", "sass": "1.106.1"}
+}

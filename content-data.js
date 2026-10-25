@@ -3,16 +3,13 @@ window.PORTFOLIO_CONTENT = {
   "values": {
     "site.brand": "Vaiorett",
     "site.email": "violetevergarden455100@gmail.com",
-    "site.phone": "17551573719",
-    "ui.zh.name": "刘志",
-    "ui.zh.title": "刘志 · 建筑可视化、三维建模与数字资产作品集",
-    "ui.zh.description": "刘志的求职作品集：建筑可视化、三维建模、产品数字化与材质渲染。查看 8 组真实项目、个人职责、工作经历与简历。",
+    "ui.zh.name": "Vaiorett",
+    "ui.zh.title": "Vaiorett · 建筑可视化与三维制作作品集",
+    "ui.zh.description": "Vaiorett 的建筑可视化、三维建模、产品数字化与材质渲染作品集。查看真实项目、制作过程和个人职责。",
     "ui.zh.work": "作品",
     "ui.zh.capabilities": "专业能力",
     "ui.zh.about": "关于",
     "ui.zh.contact": "联系",
-    "ui.zh.resume": "简历 PDF",
-    "ui.zh.resume_full": "查看简历（中文 PDF）",
     "ui.zh.skip": "跳到主要内容",
     "ui.zh.nav": "主导航",
     "ui.zh.home": "作品集首页",
@@ -41,8 +38,8 @@ window.PORTFOLIO_CONTENT = {
     "ui.zh.assets": "三维资产",
     "ui.zh.product": "产品渲染",
     "ui.zh.studies": "空间与 CGI",
-    "ui.zh.experience": "工作经历",
-    "ui.zh.education": "教育经历",
+    "ui.zh.experience": "制作经历",
+    "ui.zh.education": "学习背景",
     "ui.zh.certificates": "证书",
     "ui.zh.alltools": "工具与技能",
     "ui.zh.footer": "建筑 · 模型 · 视觉",
@@ -56,8 +53,8 @@ window.PORTFOLIO_CONTENT = {
     "home.zh.capTitle": "用作品说明能力",
     "home.zh.aboutTitle": "从空间到产品，\n持续积累制作经验。",
     "home.zh.aboutIntro": [
-      "我是刘志，也使用 Vaiorett 这个名字。",
-      "我做过产品数字化、家具渲染、建筑绘图与室内设计协作，参与模型制作、图纸表达、材质灯光和视觉内容交付。",
+      "我是 Vaiorett，专注建筑可视化、三维建模与数字资产制作。",
+      "制作经历涵盖产品数字化、家具渲染、建筑绘图与室内设计协作，参与模型制作、图纸表达、材质灯光和视觉内容交付。",
       "目前正在学习 AI 视频创作，探索三维制作与 AIGC 的结合。"
     ],
     "home.zh.contactTitle": "寻找下一份\n与三维制作有关的机会。",
@@ -71,15 +68,13 @@ window.PORTFOLIO_CONTENT = {
     "cap.zh.2.0": "材质、灯光与渲染",
     "cap.zh.2.1": "通过材质、构图与光影，呈现产品细节和空间氛围。",
     "cap.zh.2.2": "3ds Max / V-Ray / Chaos Vantage",
-    "ui.en.name": "Liu Zhi",
-    "ui.en.title": "Liu Zhi · Architectural Visualization & 3D Portfolio",
-    "ui.en.description": "Portfolio of Liu Zhi: architectural visualization, 3D modeling, product digitization and rendering. Explore eight projects, individual contributions, experience and résumé.",
+    "ui.en.name": "Vaiorett",
+    "ui.en.title": "Vaiorett · Architectural Visualization & 3D Portfolio",
+    "ui.en.description": "Selected work by Vaiorett in architectural visualization, 3D modeling, product digitization and rendering. Explore projects, process and individual contributions.",
     "ui.en.work": "Work",
     "ui.en.capabilities": "Capabilities",
     "ui.en.about": "About",
     "ui.en.contact": "Contact",
-    "ui.en.resume": "Résumé PDF",
-    "ui.en.resume_full": "View résumé (Chinese PDF)",
     "ui.en.skip": "Skip to main content",
     "ui.en.nav": "Main navigation",
     "ui.en.home": "Portfolio home",
@@ -108,8 +103,8 @@ window.PORTFOLIO_CONTENT = {
     "ui.en.assets": "3D assets",
     "ui.en.product": "Product rendering",
     "ui.en.studies": "Interior & CGI",
-    "ui.en.experience": "Experience",
-    "ui.en.education": "Education",
+    "ui.en.experience": "Production experience",
+    "ui.en.education": "Learning background",
     "ui.en.certificates": "Certificates",
     "ui.en.alltools": "Tools & skills",
     "ui.en.footer": "Architecture · Models · Visuals",
@@ -123,9 +118,9 @@ window.PORTFOLIO_CONTENT = {
     "home.en.capTitle": "Skills, grounded in work.",
     "home.en.aboutTitle": "Across spaces\nand objects.",
     "home.en.aboutIntro": [
-      "I’m Liu Zhi, also known as Violet_Kokoro.",
-      "My experience spans product digitization, furniture rendering, architectural drafting and interior design collaboration, including modeling, drawing presentation, materials, lighting and visual delivery.",
-      "I’m currently learning AI video creation and exploring how it can connect with 3D production."
+      "I’m Vaiorett. My work focuses on architectural visualization, 3D modeling and digital assets.",
+      "My production experience covers product digitization, furniture rendering, architectural drafting and interior design collaboration, including modeling, drawing presentation, materials, lighting and visual delivery.",
+      "I’m currently learning AI video creation and exploring its connection with 3D production."
     ],
     "home.en.contactTitle": "Let’s talk\nabout the next opportunity.",
     "home.en.contactIntro": "For opportunities in architectural visualization, 3D modeling, digital asset production and related technical roles.",
@@ -141,7 +136,7 @@ window.PORTFOLIO_CONTENT = {
     "project.product-rendering.zh.title": "家具产品渲染",
     "project.product-rendering.zh.desc": "围绕家具产品的材质、光影与场景氛围，制作面向电商展示及产品宣传的渲染画面。",
     "project.product-rendering.zh.role": "材质制作 / 灯光与渲染",
-    "project.product-rendering.zh.context": "深圳市雅琪家具有限公司任职期间，结合产品运营需求，完成多批次家具产品的视觉表现。",
+    "project.product-rendering.zh.context": "家具产品商业展示项目，结合产品展示需求，完成多批次家具产品的视觉表现。",
     "project.product-rendering.zh.note": "商业项目作品；个人职责为产品渲染与视觉表现。",
     "project.product-rendering.zh.tools": [
       "3ds Max",
@@ -156,7 +151,7 @@ window.PORTFOLIO_CONTENT = {
     "project.product-rendering.en.title": "Furniture Product Rendering",
     "project.product-rendering.en.desc": "Furniture visualizations focused on materials, lighting and atmosphere for e-commerce and product promotion.",
     "project.product-rendering.en.role": "Materials / Lighting & rendering",
-    "project.product-rendering.en.context": "At Shenzhen Yaqi Furniture Co., Ltd., I produced furniture visualizations across multiple batches in response to product operations needs.",
+    "project.product-rendering.en.context": "Commercial furniture visualization, producing images for product presentation and marketing.",
     "project.product-rendering.en.note": "Commercial project. My responsibilities were product rendering and visual presentation.",
     "project.product-rendering.en.tools": [
       "3ds Max",
@@ -171,7 +166,7 @@ window.PORTFOLIO_CONTENT = {
     "project.digital-assets.zh.title": "产品数字化与三维资产",
     "project.digital-assets.zh.desc": "以产品高精度三维资产为核心，连接数字化采集、模型优化与材质制作，支持数字产品交付。",
     "project.digital-assets.zh.role": "资产制作 / 拓扑与材质",
-    "project.digital-assets.zh.context": "矩阵工业科技（深圳）有限公司任职期间，负责产品数字化资产创建及生产流程梳理。",
+    "project.digital-assets.zh.context": "产品数字化项目，负责产品数字资产创建及制作流程梳理。",
     "project.digital-assets.zh.note": "商业项目作品；图中展示数字化采集与资产制作过程。",
     "project.digital-assets.zh.tools": [
       "RealityCapture",
@@ -187,7 +182,7 @@ window.PORTFOLIO_CONTENT = {
     "project.digital-assets.en.title": "Product Digitization & 3D Assets",
     "project.digital-assets.en.desc": "High-detail product assets connecting digital capture, model optimization and material creation for digital product delivery.",
     "project.digital-assets.en.role": "Asset production / Topology & materials",
-    "project.digital-assets.en.context": "At Matrix Industrial Technology (Shenzhen) Co., Ltd., I created digital product assets and documented production workflows.",
+    "project.digital-assets.en.context": "Product digitization work involving digital asset creation and production workflow documentation.",
     "project.digital-assets.en.note": "Commercial project. The images document digital capture and asset production.",
     "project.digital-assets.en.tools": [
       "RealityCapture",
@@ -203,7 +198,7 @@ window.PORTFOLIO_CONTENT = {
     "project.grandstand.zh.title": "赛车场看台与配套空间",
     "project.grandstand.zh.desc": "参与赛车场看台及配套空间的方案协作，借助模型与效果图表达立面、体量及空间关系。",
     "project.grandstand.zh.role": "方案建模 / 建筑表现",
-    "project.grandstand.zh.context": "比亚迪勘察设计有限公司项目经历。按照设计方案进行模型搭建，并协助建筑与立面方案表达。",
+    "project.grandstand.zh.context": "团队建筑项目，参与赛车场看台及配套空间的方案建模与建筑表现。",
     "project.grandstand.zh.note": "团队项目；个人参与方案建模与建筑可视化，项目整体设计归原团队。",
     "project.grandstand.zh.tools": [
       "SketchUp",
@@ -218,7 +213,7 @@ window.PORTFOLIO_CONTENT = {
     "project.grandstand.en.title": "Racetrack Grandstand & Facilities",
     "project.grandstand.en.desc": "Models and rendered views supporting the design of a racetrack grandstand and associated spaces, with a focus on façades, massing and spatial relationships.",
     "project.grandstand.en.role": "Design modeling / Architectural visualization",
-    "project.grandstand.en.context": "Project work at BYD Survey and Design Co., Ltd. I built models from design proposals and supported architectural and façade presentations.",
+    "project.grandstand.en.context": "A team architecture project involving design modeling and visualization of a racetrack grandstand and supporting spaces.",
     "project.grandstand.en.note": "Team project. My contribution was design modeling and architectural visualization; overall design belongs to the original team.",
     "project.grandstand.en.tools": [
       "SketchUp",
@@ -233,7 +228,7 @@ window.PORTFOLIO_CONTENT = {
     "project.pedestrian-bridge.zh.title": "人行天桥与场地",
     "project.pedestrian-bridge.zh.desc": "根据设计师的人行天桥方案构建场地与桥体模型，用多视角效果图辅助方案沟通。",
     "project.pedestrian-bridge.zh.role": "场地建模 / 效果图制作",
-    "project.pedestrian-bridge.zh.context": "比亚迪勘察设计有限公司项目经历，为方案与供应商沟通、报规材料提供视觉支持。",
+    "project.pedestrian-bridge.zh.context": "团队建筑项目，根据设计师方案参与桥体与场地建模，制作多视角效果图。",
     "project.pedestrian-bridge.zh.note": "团队项目；个人职责为场地与桥体建模、效果图制作。",
     "project.pedestrian-bridge.zh.tools": [
       "AutoCAD",
@@ -248,7 +243,7 @@ window.PORTFOLIO_CONTENT = {
     "project.pedestrian-bridge.en.title": "Pedestrian Bridge & Site",
     "project.pedestrian-bridge.en.desc": "Bridge and site models based on the designer’s proposal, with rendered views from multiple angles to support design communication.",
     "project.pedestrian-bridge.en.role": "Site modeling / Rendering",
-    "project.pedestrian-bridge.en.context": "Project work at BYD Survey and Design Co., Ltd., providing visual support for design discussions, supplier coordination and planning submissions.",
+    "project.pedestrian-bridge.en.context": "A team architecture project, modeling the bridge and surrounding site from the design proposal and producing rendered views.",
     "project.pedestrian-bridge.en.note": "Team project. My responsibilities were bridge and site modeling and rendered images.",
     "project.pedestrian-bridge.en.tools": [
       "AutoCAD",
@@ -260,10 +255,10 @@ window.PORTFOLIO_CONTENT = {
       "Produced multiple views of the bridge, roads and surrounding environment.",
       "Updated the work as the design evolved and prepared images for coordination and planning submissions."
     ],
-    "project.yunba-depot.zh.title": "济南高新环线云巴车辆基地",
+    "project.yunba-depot.zh.title": "轨道交通车辆基地",
     "project.yunba-depot.zh.desc": "以车辆基地建筑与场地关系为重点，通过鸟瞰和透视画面展示建筑体量、立面与整体环境。",
     "project.yunba-depot.zh.role": "建筑建模 / 视觉表现",
-    "project.yunba-depot.zh.context": "比亚迪勘察设计有限公司期间参与的建筑可视化作品，项目名称沿用原作品集。",
+    "project.yunba-depot.zh.context": "团队轨道交通项目，参与车辆基地建筑与场地建模，并制作建筑表现图。",
     "project.yunba-depot.zh.note": "团队项目；个人参与建筑建模与视觉表现，项目整体设计归原团队。",
     "project.yunba-depot.zh.tools": [
       "AutoCAD",
@@ -275,10 +270,10 @@ window.PORTFOLIO_CONTENT = {
       "制作鸟瞰与透视表现，辅助方案展示。",
       "配合团队整理模型及效果图交付。"
     ],
-    "project.yunba-depot.en.title": "Jinan High-tech Loop · Yunba Depot",
+    "project.yunba-depot.en.title": "Rail Transit Depot",
     "project.yunba-depot.en.desc": "Aerial and perspective views of the depot, showing building massing, façades and the relationship between architecture and its site.",
     "project.yunba-depot.en.role": "Architectural modeling / Visualization",
-    "project.yunba-depot.en.context": "Architectural visualization work undertaken at BYD Survey and Design Co., Ltd. The project name follows the original portfolio.",
+    "project.yunba-depot.en.context": "A team rail-transit project involving building and site modeling and visualization for a vehicle depot.",
     "project.yunba-depot.en.note": "Team project. My contribution was architectural modeling and visualization; overall design belongs to the original team.",
     "project.yunba-depot.en.tools": [
       "AutoCAD",
@@ -290,10 +285,10 @@ window.PORTFOLIO_CONTENT = {
       "Produced aerial and perspective visualizations for design presentations.",
       "Helped the team organize models and rendered images for delivery."
     ],
-    "project.residential.zh.title": "贵阳沙文保租房时光序",
+    "project.residential.zh.title": "住宅与公共空间",
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
     "project.residential.zh.role": "模型制作 / 住宅表现",
-    "project.residential.zh.context": "比亚迪勘察设计有限公司期间参与的住宅项目作品，项目名称沿用原作品集。",
+    "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
     "project.residential.zh.note": "团队项目；个人参与模型与建筑表现，项目整体设计归原团队。",
     "project.residential.zh.tools": [
       "SketchUp",
@@ -305,10 +300,10 @@ window.PORTFOLIO_CONTENT = {
       "协助方案与建筑图纸表达，制作展示效果图。",
       "配合团队整理用于沟通的建筑表现成果。"
     ],
-    "project.residential.en.title": "Shiguangxu Rental Housing · Guiyang Shawen",
+    "project.residential.en.title": "Housing & Shared Spaces",
     "project.residential.en.desc": "Architectural models and rendered views exploring the relationship between residential buildings, public spaces and the site.",
     "project.residential.en.role": "Model production / Residential visualization",
-    "project.residential.en.context": "Residential project work undertaken at BYD Survey and Design Co., Ltd. The project name follows the original portfolio.",
+    "project.residential.en.context": "A team residential project involving modeling and architectural visualization of housing and shared spaces.",
     "project.residential.en.note": "Team project. My contribution was modeling and architectural visualization; overall design belongs to the original team.",
     "project.residential.en.tools": [
       "SketchUp",
@@ -378,107 +373,102 @@ window.PORTFOLIO_CONTENT = {
       "Compared base models with their materialized appearance.",
       "Documented work on surface textures, details and lighting."
     ],
-    "profile.experience.0.date": "2025.06 — 2025.09",
     "profile.experience.0.zh.0": "三维数字化工程师",
-    "profile.experience.0.zh.1": "矩阵工业科技（深圳）有限公司",
+    "profile.experience.0.zh.1": "产品数字化",
     "profile.experience.0.zh.2": "",
     "profile.experience.0.en.0": "3D Digitization Engineer",
-    "profile.experience.0.en.1": "Matrix Industrial Technology (Shenzhen) Co., Ltd.",
+    "profile.experience.0.en.1": "Product digitization",
     "profile.experience.0.en.2": "",
-    "profile.experience.1.date": "2024.09 — 2024.10",
     "profile.experience.1.zh.0": "产品渲染师",
-    "profile.experience.1.zh.1": "深圳市雅琪家具有限公司",
+    "profile.experience.1.zh.1": "家具产品展示",
     "profile.experience.1.zh.2": "",
     "profile.experience.1.en.0": "Product Rendering Artist",
-    "profile.experience.1.en.1": "Shenzhen Yaqi Furniture Co., Ltd.",
+    "profile.experience.1.en.1": "Furniture product visualization",
     "profile.experience.1.en.2": "",
-    "profile.experience.2.date": "2022.06 — 2024.08",
     "profile.experience.2.zh.0": "建筑绘图员 / 实习生",
-    "profile.experience.2.zh.1": "比亚迪勘察设计有限公司",
-    "profile.experience.2.zh.2": "2022.06 — 2023.06 实习；2023.06 — 2024.08 建筑绘图员",
+    "profile.experience.2.zh.1": "建筑设计协作",
+    "profile.experience.2.zh.2": "",
     "profile.experience.2.en.0": "Architectural Draftsperson / Intern",
-    "profile.experience.2.en.1": "BYD Survey and Design Co., Ltd.",
-    "profile.experience.2.en.2": "Intern: Jun 2022 – Jun 2023; architectural draftsperson: Jun 2023 – Aug 2024.",
-    "profile.experience.3.date": "2020 — 2022",
+    "profile.experience.2.en.1": "Architectural design collaboration",
+    "profile.experience.2.en.2": "",
     "profile.experience.3.zh.0": "早期室内设计实践",
-    "profile.experience.3.zh.1": "室内设计社团工作室 · 惠州市水木园文化有限公司",
-    "profile.experience.3.zh.2": "两段实习经历，具体起止时间见简历。",
+    "profile.experience.3.zh.1": "室内设计实践",
+    "profile.experience.3.zh.2": "",
     "profile.experience.3.en.0": "Early Interior Design Practice",
-    "profile.experience.3.en.1": "Interior Design Club Studio · Huizhou Shuimuyuan Culture Co., Ltd.",
-    "profile.experience.3.en.2": "Two internships; individual dates are listed in the résumé.",
-    "profile.education.0.zh.0": "广东开放大学",
-    "profile.education.0.zh.1": "工商企业管理 · 大专在读 · 开放教育 · 嘉应分校",
-    "profile.education.0.zh.2": "2024.09 入学 / 预计 2027.01 毕业",
-    "profile.education.0.en.0": "Guangdong Open University",
-    "profile.education.0.en.1": "Business Administration · Junior college diploma in progress · Open education · Jiaying Branch",
-    "profile.education.0.en.2": "Enrolled Sep 2024 / Expected graduation Jan 2027",
-    "profile.education.1.zh.0": "深圳市携创高级技工学校",
-    "profile.education.1.zh.1": "美术设计与制作 · 高级工",
-    "profile.education.1.zh.2": "2018 — 2023",
-    "profile.education.1.en.0": "Shenzhen Xiechuang Advanced Technical School",
-    "profile.education.1.en.1": "Art Design & Production · Advanced skilled-worker program",
-    "profile.education.1.en.2": "2018 — 2023",
+    "profile.experience.3.en.1": "Interior design practice",
+    "profile.experience.3.en.2": "",
+    "profile.education.0.zh.0": "工商企业管理",
+    "profile.education.0.zh.1": "大专在读 · 开放教育",
+    "profile.education.0.en.0": "Business Administration",
+    "profile.education.0.en.1": "Junior college diploma in progress · Open education",
+    "profile.education.1.zh.0": "美术设计与制作",
+    "profile.education.1.zh.1": "高级工教育背景",
+    "profile.education.1.en.0": "Art Design & Production",
+    "profile.education.1.en.1": "Advanced skilled-worker education",
     "profile.tools": [
       "Blender",
       "3ds Max",
-      "RealityCapture",
-      "UE5",
       "SketchUp",
       "Rhino",
+      "UG",
+      "RealityCapture",
+      "UE5",
       "V-Ray",
+      "Corona",
       "Chaos Vantage",
       "D5",
+      "Enscape",
       "AutoCAD",
+      "天正建筑",
       "Revit",
+      "Gemini",
+      "ChatGPT",
+      "Claude",
+      "ComfyUI",
+      "Stable Diffusion",
+      "AIGC",
       "Photoshop",
       "InDesign",
-      "UG",
-      "AIGC",
-      "MS Office"
+      "MS Office",
+      "Linux",
+      "Fedora KDE",
+      "Ubuntu GNOME"
     ],
     "profile.certificates.zh": [
-      "全国计算机等级考试一级 · 计算机基础及 MS Office 应用 · 2019.09 · 成绩良好",
+      "全国计算机等级考试一级 · 计算机基础及 MS Office 应用",
       "室内装饰设计师三级",
       "ISO 9001:2015 内审员证"
     ],
     "profile.certificates.en": [
-      "National Computer Rank Examination, Level 1 · Computer Fundamentals & MS Office · Sep 2019 · Grade: Good",
+      "National Computer Rank Examination, Level 1 · Computer Fundamentals & MS Office",
       "Interior Decoration Designer, Level 3",
       "ISO 9001:2015 Internal Auditor Certificate"
     ]
   },
   "projects": {
     "yunba-depot": {
-      "category": "architecture",
-      "source": "https://violetkokoro.portfoliobox.net/blog/post3dummy"
+      "category": "architecture"
     },
     "digital-assets": {
-      "category": "assets",
-      "source": "https://violetkokoro.portfoliobox.net/blog/dyjvykqruyedipnl"
+      "category": "assets"
     },
     "grandstand": {
-      "category": "architecture",
-      "source": "https://violetkokoro.portfoliobox.net/blog/post6dummy"
+      "category": "architecture"
     },
     "pedestrian-bridge": {
-      "category": "architecture",
-      "source": "https://violetkokoro.portfoliobox.net/blog/post5dummy"
+      "category": "architecture"
     },
     "residential": {
-      "category": "architecture",
-      "source": "https://violetkokoro.portfoliobox.net/blog/post2dummy"
+      "category": "architecture"
     },
     "product-rendering": {
-      "category": "product",
-      "source": "https://violetkokoro.portfoliobox.net/blog/pjgdvmzwpsgclbnu"
+      "category": "product"
     },
     "interior": {
-      "category": "studies",
-      "source": "https://violetkokoro.portfoliobox.net/blog/lnpyob3eqls4i20a"
+      "category": "studies"
     },
     "cgi": {
-      "category": "studies",
-      "source": "https://violetkokoro.portfoliobox.net/blog/cgi"
+      "category": "studies"
     }
   }
 };

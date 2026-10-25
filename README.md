@@ -1,122 +1,39 @@
-# 刘志的作品与探索
+# Vaiorett · Portfolio
 
-个人作品集地址：https://vaiorett.github.io/
+A bilingual portfolio for architectural visualization, 3D modeling and digital asset production. Eight project URLs and existing project artwork are preserved. The public website uses the Vaiorett brand and a dedicated contact email; the complete résumé is shared separately during applications.
 
-包含产品、建筑、室内与数字制作实践。逐张图片管理入口为 manage.html，操作说明见“更新图片说明.html”。
+## Editing without code
 
-## 更新作品图片
+Open `manage.html`. Add a project, upload images or video links, edit Chinese and English text, choose a layout, preview, then publish. New images and custom video covers are converted to WebP in the browser. The editor keeps drafts locally; the GitHub token is held only in memory and never written to the repository or export. Use a fine-grained token limited to this repository with Contents read/write.
 
-1. 打开网站底部的“作品管理”，选择项目。
-2. 添加或替换独立图片，填写说明，调整顺序与封面。
-3. 连接 GitHub 后发布，或导出更新文件自行在 GitHub 上传。
+Image layouts: automatic, full-width, two-column gallery, or alternating image-and-text narrative. Each image can have Chinese/English paragraphs and a width preference. Drag images or use the move buttons to change reading order. Mobile uses one column; long boards remain complete. Automatic layout does not generate or translate text.
 
-新上传的 JPG、PNG、WebP、AVIF 静态图片会先在浏览器转换为 WebP，原图上限 32 MB，转换后每张上限 8 MB。可选择高清作品、保留原尺寸或更小文件。新图片加入后可以移除现有作品长图；移除只改变展示，不删除仓库中的原始文件。草稿保存在当前浏览器，换设备前请导出。
+Video links support Bilibili, YouTube and HTTPS MP4/WebM files. Posters show only a play button. Playback options contain the source link and troubleshooting help. Third-party sign-in verification, recommendations and playback quality remain controlled by their platforms. An optional direct MP4/WebM version uses the native player without platform recommendations. No media stream extraction or login bypass is performed.
 
-管理页直接发布使用仅允许本仓库 Contents 读写的精细授权令牌，由用户自行在 GitHub 官方页面创建与保管。令牌只在当前页面内存中使用，不写入草稿、网站、链接或导出文件。发布会检查版本，发生冲突时保留草稿并停止更新。提交成功后仍需等待 GitHub Pages 更新。
+## Build
 
-## 文件结构
+Node 24.22.1 or a version supported by Astro 7.4.2:
 
-首页是 index.html，各作品详情是 work-项目名称.html。当前画廊的图片、顺序、说明与封面保存在 gallery-data.js；新上传的独立图片在 images/uploads/ 子目录。原有图片以 image- 开头。公开简历是 liu-zhi-resume.pdf。
+```sh
+npm ci
+npm run build
+npm test
+```
 
-## 学历与证书
+Astro components in `src/` generate shared page templates. SCSS generates `portfolio.css`; `scripts/collect-templates.mjs` packages the templates, and `scripts/build.py` renders current content into the bilingual static HTML files. Commit source and generated files together. GitHub Pages serves the repository root.
 
-广东开放大学工商企业管理专业，大专在读，开放教育，2024 年 9 月入学，预计 2027 年 1 月毕业。保留深圳市携创高级技工学校美术设计与制作高级工经历。
+Daily content edits do not require Node or an AI chat. The editor and Python renderer use the same committed templates, so automatic poster updates preserve the design. `content-data.js` stores approved public text, `gallery-data.js` stores media and layout choices, and `src/data/schema.json` defines the editable fields.
 
-新增全国计算机等级考试一级，科目为计算机基础及 MS Office 应用，2019 年 9 月，成绩良好。
+## Privacy and maintenance
 
-公开简历已按用户要求加入手机/微信 17551573719，并同步当前网站邮箱。完整投递版及可编辑 Word 单独交付。证书与学生证原图、证件号码、准考证号和学号未放入网站。
+Every public HTML page, including future generated project pages, contains `noindex`. Crawling remains allowed so search engines can read that directive. The sitemap is empty. This is an indexing preference, not access control: anyone with a URL can view, copy, screenshot or redistribute public content.
 
-## 作品来源
+Do not upload a complete résumé, personal phone number, real-name identity details, employer-internal documents, raw design files or material you are not entitled to show. Review screenshots for visible usernames, file paths, addresses and confidential annotations. Strip metadata from externally prepared files; the normal browser WebP conversion does not carry source EXIF into its output.
 
-原有图片来自 https://violetkokoro.portfoliobox.net/ ，每个项目保留原链接。团队项目注明个人职责，整体设计归原团队。原图为长幅拼图，可逐张替换为原始高清效果图。真实作品未套用开源许可。JSZip 许可证见 JSZip-LICENSE.md。
+The privacy revision uses a new local draft store to avoid silently restoring old identity-bearing drafts. Old browser drafts are not deleted, but they are not automatically imported. Review all text and image captions before publishing. This public repository contains no private backup; keep complete documents and historical backups outside it.
 
-## 2026-10-24 求职与双语改版
+Use a GitHub noreply email for commits. Deleting a file from the current website does not remove it from old commits, forks, clones, search caches or third-party archives. History remediation must be verified separately.
 
-中文入口 `/`，英文入口 `/en/`；8 个原项目均保留，原有 `work-*.html` 地址继续有效。语言按钮切换到同一项目的对应语言；首页的分类筛选和栏目锚点在切换时保留。英文页面明确标注简历仍是原有中文 PDF。
+## Design and licenses
 
-首页调整为：岗位定位 → 精选项目 → 与项目关联的专业能力 → 原有经历、教育和证书 → 求职联系。优先展示建筑可视化与数字资产项目，保留产品渲染、室内和 CGI。未添加雇主、任职时间、业绩数字、开发能力或新作品。
-
-### 内容与维护（当前版本）
-
-日常使用 `manage.html` 的“项目图片”“项目文字 / 工具”“主页 / 个人资料”栏目。中文和英文分别编辑，工具清单每行一项。改完先预览，再连接 GitHub 并点击“发布所有修改”。主页署名、介绍、导航、能力、现有经历与教育、技能、证书、邮箱和搜索摘要都能编辑。网页修改不会改动简历 PDF；编辑器支持新增项目；工作经历仍编辑现有记录。
-
-- `content-data.js`：当前文字的唯一权威数据，包含中英文、公共署名和邮箱；在线管理保存到此文件。
-- `content-templates.js`：由构建脚本生成的惰性网页模板和字段定义，仅管理页加载。浏览器不执行模板内容。
-- `content-core.js`：校验、按字段合并、HTML 转义与 18 个静态网页渲染。
-- `gallery-data.js`：图片、封面、顺序、中英文图片说明；新图在 `images/uploads/`。
-- `scripts/build.py`、`scripts/content_render.py`：Python 3.12+ 标准库构建。读取现有 `content-data.js`，保留在线编辑值，重建模板和全部页面；`site-data.json`、`content/projects.en.json`、`content/profile.json` 仅作为初始值和历史事实来源，修改它们不会覆盖已有在线文字。
-- `portfolio.css`、`app.js`：公开页面样式与交互。
-
-发布在同一提交中保存文字数据、图片数据、新图片与全部中英文 HTML 页面；无需额外运行构建服务，搜索摘要、分享封面、JSON-LD 和无 JavaScript 页面一起更新。canonical、hreflang、旧地址与 sitemap 保留。只需要本仓库 Contents 读写权限，不增加工作流或管理权限。
-
-当前浏览器自动保存图片与文字草稿，旧图片草稿兼容恢复。连接时读取固定提交版本的远端数据与模板，独立文字字段可以合并，同字段冲突停止更新。发布前及写分支前均校验版本，不强制推送。出错可导出 ZIP；ZIP 包括根目录与 `en/` 的网页、两个数据文件和新增图片，需要按路径一起上传。令牌仅存在内存，不进入草稿或导出包。
-
-维护者修改模板后运行 `python3 scripts/build.py`、`python3 scripts/check.py`、`node tests/content-core.test.cjs`、`node tests/gallery-core.test.cjs`。渲染一致性测试比较浏览器与 Python 生成的全部网页；其余测试覆盖用户文本转义、SEO、双语隔离、草稿冲突、单次提交和并发更新保护。
-
-### 验证与现有限制
-
-- 检查 18 个页面、412 个本地图片/链接引用、语言与 canonical/hreflang 标记、分享信息、结构化数据和 sitemap。
-- 检查原中文项目职责与背景不丢失、英文正文已翻译，原有 16 张 WebP 和简历 PDF 保持原文件。
-- 浏览器验证首页筛选及语言切换、同项目切换、图片查看器、Esc 关闭和焦点恢复；中英文首页与代表性项目在 320/390/768/1440 像素框架中无横向溢出。
-- 新版已在浏览器验证文字预览、刷新后草稿恢复、中英文独立编辑和 ZIP 导出；未使用个人令牌执行线上测试写入。
-- 旧作品中部分图像宽度只有 303–443 像素。版式调整不会增加真实细节；后续应逐张补充原始高清图、线框、材质或制作过程，并仅填写可核实的技术参数。
-
-## 图片发布错误处理修复
-
-本次从用户导出的草稿恢复“赛车场看台与配套空间”的 4 张新增图片，并保留原长图、顺序、文件原始字节与所选封面。新图说明使用用户草稿内容，未改写。
-
-管理页的连接成功提示现在仅确认读取权限，不宣称已验证令牌写入权限。上传请求的等待时间由 25 秒调整为 180 秒，其余请求为 30 秒；错误会区分权限不足、限流、网络失败和超时，并保留失败阶段。不会自动重复写请求，也不会将浏览器内存中的修改误称为已持久保存的草稿。GitHub 写入仍需此仓库的 Contents: Read and write 权限。
-
-已同步发布的相同草稿再次连接时不再误报冲突，真正的并发修改仍会停止发布。新增回归检查：`node tests/gallery-core.test.cjs`，覆盖错误分类、超时、相同/冲突草稿、仅上传引用图片与分支版本检查。
-
-发布时按画廊更新时间更新脚本版本参数，减少发布后旧缓存造成的显示延迟。浏览器管理页直接发布图片后，已缓存页面仍可能需要重新加载或等待缓存过期。
-
-
-## 自助新增项目与 B 站视频（2026-10-25）
-
-点击左侧“＋ 新增项目”，填写中英文项目名和分类，系统生成唯一网页地址。新项目先保存为本机草稿；再填写中英文简介、职责和工具，添加图片或视频。第一张上传图片自动作为封面，也可手动更换。视频作品可以不放图片，此时使用中性的播放图标封面。发布前要求中英文简介和至少一张图片或一个视频。尚未发布的新项目可放弃；原有项目没有删除入口。
-
-“项目视频”支持完整 HTTPS B 站普通视频链接、外链播放器链接或 BV 号，保留分 P 参数，去除其他分享参数。b23.tv 短链接需先打开后复制包含 BV 的完整地址；不接受任意 iframe HTML。视频可填写中英文标题、排序或移除。访客点击后才加载 `player.bilibili.com` 官方播放器，不自动播放；保留“在 B 站观看”作为网络或平台限制时的备用入口。管理页静态预览展示视频入口，实际站内播放在发布后的项目页使用。
-
-新增项目保存在 `content-data.js` 的 `projects` 元数据中，文字仍在 `values`。`content-templates.js` 升级到版本 2，以通用项目模板生成任意项目；新增项目无需更新模板文件。发布会一次提交所有中英文页面、主页卡片与分类数量、下一个项目链接、sitemap、数据与新图片。旧图片和文字草稿可以迁移；不同新增项目可以合并，同一字段冲突会停止发布。
-
-验证：`node tests/projects-video.test.cjs` 检查新项目双语链接/卡片/数量/sitemap、视频白名单和短链提示、空项目发布阻止、仅视频作品、草稿恢复、并发新增合并，以及 Python/浏览器渲染一致性。B 站嵌入规则参照 https://player.bilibili.com/ 。平台可能限制个别视频播放；本站不能解除其限制。本站不上传或下载 B 站视频文件。
-
-
-## 简历与联系方式更新（2026-10-25）
-
-主页中英文联系区域新增手机 / 微信，在管理页“主页 / 个人资料”中可修改。已按用户要求将当前联系方式用于公开简历：手机号/微信 17551573719，邮箱以 `content-data.js` 的 `site.email` 为准。
-
-`liu-zhi-resume.pdf` 已重排为一页 A4：工作经历优先、日期右对齐、技能/教育/证书分区，保留原简历的 5 段工作/实习经历、日期与职责。电话、邮箱和作品集可点击。原 16 张 WebP 保持原文件。
-
-`content/resume.json` 保存原简历事实；`scripts/build_resume.py` 从当前网站数据读取姓名、署名、手机、邮箱、教育和证书，再生成 PDF。需要 Python、reportlab 及可嵌入的中文 TrueType 字体（可用 RESUME_CJK_FONT 指定）。网页管理发布不会在浏览器自动重建 PDF；如后续修改联系方式，维护者需运行简历生成脚本，并检查渲染结果后提交 PDF。
-
-
-## 明暗主题与 WebP 上传（2026-10-25）
-
-公开网页、中文管理页与操作说明共用 `theme.js` / `theme.css`。默认跟随浏览器 `prefers-color-scheme`，浏览器偏好改变时即时更新；页眉可选择跟随系统、浅色、深色。手动选择只保存在当前浏览器的 `portfolio-theme-v1`，刷新、页面切换与同源标签页会同步；选择跟随系统清除手动覆盖。禁用存储时本页切换仍可用；禁用 JS 时 CSS 仍跟随系统。主题脚本在头部同步应用，减少首次显示闪烁。不会按时钟判断白天夜晚。
-
-`image-process.js` 在本机完成静态图片解码、转 WebP 与封面小图生成。默认质量 0.88，普通图片最长边 3840；“保留原尺寸”质量 0.92；“更小文件”最长边 2560、质量 0.82。不放大小图，长宽比至少 3 的排版长图保留尺寸；单边超过 32767 或超过 4800 万像素先提示缩小。转换为有损 WebP，透明通道保留；已有 WebP 无需改尺寸时保留原编码，避免重复损失。动图给出使用静态封面/项目视频的提示。浏览器不支持 WebP 编码时停止，不将 PNG 冒充 WebP。转换失败不会加入本批图片，原草稿保留。
-
-普通大图另生成最长边 1600 的封面小图（仅在更小时采用）。`gallery-data.js` 中 `src` 是高清图、`thumbnail` 是展示图，`width`/`height` 保存高清尺寸以预留相同比例的页面空间。主页、详情预览和图集展示小图，图片查看器及原图链接使用高清图。草稿、导出和 GitHub 发布会同时保存被引用的高清与小图文件；图片卡片和批量状态显示压缩前后大小。原文件仍在用户设备中，网站移除或替换展示不会删除仓库原文件。
-
-本次将住宅项目新上传且被引用的两张 JPG 转成 WebP，两张高清图均保留原像素尺寸。高清与封面小图合计从 6,494,580 字节变为 1,995,104 字节，减少约 69%；所选封面从 5,336,973 字节改为 329,294 字节的小图。旧 JPG 保留在仓库。原 16 张 WebP 与简历 PDF 未改动。
-
-验证命令新增 `node tests/theme-image.test.cjs`，覆盖自动主题变化、手动覆盖/清除、刷新恢复、跨标签同步、存储失败、长图与普通图片尺寸、输入验证、WebP 字节识别与封面引用。浏览器验证 JPG/透明 PNG 真实转换、坏图保护、ZIP 中 WebP 字节/尺寸/透明度/小图、主题持久化与四种屏幕宽度。全部 28 项核心测试及静态 SEO/链接检查通过。
-
-
-## 多平台视频封面与播放（2026-10-25）
-
-管理页“项目视频”支持 B 站完整链接/BV 号、YouTube watch/youtu.be/shorts/live/embed 链接，以及 HTTPS MP4/WebM 直链。`video-core.js` 和 `scripts/video_core.py` 负责一致的白名单识别、标准化、封面选择与静态卡片渲染。访客先看到封面和播放按钮，点击后才加载播放器；保留原视频链接和收起按钮，并支持 `#project-videos` 直达。
-
-YouTube 直接识别高清封面，缺少 maxres 时退回 hq，再退回项目封面。B 站封面由 `scripts/refresh_video_posters.py` 读取官方 API，失败时读取官方视频页 Open Graph 信息；只接受 hdslb.com 的 HTTPS 结果。不解析或下载媒体流，不改用户已填写的标题。`posterOverride` 可自选 HTTPS 图片地址或现有上传图片路径。直链默认使用项目封面。
-
-用户已明确批准发布后的自动封面任务及本仓库 Contents/Pages 写入权限。`.github/workflows/video-covers.yml` 仅在 main 的相关数据/脚本改变时运行（也可手动执行），在临时工作目录读取最新 main、补封面、重建静态页面并正常推送；遇到并发改动重新读取，最多两次，不强推。自动提交后显式请求 Pages 构建，避免 GITHUB_TOKEN 提交不触发普通推送构建的问题。使用 GitHub 自动令牌，不要求用户管理页 PAT 增加权限。封面缓存按标准化视频 URL 匹配；后台仅改变封面元数据时可与本地其他编辑合并，真实冲突仍停止更新。
-
-播放策略：B 站关闭弹幕、使用官方控件；YouTube 使用 youtube-nocookie 官方嵌入，点击后请求播放，保留自动画质；不使用已失效的 modestbranding 或强制画质参数。平台仍可能显示品牌、推荐、登录或风控界面，本站无法从跨域网页保证去除，也无法保证最高画质。视频直链使用浏览器原生控件，可点击画面暂停/继续，底部控制条操作保持可用。
-
-验证新增 `node tests/video-cards.test.cjs` 和 `python3 tests/video-posters.test.py`：平台识别、伪域名/错误链接、封面 URL 变更与自选优先级、自动封面并发合并、文字转义与双渲染一致性、服务端官方域名检查、缓存与重取及用户标题保留。浏览器实测 B 站/YouTube 真封面加载、管理页粘贴 YouTube 自动出现封面；直链播放后点击暂停/继续通过。YouTube 测试环境要求登录，未宣称已通过实际播放。参考官方说明 https://player.bilibili.com/ 、https://developers.google.com/youtube/player_parameters 。
-
-封面读取补充：管理页先尝试直接读取官方 API；浏览器跨域失败时交给发布任务。发布任务使用完整客户端请求头，并依次读取官方 API、移动视频页和桌面视频页的封面元数据。全部失败时保留旧封面并明确报告失败，不把“任务成功退出”当作封面已获取。
-
-实际服务限制：GitHub 托管任务可能收到 B 站 HTTP 412 风控拒绝。此时会记录 `posterStatus=unavailable` 和尝试时间、保留旧/项目封面并显示管理页状态，不伪报封面已获取，也不反复自动请求；只有新视频或明确重新获取才再尝试。管理页提供“上传封面”，使用同一 WebP 转换流程。YouTube 的确定性封面地址无需该服务端读取。
+Astro/SCSS components use the rounded surfaces and compact navigation of Koibumi as a design reference, adapted to a soft violet project portfolio. No reference-blog artwork, avatar or articles are copied. Fonts and icons are hosted locally. See `THIRD_PARTY_NOTICES.md` and the licenses in `assets/`. Brand icons identify tools; text remains visible, and tools without available brand icons use letter marks.

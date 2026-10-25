@@ -21,7 +21,7 @@
    }else if(/\.(?:mp4|webm)$/i.test(u.pathname))return {provider:'file',url:u.href,embed:u.href,poster:'',posterFallback:''};
    else throw new Error('支持 B 站、YouTube 和 HTTPS MP4 / WebM 直链；普通网页不能直接作为视频播放。');
   }
-  return {provider:'bilibili',bvid,page,url:'https://www.bilibili.com/video/'+bvid+'/?p='+page,embed:'https://player.bilibili.com/player.html?bvid='+bvid+'&p='+page+'&autoplay=1&danmaku=0&poster=1',poster:'',posterFallback:''};
+  return {provider:'bilibili',bvid,page,url:'https://www.bilibili.com/video/'+bvid+'/?p='+page,embed:'https://player.bilibili.com/player.html?bvid='+bvid+'&p='+page+'&autoplay=1&danmaku=0&high_quality=1&as_wide=1&poster=1',poster:'',posterFallback:''};
  }
  async function fetchCover(input){
   const v=info(input);if(v.provider==='youtube')return {poster:v.poster,posterFor:v.url};if(v.provider!=='bilibili')return null;
@@ -32,9 +32,10 @@
  function asset(url,lang){return local(url)?(lang==='en'?'../':'./')+url:url;}
  function markup(items,lang,fallback){
   if(!items.length)return '';const zh=lang==='zh';return '<section id="project-videos" class="project-videos" aria-label="'+(zh?'项目视频':'Project videos')+'"><h2>'+(zh?'项目视频':'Project videos')+'</h2>'+items.map((item,i)=>{
-   const v=info(item.url),title=(zh?item.title:item.titleEn)||(zh?'项目视频 ':'Project video ')+(i+1),label=v.provider==='bilibili'?(zh?'B 站':'Bilibili'):v.provider==='youtube'?'YouTube':(zh?'视频':'Video');
-   const cover=poster(item,fallback),open=zh?(v.provider==='file'?'打开视频':'在 '+label+' 观看'):(v.provider==='file'?'Open video':'Watch on '+label);
-   return '<article class="project-video"><div class="video-screen"><button type="button" class="video-play" data-video-url="'+esc(v.url)+'" data-video-title="'+esc(title)+'" aria-label="'+esc((zh?'播放视频：':'Play video: ')+title)+'"><img class="video-poster" src="'+esc(asset(cover,lang))+'" alt="" loading="lazy" referrerpolicy="no-referrer" data-poster-fallback="'+esc(v.posterFallback||asset(fallback,lang))+'" data-project-poster="'+esc(asset(fallback,lang))+'"><span class="video-shade" aria-hidden="true"></span><span class="video-play-icon" aria-hidden="true">▶</span><span class="video-provider">'+esc(label)+'</span><span class="video-poster-title">'+esc(title)+'</span></button></div><div class="video-caption"><h3>'+esc(title)+'</h3><a href="'+esc(v.url)+'" target="_blank" rel="noopener">'+esc(open)+' ↗</a></div><p class="video-play-status" role="status" aria-live="polite"></p></article>';
+   const v=info(item.url),playback=item.playbackUrl?info(item.playbackUrl):v,title=(zh?item.title:item.titleEn)||(zh?'项目视频 ':'Project video ')+(i+1);
+   const cover=poster(item,fallback),help=zh?'播放选项':'Playback options';
+   const note=zh?'若出现登录验证或无法播放，可打开视频来源。第三方播放器的推荐、画质及验证由平台控制。':'If sign-in is required or playback is unavailable, open the video source. Recommendations, quality and verification are controlled by the platform.';
+   return '<article class="project-video"><div class="video-screen"><button type="button" class="video-play" data-video-url="'+esc(playback.url)+'" data-video-title="'+esc(title)+'" aria-label="'+esc((zh?'播放视频：':'Play video: ')+title)+'"><img class="video-poster" src="'+esc(asset(cover,lang))+'" alt="" loading="lazy" referrerpolicy="no-referrer" data-poster-fallback="'+esc(v.posterFallback||asset(fallback,lang))+'" data-project-poster="'+esc(asset(fallback,lang))+'"><span class="video-shade" aria-hidden="true"></span><span class="video-play-icon" aria-hidden="true">▶</span></button></div><div class="video-toolbar" hidden><details class="video-options"><summary aria-label="'+help+'" title="'+help+'">⋯</summary><div class="video-options-panel"><p>'+note+'</p><a href="'+esc(v.url)+'" target="_blank" rel="noopener">'+(zh?'打开视频来源':'Open video source')+' ↗</a></div></details></div><p class="video-play-status" role="status" aria-live="polite"></p></article>';
   }).join('')+'</section>';
  }
  const api={info,imageURL,fetchCover,poster,markup};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.VideoCore=api;

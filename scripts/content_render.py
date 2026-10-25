@@ -3,6 +3,7 @@ import json, re
 from urllib.parse import urlsplit, parse_qs
 from html import escape
 from video_core import markup as video_markup
+from layout_core import markup as gallery_markup
 
 def serialize(name,value):
     return 'window.'+name+' = '+json.dumps(value,ensure_ascii=False,indent=2).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')+';\n'
@@ -24,13 +25,7 @@ def render(content,templates,galleries):
         if kind=='multiline':return esc(value).replace('\n','<br>')
         return esc(value)
     def gallery(id,lang):
-        root='../' if lang=='en' else './';p=galleries['projects'][id];result=''
-        for i,item in enumerate(p['images']):
-            caption=(item.get('captionEn') if lang=='en' else item['caption']) or values['ui.'+lang+'.overview']
-            alt=(item.get('altEn') if lang=='en' else item['alt']) or values[f'project.{id}.{lang}.title']
-            dimensions=f' width="{item["width"]}" height="{item["height"]}"' if item.get('width') and item.get('height') else ''
-            result+=f'<figure class="gallery-item {"legacy" if item.get("kind")=="collage" else ""}"><a class="gallery-button" href="{root}{esc(item["src"])}" aria-label="{esc(values["ui."+lang+".open"])}: {esc(caption)}"><img src="{root}{esc(item.get("thumbnail") or item["src"])}" alt="{esc(alt)}" loading="lazy"{dimensions}></a><figcaption>{i+1:02d} / {esc(caption)}</figcaption></figure>'
-        return result
+        return gallery_markup(galleries['projects'][id],lang,dict(overview=values['ui.'+lang+'.overview'],title=values[f'project.{id}.{lang}.title'],open=values['ui.'+lang+'.open']))
     def videos(id,lang):return video_markup(galleries['projects'][id].get('videos',[]),lang,cover(id))
     def resolve(html):return re.sub(r'@@([\w.-]+)@@',replace,html)
     def replace(m):
@@ -69,5 +64,5 @@ def render(content,templates,galleries):
         # Replace each original token exactly once, including tokens inside JSON-LD.
         chunks=re.split(r'(<script type="application/ld\+json">.*?</script>)',html,flags=re.S)
         result[path]=''.join(schema(re.match(r'.*',part,re.S)) if part.startswith('<script type="application/ld+json">') else re.sub(r'@@([\w.-]+)@@',replace,part) for part in chunks)
-    result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>https://vaiorett.github.io/'+re.sub(r'index\.html$','',path)+'</loc></url>\n' for path in pages)+'</urlset>\n'
+    result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n'
     return result
