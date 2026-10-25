@@ -4,11 +4,33 @@
   const PREFIX='window.PORTFOLIO_GALLERIES = ';
   function clone(value){return JSON.parse(JSON.stringify(value));}
   function safePath(path){return typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');}
+  function videoInfo(input){
+    const raw=String(input||'').trim();let bvid='',page=1;
+    if(/^BV[0-9A-Za-z]{10}$/.test(raw))bvid=raw;
+    else{
+      let url;try{url=new URL(raw);}catch{throw new Error('请粘贴 B 站完整视频链接或 BV 号。');}
+      if(url.hostname==='b23.tv')throw new Error('请先在浏览器打开 b23.tv 短链接，再复制地址栏中包含 BV 号的完整链接。');
+      if(url.protocol!=='https:'||url.username||url.password||url.port||!['www.bilibili.com','bilibili.com','m.bilibili.com','player.bilibili.com'].includes(url.hostname))throw new Error('仅支持 HTTPS 的 B 站视频链接。');
+      if(url.hostname==='player.bilibili.com'&&url.pathname==='/player.html')bvid=url.searchParams.get('bvid')||'';
+      else bvid=url.pathname.match(/^\/video\/(BV[0-9A-Za-z]{10})\/?$/)?.[1]||'';
+      const p=url.searchParams.get('p');if(p!==null){if(!/^[1-9][0-9]{0,3}$/.test(p))throw new Error('视频分 P 序号不正确。');page=Number(p);}
+      if(!/^BV[0-9A-Za-z]{10}$/.test(bvid))throw new Error('链接中没有有效的 BV 号，请使用普通 B 站视频链接。');
+    }
+    return {bvid,page,url:'https://www.bilibili.com/video/'+bvid+'/?p='+page,embed:'https://player.bilibili.com/player.html?bvid='+bvid+'&p='+page+'&autoplay=0&danmaku=0'};
+  }
   function validate(data){
     if(!data || data.version!==1 || !data.projects || typeof data.projects!=='object') throw new Error('作品数据格式不正确。');
     for(const [id,project] of Object.entries(data.projects)){
-      if(!/^[a-z0-9-]+$/.test(id) || !project || !Array.isArray(project.images) || project.images.length===0 || typeof project.title!=='string') throw new Error('项目资料不完整。');
+      if(!/^[a-z0-9-]+$/.test(id) || !project || !Array.isArray(project.images) || typeof project.title!=='string') throw new Error('项目资料不完整。');
       if(!safePath(project.cover)) throw new Error('封面图片路径不正确。');
+      if(project.videos!==undefined){
+        if(!Array.isArray(project.videos)||project.videos.length>30)throw new Error('每个项目最多添加 30 个视频。');
+        const videoIds=new Set();
+        for(const video of project.videos){
+          if(!video||typeof video.id!=='string'||videoIds.has(video.id)||typeof video.title!=='string'||typeof video.titleEn!=='string'||video.title.length>300||video.titleEn.length>300)throw new Error('视频资料不完整。');
+          videoInfo(video.url);videoIds.add(video.id);
+        }
+      }
       const ids=new Set();
       for(const item of project.images){
         if(!item || typeof item.id!=='string' || ids.has(item.id) || !safePath(item.src) || typeof item.caption!=='string' || typeof item.alt!=='string') throw new Error('图片资料不完整。');
@@ -23,7 +45,7 @@
     validate(remote);const merged=clone(remote);const conflicts=[];
     for(const [id,value] of Object.entries(local.projects)){
       if(JSON.stringify(value)===JSON.stringify(base.projects[id]) || JSON.stringify(value)===JSON.stringify(remote.projects[id])) continue;
-      if(!remote.projects[id] || JSON.stringify(remote.projects[id])!==JSON.stringify(base.projects[id])) conflicts.push(value.title);
+      if(JSON.stringify(remote.projects[id])!==JSON.stringify(base.projects[id])) conflicts.push(value.title);
       else merged.projects[id]=clone(value);
     }
     if(conflicts.length)throw new Error('这些项目已在线上被修改，请先导出草稿再核对：'+conflicts.join('、'));
@@ -52,7 +74,7 @@
     const manifest=await api(path+'/git/blobs','POST',{content:serialize(data),encoding:'utf-8'});
     tree.push({path:'gallery-data.js',mode:'100644',type:'blob',sha:manifest.sha});
     for(const [filePath,content] of Object.entries(textFiles)){
-      if(!(filePath==='content-data.js'||/^(?:en\/)?(?:index|work-[a-z0-9-]+)\.html$/.test(filePath)) || typeof content!=='string')throw new Error('文字发布文件不正确。');
+      if(!(filePath==='content-data.js'||filePath==='sitemap.xml'||/^(?:en\/)?(?:index|work-[a-z0-9-]+)\.html$/.test(filePath)) || typeof content!=='string')throw new Error('文字发布文件不正确。');
       tree.push({path:filePath,mode:'100644',type:'blob',content});
     }
     progress('正在保存中英文网页、图片与文字');
@@ -87,6 +109,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,validate,serialize,parse,merge,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,validate,serialize,parse,merge,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

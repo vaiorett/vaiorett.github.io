@@ -15,7 +15,8 @@ class Page(HTMLParser):
     def handle_data(self,data):self.text.append(data)
     def attrs(self,tag):return [attrs for name,attrs in self.tags if name==tag]
 paths=[ROOT/'index.html',*ROOT.glob('work-*.html'),*ROOT.glob('en/*.html')]
-assert len(paths)==18
+current_content=json.loads((ROOT/'content-data.js').read_text().split(' = ',1)[1].strip().rstrip(';'))
+assert len(paths)==2+2*len(current_content['projects'])
 pages={p:Page(p) for p in paths}
 checks=0
 for path,page in pages.items():
@@ -51,7 +52,7 @@ for path,page in pages.items():
         assert not re.search(r'[\u4e00-\u9fff]',main),path
     if path.name.startswith('work-'):
         id=path.stem[5:];source=json.loads((ROOT/'site-data.json').read_text())
-        original=next(p for p in source if p['id']==id)
+        original=next((p for p in source if p['id']==id),{'id':id,'title':'','role':'','context':'','note':'','tasks':[]})
         current=json.loads((ROOT/'content-data.js').read_text().split(' = ',1)[1].strip().rstrip(';'))['values']
         original={key:current.get(f'project.{id}.zh.{key}',value) for key,value in original.items()}
         if not english:
@@ -59,9 +60,9 @@ for path,page in pages.items():
 # All original binary work and the public résumé remain byte-for-byte unchanged.
 original=subprocess.check_output(['git','ls-tree','--name-only','HEAD'],cwd=ROOT,text=True).splitlines()
 for file in original:
-    if file.endswith(('.webp','.pdf')):
+    if file.endswith('.webp'):
         assert subprocess.check_output(['git','show','HEAD:'+file],cwd=ROOT)==(ROOT/file).read_bytes(),file
-urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==18
+urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==len(paths)
 for path in ['manage.html','更新图片说明.html']:
     assert 'noindex,follow' in (ROOT/path).read_text()
-print(f'PASS: 18 static pages, {checks} local asset/link references, bilingual SEO, translated English prose, current canonical project text and all 17 original media/PDF files.')
+print(f'PASS: {len(paths)} static pages, {checks} local asset/link references, bilingual SEO, translated English prose, current canonical project text and all 16 original WebP files (resume updated separately).')
