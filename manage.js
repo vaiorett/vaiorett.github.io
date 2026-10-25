@@ -93,6 +93,11 @@
   selected=Object.keys(data.projects)[0];renderSelect();render();renderText();changed();
  });
  $('project-category').addEventListener('change',e=>{textData.projects=T.clone(T.projects(textData,templates));textData.projects[selected].category=e.target.value;changed();});
+ async function getVideoCover(item,projectId){
+  const url=V.info(item.url).url;status('video-status','正在自动读取视频封面…');
+  try{const cover=await V.fetchCover(url);if(!cover||!data.projects[projectId]?.videos?.includes(item)||V.info(item.url).url!==url)return;Object.assign(item,cover,{posterUpdatedAt:new Date().toISOString()});if(selected===projectId)renderVideos();changed();status('video-status','已读取视频封面，发布后访客可以看到。');}
+  catch{if(selected===projectId)status('video-status','浏览器未能直接读取封面，发布后自动任务会重试；也可以填写自选封面图地址。');}
+ }
  function renderVideos(){
   const list=$('video-list');list.replaceChildren();const videos=data.projects[selected].videos||[];
   if(!videos.length)list.append(element('p','text-help','还没有视频。添加后会出现在这个项目的“项目视频”区域。'));
@@ -105,12 +110,12 @@
    const actions=element('div','image-actions');
    const moveVideo=to=>{const [value]=videos.splice(index,1);videos.splice(to,0,value);renderVideos();changed();};
    actions.append(button('↑ 上移',()=>moveVideo(index-1),index===0),button('↓ 下移',()=>moveVideo(index+1),index===videos.length-1),button('移除视频',()=>{videos.splice(index,1);renderVideos();render();changed();}));
-   if(provider.provider==='bilibili')actions.append(button('重新获取封面',()=>{delete item.poster;delete item.posterFor;item.posterRefresh=new Date().toISOString();renderVideos();changed();status('video-status','重新获取请求已保存到草稿；发布后会自动读取 B 站封面。');}));const link=element('a','', '打开原视频 ↗');link.href=item.url;link.target='_blank';link.rel='noopener';actions.append(link);card.append(actions);list.append(card);
+   if(provider.provider==='bilibili')actions.append(button('重新获取封面',()=>{delete item.poster;delete item.posterFor;item.posterRefresh=new Date().toISOString();renderVideos();changed();getVideoCover(item,selected);}));const link=element('a','', '打开原视频 ↗');link.href=item.url;link.target='_blank';link.rel='noopener';actions.append(link);card.append(actions);list.append(card);
   });
  }
  $('add-video-form').addEventListener('submit',e=>{e.preventDefault();try{
   const info=C.videoInfo($('new-video-url').value),p=data.projects[selected];if((p.videos||[]).length>=30)throw new Error('每个项目最多添加 30 个视频。');
-  if(!p.videos)p.videos=[];p.videos.push({id:'video-'+crypto.randomUUID(),url:info.url,title:'',titleEn:''});$('new-video-url').value='';renderVideos();render();changed();status('video-status','已添加到草稿。可以填写中英文标题，发布后访客才能看到。');
+  if(!p.videos)p.videos=[];const item={id:'video-'+crypto.randomUUID(),url:info.url,title:'',titleEn:''};p.videos.push(item);$('new-video-url').value='';renderVideos();render();changed();status('video-status','已添加到草稿。可以填写中英文标题，发布后访客才能看到。');if(info.provider==='bilibili')getVideoCover(item,selected);
  }catch(error){status('video-status',error.message,true);}});
  function desiredGallery(){const desired=C.clone(data);for(const[id,p]of Object.entries(desired.projects))p.title=textData.values['project.'+id+'.zh.title'];return desired;}
  function pageFiles(desired){return {...T.render(textData,templates,C.validate(desired)),'content-data.js':T.serialize(textData)};}

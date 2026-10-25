@@ -116,3 +116,5 @@ YouTube 直接识别高清封面，缺少 maxres 时退回 hq，再退回项目�
 播放策略：B 站关闭弹幕、使用官方控件；YouTube 使用 youtube-nocookie 官方嵌入，点击后请求播放，保留自动画质；不使用已失效的 modestbranding 或强制画质参数。平台仍可能显示品牌、推荐、登录或风控界面，本站无法从跨域网页保证去除，也无法保证最高画质。视频直链使用浏览器原生控件，可点击画面暂停/继续，底部控制条操作保持可用。
 
 验证新增 `node tests/video-cards.test.cjs` 和 `python3 tests/video-posters.test.py`：平台识别、伪域名/错误链接、封面 URL 变更与自选优先级、自动封面并发合并、文字转义与双渲染一致性、服务端官方域名检查、缓存与重取及用户标题保留。浏览器实测 B 站/YouTube 真封面加载、管理页粘贴 YouTube 自动出现封面；直链播放后点击暂停/继续通过。YouTube 测试环境要求登录，未宣称已通过实际播放。参考官方说明 https://player.bilibili.com/ 、https://developers.google.com/youtube/player_parameters 。
+
+封面读取补充：管理页先尝试直接读取官方 API；浏览器跨域失败时交给发布任务。发布任务使用完整客户端请求头，并依次读取官方 API、移动视频页和桌面视频页的封面元数据。全部失败时保留旧封面并明确报告失败，不把“任务成功退出”当作封面已获取。
