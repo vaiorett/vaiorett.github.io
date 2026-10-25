@@ -48,14 +48,17 @@ def refresh(data,fetch=fetch_bilibili,failures=None):
         for video in project.get('videos',[]):
             v=info(video['url'])
             if v['provider']!='bilibili' or video.get('posterOverride'):continue
-            if video.get('posterFor')==v['url'] and valid_poster(video.get('poster','')) and video.get('posterRefresh','')<=video.get('posterUpdatedAt',''):continue
+            attempted=video.get('posterAttemptedAt') or video.get('posterUpdatedAt','')
+            if video.get('posterFor')==v['url'] and attempted and video.get('posterRefresh','')<=attempted:continue
             try:
                 poster,title=fetch(video)
                 if not valid_poster(poster):raise ValueError('Invalid cover host')
                 video.update(poster=poster,posterFor=v['url'],providerTitle=title,posterUpdatedAt=datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'))
-                changed=True;print('Updated official video cover:',v['bvid'])
+                video.update(posterStatus='ready',posterError='',posterAttemptedAt=video['posterUpdatedAt']);changed=True;print('Updated official video cover:',v['bvid'])
             except Exception as error:
                 message=f"{v['bvid']} {type(error).__name__} {getattr(error,'code','')}";print('::warning::Official cover unavailable; existing cover remains: '+message)
+                if video.get('posterFor')!=v['url']:video.pop('poster',None)
+                video.update(posterFor=v['url'],posterStatus='unavailable',posterError='HTTP '+str(getattr(error,'code','unavailable')),posterAttemptedAt=datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'));changed=True
                 if failures is not None:failures.append(message)
     if changed:data['updatedAt']=datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z')
     return changed
@@ -64,4 +67,4 @@ if __name__=='__main__':
     failures=[]
     if refresh(data,failures=failures):path.write_text('window.PORTFOLIO_GALLERIES = '+json.dumps(data,ensure_ascii=False,indent=2).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')+';\n')
 
-    if failures:raise SystemExit('Could not refresh all requested official covers; existing covers are retained.')
+    if failures:print('Cover request failures recorded; existing/project covers retained. Retry explicitly when needed.')
