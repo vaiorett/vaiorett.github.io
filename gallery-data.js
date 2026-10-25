@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-24T15:58:56.197Z",
+  "updatedAt": "2026-10-25T04:30:45.011Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -79,7 +79,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "residential": {
       "title": "贵阳沙文保租房时光序",
-      "cover": "image-residential-cover.webp",
+      "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.jpg",
       "images": [
         {
           "id": "residential-overview",
@@ -89,6 +89,20 @@ window.PORTFOLIO_GALLERIES = {
           "kind": "collage",
           "captionEn": "Project overview",
           "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview"
+        },
+        {
+          "id": "image-564e8735-1959-4f8d-ab5c-6f5ee48a6282",
+          "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.jpg",
+          "caption": "640-lines-scale-2_00x-gigapixel",
+          "alt": "贵阳沙文保租房时光序效果图",
+          "kind": "image"
+        },
+        {
+          "id": "image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3",
+          "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.jpg",
+          "caption": "浅色石材",
+          "alt": "贵阳沙文保租房时光序效果图",
+          "kind": "image"
         }
       ]
     },
