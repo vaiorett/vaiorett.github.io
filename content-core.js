@@ -77,13 +77,7 @@
    const alt=(lang==='en'?item.altEn:item.alt)||v['project.'+id+'.'+lang+'.title'];
    return '<figure class="gallery-item '+(item.kind==='collage'?'legacy':'')+'"><a class="gallery-button" href="'+prefix+esc(item.src)+'" aria-label="'+esc(v['ui.'+lang+'.open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.thumbnail||item.src)+'" alt="'+esc(alt)+'" loading="lazy"'+(item.width&&item.height?' width="'+item.width+'" height="'+item.height+'"':'')+'></a><figcaption>'+String(i+1).padStart(2,'0')+' / '+esc(caption)+'</figcaption></figure>';
   }).join('');}
-  function videos(id,lang){
-   const items=galleries.projects[id].videos||[];if(!items.length)return '';
-   const zh=lang==='zh';return '<section class="project-videos" aria-label="'+(zh?'项目视频':'Project videos')+'"><h2>'+(zh?'项目视频':'Project videos')+'</h2>'+items.map((item,i)=>{
-    const info=G.videoInfo(item.url),title=(zh?item.title:item.titleEn)||(zh?'项目视频 ':'Project video ')+(i+1);
-    return '<article class="project-video"><h3>'+esc(title)+'</h3><div class="video-screen"><button type="button" class="video-play" data-video-embed="'+esc(info.embed)+'" data-video-title="'+esc(title)+'"><span aria-hidden="true">▶</span> '+(zh?'点击加载 B 站播放器':'Load Bilibili player')+'</button></div><p class="video-help">'+(zh?'加载后点击播放器中的播放键；若无法播放，可以打开原视频。':'Press play after loading. If playback is unavailable, open the original video.')+'</p><a href="'+esc(info.url)+'" target="_blank" rel="noopener">'+(zh?'在 B 站观看':'Watch on Bilibili')+' ↗</a></article>';
-   }).join('')+'</section>';
-  }
+  function videos(id,lang){return G.videoMarkup(galleries.projects[id].videos||[],lang,G.coverPath(galleries.projects[id]));}
   function resolve(html){return html.replace(/@@([\w.-]+)@@/g,replace);}
   function replace(_,key){
    if(Object.hasOwn(fields,key))return text(key);

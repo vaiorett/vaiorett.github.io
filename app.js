@@ -112,10 +112,27 @@ if(dialog && lightboxItems.length){
   dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
 }
 
-// Only load the official Bilibili player after a visitor chooses to watch.
-document.querySelectorAll('[data-video-embed]').forEach(button=>button.addEventListener('click',()=>{
-  let url;try{url=new URL(button.dataset.videoEmbed);}catch{return;}
-  if(url.origin!=='https://player.bilibili.com'||url.pathname!=='/player.html'||!/^BV[0-9A-Za-z]{10}$/.test(url.searchParams.get('bvid')||''))return;
-  const frame=document.createElement('iframe');frame.src=url.href;frame.title=button.dataset.videoTitle||localized('项目视频','Project video');frame.allow='fullscreen; picture-in-picture';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';frame.className='video-player';
-  const screen=button.closest('.video-screen');screen.replaceChildren(frame);frame.focus();
+// Video cards use native platform controls; no overlays intercept third-party players.
+document.querySelectorAll('.video-poster').forEach(image=>{
+ let attempts=0;
+ const fallback=()=>{const next=attempts++===0?image.dataset.posterFallback:image.dataset.projectPoster;if(next&&attempts<=2&&new URL(next,location.href).href!==image.src)image.src=next;else image.hidden=true;};
+ image.addEventListener('error',fallback);
+ const verify=()=>{if(image.src.includes('/maxresdefault.jpg')&&image.naturalWidth<200)fallback();};image.addEventListener('load',verify);if(image.complete&&image.naturalWidth)verify();
+});
+document.querySelectorAll('[data-video-url]').forEach(button=>button.addEventListener('click',()=>{
+ const V=window.VideoCore;let info;try{info=V.info(button.dataset.videoUrl);}catch{return;}
+ const card=button.closest('.project-video'),screen=card.querySelector('.video-screen'),status=card.querySelector('.video-play-status'),title=button.dataset.videoTitle||localized('项目视频','Project video');
+ let player;
+ if(info.provider==='file'){
+  player=document.createElement('video');player.controls=true;player.playsInline=true;player.preload='metadata';player.src=info.url;player.setAttribute('aria-label',title);
+  const cover=button.querySelector('img');if(cover&&!cover.hidden)player.poster=cover.src;
+  player.addEventListener('click',event=>{const rect=player.getBoundingClientRect();if(event.clientY>rect.bottom-56)return;if(player.paused)player.play().catch(()=>{});else player.pause();});
+  player.addEventListener('error',()=>{status.textContent=localized('视频暂时无法播放，请使用原视频链接。','Video unavailable. Please open the original link.');});
+ }else{
+  player=document.createElement('iframe');player.src=info.embed;player.title=title;player.allow='autoplay; encrypted-media; fullscreen; picture-in-picture';player.allowFullscreen=true;player.referrerPolicy='strict-origin-when-cross-origin';
+ }
+ player.className='video-player';screen.replaceChildren(player);
+ const close=document.createElement('button');close.type='button';close.className='video-collapse';close.textContent=localized('收起视频','Close video');card.querySelector('.video-caption').append(close);
+ close.addEventListener('click',()=>{if(info.provider==='file'){player.pause();player.removeAttribute('src');player.load();}screen.replaceChildren(button);close.remove();status.textContent='';button.focus();});
+ if(info.provider==='file')player.play().catch(()=>{status.textContent=localized('点击视频画面或播放键开始播放。','Press play to start the video.');});
 }));

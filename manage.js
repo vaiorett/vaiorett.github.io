@@ -1,6 +1,6 @@
 'use strict';
 (async function(){
- const C=window.GalleryCore, T=window.ContentCore, I=window.ImageProcess, $=id=>document.getElementById(id);
+ const C=window.GalleryCore, T=window.ContentCore, I=window.ImageProcess, V=window.VideoCore, $=id=>document.getElementById(id);
  let base=C.clone(C.validate(window.PORTFOLIO_GALLERIES)),data=C.clone(base),files=new Map(),selected=Object.keys(data.projects)[0],session=null,token='',savingTimer,busy=false;
  const urls=new Map();let db=null;
  let templates=T.validateTemplates(window.PORTFOLIO_TEMPLATES),textBase=T.clone(T.validate(window.PORTFOLIO_CONTENT,templates)),textData=T.clone(textBase),editorTab='images',textLanguage='zh';
@@ -97,15 +97,15 @@
   const list=$('video-list');list.replaceChildren();const videos=data.projects[selected].videos||[];
   if(!videos.length)list.append(element('p','text-help','还没有视频。添加后会出现在这个项目的“项目视频”区域。'));
   videos.forEach((item,index)=>{
-   const card=element('article','video-editor-card');card.append(element('h3','', '视频 '+(index+1)));
-   for(const[key,label]of [['url','B 站视频链接'],['title','中文视频标题'],['titleEn','英文视频标题']]){
-    const l=element('label','',label),input=element('input');l.htmlFor='video-'+key+'-'+index;input.id=l.htmlFor;input.value=item[key];input.maxLength=key==='url'?2000:300;
-    input.addEventListener(key==='url'?'change':'input',()=>{try{item[key]=key==='url'?C.videoInfo(input.value).url:input.value;status('video-status','');changed();}catch(error){status('video-status',error.message+' 当前视频仍保留原链接。',true);}});card.append(l,input);
+   const card=element('article','video-editor-card');card.append(element('h3','', '视频 '+(index+1)));const provider=V.info(item.url);const poster=V.poster(item,C.coverPath(data.projects[selected]));const posterImage=element('img','video-manager-poster');posterImage.src=C.safePath(poster)?preview(poster):poster;posterImage.alt='视频封面预览';posterImage.referrerPolicy='no-referrer';posterImage.addEventListener('error',()=>{posterImage.src=preview(C.coverPath(data.projects[selected]));},{once:true});card.append(posterImage);card.append(element('p','text-help',provider.provider==='bilibili'&&!item.poster&&!item.posterOverride?'发布后会自动补全 B 站真实封面；当前先显示项目封面。':provider.provider==='file'?'视频直链默认使用项目封面，也可以填写自己的封面图地址。':'已自动识别视频封面，也可以填写自己的封面图地址。'));
+   for(const[key,label]of [['url','视频链接'],['title','中文视频标题'],['titleEn','英文视频标题'],['posterOverride','自选封面图地址（可选，留空自动）']]){
+    const l=element('label','',label),input=element('input');l.htmlFor='video-'+key+'-'+index;input.id=l.htmlFor;input.value=item[key]||'';input.maxLength=['url','posterOverride'].includes(key)?2000:300;
+    input.addEventListener(['url','posterOverride'].includes(key)?'change':'input',()=>{try{if(key==='url'){const url=V.info(input.value).url;if(url!==item.url){for(const old of ['poster','posterFor','posterUpdatedAt','posterOverride'])delete item[old];item.url=url;}}else if(key==='posterOverride'){const value=input.value.trim();if(value&&!V.imageURL(value))throw new Error('封面请使用 HTTPS 图片地址，或已上传图片在仓库中的路径。');item.posterOverride=value;}else item[key]=input.value;status('video-status','');changed();if(['url','posterOverride'].includes(key))renderVideos();}catch(error){status('video-status',error.message+' 原内容已保留。',true);}});card.append(l,input);
    }
    const actions=element('div','image-actions');
    const moveVideo=to=>{const [value]=videos.splice(index,1);videos.splice(to,0,value);renderVideos();changed();};
    actions.append(button('↑ 上移',()=>moveVideo(index-1),index===0),button('↓ 下移',()=>moveVideo(index+1),index===videos.length-1),button('移除视频',()=>{videos.splice(index,1);renderVideos();render();changed();}));
-   const link=element('a','', '在 B 站查看 ↗');link.href=item.url;link.target='_blank';link.rel='noopener';actions.append(link);card.append(actions);list.append(card);
+   if(provider.provider==='bilibili')actions.append(button('重新获取封面',()=>{delete item.poster;delete item.posterFor;item.posterRefresh=new Date().toISOString();renderVideos();changed();status('video-status','重新获取请求已保存到草稿；发布后会自动读取 B 站封面。');}));const link=element('a','', '打开原视频 ↗');link.href=item.url;link.target='_blank';link.rel='noopener';actions.append(link);card.append(actions);list.append(card);
   });
  }
  $('add-video-form').addEventListener('submit',e=>{e.preventDefault();try{

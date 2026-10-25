@@ -103,3 +103,16 @@
 本次将住宅项目新上传且被引用的两张 JPG 转成 WebP，两张高清图均保留原像素尺寸。高清与封面小图合计从 6,494,580 字节变为 1,995,104 字节，减少约 69%；所选封面从 5,336,973 字节改为 329,294 字节的小图。旧 JPG 保留在仓库。原 16 张 WebP 与简历 PDF 未改动。
 
 验证命令新增 `node tests/theme-image.test.cjs`，覆盖自动主题变化、手动覆盖/清除、刷新恢复、跨标签同步、存储失败、长图与普通图片尺寸、输入验证、WebP 字节识别与封面引用。浏览器验证 JPG/透明 PNG 真实转换、坏图保护、ZIP 中 WebP 字节/尺寸/透明度/小图、主题持久化与四种屏幕宽度。全部 28 项核心测试及静态 SEO/链接检查通过。
+
+
+## 多平台视频封面与播放（2026-10-25）
+
+管理页“项目视频”支持 B 站完整链接/BV 号、YouTube watch/youtu.be/shorts/live/embed 链接，以及 HTTPS MP4/WebM 直链。`video-core.js` 和 `scripts/video_core.py` 负责一致的白名单识别、标准化、封面选择与静态卡片渲染。访客先看到封面和播放按钮，点击后才加载播放器；保留原视频链接和收起按钮，并支持 `#project-videos` 直达。
+
+YouTube 直接识别高清封面，缺少 maxres 时退回 hq，再退回项目封面。B 站封面由 `scripts/refresh_video_posters.py` 读取官方 API，失败时读取官方视频页 Open Graph 信息；只接受 hdslb.com 的 HTTPS 结果。不解析或下载媒体流，不改用户已填写的标题。`posterOverride` 可自选 HTTPS 图片地址或现有上传图片路径。直链默认使用项目封面。
+
+用户已明确批准发布后的自动封面任务及本仓库 Contents/Pages 写入权限。`.github/workflows/video-covers.yml` 仅在 main 的相关数据/脚本改变时运行（也可手动执行），在临时工作目录读取最新 main、补封面、重建静态页面并正常推送；遇到并发改动重新读取，最多两次，不强推。自动提交后显式请求 Pages 构建，避免 GITHUB_TOKEN 提交不触发普通推送构建的问题。使用 GitHub 自动令牌，不要求用户管理页 PAT 增加权限。封面缓存按标准化视频 URL 匹配；后台仅改变封面元数据时可与本地其他编辑合并，真实冲突仍停止更新。
+
+播放策略：B 站关闭弹幕、使用官方控件；YouTube 使用 youtube-nocookie 官方嵌入，点击后请求播放，保留自动画质；不使用已失效的 modestbranding 或强制画质参数。平台仍可能显示品牌、推荐、登录或风控界面，本站无法从跨域网页保证去除，也无法保证最高画质。视频直链使用浏览器原生控件，可点击画面暂停/继续，底部控制条操作保持可用。
+
+验证新增 `node tests/video-cards.test.cjs` 和 `python3 tests/video-posters.test.py`：平台识别、伪域名/错误链接、封面 URL 变更与自选优先级、自动封面并发合并、文字转义与双渲染一致性、服务端官方域名检查、缓存与重取及用户标题保留。浏览器实测 B 站/YouTube 真封面加载、管理页粘贴 YouTube 自动出现封面；直链播放后点击暂停/继续通过。YouTube 测试环境要求登录，未宣称已通过实际播放。参考官方说明 https://player.bilibili.com/ 、https://developers.google.com/youtube/player_parameters 。
