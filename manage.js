@@ -38,6 +38,41 @@
    for(const[key,label]of[['caption','图片说明'],['alt','图片描述（便于理解画面）'],['captionEn','English caption（英文说明）'],['altEn','English image description（英文图片描述）']]){const id='image-'+key+'-'+index;const l=element('label','',label);l.htmlFor=id;const input=element('input');input.id=id;input.value=item[key]||'';input.maxLength=300;input.addEventListener('input',()=>{item[key]=input.value;changed();});fields.append(l,input);}
    const layoutLabel=element('label','','这张图的宽度'),layout=element('select','image-layout-field');layout.id='image-layout-'+index;layoutLabel.htmlFor=layout.id;
    for(const[value,label]of [['auto','自动'],['full','整行大图'],['half','半宽（双列）']]){const option=element('option','',label);option.value=value;layout.append(option);}layout.value=item.layout||'auto';layout.addEventListener('change',()=>{item.layout=layout.value;changed();});fields.append(layoutLabel,layout);
+   const compareBox=element('div','compare-editor-box');
+   if(item.compare){
+    const head=element('div','compare-editor-head');
+    head.append(element('strong','','✔ 已启用两图滑动对比'));
+    head.append(button('取消对比（恢复普通单图）',()=>{
+     delete item.compare;
+     delete item.beforeLabel;
+     delete item.beforeLabelEn;
+     delete item.afterLabel;
+     delete item.afterLabelEn;
+     render();changed();
+    },false,'quiet-button remove-image'));
+    compareBox.append(head);
+    const row=element('div','compare-preview-row');
+    const thumb=element('img','compare-thumb-preview');
+    thumb.src=preview(item.compare);
+    thumb.alt='对比效果图预览';
+    row.append(thumb);
+    row.append(button('替换对比效果图',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();}));
+    compareBox.append(row);
+    const grid=element('div','compare-label-grid');
+    for(const[k,lText,dflt]of[['beforeLabel','左侧标签（中文）','原图'],['beforeLabelEn','Left label (EN)','Before'],['afterLabel','右侧标签（中文）','效果'],['afterLabelEn','Right label (EN)','After']]){
+     const id='cmp-'+k+'-'+index;
+     const l=element('label','',lText);l.htmlFor=id;
+     const inp=element('input');inp.id=id;inp.placeholder=dflt;inp.value=item[k]||'';inp.maxLength=100;
+     inp.addEventListener('input',()=>{const val=inp.value.trim();if(val)item[k]=val;else delete item[k];changed();});
+     grid.append(l,inp);
+    }
+    compareBox.append(grid);
+   }else{
+    const addBtn=button('＋ 添加对比效果图（制作滑动对比）',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();});
+    addBtn.title='上传最终渲染/光影效果图，与当前图片形成左右滑动对比';
+    compareBox.append(addBtn);
+   }
+   fields.append(compareBox);
    for(const[key,label]of [['body','图文段落（可选，空行分段）'],['bodyEn','English paragraphs（可选）']]){const input=element('textarea');input.id='image-'+key+'-'+index;input.rows=3;input.maxLength=6000;input.value=item[key]||'';const labelEl=element('label','',label);labelEl.htmlFor=input.id;input.addEventListener('input',()=>{item[key]=input.value;changed();});fields.append(labelEl,input);}
    const actions=element('div','image-actions');actions.append(button('↑ 上移',()=>move(index,index-1),index===0),button('↓ 下移',()=>move(index,index+1),index===p.images.length-1));
    const remove=button('从展示中移除',()=>{p.images.splice(index,1);if(p.cover===item.src)p.cover=p.images[0]?.src||'project-placeholder.webp';render();changed();},p.images.length===1&&!p.videos?.length,'remove-image');if(p.images.length===1)remove.title='请先添加替代图片，再移除最后一张。';actions.append(remove);fields.append(actions);card.append(fields);list.append(card);
@@ -158,10 +193,30 @@
    status('image-process-status','已转换 '+prepared.length+' 张：'+formatBytes(before)+' → '+formatBytes(after)+'（含封面小图）'+(difference>=0?'，减少约 '+difference+'%。':'；本批转换后体积增加约 '+Math.abs(difference)+'%，可选择“更小文件”重新添加。'));
   }catch(error){status('image-process-status',error.message+' 本批图片未加入，原草稿已保留。',true);}finally{setBusy(false);}
  }
+ async function addCompareFile(incoming,targetId){
+  if(busy)return;const file=incoming&&incoming[0];if(!file)return;
+  const p=data.projects[selected],item=p.images.find(i=>i.id===targetId);if(!item)return;
+  setBusy(true);clearTimeout(savingTimer);status('image-process-status','正在准备对比效果图转换…');
+  try{
+   I.validateFile(file);
+   const result=await I.convert(file,$('image-quality').value);
+   const id='image-'+crypto.randomUUID(),path='images/uploads/'+id+'.webp';
+   files.set(path,result.blob);
+   item.compare=path;
+   if(!item.beforeLabel)item.beforeLabel='原图';
+   if(!item.beforeLabelEn)item.beforeLabelEn='Before';
+   if(!item.afterLabel)item.afterLabel='效果';
+   if(!item.afterLabelEn)item.afterLabelEn='After';
+   render();changed();clearTimeout(savingTimer);await saveDraft();
+   status('image-process-status','已添加对比效果图：'+formatBytes(result.originalBytes)+' → WebP '+formatBytes(result.bytes)+'。可点击“预览未发布修改”查看滑动效果。');
+  }catch(error){status('image-process-status',error.message+' 对比图未加入，原草稿已保留。',true);}
+  finally{setBusy(false);}
+ }
  $('project-layout').addEventListener('change',e=>{data.projects[selected].layout=e.target.value;changed();});
  $('auto-layout').addEventListener('click',()=>{data.projects[selected].layout='auto';data.projects[selected].images.forEach(i=>delete i.layout);render();changed();});
  $('image-files').addEventListener('change',async e=>{await addFiles(e.target.files);e.target.value='';});
  $('replace-file').addEventListener('change',async e=>{await addFiles(e.target.files,e.target.dataset.imageId);e.target.value='';});
+ $('compare-file').addEventListener('change',async e=>{await addCompareFile(e.target.files,e.target.dataset.imageId);e.target.value='';});
  const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));drop.addEventListener('drop',async e=>{e.preventDefault();drop.classList.remove('dragover');await addFiles(e.dataTransfer.files);});
  $('project-select').addEventListener('change',e=>{selected=e.target.value;render();renderText();changed();});
  $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片、顺序和说明修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';current.images=C.clone(original?.images||[]);render();changed();});
