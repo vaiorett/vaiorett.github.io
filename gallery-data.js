@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T04:48:58.806Z",
+  "updatedAt": "2026-10-26T05:13:38.408Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -234,24 +234,6 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "thumbnail": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4-cover.webp",
-          "captionEn": "project-09"
-        },
-        {
-          "id": "image-ba204905-07ed-491d-8b6e-665ad55d1b3f",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-ba204905-07ed-491d-8b6e-665ad55d1b3f.webp",
-          "kind": "image",
-          "width": 1672,
-          "height": 941,
-          "upload": {
-            "originalBytes": 3603817,
-            "bytes": 569116,
-            "width": 1672,
-            "height": 941,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-ba204905-07ed-491d-8b6e-665ad55d1b3f-cover.webp",
           "captionEn": "project-09"
         },
         {
