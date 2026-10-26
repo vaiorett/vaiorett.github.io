@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T10:17:46.886119Z",
+  "updatedAt": "2026-10-26T10:45:55.971Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -38,18 +38,60 @@ window.PORTFOLIO_GALLERIES = {
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
-      "cover": "image-grandstand-full.webp",
+      "cover": "images/uploads/image-0ab1a363-8131-4e63-9620-f99f3e839d13.webp",
       "images": [
         {
           "id": "grandstand-overview",
-          "src": "image-grandstand-full.webp",
+          "src": "images/uploads/image-4c44d2a3-ac84-4814-9e88-72dcc1486348.webp",
           "caption": "项目作品总览",
           "alt": "赛车场看台与配套空间作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Racetrack Grandstand & Facilities — project overview",
-          "width": 344,
-          "height": 1920
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4261991,
+            "bytes": 1799378,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-4c44d2a3-ac84-4814-9e88-72dcc1486348-cover.webp"
+        },
+        {
+          "id": "image-0ab1a363-8131-4e63-9620-f99f3e839d13",
+          "caption": "ComfyUI_temp_hhexd_00001_jppgv_1793011229",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-0ab1a363-8131-4e63-9620-f99f3e839d13.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4353839,
+            "bytes": 1865958,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-0ab1a363-8131-4e63-9620-f99f3e839d13-cover.webp"
+        },
+        {
+          "id": "image-f44edefa-aec4-4cc9-991d-44ff94eaadcd",
+          "caption": "ComfyUI_temp_udaxi_00001_yievc_1793011331",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-f44edefa-aec4-4cc9-991d-44ff94eaadcd.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3792973,
+            "bytes": 1407736,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-f44edefa-aec4-4cc9-991d-44ff94eaadcd-cover.webp"
         }
       ]
     },
