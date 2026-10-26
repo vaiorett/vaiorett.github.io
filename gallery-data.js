@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T05:26:02.856Z",
+  "updatedAt": "2026-10-26T05:39:35.375Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -198,25 +198,25 @@ window.PORTFOLIO_GALLERIES = {
     },
     "project-9a627a8d": {
       "title": "project-09",
-      "cover": "images/uploads/image-6638eeb7-707d-4a08-8e90-1baa6e47899d.webp",
+      "cover": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
       "images": [
         {
           "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-6638eeb7-707d-4a08-8e90-1baa6e47899d.webp",
+          "src": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
           "kind": "image",
-          "width": 1672,
-          "height": 941,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 3589167,
-            "bytes": 560052,
-            "width": 1672,
-            "height": 941,
+            "originalBytes": 4493122,
+            "bytes": 1945410,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-6638eeb7-707d-4a08-8e90-1baa6e47899d-cover.webp",
-          "captionEn": "project-09"
+          "captionEn": "project-09",
+          "thumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-cover.webp"
         },
         {
           "id": "image-7f71d7ae-4be8-4021-9847-f8bc29e5b772",
@@ -240,19 +240,19 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4.webp",
+          "src": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
           "kind": "image",
-          "width": 1672,
-          "height": 941,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 3364877,
-            "bytes": 493478,
-            "width": 1672,
-            "height": 941,
+            "originalBytes": 3917481,
+            "bytes": 1616294,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4-cover.webp",
-          "captionEn": "project-09"
+          "captionEn": "project-09",
+          "thumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-cover.webp"
         },
         {
           "id": "image-bbec5760-90f8-498a-9700-cf5477f04b70",
