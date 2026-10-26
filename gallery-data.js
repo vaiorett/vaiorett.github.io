@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T05:13:38.408Z",
+  "updatedAt": "2026-10-26T05:14:20.453Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -219,24 +219,6 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "project-09"
         },
         {
-          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4.webp",
-          "kind": "image",
-          "width": 1672,
-          "height": 941,
-          "upload": {
-            "originalBytes": 3364877,
-            "bytes": 493478,
-            "width": 1672,
-            "height": 941,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4-cover.webp",
-          "captionEn": "project-09"
-        },
-        {
           "id": "image-bbec5760-90f8-498a-9700-cf5477f04b70",
           "caption": "",
           "alt": "project-09效果图",
@@ -252,6 +234,24 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "thumbnail": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70-cover.webp",
+          "captionEn": "project-09"
+        },
+        {
+          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
+          "caption": "",
+          "alt": "project-09效果图",
+          "src": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 941,
+          "upload": {
+            "originalBytes": 3364877,
+            "bytes": 493478,
+            "width": 1672,
+            "height": 941,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-baba87a5-1b8b-4736-8bf3-186a68f097b4-cover.webp",
           "captionEn": "project-09"
         },
         {
@@ -273,7 +273,8 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "project-09"
         }
       ],
-      "videos": []
+      "videos": [],
+      "layout": "grid"
     }
   }
 };
