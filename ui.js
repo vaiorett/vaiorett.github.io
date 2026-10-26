@@ -458,7 +458,7 @@
    const stage=el.querySelector('.compare-stage'),handle=el.querySelector('.compare-handle-line');
    const badgeBefore=el.querySelector('.compare-badge-before'),badgeAfter=el.querySelector('.compare-badge-after');
    if(!stage||!handle)return;
-   let dragging=false,pos=50;
+   let dragging=false,pos=0,resetTimer=null;
    function setPos(percent){
     pos=Math.max(0,Math.min(100,percent));
     el.style.setProperty('--pos',pos+'%');
@@ -466,40 +466,83 @@
     if(badgeBefore)badgeBefore.style.opacity=pos<12?'0':(pos<24?String((pos-12)/12):'1');
     if(badgeAfter)badgeAfter.style.opacity=pos>88?'0':(pos>76?String((88-pos)/12):'1');
    }
+   function cancelReset(){
+    if(resetTimer){clearTimeout(resetTimer);resetTimer=null;}
+    el.classList.remove('is-resetting');
+   }
+   function resetToFinal(){
+    cancelReset();
+    el.classList.add('is-resetting');
+    el.classList.remove('is-active','is-dragging');
+    setPos(0);
+    resetTimer=setTimeout(()=>{
+     el.classList.remove('is-resetting');
+     resetTimer=null;
+    },260);
+   }
    function posFromEvent(e){
     const rect=stage.getBoundingClientRect();
-    if(rect.width<=0)return 50;
+    if(rect.width<=0)return 0;
     const clientX=e.clientX!=null?e.clientX:(e.touches&&e.touches[0]?e.touches[0].clientX:0);
     return ((clientX-rect.left)/rect.width)*100;
    }
+   stage.addEventListener('pointerenter',e=>{
+    if(e.pointerType==='mouse'){
+     cancelReset();
+     el.classList.add('is-active');
+     setPos(posFromEvent(e));
+    }
+   });
    stage.addEventListener('pointermove',e=>{
-    if(e.pointerType==='mouse'&&!dragging)setPos(posFromEvent(e));
-    else if(dragging)setPos(posFromEvent(e));
+    if(e.pointerType==='mouse'){
+     cancelReset();
+     el.classList.add('is-active');
+     setPos(posFromEvent(e));
+    }else if(dragging){
+     setPos(posFromEvent(e));
+    }
+   });
+   stage.addEventListener('pointerleave',e=>{
+    if(!dragging)resetToFinal();
    });
    stage.addEventListener('pointerdown',e=>{
+    cancelReset();
     dragging=true;
     try{stage.setPointerCapture(e.pointerId);}catch{}
+    el.classList.add('is-active','is-dragging');
     setPos(posFromEvent(e));
-    el.classList.add('is-dragging');
    });
    const stop=e=>{
     if(!dragging)return;
     dragging=false;
     try{stage.releasePointerCapture(e.pointerId);}catch{}
     el.classList.remove('is-dragging');
+    if(e.pointerType!=='mouse'){
+     resetToFinal();
+    }else{
+     const rect=stage.getBoundingClientRect();
+     const inside=e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom;
+     if(!inside)resetToFinal();
+    }
    };
    stage.addEventListener('pointerup',stop);
    stage.addEventListener('pointercancel',stop);
-   stage.addEventListener('dblclick',()=>setPos(50));
+   handle.addEventListener('focus',()=>{
+    cancelReset();
+    el.classList.add('is-active');
+    if(pos===0)setPos(50);
+   });
+   handle.addEventListener('blur',resetToFinal);
    handle.addEventListener('keydown',e=>{
     const step=e.shiftKey?10:2;
-    if(e.key==='ArrowLeft'){e.preventDefault();setPos(pos-step);}
-    else if(e.key==='ArrowRight'){e.preventDefault();setPos(pos+step);}
-    else if(e.key==='Home'){e.preventDefault();setPos(0);}
-    else if(e.key==='End'){e.preventDefault();setPos(100);}
-    else if(e.key==='Enter'||e.key===' '){e.preventDefault();setPos(50);}
+    if(e.key==='ArrowLeft'){e.preventDefault();cancelReset();setPos(pos-step);}
+    else if(e.key==='ArrowRight'){e.preventDefault();cancelReset();setPos(pos+step);}
+    else if(e.key==='Home'){e.preventDefault();cancelReset();setPos(0);}
+    else if(e.key==='End'){e.preventDefault();cancelReset();setPos(100);}
+    else if(e.key==='Escape'){e.preventDefault();resetToFinal();}
+    else if(e.key==='Enter'||e.key===' '){e.preventDefault();cancelReset();setPos(pos===0?50:0);}
    });
-   setPos(50);
+   setPos(0);
   });
  }
  window.initComparers=initComparers;
