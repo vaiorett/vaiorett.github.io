@@ -1,40 +1,64 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T13:01:32.870Z",
+  "updatedAt": "2026-10-26T13:59:58.394Z",
   "projects": {
-    "product-rendering": {
-      "title": "家具产品渲染",
-      "cover": "image-product-rendering-cover.webp",
+    "yunba-depot": {
+      "title": "轨道交通车辆基地",
+      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
       "images": [
         {
-          "id": "product-rendering-overview",
-          "src": "image-product-rendering-full.webp",
-          "caption": "项目作品总览",
-          "alt": "家具产品渲染作品总览",
-          "kind": "collage",
-          "captionEn": "Project overview",
-          "altEn": "Furniture Product Rendering — project overview",
-          "width": 392,
-          "height": 1920
-        }
-      ]
-    },
-    "digital-assets": {
-      "title": "产品数字化与三维资产",
-      "cover": "image-digital-assets-cover.webp",
-      "images": [
+          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
+          "caption": "ComfyUI_temp_udaxi_00001_gppka_1792993464",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4540651,
+            "bytes": 1932318,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp"
+        },
         {
-          "id": "digital-assets-overview",
-          "src": "image-digital-assets-full.webp",
-          "caption": "项目作品总览",
-          "alt": "产品数字化与三维资产作品总览",
-          "kind": "collage",
-          "captionEn": "Project overview",
-          "altEn": "Product Digitization & 3D Assets — project overview",
-          "width": 1028,
-          "height": 1920
+          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
+          "caption": "ComfyUI_temp_udaxi_00001_cczof_1792993601",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4876097,
+            "bytes": 2137144,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp"
+        },
+        {
+          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
+          "caption": "ComfyUI_temp_exdpx_00001_vpzah_1792993743",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4070326,
+            "bytes": 1582156,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp"
         }
-      ]
+      ],
+      "layout": "stack"
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
@@ -333,112 +357,94 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "videos": []
     },
-    "yunba-depot": {
-      "title": "轨道交通车辆基地",
-      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-      "images": [
-        {
-          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
-          "caption": "ComfyUI_temp_udaxi_00001_gppka_1792993464",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4540651,
-            "bytes": 1932318,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp"
-        },
-        {
-          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
-          "caption": "ComfyUI_temp_udaxi_00001_cczof_1792993601",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4876097,
-            "bytes": 2137144,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp"
-        },
-        {
-          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
-          "caption": "ComfyUI_temp_exdpx_00001_vpzah_1792993743",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4070326,
-            "bytes": 1582156,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp"
-        }
-      ],
-      "layout": "stack"
-    },
     "residential": {
       "title": "住宅与公共空间",
-      "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
+      "cover": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
       "images": [
         {
-          "id": "residential-overview",
-          "src": "image-residential-full.webp",
-          "caption": "项目作品总览",
-          "alt": "住宅与公共空间作品总览",
-          "kind": "collage",
-          "captionEn": "Project overview",
-          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
-          "width": 345,
-          "height": 1920
+          "id": "image-cf41abe0-1942-4180-98c7-ec1e8cc20c08",
+          "caption": "ComfyUI_temp_exdpx_00001_ddxoi_1793021552",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3552264,
+            "bytes": 1290792,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08-cover.webp"
         },
         {
-          "id": "image-564e8735-1959-4f8d-ab5c-6f5ee48a6282",
-          "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
-          "caption": "640-lines-scale-2_00x-gigapixel",
+          "id": "image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2",
+          "caption": "ComfyUI_temp_exdpx_00002_oeqyo_1793021789",
           "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2.webp",
           "kind": "image",
-          "thumbnail": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282-cover.webp",
-          "width": 2160,
-          "height": 3192,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 5336973,
-            "bytes": 1304820,
-            "width": 2160,
-            "height": 3192,
+            "originalBytes": 4886076,
+            "bytes": 2100846,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
-          }
+          },
+          "thumbnail": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2-cover.webp"
         },
         {
-          "id": "image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3",
-          "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.webp",
-          "caption": "浅色石材",
+          "id": "image-0015378d-90ff-44e6-9602-897cd7ac16ff",
+          "caption": "ComfyUI_temp_hhexd_00001_rrbyi_1793021665",
           "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff.webp",
           "kind": "image",
-          "thumbnail": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3-cover.webp",
-          "width": 1654,
-          "height": 1654,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 1157607,
-            "bytes": 245682,
-            "width": 1654,
-            "height": 1654,
+            "originalBytes": 4771123,
+            "bytes": 2075654,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
-          }
+          },
+          "thumbnail": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff-cover.webp"
+        },
+        {
+          "id": "image-6ed34c32-1f89-494b-8f27-a033af785a4e",
+          "caption": "ComfyUI_temp_axihh_00001_orgur_1793021893",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3548098,
+            "bytes": 1257978,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e-cover.webp"
+        },
+        {
+          "id": "image-1f691871-bee2-4582-822b-1e1ba90dc4ff",
+          "caption": "ComfyUI_temp_hhexd_00002_fpnzp_1793021430",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3226860,
+            "bytes": 1056122,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff-cover.webp"
         }
       ],
       "videos": [
@@ -455,6 +461,23 @@ window.PORTFOLIO_GALLERIES = {
           "posterStatus": "unavailable",
           "posterError": "HTTP 412",
           "posterAttemptedAt": "2026-10-25T07:27:40.640772Z"
+        }
+      ]
+    },
+    "product-rendering": {
+      "title": "家具产品渲染",
+      "cover": "image-product-rendering-cover.webp",
+      "images": [
+        {
+          "id": "product-rendering-overview",
+          "src": "image-product-rendering-full.webp",
+          "caption": "项目作品总览",
+          "alt": "家具产品渲染作品总览",
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Furniture Product Rendering — project overview",
+          "width": 392,
+          "height": 1920
         }
       ]
     },
@@ -719,6 +742,23 @@ window.PORTFOLIO_GALLERIES = {
           "posterStatus": "unavailable",
           "posterError": "HTTP 412",
           "posterAttemptedAt": "2026-10-26T10:17:46.886090Z"
+        }
+      ]
+    },
+    "digital-assets": {
+      "title": "产品数字化与三维资产",
+      "cover": "image-digital-assets-cover.webp",
+      "images": [
+        {
+          "id": "digital-assets-overview",
+          "src": "image-digital-assets-full.webp",
+          "caption": "项目作品总览",
+          "alt": "产品数字化与三维资产作品总览",
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Product Digitization & 3D Assets — project overview",
+          "width": 1028,
+          "height": 1920
         }
       ]
     }

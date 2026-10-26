@@ -491,9 +491,6 @@ window.PORTFOLIO_CONTENT = {
     "yunba-depot": {
       "category": "architecture"
     },
-    "digital-assets": {
-      "category": "assets"
-    },
     "grandstand": {
       "category": "architecture"
     },
@@ -520,6 +517,9 @@ window.PORTFOLIO_CONTENT = {
     },
     "project-3ba57396": {
       "category": "studies"
+    },
+    "digital-assets": {
+      "category": "assets"
     }
   }
 };
