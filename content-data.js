@@ -123,7 +123,7 @@ window.PORTFOLIO_CONTENT = {
       "With studies in Business Administration and ISO 9001:2015 Internal Auditor certification, I also work comfortably in Linux (Fedora KDE / Ubuntu GNOME) and use ComfyUI, Stable Diffusion, and LLMs to streamline visual and documentation workflows."
     ],
     "home.en.contactTitle": "Open to hands-on\ntechnical & visual roles.",
-    "home.en.contactIntro": "Focused on non-sales roles in visual design, 3D/CAD engineering, AIGC production, project documentation, and technical support.",
+    "home.en.contactIntro": "We specialize in visual design, 3D/CAD engineering, AIGC content creation, project documentation management, and digital support roles. Please feel free to contact us via email.",
     "cap.en.0.0": "Spatial Visuals & CAD Drafting",
     "cap.en.0.1": "From CAD / TArch / BIM drawing development to architectural modeling and multi-angle visualization.",
     "cap.en.0.2": "AutoCAD / TArch / SketchUp / Revit",
