@@ -491,29 +491,29 @@ window.PORTFOLIO_CONTENT = {
     "yunba-depot": {
       "category": "architecture"
     },
+    "residential": {
+      "category": "architecture"
+    },
     "grandstand": {
       "category": "architecture"
     },
     "pedestrian-bridge": {
       "category": "architecture"
     },
-    "residential": {
-      "category": "architecture"
-    },
-    "product-rendering": {
-      "category": "product"
-    },
-    "interior": {
-      "category": "studies"
-    },
-    "cgi": {
-      "category": "studies"
-    },
     "project-9a627a8d": {
       "category": "architecture"
     },
     "project-6abfe00e": {
       "category": "architecture"
+    },
+    "interior": {
+      "category": "studies"
+    },
+    "product-rendering": {
+      "category": "product"
+    },
+    "cgi": {
+      "category": "studies"
     },
     "project-3ba57396": {
       "category": "studies"

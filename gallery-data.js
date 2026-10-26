@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T13:59:58.394Z",
+  "updatedAt": "2026-10-26T14:22:54.408Z",
   "projects": {
     "yunba-depot": {
       "title": "轨道交通车辆基地",
@@ -60,9 +60,116 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "layout": "stack"
     },
+    "residential": {
+      "title": "住宅与公共空间",
+      "cover": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
+      "images": [
+        {
+          "id": "image-cf41abe0-1942-4180-98c7-ec1e8cc20c08",
+          "caption": "ComfyUI_temp_exdpx_00001_ddxoi_1793021552",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3552264,
+            "bytes": 1290792,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08-cover.webp"
+        },
+        {
+          "id": "image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2",
+          "caption": "ComfyUI_temp_exdpx_00002_oeqyo_1793021789",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4886076,
+            "bytes": 2100846,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2-cover.webp"
+        },
+        {
+          "id": "image-0015378d-90ff-44e6-9602-897cd7ac16ff",
+          "caption": "ComfyUI_temp_hhexd_00001_rrbyi_1793021665",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4771123,
+            "bytes": 2075654,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff-cover.webp"
+        },
+        {
+          "id": "image-6ed34c32-1f89-494b-8f27-a033af785a4e",
+          "caption": "ComfyUI_temp_axihh_00001_orgur_1793021893",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3548098,
+            "bytes": 1257978,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e-cover.webp"
+        },
+        {
+          "id": "image-1f691871-bee2-4582-822b-1e1ba90dc4ff",
+          "caption": "ComfyUI_temp_hhexd_00002_fpnzp_1793021430",
+          "alt": "住宅与公共空间效果图",
+          "src": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3226860,
+            "bytes": 1056122,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff-cover.webp"
+        }
+      ],
+      "videos": [
+        {
+          "id": "video-b6f9ef27-e193-45e7-b1a8-5d8de6bc9d18",
+          "url": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
+          "title": "测试视频",
+          "titleEn": "1111",
+          "poster": "https://i1.hdslb.com/bfs/archive/fca6ac914df1a17fc26350b1ae8c055b4586dd64.jpg",
+          "posterFor": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
+          "providerTitle": "影视飓风员工，开什么车？",
+          "posterUpdatedAt": "2026-10-25T07:15:22.502257Z",
+          "posterRefresh": "2026-10-25T07:17:46.040234Z",
+          "posterStatus": "unavailable",
+          "posterError": "HTTP 412",
+          "posterAttemptedAt": "2026-10-25T07:27:40.640772Z"
+        }
+      ]
+    },
     "grandstand": {
       "title": "赛车场看台与配套空间",
-      "cover": "images/uploads/image-71b5530a-efcf-42ab-8ce6-789f3d2d997f.webp",
+      "cover": "images/uploads/image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1.webp",
       "images": [
         {
           "id": "grandstand-overview",
@@ -357,129 +464,102 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "videos": []
     },
-    "residential": {
-      "title": "住宅与公共空间",
-      "cover": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
+    "project-9a627a8d": {
+      "title": "project-09",
+      "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
       "images": [
         {
-          "id": "image-cf41abe0-1942-4180-98c7-ec1e8cc20c08",
-          "caption": "ComfyUI_temp_exdpx_00001_ddxoi_1793021552",
-          "alt": "住宅与公共空间效果图",
-          "src": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08.webp",
+          "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
+          "caption": "compare",
+          "alt": "project-09效果图",
+          "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
           "upload": {
-            "originalBytes": 3552264,
-            "bytes": 1290792,
+            "originalBytes": 4493122,
+            "bytes": 1945410,
             "width": 3840,
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-cf41abe0-1942-4180-98c7-ec1e8cc20c08-cover.webp"
+          "captionEn": "project-09",
+          "layout": "half",
+          "body": "compare",
+          "bodyEn": "compare",
+          "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
+          "beforeLabel": "效果",
+          "beforeLabelEn": "After",
+          "afterLabel": "原图",
+          "afterLabelEn": "Before"
         },
         {
-          "id": "image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2",
-          "caption": "ComfyUI_temp_exdpx_00002_oeqyo_1793021789",
-          "alt": "住宅与公共空间效果图",
-          "src": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2.webp",
+          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
+          "caption": "",
+          "alt": "project-09效果图",
+          "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
           "upload": {
-            "originalBytes": 4886076,
-            "bytes": 2100846,
+            "originalBytes": 3917481,
+            "bytes": 1616294,
             "width": 3840,
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-4cd6b6fa-4951-478f-aa6c-b4ff7c9e94b2-cover.webp"
-        },
-        {
-          "id": "image-0015378d-90ff-44e6-9602-897cd7ac16ff",
-          "caption": "ComfyUI_temp_hhexd_00001_rrbyi_1793021665",
-          "alt": "住宅与公共空间效果图",
-          "src": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4771123,
-            "bytes": 2075654,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-0015378d-90ff-44e6-9602-897cd7ac16ff-cover.webp"
-        },
-        {
-          "id": "image-6ed34c32-1f89-494b-8f27-a033af785a4e",
-          "caption": "ComfyUI_temp_axihh_00001_orgur_1793021893",
-          "alt": "住宅与公共空间效果图",
-          "src": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3548098,
-            "bytes": 1257978,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-6ed34c32-1f89-494b-8f27-a033af785a4e-cover.webp"
-        },
-        {
-          "id": "image-1f691871-bee2-4582-822b-1e1ba90dc4ff",
-          "caption": "ComfyUI_temp_hhexd_00002_fpnzp_1793021430",
-          "alt": "住宅与公共空间效果图",
-          "src": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3226860,
-            "bytes": 1056122,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-1f691871-bee2-4582-822b-1e1ba90dc4ff-cover.webp"
+          "captionEn": "project-09",
+          "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
+          "beforeLabel": "效果",
+          "beforeLabelEn": "After",
+          "afterLabel": "原图",
+          "afterLabelEn": "Before"
         }
       ],
-      "videos": [
-        {
-          "id": "video-b6f9ef27-e193-45e7-b1a8-5d8de6bc9d18",
-          "url": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
-          "title": "测试视频",
-          "titleEn": "1111",
-          "poster": "https://i1.hdslb.com/bfs/archive/fca6ac914df1a17fc26350b1ae8c055b4586dd64.jpg",
-          "posterFor": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
-          "providerTitle": "影视飓风员工，开什么车？",
-          "posterUpdatedAt": "2026-10-25T07:15:22.502257Z",
-          "posterRefresh": "2026-10-25T07:17:46.040234Z",
-          "posterStatus": "unavailable",
-          "posterError": "HTTP 412",
-          "posterAttemptedAt": "2026-10-25T07:27:40.640772Z"
-        }
-      ]
+      "videos": [],
+      "layout": "stack"
     },
-    "product-rendering": {
-      "title": "家具产品渲染",
-      "cover": "image-product-rendering-cover.webp",
+    "project-6abfe00e": {
+      "title": "光隙之庭",
+      "cover": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
       "images": [
         {
-          "id": "product-rendering-overview",
-          "src": "image-product-rendering-full.webp",
-          "caption": "项目作品总览",
-          "alt": "家具产品渲染作品总览",
-          "kind": "collage",
-          "captionEn": "Project overview",
-          "altEn": "Furniture Product Rendering — project overview",
-          "width": 392,
-          "height": 1920
+          "id": "image-069ad53e-af78-443b-b4fe-26c84b159d45",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 3840,
+          "upload": {
+            "originalBytes": 6027448,
+            "bytes": 2250118,
+            "width": 3840,
+            "height": 3840,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45-cover.webp"
+        },
+        {
+          "id": "image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 3840,
+          "upload": {
+            "originalBytes": 5836768,
+            "bytes": 2156570,
+            "width": 3840,
+            "height": 3840,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939-cover.webp"
         }
-      ]
+      ],
+      "videos": [],
+      "layout": "stack"
     },
     "interior": {
       "title": "室内空间与氛围",
@@ -614,6 +694,23 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "layout": "stack"
     },
+    "product-rendering": {
+      "title": "家具产品渲染",
+      "cover": "image-product-rendering-cover.webp",
+      "images": [
+        {
+          "id": "product-rendering-overview",
+          "src": "image-product-rendering-full.webp",
+          "caption": "项目作品总览",
+          "alt": "家具产品渲染作品总览",
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Furniture Product Rendering — project overview",
+          "width": 392,
+          "height": 1920
+        }
+      ]
+    },
     "cgi": {
       "title": "材质与 CGI 探索",
       "cover": "image-cgi-cover.webp",
@@ -630,103 +727,6 @@ window.PORTFOLIO_GALLERIES = {
           "height": 1920
         }
       ]
-    },
-    "project-9a627a8d": {
-      "title": "project-09",
-      "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-      "images": [
-        {
-          "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
-          "caption": "compare",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4493122,
-            "bytes": 1945410,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "captionEn": "project-09",
-          "layout": "half",
-          "body": "compare",
-          "bodyEn": "compare",
-          "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before"
-        },
-        {
-          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3917481,
-            "bytes": 1616294,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "captionEn": "project-09",
-          "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before"
-        }
-      ],
-      "videos": [],
-      "layout": "stack"
-    },
-    "project-6abfe00e": {
-      "title": "光隙之庭",
-      "cover": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
-      "images": [
-        {
-          "id": "image-069ad53e-af78-443b-b4fe-26c84b159d45",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 3840,
-          "upload": {
-            "originalBytes": 6027448,
-            "bytes": 2250118,
-            "width": 3840,
-            "height": 3840,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45-cover.webp"
-        },
-        {
-          "id": "image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 3840,
-          "upload": {
-            "originalBytes": 5836768,
-            "bytes": 2156570,
-            "width": 3840,
-            "height": 3840,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939-cover.webp"
-        }
-      ],
-      "videos": [],
-      "layout": "stack"
     },
     "project-3ba57396": {
       "title": "UE5-片段",
