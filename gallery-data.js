@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T06:12:50.260Z",
+  "updatedAt": "2026-10-26T06:13:52.610Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -258,7 +258,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "interior": {
       "title": "室内空间与氛围",
-      "cover": "image-interior-cover.webp",
+      "cover": "images/uploads/image-25403844-f326-4571-9719-7f99706b39ff.webp",
       "images": [
         {
           "id": "image-8f56442c-f9cc-4814-8c80-1b482c183bec",
