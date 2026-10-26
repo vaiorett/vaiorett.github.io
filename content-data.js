@@ -58,7 +58,7 @@ window.PORTFOLIO_CONTENT = {
       "同时具备工商企业管理学习背景与 ISO 9001:2015 内审员证，熟练使用 Linux（Fedora KDE / Ubuntu GNOME）环境及 ComfyUI、Stable Diffusion、大语言模型等工具优化内容制作与技术文档流程。"
     ],
     "home.zh.contactTitle": "寻找下一份重执行、\n讲技术的专业岗位。",
-    "home.zh.contactIntro": "专注非销售类的视觉设计、三维/CAD 工程技术、AIGC 内容制作、项目文控与数字化支持岗位，欢迎通过邮件联系。",
+    "home.zh.contactIntro": "专注视觉设计、三维/CAD 工程技术、AIGC 内容制作、项目文控与数字化支持岗位，欢迎通过邮件联系。",
     "cap.zh.0.0": "空间表现与工程制图",
     "cap.zh.0.1": "从 CAD / 天正 / BIM 图纸深化，到建筑场地建模与多视角视觉交付。",
     "cap.zh.0.2": "AutoCAD / 天正建筑 / SketchUp / Revit",
