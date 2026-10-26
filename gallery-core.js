@@ -24,6 +24,7 @@
       for(const item of project.images){
         if(!item || typeof item.id!=='string' || ids.has(item.id) || !safePath(item.src) || typeof item.caption!=='string' || typeof item.alt!=='string') throw new Error('图片资料不完整。');
         if(item.thumbnail!==undefined&&!safePath(item.thumbnail))throw new Error('封面小图路径不正确。');
+        if(item.compareThumbnail!==undefined&&!safePath(item.compareThumbnail))throw new Error('封面小图路径不正确。');
         if(item.compare!==undefined&&!safePath(item.compare))throw new Error('对比图片路径不正确。');
         for(const key of ['beforeLabel','beforeLabelEn','afterLabel','afterLabelEn'])if(item[key]!==undefined&&(typeof item[key]!=='string'||item[key].length>100))throw new Error('对比标签文字最多 100 字。');
         if((item.width!==undefined||item.height!==undefined)&&(!Number.isInteger(item.width)||!Number.isInteger(item.height)||item.width<1||item.height<1))throw new Error('图片尺寸资料不正确。');
@@ -49,9 +50,9 @@
     if(conflicts.length)throw new Error('这些项目已在线上被修改，请先导出草稿再核对：'+conflicts.join('、'));
     return merged;
   }
-  function coverPath(project){const item=project.images.find(i=>i.src===project.cover);return item?.thumbnail||project.cover;}
+  function coverPath(project){const item=project.images.find(i=>i.src===project.cover||i.compare===project.cover);if(item){if(item.src===project.cover)return item.thumbnail||project.cover;if(item.compare===project.cover)return item.compareThumbnail||project.cover;}return project.cover;}
   function usedFiles(data,files){
-    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);if(i.compare)paths.add(i.compare);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
+    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);if(i.compare)paths.add(i.compare);if(i.compareThumbnail)paths.add(i.compareThumbnail);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
   }
   function base64(bytes){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}

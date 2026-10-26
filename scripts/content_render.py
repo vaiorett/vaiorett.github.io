@@ -15,7 +15,10 @@ def render(content,templates,galleries):
         for lang in ['zh','en']:
             for key in ['title','desc','role','context','note','tools','tasks']:fields[f'project.{id}.{lang}.{key}']={'type':key if key in ['tools','tasks'] else 'text'}
     def cover(id):
-        p=galleries['projects'][id];item=next((i for i in p['images'] if i['src']==p['cover']),{});return item.get('thumbnail') or p['cover']
+        p=galleries['projects'][id];item=next((i for i in p['images'] if i.get('src')==p['cover'] or i.get('compare')==p['cover']),{})
+        if item.get('src')==p['cover']:return item.get('thumbnail') or p['cover']
+        if item.get('compare')==p['cover']:return item.get('compareThumbnail') or p['cover']
+        return p['cover']
     def text(key):
         value=values[key];kind=fields[key]['type']
         if kind in ['tags','tasks','paragraphs']:

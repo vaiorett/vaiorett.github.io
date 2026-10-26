@@ -108,7 +108,7 @@ if (backTop) {
 
 const galleryData=window.PORTFOLIO_GALLERIES;
 const validImagePath=path=>typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');
-const displayCover=p=>p.images.find(i=>i.src===p.cover)?.thumbnail||p.cover;
+const displayCover=p=>{const item=p.images.find(i=>i.src===p.cover||i.compare===p.cover);return (item?.src===p.cover?item.thumbnail:item?.compareThumbnail)||p.cover;};
 if(galleryData && galleryData.projects){
   document.querySelectorAll('[data-project-card]').forEach(card=>{
     const project=galleryData.projects[card.dataset.projectCard];
