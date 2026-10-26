@@ -443,7 +443,21 @@ window.PORTFOLIO_CONTENT = {
       "National Computer Rank Examination, Level 1 · Computer Fundamentals & MS Office",
       "Interior Decoration Designer, Level 3",
       "ISO 9001:2015 Internal Auditor Certificate"
-    ]
+    ],
+    "project.project-9a627a8d.zh.title": "project-09",
+    "project.project-9a627a8d.zh.desc": "project-09",
+    "project.project-9a627a8d.zh.role": "",
+    "project.project-9a627a8d.zh.context": "",
+    "project.project-9a627a8d.zh.note": "",
+    "project.project-9a627a8d.zh.tools": [],
+    "project.project-9a627a8d.zh.tasks": [],
+    "project.project-9a627a8d.en.title": "project-09",
+    "project.project-9a627a8d.en.desc": "project-09",
+    "project.project-9a627a8d.en.role": "",
+    "project.project-9a627a8d.en.context": "",
+    "project.project-9a627a8d.en.note": "",
+    "project.project-9a627a8d.en.tools": [],
+    "project.project-9a627a8d.en.tasks": []
   },
   "projects": {
     "yunba-depot": {
@@ -469,6 +483,9 @@ window.PORTFOLIO_CONTENT = {
     },
     "cgi": {
       "category": "studies"
+    },
+    "project-9a627a8d": {
+      "category": "architecture"
     }
   }
 };
