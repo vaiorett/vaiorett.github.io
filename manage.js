@@ -62,7 +62,99 @@
  }
  function element(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
  function button(label,fn,disabled=false,extra=''){const b=element('button','mini-button '+extra,label);b.type='button';b.disabled=disabled;b.addEventListener('click',fn);return b;}
- function renderSelect(){const select=$('project-select');select.replaceChildren();for(const[id,p]of Object.entries(data.projects)){const option=element('option','',textData.values['project.'+id+'.zh.title']||p.title);option.value=id;select.append(option);}select.value=selected;}
+ function moveProject(id,dir){
+  const order=Object.keys(T.projects(textData,templates));
+  const fromIndex=order.indexOf(id);
+  if(fromIndex===-1)return;
+  const toIndex=fromIndex+dir;
+  if(toIndex<0||toIndex>=order.length)return;
+  const [movedId]=order.splice(fromIndex,1);
+  order.splice(toIndex,0,movedId);
+  T.reorderProjects(textData,templates,order);
+  C.reorderProjects(data,order);
+  selected=movedId;
+  renderSelect();
+  render();
+  renderText();
+  changed();
+  status('draft-status','已更新首页项目展示顺序：“'+(textData.values['project.'+id+'.zh.title']||id)+'”现排在第 '+(toIndex+1)+' 位（草稿已保存）。');
+ }
+ function renderProjectSortList(){
+  const container=$('project-sort-list');
+  if(!container)return;
+  container.replaceChildren();
+  const order=Object.keys(T.projects(textData,templates));
+  const badge=$('project-count-badge');
+  if(badge)badge.textContent=order.length+' 个项目';
+  order.forEach((id,index)=>{
+   const p=data.projects[id];
+   const zhTitle=textData.values['project.'+id+'.zh.title']||p?.title||id;
+   const imgCount=p?.images?.length||0;
+   const vidCount=p?.videos?.length||0;
+   const mediaText=imgCount+'图'+(vidCount?' · '+vidCount+'视频':'');
+
+   const item=element('div','project-sort-item'+(id===selected?' active':''));
+   item.dataset.projectId=id;
+   item.setAttribute('role','option');
+   item.setAttribute('aria-selected',id===selected?'true':'false');
+   item.tabIndex=0;
+
+   const num=element('span','project-sort-num',String(index+1).padStart(2,'0'));
+   const info=element('div','project-sort-info');
+   const titleEl=element('div','project-sort-title',zhTitle);
+   titleEl.title=zhTitle;
+   const metaEl=element('span','project-sort-badge',mediaText);
+   info.append(titleEl,metaEl);
+
+   const actions=element('div','project-sort-actions');
+   const upBtn=element('button','project-sort-btn','↑');
+   upBtn.type='button';
+   upBtn.title=index===0?'已在首页第一位':'在首页上移一位';
+   upBtn.disabled=index===0;
+   upBtn.addEventListener('click',e=>{e.stopPropagation();moveProject(id,-1);});
+
+   const downBtn=element('button','project-sort-btn','↓');
+   downBtn.type='button';
+   downBtn.title=index===order.length-1?'已在首页最后一位':'在首页下移一位';
+   downBtn.disabled=index===order.length-1;
+   downBtn.addEventListener('click',e=>{e.stopPropagation();moveProject(id,1);});
+
+   actions.append(upBtn,downBtn);
+   item.append(num,info,actions);
+
+   item.addEventListener('click',()=>{
+    if(selected!==id){
+     selected=id;
+     if($('project-select'))$('project-select').value=id;
+     renderSelect();
+     render();
+     renderText();
+    }
+   });
+
+   item.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+     e.preventDefault();
+     item.click();
+    }
+   });
+
+   container.append(item);
+  });
+ }
+ function renderSelect(){
+  const select=$('project-select');
+  if(select){
+   select.replaceChildren();
+   for(const[id,p]of Object.entries(data.projects)){
+    const option=element('option','',textData.values['project.'+id+'.zh.title']||p.title);
+    option.value=id;
+    select.append(option);
+   }
+   select.value=selected;
+  }
+  renderProjectSortList();
+ }
  function move(from,to){const list=data.projects[selected].images;if(to<0||to>=list.length)return;const [item]=list.splice(from,1);list.splice(to,0,item);render();changed();}
  function render(){
   $('project-layout').value=data.projects[selected].layout||'auto';
@@ -411,7 +503,7 @@
  $('replace-file').addEventListener('change',async e=>{await addFiles(e.target.files,e.target.dataset.imageId);e.target.value='';});
  $('compare-file').addEventListener('change',async e=>{await addCompareFile(e.target.files,e.target.dataset.imageId);e.target.value='';});
  const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));drop.addEventListener('drop',async e=>{e.preventDefault();drop.classList.remove('dragover');await addFiles(e.dataTransfer.files);});
- $('project-select').addEventListener('change',e=>{selected=e.target.value;render();renderText();changed();});
+ $('project-select').addEventListener('change',e=>{selected=e.target.value;renderSelect();render();renderText();changed();});
  $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片、顺序和说明修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';current.images=C.clone(original?.images||[]);render();changed();});
  function setBusy(value){busy=value;document.querySelector('.manager-editor').inert=value;document.querySelector('.manager-sidebar').inert=value;document.querySelector('.manager').classList.toggle('busy',value);$('connect-button').disabled=value;$('export-button').disabled=value;$('disconnect-button').disabled=value;updatePublish();}
  async function api(path,method='GET',body){

@@ -34,6 +34,18 @@ test('genuinely conflicting remote edits still stop the merge',()=>{
   local.projects.test.images[0].caption='Local';remote.projects.test.images[0].caption='Remote';
   assert.throws(()=>C.merge(base,local,remote),/线上被修改/);
 });
+test('gallery projects can be custom reordered and merged preserving local order',()=>{
+  const base={version:1,projects:{
+    a:{title:'A',cover:'a.webp',images:[{id:'1',src:'a.webp',caption:'A',alt:'A'}]},
+    b:{title:'B',cover:'b.webp',images:[{id:'2',src:'b.webp',caption:'B',alt:'B'}]}
+  }};
+  const local=C.clone(base);
+  C.reorderProjects(local,['b','a']);
+  assert.deepEqual(Object.keys(local.projects),['b','a']);
+  const remote=C.clone(base);
+  const merged=C.merge(base,local,remote);
+  assert.deepEqual(Object.keys(merged.projects),['b','a']);
+});
 test('publish uploads only referenced files and preserves the base tree',async()=>{
   const data=sample();data.projects.test.cover='images/uploads/new.png';data.projects.test.images.push({id:'two',src:'images/uploads/new.png',caption:'New',alt:'New'});
   const calls=[],progress=[];

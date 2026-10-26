@@ -48,7 +48,19 @@
       else merged.projects[id]=clone(value);
     }
     if(conflicts.length)throw new Error('这些项目已在线上被修改，请先导出草稿再核对：'+conflicts.join('、'));
+    const localKeys=Object.keys(local.projects),baseKeys=Object.keys(base.projects),remoteKeys=Object.keys(remote.projects);
+    if(JSON.stringify(localKeys)!==JSON.stringify(baseKeys)&&JSON.stringify(remoteKeys)===JSON.stringify(baseKeys)){
+      const next={};for(const id of localKeys)if(merged.projects[id])next[id]=merged.projects[id];
+      for(const id of Object.keys(merged.projects))if(!next[id])next[id]=merged.projects[id];
+      merged.projects=next;
+    }
     return merged;
+  }
+  function reorderProjects(galleries,order){
+    validate(galleries);
+    const next={};for(const id of order)if(galleries.projects[id])next[id]=galleries.projects[id];
+    for(const[id,p]of Object.entries(galleries.projects))if(!next[id])next[id]=p;
+    galleries.projects=next;return galleries;
   }
   function coverPath(project){const item=project.images.find(i=>i.src===project.cover||i.compare===project.cover);if(item){if(item.src===project.cover)return item.thumbnail||project.cover;if(item.compare===project.cover)return item.compareThumbnail||project.cover;}return project.cover;}
   function usedFiles(data,files){
@@ -109,6 +121,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

@@ -37,6 +37,18 @@ test('publishing commits content, all pages, gallery and images atomically',asyn
  const tree=calls.find(c=>c.p.endsWith('/git/trees')).b;assert.equal(tree.tree.length,Object.keys(data.projects).length*2+5);assert.equal(tree.base_tree,'tree');assert.equal(calls.filter(c=>c.m==='PATCH').length,1);
  assert.ok(tree.tree.some(x=>x.path==='en/index.html'));assert.ok(tree.tree.some(x=>x.path==='content-data.js'));
 });
+test('projects can be custom reordered and rendered accurately to homepage cards and merge cleanly',()=>{
+ const originalKeys=Object.keys(data.projects);
+ const reversedKeys=[...originalKeys].reverse();
+ const reordered=T.clone(data);
+ T.reorderProjects(reordered,templates,reversedKeys);
+ assert.deepEqual(Object.keys(reordered.projects),reversedKeys);
+ const pages=T.render(reordered,templates,galleries);
+ const cardMatches=[...pages['index.html'].matchAll(/data-project-card="([^"]+)"/g)].map(m=>m[1]);
+ assert.deepEqual(cardMatches,reversedKeys);
+ const merged=T.merge(data,reordered,data,templates);
+ assert.deepEqual(Object.keys(merged.projects),reversedKeys);
+});
 test('concurrent update during publishing cannot be overwritten',async()=>{
  let reads=0,patched=false;const api=async(p,m='GET')=>{if(m==='GET'&&p.includes('/git/ref/'))return {object:{sha:++reads===1?'base':'other'}};if(p.endsWith('/git/commits/base'))return {tree:{sha:'tree'}};if(p.endsWith('/git/blobs'))return {sha:'blob'};if(p.endsWith('/git/trees'))return {sha:'newtree'};if(p.endsWith('/git/commits'))return {sha:'commit'};if(m==='PATCH')patched=true;};
  await assert.rejects(C.publish(galleries,new Map(),{branch:'main',base:'base'},api,()=>{},T.render(data,templates,galleries)),/发布期间/);assert.equal(patched,false);

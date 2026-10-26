@@ -24,6 +24,12 @@
   for(const lang of ['zh','en'])for(const key of Object.keys(projectLabels))data.values['project.'+id+'.'+lang+'.'+key]=key==='title'?titles[lang].trim():['tools','tasks'].includes(key)?[]:'';
   galleries.projects[id]={title:titles.zh.trim(),cover:'project-placeholder.webp',images:[],videos:[]};
  }
+ function reorderProjects(data,templates,order){
+  const current=projects(data,templates),keys=Object.keys(current);
+  if(!Array.isArray(order)||order.length!==keys.length||!order.every(id=>Object.hasOwn(current,id)))throw new Error('项目排序列表不完整或包含无效项目。');
+  const next={};for(const id of order)next[id]=clone(current[id]);
+  data.projects=next;return data;
+ }
  function readyToPublish(data,templates,galleries){
   validate(data,templates);G.validate(galleries);
   for(const id of Object.keys(projects(data,templates))){if(['zh','en'].some(lang=>!data.values['project.'+id+'.'+lang+'.desc']?.trim()))throw new Error('请为“'+data.values['project.'+id+'.zh.title']+'”填写中英文项目简介，用于主页和搜索摘要。');const p=galleries.projects[id];if(!p||(!p.images.length&&!p.videos?.length))throw new Error('请为“'+data.values['project.'+id+'.zh.title']+'”添加至少一张图片或一个视频。');}
@@ -55,6 +61,12 @@
   for(const[id,p]of Object.entries(lm)){
    if(JSON.stringify(p)===JSON.stringify(bm[id])||JSON.stringify(p)===JSON.stringify(rm[id]))continue;
    if(JSON.stringify(rm[id])!==JSON.stringify(bm[id]))conflicts.push('项目 '+id);else merged.projects[id]=clone(p);
+  }
+  const localKeys=Object.keys(lm),baseKeys=Object.keys(bm),remoteKeys=Object.keys(rm);
+  if(JSON.stringify(localKeys)!==JSON.stringify(baseKeys)&&JSON.stringify(remoteKeys)===JSON.stringify(baseKeys)){
+   const next={};for(const id of localKeys)if(merged.projects[id])next[id]=merged.projects[id];
+   for(const id of Object.keys(merged.projects))if(!next[id])next[id]=merged.projects[id];
+   merged.projects=next;
   }
   const fields=fieldsFor(merged,templates);
   for(const[key,value]of Object.entries(local.values)){
@@ -103,6 +115,6 @@
   result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   return result;
  }
- const core={clone,esc,arrayTypes,pagePath,categories,projects,fieldsFor,addProject,readyToPublish,validateTemplates,validate,serialize,parse,parseTemplates,merge,render};
+ const core={clone,esc,arrayTypes,pagePath,categories,projects,fieldsFor,addProject,reorderProjects,readyToPublish,validateTemplates,validate,serialize,parse,parseTemplates,merge,render};
  if(typeof module!=='undefined'&&module.exports)module.exports=core;else root.ContentCore=core;
 })(typeof window!=='undefined'?window:globalThis);
