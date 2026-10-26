@@ -68,9 +68,10 @@
     }
     compareBox.append(grid);
    }else{
-    const addBtn=button('＋ 添加对比效果图（制作滑动对比）',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();});
+    const addBtn=button('＋ 添加对比效果图（制作滑动对比）',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();},false,'compare-add-button');
     addBtn.title='上传最终渲染/光影效果图，与当前图片形成左右滑动对比';
-    compareBox.append(addBtn);
+    const tip=element('p','compare-editor-tip','让当前图片与最终效果图形成左右滑动对比（如白模与最终灯光渲染对比）');
+    compareBox.append(addBtn,tip);
    }
    fields.append(compareBox);
    for(const[key,label]of [['body','图文段落（可选，空行分段）'],['bodyEn','English paragraphs（可选）']]){const input=element('textarea');input.id='image-'+key+'-'+index;input.rows=3;input.maxLength=6000;input.value=item[key]||'';const labelEl=element('label','',label);labelEl.htmlFor=input.id;input.addEventListener('input',()=>{item[key]=input.value;changed();});fields.append(labelEl,input);}
