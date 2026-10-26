@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T10:45:55.971Z",
+  "updatedAt": "2026-10-26T11:14:54.777Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -38,7 +38,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
-      "cover": "images/uploads/image-0ab1a363-8131-4e63-9620-f99f3e839d13.webp",
+      "cover": "images/uploads/image-71b5530a-efcf-42ab-8ce6-789f3d2d997f.webp",
       "images": [
         {
           "id": "grandstand-overview",
@@ -92,6 +92,159 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "thumbnail": "images/uploads/image-f44edefa-aec4-4cc9-991d-44ff94eaadcd-cover.webp"
+        },
+        {
+          "id": "image-96a0c3b7-2bc1-4b19-9046-3b4521d2a0e6",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-96a0c3b7-2bc1-4b19-9046-3b4521d2a0e6.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3739405,
+            "bytes": 1478368,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-96a0c3b7-2bc1-4b19-9046-3b4521d2a0e6-cover.webp"
+        },
+        {
+          "id": "image-71b5530a-efcf-42ab-8ce6-789f3d2d997f",
+          "caption": "ComfyUI_temp_hhexd_00001_orbbh_1793012208",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-71b5530a-efcf-42ab-8ce6-789f3d2d997f.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3711318,
+            "bytes": 1480546,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-71b5530a-efcf-42ab-8ce6-789f3d2d997f-cover.webp"
+        },
+        {
+          "id": "image-3658a703-3b27-428e-9a8f-ebd4465ce5e8",
+          "caption": "ComfyUI_temp_udaxi_00001_hmulv_1793012281",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-3658a703-3b27-428e-9a8f-ebd4465ce5e8.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3699973,
+            "bytes": 1445526,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-3658a703-3b27-428e-9a8f-ebd4465ce5e8-cover.webp"
+        },
+        {
+          "id": "image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1",
+          "caption": "ComfyUI_temp_udaxi_00002_ybytp_1793012479",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3827856,
+            "bytes": 1470990,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1-cover.webp"
+        },
+        {
+          "id": "image-1a627673-e0fa-4e8d-9528-dc5188181fb0",
+          "caption": "ComfyUI_temp_exdpx_00001_cdsag_1793012615",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-1a627673-e0fa-4e8d-9528-dc5188181fb0.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3441249,
+            "bytes": 1247424,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-1a627673-e0fa-4e8d-9528-dc5188181fb0-cover.webp"
+        },
+        {
+          "id": "image-6c977150-0edf-4a6e-833e-864fe7378255",
+          "caption": "ComfyUI_temp_exdpx_00003_uxcph_1793013121",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-6c977150-0edf-4a6e-833e-864fe7378255.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4051252,
+            "bytes": 1671708,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-6c977150-0edf-4a6e-833e-864fe7378255-cover.webp"
+        },
+        {
+          "id": "image-aeeb424b-0b72-4f91-b271-b7d7f6490059",
+          "caption": "ComfyUI_temp_exdpx_00001_lsmgm_1793013015",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-aeeb424b-0b72-4f91-b271-b7d7f6490059.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3675864,
+            "bytes": 1355226,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-aeeb424b-0b72-4f91-b271-b7d7f6490059-cover.webp"
+        },
+        {
+          "id": "image-979153a2-2c8c-4ca4-b5cb-773223a81add",
+          "caption": "ComfyUI_temp_exdpx_00002_bpfpo_1793012896",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-979153a2-2c8c-4ca4-b5cb-773223a81add.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3402583,
+            "bytes": 1256794,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-979153a2-2c8c-4ca4-b5cb-773223a81add-cover.webp"
+        },
+        {
+          "id": "image-6f6e5758-b8da-4e3f-82ee-7b9d0dc09577",
+          "caption": "ComfyUI_temp_udaxi_00003_qkgkc_1793012722",
+          "alt": "赛车场看台与配套空间效果图",
+          "src": "images/uploads/image-6f6e5758-b8da-4e3f-82ee-7b9d0dc09577.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3246199,
+            "bytes": 1138066,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-6f6e5758-b8da-4e3f-82ee-7b9d0dc09577-cover.webp"
         }
       ]
     },
