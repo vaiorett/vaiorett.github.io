@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T08:58:37.780Z",
+  "updatedAt": "2026-10-26T10:17:24.939Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -50,24 +50,6 @@ window.PORTFOLIO_GALLERIES = {
           "altEn": "Racetrack Grandstand & Facilities — project overview",
           "width": 344,
           "height": 1920
-        },
-        {
-          "id": "grandstand-lighting-compare",
-          "src": "images/uploads/image-grandstand-compare-base.webp",
-          "compare": "images/uploads/image-grandstand-compare-lit.webp",
-          "caption": "光影氛围与材质对比",
-          "captionEn": "Lighting & Material Comparison",
-          "alt": "赛车场看台光影渲染对比",
-          "altEn": "Racetrack Grandstand lighting comparison",
-          "beforeLabel": "基础阶段",
-          "beforeLabelEn": "Base Render",
-          "afterLabel": "最终效果",
-          "afterLabelEn": "Final Lighting",
-          "width": 1536,
-          "height": 864,
-          "layout": "full",
-          "body": "滑动对比展示从基础体量与漫反射材质，到最终夜景灯光氛围的制作演进过程。",
-          "bodyEn": "Interactive slider showing the progression from base architectural massing and diffuse materials to the final night lighting atmosphere."
         }
       ]
     },
@@ -467,6 +449,19 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "videos": [],
       "layout": "stack"
+    },
+    "project-3ba57396": {
+      "title": "UE5-片段",
+      "cover": "project-placeholder.webp",
+      "images": [],
+      "videos": [
+        {
+          "id": "video-3844c236-ba36-4784-a1fe-21f7d239c8f4",
+          "url": "https://www.bilibili.com/video/BV1Ujn96XEjP/?p=1",
+          "title": "",
+          "titleEn": ""
+        }
+      ]
     }
   }
 };

@@ -471,7 +471,21 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.en.context": "",
     "project.project-6abfe00e.en.note": "",
     "project.project-6abfe00e.en.tools": [],
-    "project.project-6abfe00e.en.tasks": []
+    "project.project-6abfe00e.en.tasks": [],
+    "project.project-3ba57396.zh.title": "UE5-片段",
+    "project.project-3ba57396.zh.desc": "UE5 - Clip",
+    "project.project-3ba57396.zh.role": "",
+    "project.project-3ba57396.zh.context": "",
+    "project.project-3ba57396.zh.note": "",
+    "project.project-3ba57396.zh.tools": [],
+    "project.project-3ba57396.zh.tasks": [],
+    "project.project-3ba57396.en.title": "UE5 - Clip",
+    "project.project-3ba57396.en.desc": "UE5 - Clip",
+    "project.project-3ba57396.en.role": "",
+    "project.project-3ba57396.en.context": "",
+    "project.project-3ba57396.en.note": "",
+    "project.project-3ba57396.en.tools": [],
+    "project.project-3ba57396.en.tasks": []
   },
   "projects": {
     "yunba-depot": {
@@ -503,6 +517,9 @@ window.PORTFOLIO_CONTENT = {
     },
     "project-6abfe00e": {
       "category": "architecture"
+    },
+    "project-3ba57396": {
+      "category": "studies"
     }
   }
 };
