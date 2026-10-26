@@ -22,5 +22,12 @@ def markup(project,lang,labels):
         copy='<div class="gallery-copy"><figcaption>'+str(i+1).zfill(2)+' / '+esc(caption)+'</figcaption>'
         if body.strip():copy+='<div class="gallery-text">'+''.join('<p>'+esc(p)+'</p>' for p in re.split(r'\n\s*\n',body.strip()))+'</div>'
         copy+='</div>'
-        result+='<figure class="gallery-item layout-'+size(item,mode)+(' legacy' if item.get('kind')=='collage' else '')+(' has-copy' if body.strip() else '')+'"><a class="gallery-button" href="'+prefix+esc(item['src'])+'" aria-label="'+esc(labels['open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy"'+dimensions+'></a>'+copy+'</figure>'
+        if item.get('compare'):
+            beforeLabel=(item.get('beforeLabelEn') if lang=='en' else item.get('beforeLabel')) or ('Before' if lang=='en' else '原图')
+            afterLabel=(item.get('afterLabelEn') if lang=='en' else item.get('afterLabel')) or ('After' if lang=='en' else '效果')
+            hint='Drag or move to compare' if lang=='en' else '左右拖动或滑动对比'
+            media='<div class="image-comparer" data-comparer style="--pos:50%"><div class="compare-stage"><img class="compare-img compare-after" src="'+prefix+esc(item['compare'])+'" alt="'+esc(alt)+'" loading="lazy"'+dimensions+'><div class="compare-overlay"><img class="compare-img compare-before" src="'+prefix+esc(item['src'])+'" alt="'+esc(alt)+'" loading="lazy"'+dimensions+'></div><span class="compare-badge compare-badge-before">'+esc(beforeLabel)+'</span><span class="compare-badge compare-badge-after">'+esc(afterLabel)+'</span><div class="compare-handle-line" role="slider" aria-label="'+esc(hint)+'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0"><span class="compare-handle-knob" aria-hidden="true"><span>◂</span><span>▸</span></span></div></div></div>'
+            result+='<figure class="gallery-item layout-'+size(item,mode)+' is-comparer'+(' has-copy' if body.strip() else '')+'">'+media+copy+'</figure>'
+        else:
+            result+='<figure class="gallery-item layout-'+size(item,mode)+(' legacy' if item.get('kind')=='collage' else '')+(' has-copy' if body.strip() else '')+'"><a class="gallery-button" href="'+prefix+esc(item['src'])+'" aria-label="'+esc(labels['open'])+': '+esc(caption)+'"><img src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy"'+dimensions+'></a>'+copy+'</figure>'
     return result+'</div>'

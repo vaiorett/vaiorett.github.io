@@ -8,10 +8,10 @@ test('Bilibili URLs and BV IDs normalize to an allowlisted HTTPS player and pres
  for(const url of ['javascript:alert(1)','https://evil.test/video/BV1B7411m7LV','https://www.bilibili.com.evil.test/video/BV1B7411m7LV','https://user@www.bilibili.com/video/BV1B7411m7LV','https://www.bilibili.com:444/video/BV1B7411m7LV','https://www.bilibili.com/video/BV1B7411m7LV/?p=0','https://www.bilibili.com/video/BVwrong','https://b23.tv/abc'])assert.throws(()=>G.videoInfo(url));
 });
 test('new projects create both pages, homepage cards, filter counts, sitemap and reciprocal language links',()=>{
- const {d,g}=fresh();const pages=T.render(d,templates,g);assert.equal(Object.keys(pages).length,21);
- assert.match(pages['index.html'],/data-project-card="new-project" data-category="studies"/);assert.match(pages['index.html'],/class="section-count">09/);
+ const {d,g}=fresh();const pages=T.render(d,templates,g);assert.equal(Object.keys(pages).length,Object.keys(d.projects).length*2+3);
+ assert.match(pages['index.html'],/data-project-card="new-project" data-category="studies"/);assert.match(pages['index.html'],new RegExp('class="section-count">'+String(Object.keys(d.projects).length).padStart(2,'0')));
  for(const lang of ['zh','en']){const p=pages[(lang==='en'?'en/':'')+'work-new-project.html'];assert.match(p,/hreflang="en" href="https:\/\/vaiorett.github.io\/en\/work-new-project.html"/);assert.ok(!p.includes('post6dummy'));assert.ok(!p.includes('@@'));}
- assert.ok(!pages['sitemap.xml'].includes('<loc>')); assert.match(pages['work-cgi.html'],/class="next-project" href=".\/work-new-project.html"/);
+ assert.ok(!pages['sitemap.xml'].includes('<loc>')); const last=Object.keys(base.projects).at(-1);assert.match(pages['work-'+last+'.html'],/class="next-project" href=".\/work-new-project.html"/);
 });
 test('empty project remains a draft; video-only project can publish without fabricated images',()=>{
  const {d,g}=fresh();assert.throws(()=>T.readyToPublish(d,templates,g),/至少/);

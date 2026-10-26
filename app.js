@@ -131,12 +131,16 @@ let lightboxItems=[];
 if(projectGallery){
   const root=gallery.dataset.root;
   gallery.innerHTML=window.LayoutCore.markup(projectGallery,english?'en':'zh',{title:projectTitle,overview:localized('项目作品','Project image'),open:localized('打开原图','Open original image')});
-  gallery.querySelectorAll('.gallery-button').forEach((link,index)=>{
-    const item=projectGallery.images[index];if(!validImagePath(item.src))return;
-    const button=document.createElement('button');button.type='button';button.className='gallery-button';button.dataset.galleryIndex=String(lightboxItems.length);button.setAttribute('aria-label',localized('放大查看第 '+(index+1)+' 张：','Enlarge image '+(index+1)+': ')+imageCaption(item));
+  if(window.initComparers)window.initComparers(gallery);
+  gallery.querySelectorAll('.gallery-button').forEach(link=>{
+    const href=link.getAttribute('href')||'';
+    const item=projectGallery.images.find(img=>(root+img.src)===href||img.src===href);
+    if(!item||!validImagePath(item.src))return;
+    const index=lightboxItems.length;
+    const button=document.createElement('button');button.type='button';button.className='gallery-button';button.dataset.galleryIndex=String(index);button.setAttribute('aria-label',localized('放大查看第 '+(index+1)+' 张：','Enlarge image '+(index+1)+': ')+imageCaption(item));
     while(link.firstChild)button.append(link.firstChild);link.replaceWith(button);lightboxItems.push({...item,url:root+item.src});
   });
-  document.querySelector('[data-gallery-count]').textContent=localized(lightboxItems.length+' 张图片 · 点击放大查看',lightboxItems.length+' image'+(lightboxItems.length===1?'':'s')+' · Click to enlarge');
+  document.querySelector('[data-gallery-count]').textContent=localized(projectGallery.images.length+' 张图片 · 点击放大查看',projectGallery.images.length+' image'+(projectGallery.images.length===1?'':'s')+' · Click to enlarge');
 }
 const dialog=document.querySelector('.lightbox');
 if(dialog && lightboxItems.length){
