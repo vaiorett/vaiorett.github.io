@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T11:14:54.777Z",
+  "updatedAt": "2026-10-26T13:01:32.870Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -250,28 +250,88 @@ window.PORTFOLIO_GALLERIES = {
     },
     "pedestrian-bridge": {
       "title": "人行天桥与场地",
-      "cover": "image-pedestrian-bridge-cover.webp",
+      "cover": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b.webp",
       "images": [
         {
           "id": "pedestrian-bridge-overview",
-          "src": "image-pedestrian-bridge-full.webp",
+          "src": "images/uploads/image-e425e9c3-9d3b-4bd9-9865-542a3b69d5a0.webp",
           "caption": "项目作品总览",
           "alt": "人行天桥与场地作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Pedestrian Bridge & Site — project overview",
-          "width": 443,
-          "height": 1920
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3404676,
+            "bytes": 1278804,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-e425e9c3-9d3b-4bd9-9865-542a3b69d5a0-cover.webp",
+          "compare": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b.webp",
+          "compareThumbnail": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b-cover.webp"
+        },
+        {
+          "id": "image-90784621-02e1-4015-ba56-48d426981ee9",
+          "caption": "ComfyUI_temp_udaxi_00001_mppym_1793018893",
+          "alt": "人行天桥与场地效果图",
+          "src": "images/uploads/image-6e45cc81-396b-4638-b61e-7dff40e23b47.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4569964,
+            "bytes": 1974082,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-6e45cc81-396b-4638-b61e-7dff40e23b47-cover.webp",
+          "compare": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9.webp",
+          "compareThumbnail": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9-cover.webp"
+        },
+        {
+          "id": "image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec",
+          "caption": "ComfyUI_temp_hhexd_00002_cquai_1793019589",
+          "alt": "人行天桥与场地效果图",
+          "src": "images/uploads/image-112dead1-a443-4fae-b4a0-2f3f53bdb249.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3579702,
+            "bytes": 1375870,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-112dead1-a443-4fae-b4a0-2f3f53bdb249-cover.webp",
+          "compare": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec.webp",
+          "compareThumbnail": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec-cover.webp"
+        },
+        {
+          "id": "image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa",
+          "caption": "ComfyUI_temp_hhexd_00001_vqxur_1793019346",
+          "alt": "人行天桥与场地效果图",
+          "src": "images/uploads/image-9b4a669c-9c38-4400-80a7-5535ca4a59a9.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4419001,
+            "bytes": 1838428,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-9b4a669c-9c38-4400-80a7-5535ca4a59a9-cover.webp",
+          "compare": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa.webp",
+          "compareThumbnail": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa-cover.webp"
         }
       ],
-      "videos": [
-        {
-          "id": "video-7cb88245-e5ba-43a7-8f26-fa112e803afa",
-          "url": "https://www.youtube.com/watch?v=nKWEiId-yEc",
-          "title": "youtube-测试",
-          "titleEn": "youtube-test"
-        }
-      ]
+      "videos": []
     },
     "yunba-depot": {
       "title": "轨道交通车辆基地",
