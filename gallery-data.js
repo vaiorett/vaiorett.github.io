@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T08:23:11.212Z",
+  "updatedAt": "2026-10-26T08:30:10.588Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -115,11 +115,7 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before"
+          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp"
         },
         {
           "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
@@ -136,11 +132,7 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before"
+          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp"
         },
         {
           "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
@@ -157,14 +149,10 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before"
+          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp"
         }
       ],
-      "layout": "grid"
+      "layout": "stack"
     },
     "residential": {
       "title": "住宅与公共空间",
