@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T06:33:58.212Z",
+  "updatedAt": "2026-10-26T07:48:44.123Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -424,7 +424,7 @@ window.PORTFOLIO_GALLERIES = {
       "images": [
         {
           "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
-          "caption": "",
+          "caption": "compare",
           "alt": "project-09效果图",
           "src": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
           "kind": "image",
@@ -438,25 +438,15 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "captionEn": "project-09",
-          "thumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-cover.webp"
-        },
-        {
-          "id": "image-7f71d7ae-4be8-4021-9847-f8bc29e5b772",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2160,
-          "upload": {
-            "originalBytes": 3289604,
-            "bytes": 3289604,
-            "width": 3840,
-            "height": 2160,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772-cover.webp",
-          "captionEn": "project-09"
+          "thumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-cover.webp",
+          "layout": "half",
+          "body": "compare",
+          "bodyEn": "compare",
+          "compare": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
+          "beforeLabel": "原图",
+          "beforeLabelEn": "Before",
+          "afterLabel": "效果",
+          "afterLabelEn": "After"
         },
         {
           "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
@@ -474,29 +464,16 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "captionEn": "project-09",
-          "thumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-cover.webp"
-        },
-        {
-          "id": "image-bbec5760-90f8-498a-9700-cf5477f04b70",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2160,
-          "upload": {
-            "originalBytes": 2757854,
-            "bytes": 2757854,
-            "width": 3840,
-            "height": 2160,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70-cover.webp",
-          "captionEn": "project-09"
+          "thumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-cover.webp",
+          "compare": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
+          "beforeLabel": "原图",
+          "beforeLabelEn": "Before",
+          "afterLabel": "效果",
+          "afterLabelEn": "After"
         }
       ],
       "videos": [],
-      "layout": "grid"
+      "layout": "stack"
     },
     "project-6abfe00e": {
       "title": "光隙之庭",
