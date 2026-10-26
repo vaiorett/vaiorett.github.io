@@ -457,7 +457,21 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.en.context": "",
     "project.project-9a627a8d.en.note": "",
     "project.project-9a627a8d.en.tools": [],
-    "project.project-9a627a8d.en.tasks": []
+    "project.project-9a627a8d.en.tasks": [],
+    "project.project-6abfe00e.zh.title": "光隙之庭",
+    "project.project-6abfe00e.zh.desc": "一座融合自然岩石、水景与现代结构语言的开放式建筑，以倾斜钢构屋顶、清水混凝土柱廊及通透玻璃界面，探索建筑与自然环境之间的关系。",
+    "project.project-6abfe00e.zh.role": "",
+    "project.project-6abfe00e.zh.context": "",
+    "project.project-6abfe00e.zh.note": "",
+    "project.project-6abfe00e.zh.tools": [],
+    "project.project-6abfe00e.zh.tasks": [],
+    "project.project-6abfe00e.en.title": "Courtyard of Light",
+    "project.project-6abfe00e.en.desc": "An open-concept building that blends natural rock, water features, and modern architectural language explores the relationship between architecture and the natural environment through its sloping steel roof, exposed concrete colonnade, and transparent glass facades.",
+    "project.project-6abfe00e.en.role": "",
+    "project.project-6abfe00e.en.context": "",
+    "project.project-6abfe00e.en.note": "",
+    "project.project-6abfe00e.en.tools": [],
+    "project.project-6abfe00e.en.tasks": []
   },
   "projects": {
     "yunba-depot": {
@@ -485,6 +499,9 @@ window.PORTFOLIO_CONTENT = {
       "category": "studies"
     },
     "project-9a627a8d": {
+      "category": "architecture"
+    },
+    "project-6abfe00e": {
       "category": "architecture"
     }
   }

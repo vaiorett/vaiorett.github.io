@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T06:13:52.610Z",
+  "updatedAt": "2026-10-26T06:33:58.212Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -479,6 +479,48 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "videos": [],
       "layout": "grid"
+    },
+    "project-6abfe00e": {
+      "title": "光隙之庭",
+      "cover": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
+      "images": [
+        {
+          "id": "image-069ad53e-af78-443b-b4fe-26c84b159d45",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 3840,
+          "upload": {
+            "originalBytes": 6027448,
+            "bytes": 2250118,
+            "width": 3840,
+            "height": 3840,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45-cover.webp"
+        },
+        {
+          "id": "image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 3840,
+          "upload": {
+            "originalBytes": 5836768,
+            "bytes": 2156570,
+            "width": 3840,
+            "height": 3840,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939-cover.webp"
+        }
+      ],
+      "videos": [],
+      "layout": "stack"
     }
   }
 };
