@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T05:39:35.375Z",
+  "updatedAt": "2026-10-26T05:53:48.845Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -83,17 +83,111 @@ window.PORTFOLIO_GALLERIES = {
       "cover": "image-yunba-depot-cover.webp",
       "images": [
         {
+          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
+          "caption": "ComfyUI_temp_udaxi_00001_gppka_1792993464",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4540651,
+            "bytes": 1932318,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-cover.webp"
+        },
+        {
           "id": "yunba-depot-overview",
-          "src": "image-yunba-depot-full.webp",
+          "src": "images/uploads/image-94594296-d4ea-4899-9bbd-3df6ae9c4dfa.webp",
           "caption": "项目作品总览",
           "alt": "轨道交通车辆基地作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Jinan High-tech Loop · Yunba Depot — project overview",
-          "width": 1033,
-          "height": 1920
+          "width": 3840,
+          "height": 2161,
+          "upload": {
+            "originalBytes": 11658017,
+            "bytes": 3083282,
+            "width": 3840,
+            "height": 2161,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-94594296-d4ea-4899-9bbd-3df6ae9c4dfa-cover.webp"
+        },
+        {
+          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
+          "caption": "ComfyUI_temp_udaxi_00001_cczof_1792993601",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4876097,
+            "bytes": 2137144,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-cover.webp"
+        },
+        {
+          "id": "image-96f95394-c93a-46a7-a165-2324ae1e5411",
+          "caption": "鸟瞰-02-02",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-96f95394-c93a-46a7-a165-2324ae1e5411.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2161,
+          "upload": {
+            "originalBytes": 11521065,
+            "bytes": 3094338,
+            "width": 3840,
+            "height": 2161,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-96f95394-c93a-46a7-a165-2324ae1e5411-cover.webp"
+        },
+        {
+          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
+          "caption": "ComfyUI_temp_exdpx_00001_vpzah_1792993743",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4070326,
+            "bytes": 1582156,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-cover.webp"
+        },
+        {
+          "id": "image-fa765a06-dc15-4517-9cfd-60cac999b50b",
+          "caption": "综合楼-鸟瞰-02",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-fa765a06-dc15-4517-9cfd-60cac999b50b.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2161,
+          "upload": {
+            "originalBytes": 9112166,
+            "bytes": 2273200,
+            "width": 3840,
+            "height": 2161,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-fa765a06-dc15-4517-9cfd-60cac999b50b-cover.webp"
         }
-      ]
+      ],
+      "layout": "grid"
     },
     "residential": {
       "title": "住宅与公共空间",
