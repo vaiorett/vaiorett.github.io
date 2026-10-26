@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T05:58:10.930Z",
+  "updatedAt": "2026-10-26T06:10:23.954Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -261,15 +261,124 @@ window.PORTFOLIO_GALLERIES = {
       "cover": "image-interior-cover.webp",
       "images": [
         {
+          "id": "image-8f56442c-f9cc-4814-8c80-1b482c183bec",
+          "caption": "Layout",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-8f56442c-f9cc-4814-8c80-1b482c183bec.webp",
+          "kind": "image",
+          "width": 1600,
+          "height": 1131,
+          "upload": {
+            "originalBytes": 249396,
+            "bytes": 28538,
+            "width": 1600,
+            "height": 1131,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a",
+          "caption": "厨房视角",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a.webp",
+          "kind": "image",
+          "width": 2133,
+          "height": 3200,
+          "upload": {
+            "originalBytes": 3420337,
+            "bytes": 368212,
+            "width": 2133,
+            "height": 3200,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a-cover.webp"
+        },
+        {
+          "id": "image-25403844-f326-4571-9719-7f99706b39ff",
+          "caption": "餐厅视角",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-25403844-f326-4571-9719-7f99706b39ff.webp",
+          "kind": "image",
+          "width": 3200,
+          "height": 2133,
+          "upload": {
+            "originalBytes": 3296944,
+            "bytes": 355748,
+            "width": 3200,
+            "height": 2133,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-25403844-f326-4571-9719-7f99706b39ff-cover.webp"
+        },
+        {
+          "id": "image-5ac2318e-960f-4c9b-a676-cd96df6e2384",
+          "caption": "餐厅斜视角",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-5ac2318e-960f-4c9b-a676-cd96df6e2384.webp",
+          "kind": "image",
+          "width": 3200,
+          "height": 2133,
+          "upload": {
+            "originalBytes": 3854108,
+            "bytes": 584550,
+            "width": 3200,
+            "height": 2133,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-5ac2318e-960f-4c9b-a676-cd96df6e2384-cover.webp"
+        },
+        {
+          "id": "image-b0009336-5eed-4ea4-8720-e8d4b9631986",
+          "caption": "餐桌近景视角",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986.webp",
+          "kind": "image",
+          "width": 2133,
+          "height": 3200,
+          "upload": {
+            "originalBytes": 3383610,
+            "bytes": 346060,
+            "width": 2133,
+            "height": 3200,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986-cover.webp"
+        },
+        {
+          "id": "image-204b943b-b813-4146-bb1d-c5c941ce46eb",
+          "caption": "沙发视角",
+          "alt": "室内空间与氛围效果图",
+          "src": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb.webp",
+          "kind": "image",
+          "width": 3200,
+          "height": 2133,
+          "upload": {
+            "originalBytes": 3750480,
+            "bytes": 562818,
+            "width": 3200,
+            "height": 2133,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb-cover.webp"
+        },
+        {
           "id": "interior-overview",
-          "src": "image-interior-full.webp",
+          "src": "images/uploads/image-a24c63ac-9e5b-4fb0-98bc-c3821cb01f21.webp",
           "caption": "项目作品总览",
           "alt": "室内空间与氛围作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Interior Spaces & Atmosphere — project overview",
-          "width": 303,
-          "height": 1920
+          "width": 2037,
+          "height": 3000,
+          "upload": {
+            "originalBytes": 4057342,
+            "bytes": 781216,
+            "width": 2037,
+            "height": 3000,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-a24c63ac-9e5b-4fb0-98bc-c3821cb01f21-cover.webp"
         }
       ]
     },
