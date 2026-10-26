@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T05:14:20.453Z",
+  "updatedAt": "2026-10-26T05:26:02.856Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -219,21 +219,21 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "project-09"
         },
         {
-          "id": "image-bbec5760-90f8-498a-9700-cf5477f04b70",
+          "id": "image-7f71d7ae-4be8-4021-9847-f8bc29e5b772",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70.webp",
+          "src": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772.webp",
           "kind": "image",
           "width": 3840,
           "height": 2160,
           "upload": {
-            "originalBytes": 2757854,
-            "bytes": 2757854,
+            "originalBytes": 3289604,
+            "bytes": 3289604,
             "width": 3840,
             "height": 2160,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70-cover.webp",
+          "thumbnail": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772-cover.webp",
           "captionEn": "project-09"
         },
         {
@@ -255,21 +255,21 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "project-09"
         },
         {
-          "id": "image-7f71d7ae-4be8-4021-9847-f8bc29e5b772",
+          "id": "image-bbec5760-90f8-498a-9700-cf5477f04b70",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772.webp",
+          "src": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70.webp",
           "kind": "image",
           "width": 3840,
           "height": 2160,
           "upload": {
-            "originalBytes": 3289604,
-            "bytes": 3289604,
+            "originalBytes": 2757854,
+            "bytes": 2757854,
             "width": 3840,
             "height": 2160,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-7f71d7ae-4be8-4021-9847-f8bc29e5b772-cover.webp",
+          "thumbnail": "images/uploads/image-bbec5760-90f8-498a-9700-cf5477f04b70-cover.webp",
           "captionEn": "project-09"
         }
       ],
