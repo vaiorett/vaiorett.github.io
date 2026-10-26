@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T08:53:35.348Z",
+  "updatedAt": "2026-10-26T08:58:37.780Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -245,7 +245,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a",
           "caption": "厨房视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a.webp",
+          "src": "images/uploads/image-88c24b68-d45f-45bd-8f48-6491568da39d.webp",
           "kind": "image",
           "width": 2133,
           "height": 3200,
@@ -256,7 +256,9 @@ window.PORTFOLIO_GALLERIES = {
             "height": 3200,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a-cover.webp"
+          "thumbnail": "images/uploads/image-88c24b68-d45f-45bd-8f48-6491568da39d-cover.webp",
+          "compare": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a.webp",
+          "compareThumbnail": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a-cover.webp"
         },
         {
           "id": "image-25403844-f326-4571-9719-7f99706b39ff",
@@ -296,7 +298,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-b0009336-5eed-4ea4-8720-e8d4b9631986",
           "caption": "餐桌近景视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986.webp",
+          "src": "images/uploads/image-ca6d2252-542a-4f09-9c6a-70af30ddbaa5.webp",
           "kind": "image",
           "width": 2133,
           "height": 3200,
@@ -307,13 +309,15 @@ window.PORTFOLIO_GALLERIES = {
             "height": 3200,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986-cover.webp"
+          "thumbnail": "images/uploads/image-ca6d2252-542a-4f09-9c6a-70af30ddbaa5-cover.webp",
+          "compare": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986.webp",
+          "compareThumbnail": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986-cover.webp"
         },
         {
           "id": "image-204b943b-b813-4146-bb1d-c5c941ce46eb",
           "caption": "沙发视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb.webp",
+          "src": "images/uploads/image-e5b09b07-575a-45b3-b305-edb31a06ec64.webp",
           "kind": "image",
           "width": 3200,
           "height": 2133,
@@ -324,7 +328,9 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2133,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb-cover.webp"
+          "thumbnail": "images/uploads/image-e5b09b07-575a-45b3-b305-edb31a06ec64-cover.webp",
+          "compare": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb.webp",
+          "compareThumbnail": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb-cover.webp"
         },
         {
           "id": "interior-overview",
