@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T06:10:23.954Z",
+  "updatedAt": "2026-10-26T06:12:50.260Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -380,7 +380,8 @@ window.PORTFOLIO_GALLERIES = {
           },
           "thumbnail": "images/uploads/image-a24c63ac-9e5b-4fb0-98bc-c3821cb01f21-cover.webp"
         }
-      ]
+      ],
+      "layout": "stack"
     },
     "cgi": {
       "title": "材质与 CGI 探索",
