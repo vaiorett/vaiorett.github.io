@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T17:01:51.251Z",
+  "updatedAt": "2026-10-27T17:07:56.193Z",
   "projects": {
     "project-d15b5f36": {
       "title": "保租房时光序项目",
@@ -237,7 +237,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
-      "cover": "images/uploads/image-71b5530a-efcf-42ab-8ce6-789f3d2d997f.webp",
+      "cover": "images/uploads/image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1.webp",
       "images": [
         {
           "id": "grandstand-overview",
