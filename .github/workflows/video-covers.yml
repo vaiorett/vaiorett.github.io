@@ -48,8 +48,7 @@ jobs:
           done
           echo 'Repository changed during cover refresh; please run this workflow again.'
           exit 1
-      - name: Publish refreshed pages
-        if: steps.covers.outputs.changed == 'true'
+      - name: Publish current pages
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
