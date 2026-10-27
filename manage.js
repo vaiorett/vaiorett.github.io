@@ -214,7 +214,7 @@
    const fields=element('div','editor-fields');
    const top=element('div','editor-position');
    top.append(element('span','',String(index+1).padStart(2,'0')+' / '+String(p.images.length).padStart(2,'0')));
-   const titleSpan=element('span','editor-item-title',item.caption||(item.kind==='collage'?'现有作品总览':'未填写图片说明'));
+   const titleSpan=element('span','editor-item-title',item.caption||(item.kind==='collage'?'作品总览':'图片 '+(index+1)));
    top.append(titleSpan);
    if(isEffectCover){
     top.append(element('span','cover-tag-pill','项目封面（效果图）'));
@@ -248,14 +248,21 @@
 
    const collapseBody=element('div','image-collapse-body');
    if(item.upload){const meta=item.upload;collapseBody.append(element('p','compression-info',formatBytes(meta.originalBytes)+' → WebP '+formatBytes(meta.bytes)+' · '+meta.width+' × '+meta.height+' px'));}
-   for(const[key,label]of[['caption','图片说明'],['alt','图片描述（便于理解画面）'],['captionEn','English caption（英文说明）'],['altEn','English image description（英文图片描述）']]){
-    const id='image-'+key+'-'+index;const l=element('label','',label);l.htmlFor=id;const input=element('input');input.id=id;input.value=item[key]||'';input.maxLength=300;
-    input.addEventListener('input',()=>{item[key]=input.value;changed();if(key==='caption')titleSpan.textContent=item.caption||'未填写图片说明';});
-    collapseBody.append(l,input);
-   }
    const layoutLabel=element('label','','这张图的宽度'),layout=element('select','image-layout-field');layout.id='image-layout-'+index;layoutLabel.htmlFor=layout.id;
    for(const[value,label]of [['auto','自动'],['full','整行大图'],['half','半宽（双列）']]){const option=element('option','',label);option.value=value;layout.append(option);}
    layout.value=item.layout||'auto';layout.addEventListener('change',()=>{item.layout=layout.value;changed();});collapseBody.append(layoutLabel,layout);
+
+   const hasText=Boolean(item.caption||item.alt||item.captionEn||item.altEn);
+   const textCollapse=element('details','optional-caption-collapse');
+   if(hasText)textCollapse.open=true;
+   const textSummary=element('summary','optional-caption-summary',hasText?'已包含图片说明文字（点击可修改或清空）':'＋ 补充图片文字说明（选填，默认无需填写）');
+   textCollapse.append(textSummary);
+   for(const[key,label]of[['caption','图片说明'],['alt','图片描述（便于理解画面）'],['captionEn','English caption（英文说明）'],['altEn','English image description（英文图片描述）']]){
+    const id='image-'+key+'-'+index;const l=element('label','',label);l.htmlFor=id;const input=element('input');input.id=id;input.value=item[key]||'';input.maxLength=300;
+    input.addEventListener('input',()=>{item[key]=input.value;changed();if(key==='caption')titleSpan.textContent=item.caption||(item.kind==='collage'?'作品总览':'图片 '+(index+1));});
+    textCollapse.append(l,input);
+   }
+   collapseBody.append(textCollapse);
 
    const compareBox=element('div','compare-editor-box');
    if(item.compare){
@@ -455,7 +462,7 @@
     if(result.thumbnail){thumbnail='images/uploads/'+id+'-cover.webp';files.set(thumbnail,result.thumbnail);}
     const record={src:path,kind:'image',width:result.width,height:result.height,upload:{originalBytes:result.originalBytes,bytes:result.bytes,width:result.width,height:result.height,preset:result.preset}};if(thumbnail)record.thumbnail=thumbnail;
     if(replacement){const item=p.images.find(i=>i.id===replacement);if(p.cover===item.src)p.cover=path;delete item.thumbnail;Object.assign(item,record);}
-    else{if(!p.images.length)p.cover=path;p.images.push({id,caption:file.name.replace(/\.[^.]+$/,''),alt:p.title+'效果图',...record});}
+    else{if(!p.images.length)p.cover=path;p.images.push({id,caption:'',alt:'',...record});}
     before+=result.originalBytes;after+=result.bytes+(result.thumbnail?.size||0);
    }
    render();changed();clearTimeout(savingTimer);await saveDraft();

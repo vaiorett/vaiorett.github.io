@@ -64,6 +64,9 @@
 .manager-help-collapse summary:hover{color:var(--accent)}
 .manager-help-collapse ol{padding-left:18px;margin-top:8px;line-height:1.8}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.optional-caption-collapse{margin-top:12px;border-top:1px dashed var(--input-border);padding-top:10px}
+.optional-caption-summary{font-size:11px;color:var(--muted);cursor:pointer;user-select:none;font-weight:500;padding:2px 0}
+.optional-caption-summary:hover{color:var(--accent)}
 
 
 
