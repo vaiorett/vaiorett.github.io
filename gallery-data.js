@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T10:27:49.676Z",
+  "updatedAt": "2026-10-27T10:54:53.422Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -617,52 +617,94 @@ window.PORTFOLIO_GALLERIES = {
     },
     "residential": {
       "title": "住宅与公共空间",
-      "cover": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
+      "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
       "images": [
         {
           "id": "residential-overview",
-          "src": "image-residential-full.webp",
+          "src": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd.webp",
           "caption": "项目作品总览",
           "alt": "住宅与公共空间作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
-          "width": 345,
-          "height": 1920
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 7715149,
+            "bytes": 1280352,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd-cover.webp"
         },
         {
-          "id": "image-564e8735-1959-4f8d-ab5c-6f5ee48a6282",
-          "src": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282.webp",
+          "id": "image-46f390db-5aa8-41cc-be32-e077973ef467",
           "caption": "",
-          "alt": "住宅与公共空间效果图",
+          "alt": "",
+          "src": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467.webp",
           "kind": "image",
-          "thumbnail": "images/uploads/image-564e8735-1959-4f8d-ab5c-6f5ee48a6282-cover.webp",
-          "width": 2160,
-          "height": 3192,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 5336973,
-            "bytes": 1304820,
-            "width": 2160,
-            "height": 3192,
+            "originalBytes": 10091055,
+            "bytes": 2087408,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
-          }
+          },
+          "thumbnail": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467-cover.webp"
         },
         {
-          "id": "image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3",
-          "src": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3.webp",
-          "caption": "浅色石材",
-          "alt": "住宅与公共空间效果图",
+          "id": "image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d.webp",
           "kind": "image",
-          "thumbnail": "images/uploads/image-a77e47fd-3b0a-4407-a21e-9f9d83bc7be3-cover.webp",
-          "width": 1654,
-          "height": 1654,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 1157607,
-            "bytes": 245682,
-            "width": 1654,
-            "height": 1654,
+            "originalBytes": 9739250,
+            "bytes": 2059494,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
-          }
+          },
+          "thumbnail": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d-cover.webp"
+        },
+        {
+          "id": "image-93bab4b2-7ef6-46a6-8f46-4b72590264c0",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3548098,
+            "bytes": 1257978,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0-cover.webp"
+        },
+        {
+          "id": "image-d4d48854-b8bb-434d-abd0-e0f4bb184e52",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3226860,
+            "bytes": 1056122,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52-cover.webp"
         }
       ],
       "videos": [
