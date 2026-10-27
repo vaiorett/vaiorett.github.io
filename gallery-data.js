@@ -1,10 +1,10 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T10:54:53.422Z",
+  "updatedAt": "2026-10-27T10:59:15.759Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
-      "cover": "image-product-rendering-cover.webp",
+      "cover": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
       "images": [
         {
           "id": "product-rendering-overview",
