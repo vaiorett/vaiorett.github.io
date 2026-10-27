@@ -130,7 +130,7 @@ const projectGallery=gallery && galleryData && galleryData.projects[gallery.data
 let lightboxItems=[];
 if(projectGallery){
   const root=gallery.dataset.root;
-  gallery.innerHTML=window.LayoutCore.markup(projectGallery,english?'en':'zh',{title:projectTitle,overview:localized('项目作品','Project image'),open:localized('打开原图','Open original image')});
+  if(!gallery.querySelector('.auto-gallery'))gallery.innerHTML=window.LayoutCore.markup(projectGallery,english?'en':'zh',{title:projectTitle,overview:localized('项目作品','Project image'),open:localized('打开原图','Open original image')});
   if(window.initComparers)window.initComparers(gallery);
   gallery.querySelectorAll('.gallery-button').forEach(link=>{
     const href=link.getAttribute('href')||'';

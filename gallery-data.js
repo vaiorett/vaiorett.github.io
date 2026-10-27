@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T13:01:32.870Z",
+  "updatedAt": "2026-10-27T08:32:37Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -32,7 +32,8 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "Project overview",
           "altEn": "Product Digitization & 3D Assets — project overview",
           "width": 1028,
-          "height": 1920
+          "height": 1920,
+          "thumbnail": "image-digital-assets-full-preview.webp"
         }
       ]
     },
@@ -352,7 +353,9 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp"
+          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
+          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
+          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp"
         },
         {
           "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
@@ -369,7 +372,9 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp"
+          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
+          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
+          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp"
         },
         {
           "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
@@ -386,7 +391,9 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp"
+          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
+          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp"
         }
       ],
       "layout": "stack"
@@ -604,7 +611,8 @@ window.PORTFOLIO_GALLERIES = {
           "captionEn": "Project overview",
           "altEn": "CGI & Material Studies — project overview",
           "width": 1085,
-          "height": 1920
+          "height": 1920,
+          "thumbnail": "image-cgi-full-preview.webp"
         }
       ]
     },
@@ -635,7 +643,9 @@ window.PORTFOLIO_GALLERIES = {
           "beforeLabel": "效果",
           "beforeLabelEn": "After",
           "afterLabel": "原图",
-          "afterLabelEn": "Before"
+          "afterLabelEn": "Before",
+          "thumbnail": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
+          "compareThumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp"
         },
         {
           "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
@@ -657,7 +667,9 @@ window.PORTFOLIO_GALLERIES = {
           "beforeLabel": "效果",
           "beforeLabelEn": "After",
           "afterLabel": "原图",
-          "afterLabelEn": "Before"
+          "afterLabelEn": "Before",
+          "thumbnail": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
+          "compareThumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp"
         }
       ],
       "videos": [],

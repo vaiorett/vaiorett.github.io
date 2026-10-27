@@ -6,7 +6,7 @@ A bilingual portfolio for architectural visualization, 3D modeling and digital a
 
 Open `manage.html`. Add a project, upload images or video links, edit Chinese and English text, choose a layout, preview, then publish. New images and custom video covers are converted to WebP in the browser. The editor keeps drafts locally; the GitHub token is held only in memory and never written to the repository or export. Use a fine-grained token limited to this repository with Contents read/write.
 
-Image layouts: automatic, full-width, two-column gallery, or alternating image-and-text narrative. Each image can have Chinese/English paragraphs and a width preference. Drag images or use the move buttons to change reading order. Mobile uses one column; long boards remain complete. Automatic layout does not generate or translate text.
+Image layouts: automatic, full-width, or two-column gallery. Image uploads need no captions, descriptions or paragraphs; accessible labels fall back to the project title. Existing image text remains compatible. Each image has a width preference. Drag images or use the move buttons to change reading order. Mobile uses one column; long boards remain complete. Automatic layout does not generate or translate text.
 
 Video links support Bilibili, YouTube and HTTPS MP4/WebM files. Posters show only a play button. Playback options contain the source link and troubleshooting help. Third-party sign-in verification, recommendations and playback quality remain controlled by their platforms. An optional direct MP4/WebM version uses the native player without platform recommendations. No media stream extraction or login bypass is performed.
 

@@ -157,7 +157,7 @@
  }
  function move(from,to){const list=data.projects[selected].images;if(to<0||to>=list.length)return;const [item]=list.splice(from,1);list.splice(to,0,item);render();changed();}
  function render(){
-  $('project-layout').value=data.projects[selected].layout||'auto';
+  $('project-layout').value=data.projects[selected].layout==='story'?'stack':(data.projects[selected].layout||'auto');
   const p=data.projects[selected],list=$('image-list');list.replaceChildren();$('image-count').textContent=String(p.images.length).padStart(2,'0');document.querySelector('.project-edit-info').textContent=textData.values['project.'+selected+'.zh.title']||p.title;document.querySelector('.view-project').href='./work-'+selected+'.html';document.querySelector('.view-project').hidden=!base.projects[selected];
   updateCollapseAllButton();
   p.images.forEach((item,index)=>{
@@ -171,7 +171,8 @@
    const isEffectCover=Boolean(item.compare&&p.cover===item.compare);
    const isBaseCover=p.cover===item.src;
    const image=element('img','editor-preview');
-   image.src=preview(isEffectCover?item.compare:item.src);
+   image.loading='lazy';image.decoding='async';
+   image.src=preview(item.compare?(item.compareThumbnail||item.compare):(item.thumbnail||item.src));
    image.alt=item.alt||p.title;
    visual.append(image);
 
@@ -252,18 +253,6 @@
    for(const[value,label]of [['auto','自动'],['full','整行大图'],['half','半宽（双列）']]){const option=element('option','',label);option.value=value;layout.append(option);}
    layout.value=item.layout||'auto';layout.addEventListener('change',()=>{item.layout=layout.value;changed();});collapseBody.append(layoutLabel,layout);
 
-   const hasText=Boolean(item.caption||item.alt||item.captionEn||item.altEn);
-   const textCollapse=element('details','optional-caption-collapse');
-   if(hasText)textCollapse.open=true;
-   const textSummary=element('summary','optional-caption-summary',hasText?'已包含图片说明文字（点击可修改或清空）':'＋ 补充图片文字说明（选填，默认无需填写）');
-   textCollapse.append(textSummary);
-   for(const[key,label]of[['caption','图片说明'],['alt','图片描述（便于理解画面）'],['captionEn','English caption（英文说明）'],['altEn','English image description（英文图片描述）']]){
-    const id='image-'+key+'-'+index;const l=element('label','',label);l.htmlFor=id;const input=element('input');input.id=id;input.value=item[key]||'';input.maxLength=300;
-    input.addEventListener('input',()=>{item[key]=input.value;changed();if(key==='caption')titleSpan.textContent=item.caption||(item.kind==='collage'?'作品总览':'图片 '+(index+1));});
-    textCollapse.append(l,input);
-   }
-   collapseBody.append(textCollapse);
-
    const compareBox=element('div','compare-editor-box');
    if(item.compare){
     const head=element('div','compare-editor-head');
@@ -285,7 +274,8 @@
     const leftCol=element('div','compare-thumb-col');
     leftCol.append(element('span','compare-thumb-label','左侧 · '+(item.beforeLabel||'原图')));
     const leftThumb=element('img','compare-thumb-preview');
-    leftThumb.src=preview(item.src);
+    leftThumb.loading='lazy';leftThumb.decoding='async';
+    leftThumb.src=preview(item.thumbnail||item.src);
     leftThumb.alt='左侧基础图';
     leftCol.append(leftThumb);
     if(p.cover===item.src){
@@ -302,7 +292,8 @@
     const rightCol=element('div','compare-thumb-col');
     rightCol.append(element('span','compare-thumb-label','右侧 · '+(item.afterLabel||'效果')));
     const rightThumb=element('img','compare-thumb-preview');
-    rightThumb.src=preview(item.compare);
+    rightThumb.loading='lazy';rightThumb.decoding='async';
+    rightThumb.src=preview(item.compareThumbnail||item.compare);
     rightThumb.alt='右侧效果图';
     rightCol.append(rightThumb);
     if(p.cover===item.compare){
@@ -332,11 +323,6 @@
    }
    collapseBody.append(compareBox);
 
-   for(const[key,label]of [['body','图文段落（可选，空行分段）'],['bodyEn','English paragraphs（可选）']]){
-    const input=element('textarea');input.id='image-'+key+'-'+index;input.rows=3;input.maxLength=6000;input.value=item[key]||'';
-    const labelEl=element('label','',label);labelEl.htmlFor=input.id;input.addEventListener('input',()=>{item[key]=input.value;changed();});
-    collapseBody.append(labelEl,input);
-   }
    details.append(collapseBody);
    fields.append(details);
 
@@ -479,7 +465,10 @@
    const result=await I.convert(file,$('image-quality').value);
    const id='image-'+crypto.randomUUID(),path='images/uploads/'+id+'.webp';
    files.set(path,result.blob);
+   const previousCompare=item.compare;
    item.compare=path;
+   if(p.cover===previousCompare)p.cover=path;
+   delete item.compareThumbnail;
    if(result.thumbnail){
     const thumbPath='images/uploads/'+id+'-cover.webp';
     files.set(thumbPath,result.thumbnail);
@@ -511,7 +500,7 @@
  $('compare-file').addEventListener('change',async e=>{await addCompareFile(e.target.files,e.target.dataset.imageId);e.target.value='';});
  const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));drop.addEventListener('drop',async e=>{e.preventDefault();drop.classList.remove('dragover');await addFiles(e.dataTransfer.files);});
  $('project-select').addEventListener('change',e=>{selected=e.target.value;renderSelect();render();renderText();changed();});
- $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片、顺序和说明修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';current.images=C.clone(original?.images||[]);render();changed();});
+ $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片与顺序修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';current.images=C.clone(original?.images||[]);render();changed();});
  function setBusy(value){busy=value;document.querySelector('.manager-editor').inert=value;document.querySelector('.manager-sidebar').inert=value;document.querySelector('.manager').classList.toggle('busy',value);$('connect-button').disabled=value;$('export-button').disabled=value;$('disconnect-button').disabled=value;updatePublish();}
  async function api(path,method='GET',body){
   const repoPath='/repos/'+C.OWNER+'/'+C.REPO;
@@ -539,8 +528,19 @@
   try{T.readyToPublish(textData,templates,desired);const output=pageFiles(desired);const sha=await C.publish(desired,files,session,api,message=>status('publish-status',message),output);data=desired;base=C.clone(desired);textBase=T.clone(textData);session.base=sha;files.clear();renderSelect();render();renderText();await saveDraft();status('publish-status','已提交到 GitHub。请等待 Pages 更新后打开作品页确认。');const link=$('commit-link');link.href='https://github.com/'+C.OWNER+'/'+C.REPO+'/commit/'+encodeURIComponent(sha);link.hidden=false;}
   catch(error){const phase=$('publish-status').textContent;status('publish-status',phase+'：'+error.message,true);}finally{setBusy(false);}
  });
+ let zipLoader;
+ function loadZip(){
+  if(window.JSZip)return Promise.resolve(window.JSZip);
+  if(!zipLoader)zipLoader=new Promise((resolve,reject)=>{
+   const script=document.createElement('script');script.src='./jszip.min.js';
+   script.onload=()=>resolve(window.JSZip);
+   script.onerror=()=>{script.remove();zipLoader=null;reject(new Error('导出组件加载失败，请检查网络后重试。'));};
+   document.head.append(script);
+  });
+  return zipLoader;
+ }
  $('export-button').addEventListener('click',async()=>{
-  setBusy(true);try{await saveDraft();const zip=new JSZip();const desired=desiredGallery();desired.updatedAt=new Date().toISOString();zip.file('gallery-data.js',C.serialize(desired));for(const[path,source]of Object.entries(pageFiles(desired)))zip.file(path,source);for(const[path,file]of C.usedFiles(data,files))zip.file(path,file);zip.file('更新说明.txt','这是图片与文字更新包，不是完整网站。\n\n解压后把所有文件按原路径合并到仓库，包括根目录和 en/ 的 HTML 网页、content-data.js、gallery-data.js 、sitemap.xml 及 images/uploads/ 新图片。必须一并提交才能同步中英文与搜索摘要。\n\n日常建议直接在管理页连接 GitHub，点击发布所有修改。仅从展示中移除的图片，原文件仍在仓库。完整简历不在公开网站中维护。\n');const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});const url=URL.createObjectURL(blob);const a=element('a');a.href=url;a.download='作品集_图片文字更新_'+new Date().toISOString().slice(0,10)+'.zip';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);status('publish-status','更新文件已导出。此操作不会改变公开网站。');}catch(error){status('publish-status','导出未完成：'+error.message,true);}finally{setBusy(false);}
+  setBusy(true);try{await saveDraft();const Zip=await loadZip();const zip=new Zip();const desired=desiredGallery();desired.updatedAt=new Date().toISOString();zip.file('gallery-data.js',C.serialize(desired));for(const[path,source]of Object.entries(pageFiles(desired)))zip.file(path,source);for(const[path,file]of C.usedFiles(data,files))zip.file(path,file);zip.file('更新说明.txt','这是图片与文字更新包，不是完整网站。\n\n解压后把所有文件按原路径合并到仓库，包括根目录和 en/ 的 HTML 网页、content-data.js、gallery-data.js 、sitemap.xml 及 images/uploads/ 新图片。必须一并提交才能同步中英文与搜索摘要。\n\n日常建议直接在管理页连接 GitHub，点击发布所有修改。仅从展示中移除的图片，原文件仍在仓库。完整简历不在公开网站中维护。\n');const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});const url=URL.createObjectURL(blob);const a=element('a');a.href=url;a.download='作品集_图片文字更新_'+new Date().toISOString().slice(0,10)+'.zip';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);status('publish-status','更新文件已导出。此操作不会改变公开网站。');}catch(error){status('publish-status','导出未完成：'+error.message,true);}finally{setBusy(false);}
  });
  try{db=await openDB();const saved=await dbRead();if(saved){C.validate(saved.base);C.validate(saved.data);files=new Map(saved.files||[]);try{data=C.merge(saved.base,saved.data,base);}catch{data=C.clone(saved.data);base=C.clone(saved.base);status('draft-status','线上作品可能有更新，本地草稿已恢复，请先导出再连接核对。',true);}if(saved.textBase&&saved.textData){try{textData=T.merge(saved.textBase,saved.textData,textBase,templates);}catch{textData=T.clone(saved.textData);textBase=T.clone(saved.textBase);status('draft-status','文字草稿与线上有差异，已保留草稿；请导出备份后连接核对。',true);}}if(saved.selected&&data.projects[saved.selected])selected=saved.selected;if(!$('draft-status').classList.contains('error'))status('draft-status','已恢复当前浏览器中的草稿。');}}
  catch{status('draft-status','当前浏览器无法保存草稿，请完成后导出更新文件。',true);}

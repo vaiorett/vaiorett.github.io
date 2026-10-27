@@ -458,9 +458,24 @@
    const stage=el.querySelector('.compare-stage'),handle=el.querySelector('.compare-handle-line');
    const badgeBefore=el.querySelector('.compare-badge-before'),badgeAfter=el.querySelector('.compare-badge-after');
    if(!stage||!handle)return;
+   const effect=el.querySelector('.compare-after'),original=el.querySelector('.compare-before');
+   let originalReady=Boolean(original?.complete&&original.naturalWidth),requestedPos=0;
+   function loadOriginal(){
+    if(!original?.dataset.src)return;
+    original.addEventListener('load',()=>{originalReady=true;setPos(requestedPos);},{once:true});
+    original.src=original.dataset.src;delete original.dataset.src;
+   }
+   async function effectReady(){
+    if(!effect?.naturalWidth)return;
+    try{await effect.decode();}catch{}
+    loadOriginal();
+   }
+   if(effect?.complete&&effect.naturalWidth)effectReady();
+   else effect?.addEventListener('load',effectReady,{once:true});
    let dragging=false,pos=0,resetTimer=null;
    function setPos(percent){
-    pos=Math.max(0,Math.min(100,percent));
+    requestedPos=Math.max(0,Math.min(100,percent));
+    pos=originalReady?requestedPos:0;
     el.style.setProperty('--pos',pos+'%');
     handle.setAttribute('aria-valuenow',Math.round(pos));
     if(badgeBefore)badgeBefore.style.opacity=pos<12?'0':(pos<24?String((pos-12)/12):'1');
@@ -486,13 +501,6 @@
     const clientX=e.clientX!=null?e.clientX:(e.touches&&e.touches[0]?e.touches[0].clientX:0);
     return ((clientX-rect.left)/rect.width)*100;
    }
-   stage.addEventListener('pointerenter',e=>{
-    if(e.pointerType==='mouse'){
-     cancelReset();
-     el.classList.add('is-active');
-     setPos(posFromEvent(e));
-    }
-   });
    stage.addEventListener('pointermove',e=>{
     if(e.pointerType==='mouse'){
      cancelReset();
