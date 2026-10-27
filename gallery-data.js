@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T11:08:17.118Z",
+  "updatedAt": "2026-10-27T11:08:47.272889Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -985,7 +985,11 @@ window.PORTFOLIO_GALLERIES = {
           "id": "video-df9d853c-1abf-487d-945e-16ad541c5f86",
           "url": "https://www.bilibili.com/video/BV1Ujn96XEjP/?p=1",
           "title": "",
-          "titleEn": ""
+          "titleEn": "",
+          "posterFor": "https://www.bilibili.com/video/BV1Ujn96XEjP/?p=1",
+          "posterStatus": "unavailable",
+          "posterError": "HTTP 412",
+          "posterAttemptedAt": "2026-10-27T11:08:47.272850Z"
         }
       ]
     }
