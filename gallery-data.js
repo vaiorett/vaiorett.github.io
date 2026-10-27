@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T08:32:37Z",
+  "updatedAt": "2026-10-27T10:27:49.676Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -8,14 +8,231 @@ window.PORTFOLIO_GALLERIES = {
       "images": [
         {
           "id": "product-rendering-overview",
-          "src": "image-product-rendering-full.webp",
+          "src": "images/uploads/image-e350a973-c7d6-48f1-93b3-0e2e963c4b20.webp",
           "caption": "项目作品总览",
           "alt": "家具产品渲染作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Furniture Product Rendering — project overview",
-          "width": 392,
-          "height": 1920
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 166182,
+            "bytes": 166182,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-b86d1280-94f1-44a7-aeb5-2be34513b340",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-b86d1280-94f1-44a7-aeb5-2be34513b340.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 148362,
+            "bytes": 148362,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f100dade-f591-4b64-bdd7-b7020a94ccee",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-f100dade-f591-4b64-bdd7-b7020a94ccee.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 178062,
+            "bytes": 178062,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238474,
+            "bytes": 238474,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 160382,
+            "bytes": 160382,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ca1f36a9-9706-443b-85ec-ae9967e12895",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 190246,
+            "bytes": 190246,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 185816,
+            "bytes": 185816,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-83cdbe8b-4591-409b-97a6-c407370bd094",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-83cdbe8b-4591-409b-97a6-c407370bd094.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 226924,
+            "bytes": 226924,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-3a632c8e-55a6-4a1f-a14d-f99e455f4413",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-3a632c8e-55a6-4a1f-a14d-f99e455f4413.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238594,
+            "bytes": 238594,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-4f7b1620-17f2-4089-94fc-b50284b28647",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-4f7b1620-17f2-4089-94fc-b50284b28647.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 163784,
+            "bytes": 163784,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-dbbab0bd-3c44-421b-82b2-1d758c33068a",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-dbbab0bd-3c44-421b-82b2-1d758c33068a.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 218560,
+            "bytes": 218560,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-12bf88b4-9f24-4071-966e-76c327c63ef7",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-12bf88b4-9f24-4071-966e-76c327c63ef7.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 391180,
+            "bytes": 391180,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-c5ff908a-0b85-428f-baf8-8d83095b573c",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 940,
+          "upload": {
+            "originalBytes": 182454,
+            "bytes": 182454,
+            "width": 1672,
+            "height": 940,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c-cover.webp"
+        },
+        {
+          "id": "image-c7bdd815-36cb-438f-8262-4370af2e272c",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 941,
+          "upload": {
+            "originalBytes": 160304,
+            "bytes": 160304,
+            "width": 1672,
+            "height": 941,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c-cover.webp"
         }
       ]
     },
