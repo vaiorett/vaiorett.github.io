@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-26T14:57:57.166Z",
+  "updatedAt": "2026-10-27T06:00:06.032Z",
   "projects": {
     "yunba-depot": {
       "title": "轨道交通车辆基地",
@@ -685,16 +685,234 @@ window.PORTFOLIO_GALLERIES = {
       "images": [
         {
           "id": "product-rendering-overview",
-          "src": "image-product-rendering-full.webp",
+          "src": "images/uploads/image-8b5a743f-dbb3-40a3-9f5d-4bd61ec80189.webp",
           "caption": "项目作品总览",
           "alt": "家具产品渲染作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Furniture Product Rendering — project overview",
-          "width": 392,
-          "height": 1920
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 166182,
+            "bytes": 166182,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ade30086-b196-4109-a908-f44bc95035c2",
+          "caption": "06-stools-joinery",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-ade30086-b196-4109-a908-f44bc95035c2.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 178062,
+            "bytes": 178062,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f43b34ea-a73a-4041-aef4-949f228322ab",
+          "caption": "05-stools-medium",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-f43b34ea-a73a-4041-aef4-949f228322ab.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 148362,
+            "bytes": 148362,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f125622a-44a0-465a-bfb6-01f8ad4c321f",
+          "caption": "07-stools-top",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-f125622a-44a0-465a-bfb6-01f8ad4c321f.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238474,
+            "bytes": 238474,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-47ba2cb6-e8d1-4e92-b798-3bbc51491bf2",
+          "caption": "02-entry-hero",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-47ba2cb6-e8d1-4e92-b798-3bbc51491bf2.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 185816,
+            "bytes": 185816,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-bf910cd0-c23e-4be8-a964-7a6287f4106f",
+          "caption": "09-entry-bench-detail",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-bf910cd0-c23e-4be8-a964-7a6287f4106f.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238594,
+            "bytes": 238594,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f92f4db8-5b25-4199-a75a-b30684f87d90",
+          "caption": "08-entry-medium",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-f92f4db8-5b25-4199-a75a-b30684f87d90.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 226924,
+            "bytes": 226924,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-c3beaa38-0bb8-4e1f-a99d-7dce384292bb",
+          "caption": "10-coat-tree-detail",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-c3beaa38-0bb8-4e1f-a99d-7dce384292bb.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 163784,
+            "bytes": 163784,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-3f669371-4bfb-4c2a-9423-27d225dd0a3b",
+          "caption": "03-shelving-hero",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-3f669371-4bfb-4c2a-9423-27d225dd0a3b.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 160382,
+            "bytes": 160382,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-fcee22b9-cff5-453a-8860-0148effc6c89",
+          "caption": "04-shoe-cabinet",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-fcee22b9-cff5-453a-8860-0148effc6c89.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 190246,
+            "bytes": 190246,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ab702848-7459-4c4a-9d38-224fb5a44f3f",
+          "caption": "11-living-room",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-ab702848-7459-4c4a-9d38-224fb5a44f3f.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 218560,
+            "bytes": 218560,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-a23ea3c1-f1fa-40e7-8359-5b79bdc21161",
+          "caption": "14-coffee-table",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-a23ea3c1-f1fa-40e7-8359-5b79bdc21161.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 391180,
+            "bytes": 391180,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-89f2df71-0dc6-4211-878d-1fa47775f03b",
+          "caption": "12-bedroom",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-89f2df71-0dc6-4211-878d-1fa47775f03b.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 940,
+          "upload": {
+            "originalBytes": 182454,
+            "bytes": 182454,
+            "width": 1672,
+            "height": 940,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-89f2df71-0dc6-4211-878d-1fa47775f03b-cover.webp"
+        },
+        {
+          "id": "image-8f066a44-bc71-4b65-a0f0-7e16c9d3c6d0",
+          "caption": "13-bar-dining",
+          "alt": "家具产品渲染效果图",
+          "src": "images/uploads/image-8f066a44-bc71-4b65-a0f0-7e16c9d3c6d0.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 941,
+          "upload": {
+            "originalBytes": 160304,
+            "bytes": 160304,
+            "width": 1672,
+            "height": 941,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-8f066a44-bc71-4b65-a0f0-7e16c9d3c6d0-cover.webp"
         }
-      ]
+      ],
+      "layout": "grid"
     },
     "cgi": {
       "title": "材质与 CGI 探索",
