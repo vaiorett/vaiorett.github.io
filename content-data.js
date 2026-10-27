@@ -289,7 +289,7 @@ window.PORTFOLIO_CONTENT = {
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
     "project.residential.zh.role": "模型制作 / 住宅表现",
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
-    "project.residential.zh.note": "团队项目；个人参与模型与建筑表现，项目整体设计归原团队。",
+    "project.residential.zh.note": "团队项目；个人参与图纸\\模型与建筑外立面表现，项目整体设计归原团队。",
     "project.residential.zh.tools": [
       "SketchUp",
       "3ds Max",
@@ -297,7 +297,7 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.residential.zh.tasks": [
       "参与住宅及场地相关模型制作。",
-      "协助方案与建筑图纸表达，制作展示效果图。",
+      "协助方案与建筑图纸表达\\制作展示效果图。",
       "配合团队整理用于沟通的建筑表现成果。"
     ],
     "project.residential.en.title": "Housing & Shared Spaces",

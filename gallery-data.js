@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T11:13:56.049Z",
+  "updatedAt": "2026-10-27T13:29:06.849Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -707,22 +707,7 @@ window.PORTFOLIO_GALLERIES = {
           "thumbnail": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52-cover.webp"
         }
       ],
-      "videos": [
-        {
-          "id": "video-b6f9ef27-e193-45e7-b1a8-5d8de6bc9d18",
-          "url": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
-          "title": "测试视频",
-          "titleEn": "1111",
-          "poster": "https://i1.hdslb.com/bfs/archive/fca6ac914df1a17fc26350b1ae8c055b4586dd64.jpg",
-          "posterFor": "https://www.bilibili.com/video/BV16inH6SEvM/?p=1",
-          "providerTitle": "影视飓风员工，开什么车？",
-          "posterUpdatedAt": "2026-10-25T07:15:22.502257Z",
-          "posterRefresh": "2026-10-25T07:17:46.040234Z",
-          "posterStatus": "unavailable",
-          "posterError": "HTTP 412",
-          "posterAttemptedAt": "2026-10-25T07:27:40.640772Z"
-        }
-      ]
+      "videos": []
     },
     "interior": {
       "title": "室内空间与氛围",
