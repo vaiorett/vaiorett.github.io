@@ -444,15 +444,18 @@ window.PORTFOLIO_CONTENT = {
       "Interior Decoration Designer, Level 3",
       "ISO 9001:2015 Internal Auditor Certificate"
     ],
-    "project.project-9a627a8d.zh.title": "project-09",
-    "project.project-9a627a8d.zh.desc": "project-09",
+    "project.project-9a627a8d.zh.title": "比亚迪超级充电站",
+    "project.project-9a627a8d.zh.desc": "为母公司的新能源电车产业提供可视化表现",
     "project.project-9a627a8d.zh.role": "",
     "project.project-9a627a8d.zh.context": "",
     "project.project-9a627a8d.zh.note": "",
     "project.project-9a627a8d.zh.tools": [],
-    "project.project-9a627a8d.zh.tasks": [],
-    "project.project-9a627a8d.en.title": "project-09",
-    "project.project-9a627a8d.en.desc": "project-09",
+    "project.project-9a627a8d.zh.tasks": [
+      "Sketchup",
+      "D5"
+    ],
+    "project.project-9a627a8d.en.title": "BYD Supercharging Station",
+    "project.project-9a627a8d.en.desc": "Provide visualizations for the parent company's new energy vehicle business",
     "project.project-9a627a8d.en.role": "",
     "project.project-9a627a8d.en.context": "",
     "project.project-9a627a8d.en.note": "",

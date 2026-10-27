@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T15:51:22.660Z",
+  "updatedAt": "2026-10-27T17:01:51.251Z",
   "projects": {
     "project-d15b5f36": {
       "title": "保租房时光序项目",
@@ -533,7 +533,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "project-9a627a8d": {
-      "title": "project-09",
+      "title": "比亚迪超级充电站",
       "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
       "images": [
         {
