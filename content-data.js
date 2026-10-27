@@ -435,7 +435,7 @@ window.PORTFOLIO_CONTENT = {
       "Ubuntu GNOME"
     ],
     "profile.certificates.zh": [
-      "全国计算机等级考试一级 · 计算机基础及 MS Office 应用",
+      "全国计算机等级考试一级",
       "室内装饰设计师三级",
       "ISO 9001:2015 内审员证"
     ],
