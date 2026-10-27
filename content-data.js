@@ -201,6 +201,7 @@ window.PORTFOLIO_CONTENT = {
     "project.grandstand.zh.context": "团队建筑项目，参与赛车场看台及配套空间的方案建模与建筑表现。",
     "project.grandstand.zh.note": "团队项目；个人参与方案建模与建筑可视化，项目整体设计归原团队。",
     "project.grandstand.zh.tools": [
+      "Auto CAD",
       "SketchUp",
       "D5"
     ],
@@ -290,6 +291,7 @@ window.PORTFOLIO_CONTENT = {
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
     "project.residential.zh.note": "团队项目；个人参与图纸\\模型与建筑外立面表现，项目整体设计归原团队。",
     "project.residential.zh.tools": [
+      "Auto CAD",
       "SketchUp",
       "3ds Max",
       "Photoshop"
@@ -450,11 +452,11 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.zh.role": "",
     "project.project-9a627a8d.zh.context": "",
     "project.project-9a627a8d.zh.note": "",
-    "project.project-9a627a8d.zh.tools": [],
-    "project.project-9a627a8d.zh.tasks": [
+    "project.project-9a627a8d.zh.tools": [
       "Sketchup",
       "D5"
     ],
+    "project.project-9a627a8d.zh.tasks": [],
     "project.project-9a627a8d.en.title": "BYD Supercharging Station",
     "project.project-9a627a8d.en.desc": "Provide visualizations for the parent company's new energy vehicle business",
     "project.project-9a627a8d.en.role": "",
@@ -467,12 +469,12 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.zh.role": "",
     "project.project-6abfe00e.zh.context": "",
     "project.project-6abfe00e.zh.note": "",
-    "project.project-6abfe00e.zh.tools": [],
-    "project.project-6abfe00e.zh.tasks": [
+    "project.project-6abfe00e.zh.tools": [
       "3Ds Max",
       "Corona",
       "Vray"
     ],
+    "project.project-6abfe00e.zh.tasks": [],
     "project.project-6abfe00e.en.title": "Courtyard of Light",
     "project.project-6abfe00e.en.desc": "An open-concept building that blends natural rock, water features, and modern architectural language explores the relationship between architecture and the natural environment through its sloping steel roof, exposed concrete colonnade, and transparent glass facades.",
     "project.project-6abfe00e.en.role": "",
@@ -481,7 +483,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.en.tools": [],
     "project.project-6abfe00e.en.tasks": [],
     "project.project-3ba57396.zh.title": "UE5-片段",
-    "project.project-3ba57396.zh.desc": "UE5 - Clip",
+    "project.project-3ba57396.zh.desc": "UE5影视级试验项目",
     "project.project-3ba57396.zh.role": "",
     "project.project-3ba57396.zh.context": "",
     "project.project-3ba57396.zh.note": "",
@@ -499,7 +501,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-3ba57396.en.tools": [],
     "project.project-3ba57396.en.tasks": [],
     "project.project-d15b5f36.zh.title": "保租房时光序项目",
-    "project.project-d15b5f36.zh.desc": "保租房时光序项目",
+    "project.project-d15b5f36.zh.desc": "表现场地与住宅关系, 并提交报规",
     "project.project-d15b5f36.zh.role": "",
     "project.project-d15b5f36.zh.context": "",
     "project.project-d15b5f36.zh.note": "",
