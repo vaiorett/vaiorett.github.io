@@ -506,11 +506,11 @@ window.PORTFOLIO_CONTENT = {
     "project.project-d15b5f36.zh.context": "",
     "project.project-d15b5f36.zh.note": "",
     "project.project-d15b5f36.zh.tools": [
+      "Auto CAD",
       "3Ds Max",
       "Sketchup",
       "Vray",
-      "Corona",
-      "Auto CAD"
+      "Corona"
     ],
     "project.project-d15b5f36.zh.tasks": [],
     "project.project-d15b5f36.en.title": "The “Time Sequence” Affordable Housing Project",
