@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T15:30:23.030Z",
+  "updatedAt": "2026-10-27T15:49:25.297Z",
   "projects": {
     "project-d15b5f36": {
       "title": "保租房时光序项目",
@@ -22,6 +22,23 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "thumbnail": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d-cover.webp"
+        },
+        {
+          "id": "image-bd386ba3-024b-4ca4-bf2c-fdbfb92d9d7c",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-bd386ba3-024b-4ca4-bf2c-fdbfb92d9d7c.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3696589,
+            "bytes": 1452140,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-bd386ba3-024b-4ca4-bf2c-fdbfb92d9d7c-cover.webp"
         },
         {
           "id": "image-ef276ba1-deb0-488e-a0f2-919a7fd40f4f",
@@ -59,70 +76,6 @@ window.PORTFOLIO_GALLERIES = {
         }
       ],
       "videos": []
-    },
-    "yunba-depot": {
-      "title": "轨道交通车辆基地",
-      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-      "images": [
-        {
-          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
-          "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4540651,
-            "bytes": 1932318,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
-          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
-          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp"
-        },
-        {
-          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
-          "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4876097,
-            "bytes": 2137144,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
-          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
-          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp"
-        },
-        {
-          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
-          "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4070326,
-            "bytes": 1582156,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
-          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp"
-        }
-      ],
-      "layout": "stack"
     },
     "residential": {
       "title": "住宅与公共空间",
@@ -217,6 +170,70 @@ window.PORTFOLIO_GALLERIES = {
         }
       ],
       "videos": []
+    },
+    "yunba-depot": {
+      "title": "轨道交通车辆基地",
+      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+      "images": [
+        {
+          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4540651,
+            "bytes": 1932318,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
+          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
+          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp"
+        },
+        {
+          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4876097,
+            "bytes": 2137144,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
+          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
+          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp"
+        },
+        {
+          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4070326,
+            "bytes": 1582156,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
+          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp"
+        }
+      ],
+      "layout": "stack"
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",

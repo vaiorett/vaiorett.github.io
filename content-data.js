@@ -505,10 +505,10 @@ window.PORTFOLIO_CONTENT = {
     "project-d15b5f36": {
       "category": "architecture"
     },
-    "yunba-depot": {
+    "residential": {
       "category": "architecture"
     },
-    "residential": {
+    "yunba-depot": {
       "category": "architecture"
     },
     "grandstand": {
