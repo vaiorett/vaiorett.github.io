@@ -170,8 +170,8 @@ window.PORTFOLIO_CONTENT = {
     "project.digital-assets.zh.note": "商业项目作品；图中展示数字化采集与资产制作过程。",
     "project.digital-assets.zh.tools": [
       "RealityCapture",
-      "Blender",
       "UE5",
+      "Blender",
       "3ds Max"
     ],
     "project.digital-assets.zh.tasks": [
@@ -202,7 +202,6 @@ window.PORTFOLIO_CONTENT = {
     "project.grandstand.zh.note": "团队项目；个人参与方案建模与建筑可视化，项目整体设计归原团队。",
     "project.grandstand.zh.tools": [
       "SketchUp",
-      "3ds Max",
       "D5"
     ],
     "project.grandstand.zh.tasks": [
@@ -233,7 +232,7 @@ window.PORTFOLIO_CONTENT = {
     "project.pedestrian-bridge.zh.tools": [
       "AutoCAD",
       "SketchUp",
-      "3ds Max"
+      "D5"
     ],
     "project.pedestrian-bridge.zh.tasks": [
       "根据方案搭建人行天桥与实际场地模型。",
@@ -321,8 +320,9 @@ window.PORTFOLIO_CONTENT = {
     "project.interior.zh.context": "原作品集中的室内设计作品，展示空间建模、材质搭配与效果图表达。",
     "project.interior.zh.note": "室内空间表现作品，展示空间、材质与光影的综合表达。",
     "project.interior.zh.tools": [
-      "SketchUp",
       "3ds Max",
+      "Vray",
+      "Corona",
       "Photoshop"
     ],
     "project.interior.zh.tasks": [
@@ -351,9 +351,10 @@ window.PORTFOLIO_CONTENT = {
     "project.cgi.zh.context": "原作品集中的 CGI 与其他作品，包含模型、材质效果及制作过程。",
     "project.cgi.zh.note": "个人 CGI 探索作品，展示模型、材质效果与制作过程。",
     "project.cgi.zh.tools": [
-      "3D Modeling",
-      "Materials",
-      "CGI"
+      "3Ds Max",
+      "Vray",
+      "Corona",
+      "Substance 3D Designer"
     ],
     "project.cgi.zh.tasks": [
       "展示基础模型与材质化后的视觉差异。",
@@ -467,7 +468,11 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.zh.context": "",
     "project.project-6abfe00e.zh.note": "",
     "project.project-6abfe00e.zh.tools": [],
-    "project.project-6abfe00e.zh.tasks": [],
+    "project.project-6abfe00e.zh.tasks": [
+      "3Ds Max",
+      "Corona",
+      "Vray"
+    ],
     "project.project-6abfe00e.en.title": "Courtyard of Light",
     "project.project-6abfe00e.en.desc": "An open-concept building that blends natural rock, water features, and modern architectural language explores the relationship between architecture and the natural environment through its sloping steel roof, exposed concrete colonnade, and transparent glass facades.",
     "project.project-6abfe00e.en.role": "",
@@ -480,7 +485,11 @@ window.PORTFOLIO_CONTENT = {
     "project.project-3ba57396.zh.role": "",
     "project.project-3ba57396.zh.context": "",
     "project.project-3ba57396.zh.note": "",
-    "project.project-3ba57396.zh.tools": [],
+    "project.project-3ba57396.zh.tools": [
+      "UE5",
+      "Bridge",
+      "Davinci"
+    ],
     "project.project-3ba57396.zh.tasks": [],
     "project.project-3ba57396.en.title": "UE5 - Clip",
     "project.project-3ba57396.en.desc": "UE5 - Clip",
@@ -494,7 +503,13 @@ window.PORTFOLIO_CONTENT = {
     "project.project-d15b5f36.zh.role": "",
     "project.project-d15b5f36.zh.context": "",
     "project.project-d15b5f36.zh.note": "",
-    "project.project-d15b5f36.zh.tools": [],
+    "project.project-d15b5f36.zh.tools": [
+      "3Ds Max",
+      "Sketchup",
+      "Vray",
+      "Corona",
+      "Auto CAD"
+    ],
     "project.project-d15b5f36.zh.tasks": [],
     "project.project-d15b5f36.en.title": "The “Time Sequence” Affordable Housing Project",
     "project.project-d15b5f36.en.desc": "保租房时光序项目",
