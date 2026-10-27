@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T06:00:06.032Z",
+  "updatedAt": "2026-10-27T06:07:44.018Z",
   "projects": {
     "yunba-depot": {
       "title": "轨道交通车辆基地",
@@ -681,7 +681,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "product-rendering": {
       "title": "家具产品渲染",
-      "cover": "image-product-rendering-cover.webp",
+      "cover": "images/uploads/image-8b5a743f-dbb3-40a3-9f5d-4bd61ec80189.webp",
       "images": [
         {
           "id": "product-rendering-overview",
