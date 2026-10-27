@@ -8,7 +8,7 @@ Open `manage.html`. Add a project, upload images or video links, edit Chinese an
 
 Image layouts: automatic, full-width, or two-column gallery. Image uploads need no captions, descriptions or paragraphs; accessible labels fall back to the project title. Existing image text remains compatible. Each image has a width preference. Drag images or use the move buttons to change reading order. Mobile uses one column; long boards remain complete. Automatic layout does not generate or translate text.
 
-Video links support Bilibili, YouTube and HTTPS MP4/WebM files. Posters show only a play button. Playback options contain the source link and troubleshooting help. Third-party sign-in verification, recommendations and playback quality remain controlled by their platforms. An optional direct MP4/WebM version uses the native player without platform recommendations. No media stream extraction or login bypass is performed.
+Video links support Bilibili, YouTube and HTTPS MP4/WebM files. Video-only projects use the first video cover on the homepage; the manager can choose a video cover explicitly. If Bilibili blocks automatic fetching, upload a cover image in the video editor. Posters show only a play button. Playback options contain the source link and troubleshooting help. Third-party sign-in verification, recommendations and playback quality remain controlled by their platforms. An optional direct MP4/WebM version uses the native player without platform recommendations. No media stream extraction or login bypass is performed.
 
 ## Build
 

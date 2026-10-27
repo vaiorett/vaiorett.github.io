@@ -106,6 +106,11 @@ if (backTop) {
   backTop.addEventListener('click', () => window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
 }
 
+document.querySelectorAll('[data-card-fallback]').forEach(image=>{
+  const fallback=()=>{if(image.dataset.cardFallback&&image.src!==new URL(image.dataset.cardFallback,location.href).href)image.src=image.dataset.cardFallback;};
+  image.addEventListener('error',fallback,{once:true});
+  if(image.complete&&!image.naturalWidth)fallback();
+});
 const galleryData=window.PORTFOLIO_GALLERIES;
 const validImagePath=path=>typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');
 const displayCover=p=>{const item=p.images.find(i=>i.src===p.cover||i.compare===p.cover);return (item?.src===p.cover?item.thumbnail:item?.compareThumbnail)||p.cover;};

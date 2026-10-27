@@ -168,8 +168,8 @@
    card.addEventListener('dragleave',()=>card.classList.remove('drag-target'));
    card.addEventListener('drop',e=>{if(e.dataTransfer.files.length)return;e.preventDefault();card.classList.remove('drag-target');const from=Number(e.dataTransfer.getData('text/plain'));if(Number.isInteger(from))move(from,index);});
    const visual=element('div');
-   const isEffectCover=Boolean(item.compare&&p.cover===item.compare);
-   const isBaseCover=p.cover===item.src;
+   const isEffectCover=Boolean(!p.coverVideo&&item.compare&&p.cover===item.compare);
+   const isBaseCover=!p.coverVideo&&p.cover===item.src;
    const image=element('img','editor-preview');
    image.loading='lazy';image.decoding='async';
    image.src=preview(item.compare?(item.compareThumbnail||item.compare):(item.thumbnail||item.src));
@@ -186,7 +186,7 @@
     effectRadio.type='radio';effectRadio.name='cover';
     effectRadio.checked=isEffectCover;
     effectRadio.setAttribute('aria-label','第 '+(index+1)+' 张：设效果图为封面');
-    effectRadio.addEventListener('change',()=>{p.cover=item.compare;render();changed();});
+    effectRadio.addEventListener('change',()=>{p.cover=item.compare;delete p.coverVideo;render();renderVideos();changed();});
     effectLabel.append(effectRadio,document.createTextNode('设效果图为封面'));
 
     const baseLabel=element('label','cover-label');
@@ -194,7 +194,7 @@
     baseRadio.type='radio';baseRadio.name='cover';
     baseRadio.checked=isBaseCover;
     baseRadio.setAttribute('aria-label','第 '+(index+1)+' 张：设原图为封面');
-    baseRadio.addEventListener('change',()=>{p.cover=item.src;render();changed();});
+    baseRadio.addEventListener('change',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();});
     baseLabel.append(baseRadio,document.createTextNode('设原图为封面'));
 
     coverGroup.append(effectLabel,baseLabel);
@@ -205,7 +205,7 @@
     radio.type='radio';radio.name='cover';
     radio.checked=isBaseCover;
     radio.setAttribute('aria-label','第 '+(index+1)+' 张设为封面');
-    radio.addEventListener('change',()=>{p.cover=item.src;render();changed();});
+    radio.addEventListener('change',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();});
     coverLabel.append(radio,document.createTextNode('设为封面'));
     controls.append(coverLabel);
    }
@@ -281,7 +281,7 @@
     if(p.cover===item.src){
      leftCol.append(element('span','cover-active-tag','✔ 当前封面'));
     }else{
-     const setBaseBtn=button('设为封面',()=>{p.cover=item.src;render();changed();},false,'mini-button cover-set-btn');
+     const setBaseBtn=button('设为封面',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();},false,'mini-button cover-set-btn');
      setBaseBtn.title='将左侧原图设为项目封面';
      leftCol.append(setBaseBtn);
     }
@@ -299,7 +299,7 @@
     if(p.cover===item.compare){
      rightCol.append(element('span','cover-active-tag','✔ 当前封面'));
     }else{
-     const setEffectBtn=button('设为封面',()=>{p.cover=item.compare;render();changed();},false,'mini-button cover-set-btn');
+     const setEffectBtn=button('设为封面',()=>{p.cover=item.compare;delete p.coverVideo;render();renderVideos();changed();},false,'mini-button cover-set-btn');
      setEffectBtn.title='将右侧效果图设为项目封面（推荐）';
      rightCol.append(setEffectBtn);
     }
@@ -398,7 +398,7 @@
  async function getVideoCover(item,projectId){
   const url=V.info(item.url).url;status('video-status','正在自动读取视频封面…');
   try{const cover=await V.fetchCover(url);if(!cover||!data.projects[projectId]?.videos?.includes(item)||V.info(item.url).url!==url)return;Object.assign(item,cover,{posterUpdatedAt:new Date().toISOString(),posterStatus:'ready',posterError:''});if(selected===projectId)renderVideos();changed();status('video-status','已读取视频封面，发布后访客可以看到。');}
-  catch{if(selected===projectId)status('video-status','浏览器未能直接读取封面，发布后自动任务会重试；也可以填写自选封面图地址。');}
+  catch{if(selected===projectId)status('video-status','B 站暂未允许自动获取。发布后会再次尝试；也可点击“上传封面”选择图片，视频项目将自动用于首页封面。');}
  }
  function renderVideos(){
   const list=$('video-list');list.replaceChildren();const videos=data.projects[selected].videos||[];
@@ -409,9 +409,12 @@
     const l=element('label','',label),input=element('input');l.htmlFor='video-'+key+'-'+index;input.id=l.htmlFor;input.value=item[key]||'';input.maxLength=['url','posterOverride','playbackUrl'].includes(key)?2000:300;
     input.addEventListener(['url','posterOverride','playbackUrl'].includes(key)?'change':'input',()=>{try{if(key==='url'){const url=V.info(input.value).url;if(url!==item.url){for(const old of ['poster','posterFor','posterUpdatedAt','posterOverride','posterStatus','posterError','posterAttemptedAt','posterRefresh','playbackUrl'])delete item[old];item.url=url;}}else if(key==='playbackUrl'){const value=input.value.trim();if(value&&V.info(value).provider!=='file')throw new Error('请使用自己的 HTTPS MP4 / WebM 视频文件地址。');item.playbackUrl=value;}else if(key==='posterOverride'){const value=input.value.trim();if(value&&!V.imageURL(value))throw new Error('封面请使用 HTTPS 图片地址，或已上传图片在仓库中的路径。');item.posterOverride=value;}else item[key]=input.value;status('video-status','');changed();if(['url','posterOverride','playbackUrl'].includes(key))renderVideos();}catch(error){status('video-status',error.message+' 原内容已保留。',true);}});card.append(l,input);
    }
-   const actions=element('div','image-actions');actions.append(button('上传封面',()=>{const input=$('video-cover-file');input.dataset.project=selected;input.dataset.video=item.id;input.click();}));
+   const actions=element('div','image-actions');
+   const project=data.projects[selected],active=project.coverVideo===item.id||(!project.coverVideo&&project.cover==='project-placeholder.webp'&&!project.images.length&&index===0);
+   actions.append(button(active?(V.poster(item,'')?'✔ 已用于首页封面':'首页封面待上传'):'设为首页封面',()=>{project.coverVideo=item.id;renderVideos();render();changed();},active));
+   actions.append(button('上传封面',()=>{const input=$('video-cover-file');input.dataset.project=selected;input.dataset.video=item.id;input.click();}));
    const moveVideo=to=>{const [value]=videos.splice(index,1);videos.splice(to,0,value);renderVideos();changed();};
-   actions.append(button('↑ 上移',()=>moveVideo(index-1),index===0),button('↓ 下移',()=>moveVideo(index+1),index===videos.length-1),button('移除视频',()=>{videos.splice(index,1);renderVideos();render();changed();}));
+   actions.append(button('↑ 上移',()=>moveVideo(index-1),index===0),button('↓ 下移',()=>moveVideo(index+1),index===videos.length-1),button('移除视频',()=>{videos.splice(index,1);if(data.projects[selected].coverVideo===item.id)delete data.projects[selected].coverVideo;renderVideos();render();changed();}));
    if(provider.provider==='bilibili')actions.append(button('重新获取封面',()=>{item.posterRefresh=new Date().toISOString();renderVideos();changed();getVideoCover(item,selected);}));const link=element('a','', '打开原视频 ↗');link.href=item.url;link.target='_blank';link.rel='noopener';actions.append(link);card.append(actions);list.append(card);
   });
  }
@@ -500,7 +503,7 @@
  $('compare-file').addEventListener('change',async e=>{await addCompareFile(e.target.files,e.target.dataset.imageId);e.target.value='';});
  const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));drop.addEventListener('drop',async e=>{e.preventDefault();drop.classList.remove('dragover');await addFiles(e.dataTransfer.files);});
  $('project-select').addEventListener('change',e=>{selected=e.target.value;renderSelect();render();renderText();changed();});
- $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片与顺序修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';current.images=C.clone(original?.images||[]);render();changed();});
+ $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片与顺序修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';delete current.coverVideo;current.images=C.clone(original?.images||[]);render();changed();});
  function setBusy(value){busy=value;document.querySelector('.manager-editor').inert=value;document.querySelector('.manager-sidebar').inert=value;document.querySelector('.manager').classList.toggle('busy',value);$('connect-button').disabled=value;$('export-button').disabled=value;$('disconnect-button').disabled=value;updatePublish();}
  async function api(path,method='GET',body){
   const repoPath='/repos/'+C.OWNER+'/'+C.REPO;

@@ -11,6 +11,7 @@
     for(const [id,project] of Object.entries(data.projects)){
       if(!/^[a-z0-9-]+$/.test(id) || !project || !Array.isArray(project.images) || typeof project.title!=='string') throw new Error('项目资料不完整。');
       if(!safePath(project.cover)) throw new Error('封面图片路径不正确。');
+      if(project.coverVideo!==undefined && (typeof project.coverVideo!=='string'||!(Array.isArray(project.videos)&&project.videos.some(v=>v.id===project.coverVideo))))throw new Error('项目视频封面选择不正确。');
       if(project.videos!==undefined){
         if(!Array.isArray(project.videos)||project.videos.length>30)throw new Error('每个项目最多添加 30 个视频。');
         const videoIds=new Set();
@@ -63,6 +64,11 @@
     galleries.projects=next;return galleries;
   }
   function coverPath(project){const item=project.images.find(i=>i.src===project.cover||i.compare===project.cover);if(item){if(item.src===project.cover)return item.thumbnail||project.cover;if(item.compare===project.cover)return item.compareThumbnail||project.cover;}return project.cover;}
+  function homeCover(project){
+    const fallback=coverPath(project);
+    const video=project.coverVideo?(project.videos||[]).find(v=>v.id===project.coverVideo):project.cover==='project-placeholder.webp'&&!project.images.length?(project.videos||[])[0]:null;
+    return video?V.poster(video,fallback):fallback;
+  }
   function usedFiles(data,files){
     const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);if(i.compare)paths.add(i.compare);if(i.compareThumbnail)paths.add(i.compareThumbnail);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
@@ -121,6 +127,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,homeCover,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

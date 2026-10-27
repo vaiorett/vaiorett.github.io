@@ -2,7 +2,7 @@
 import json, re
 from urllib.parse import urlsplit, parse_qs
 from html import escape
-from video_core import markup as video_markup
+from video_core import markup as video_markup, poster as video_poster, local as local_image
 from layout_core import markup as gallery_markup
 
 def serialize(name,value):
@@ -49,6 +49,13 @@ def render(content,templates,galleries):
             _,id,lang=key.split('.');return '<a href="'+esc(meta[id]['source'])+'" target="_blank" rel="noopener">'+esc(values['ui.'+lang+'.source'])+' ↗</a>' if meta[id].get('source') else ''
         if key.startswith('next.'):
             _,id,lang=key.split('.');n=order[(order.index(id)+1)%len(order)];return '<a class="next-project" href="./work-'+n+'.html"><span>'+esc(values['ui.'+lang+'.next'])+'</span><strong>'+esc(values['project.'+n+'.'+lang+'.title'])+' ↗</strong></a>'
+        if key.startswith('cardcover.'):
+            _,id,lang=key.split('.');project=galleries['projects'][id];fallback=cover(id);video_items=project.get('videos',[])
+            video=next((v for v in video_items if v['id']==project.get('coverVideo')),None) if project.get('coverVideo') else (video_items[0] if project['cover']=='project-placeholder.webp' and not project['images'] and video_items else None)
+            path=video_poster(video,fallback) if video else fallback
+            return esc(('../' if lang=='en' else './')+path if local_image(path) else path)
+        if key.startswith('cardfallback.'):
+            _,id,lang=key.split('.');return esc(('../' if lang=='en' else './')+cover(id))
         if key.startswith('cover.'):return esc(cover(key[6:]))
         if key.startswith('count.'):return str(len(galleries['projects'][key[6:]]['images']))
         if key.startswith('gallery.'):

@@ -7,7 +7,7 @@ const description=project?`@@project.__project__.${lang}.desc@@`:t('description'
 const image=project?'@@cover.__project__@@':'@@cover.yunba-depot@@';
 const canonical=(code)=>'https://vaiorett.github.io/'+(code==='en'?'en/':'')+(file==='index.html'?'':file);
 const schema={'@context':'https://schema.org','@type':'WebPage',name:title,description,url:canonical(lang),inLanguage:lang==='en'?'en':'zh-CN',about:{'@type':'Person',name:t('name'),alternateName:'@@site.brand@@',url:'https://vaiorett.github.io/'},primaryImageOfPage:{'@type':'ImageObject',contentUrl:'https://vaiorett.github.io/'+image}};
-const version='20261027-performance1';
+const version='20261027-video-cover2';
 ---
 <!doctype html>
 <html lang={lang==='en'?'en':'zh-CN'}>

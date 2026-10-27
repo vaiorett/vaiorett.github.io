@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T11:08:47.272889Z",
+  "updatedAt": "2026-10-27T11:13:56.049Z",
   "projects": {
     "product-rendering": {
       "title": "家具产品渲染",
@@ -987,9 +987,12 @@ window.PORTFOLIO_GALLERIES = {
           "title": "",
           "titleEn": "",
           "posterFor": "https://www.bilibili.com/video/BV1Ujn96XEjP/?p=1",
-          "posterStatus": "unavailable",
-          "posterError": "HTTP 412",
-          "posterAttemptedAt": "2026-10-27T11:08:47.272850Z"
+          "posterStatus": "ready",
+          "posterError": "",
+          "posterAttemptedAt": "2026-10-27T11:13:56.049Z",
+          "poster": "https://i0.hdslb.com/bfs/archive/5a531e32f228fef144243d813c754cef70754ffb.jpg",
+          "providerTitle": "雨后の一角",
+          "posterUpdatedAt": "2026-10-27T11:13:56.049Z"
         }
       ]
     }
