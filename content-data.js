@@ -485,9 +485,26 @@ window.PORTFOLIO_CONTENT = {
     "project.project-3ba57396.en.context": "",
     "project.project-3ba57396.en.note": "",
     "project.project-3ba57396.en.tools": [],
-    "project.project-3ba57396.en.tasks": []
+    "project.project-3ba57396.en.tasks": [],
+    "project.project-d15b5f36.zh.title": "保租房时光序项目",
+    "project.project-d15b5f36.zh.desc": "保租房时光序项目",
+    "project.project-d15b5f36.zh.role": "",
+    "project.project-d15b5f36.zh.context": "",
+    "project.project-d15b5f36.zh.note": "",
+    "project.project-d15b5f36.zh.tools": [],
+    "project.project-d15b5f36.zh.tasks": [],
+    "project.project-d15b5f36.en.title": "The “Time Sequence” Affordable Housing Project",
+    "project.project-d15b5f36.en.desc": "保租房时光序项目",
+    "project.project-d15b5f36.en.role": "",
+    "project.project-d15b5f36.en.context": "",
+    "project.project-d15b5f36.en.note": "",
+    "project.project-d15b5f36.en.tools": [],
+    "project.project-d15b5f36.en.tasks": []
   },
   "projects": {
+    "project-d15b5f36": {
+      "category": "architecture"
+    },
     "yunba-depot": {
       "category": "architecture"
     },

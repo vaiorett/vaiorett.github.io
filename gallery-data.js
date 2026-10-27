@@ -1,258 +1,222 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T13:29:06.849Z",
+  "updatedAt": "2026-10-27T15:30:23.030Z",
   "projects": {
-    "product-rendering": {
-      "title": "家具产品渲染",
-      "cover": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
+    "project-d15b5f36": {
+      "title": "保租房时光序项目",
+      "cover": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d.webp",
       "images": [
         {
-          "id": "product-rendering-overview",
-          "src": "images/uploads/image-e350a973-c7d6-48f1-93b3-0e2e963c4b20.webp",
-          "caption": "项目作品总览",
-          "alt": "家具产品渲染作品总览",
-          "kind": "image",
-          "captionEn": "Project overview",
-          "altEn": "Furniture Product Rendering — project overview",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 166182,
-            "bytes": 166182,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-b86d1280-94f1-44a7-aeb5-2be34513b340",
+          "id": "image-83c15165-4442-4287-92b2-a6714898de1d",
           "caption": "",
           "alt": "",
-          "src": "images/uploads/image-b86d1280-94f1-44a7-aeb5-2be34513b340.webp",
+          "src": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d.webp",
           "kind": "image",
-          "width": 1086,
-          "height": 1448,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 148362,
-            "bytes": 148362,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-f100dade-f591-4b64-bdd7-b7020a94ccee",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-f100dade-f591-4b64-bdd7-b7020a94ccee.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 178062,
-            "bytes": 178062,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 238474,
-            "bytes": 238474,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7.webp",
-          "kind": "image",
-          "width": 1254,
-          "height": 1254,
-          "upload": {
-            "originalBytes": 160382,
-            "bytes": 160382,
-            "width": 1254,
-            "height": 1254,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-ca1f36a9-9706-443b-85ec-ae9967e12895",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
-          "kind": "image",
-          "width": 1254,
-          "height": 1254,
-          "upload": {
-            "originalBytes": 190246,
-            "bytes": 190246,
-            "width": 1254,
-            "height": 1254,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 185816,
-            "bytes": 185816,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-83cdbe8b-4591-409b-97a6-c407370bd094",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-83cdbe8b-4591-409b-97a6-c407370bd094.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 226924,
-            "bytes": 226924,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-3a632c8e-55a6-4a1f-a14d-f99e455f4413",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-3a632c8e-55a6-4a1f-a14d-f99e455f4413.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 238594,
-            "bytes": 238594,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-4f7b1620-17f2-4089-94fc-b50284b28647",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-4f7b1620-17f2-4089-94fc-b50284b28647.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 163784,
-            "bytes": 163784,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-dbbab0bd-3c44-421b-82b2-1d758c33068a",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-dbbab0bd-3c44-421b-82b2-1d758c33068a.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 218560,
-            "bytes": 218560,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-12bf88b4-9f24-4071-966e-76c327c63ef7",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-12bf88b4-9f24-4071-966e-76c327c63ef7.webp",
-          "kind": "image",
-          "width": 1086,
-          "height": 1448,
-          "upload": {
-            "originalBytes": 391180,
-            "bytes": 391180,
-            "width": 1086,
-            "height": 1448,
-            "preset": "balanced"
-          }
-        },
-        {
-          "id": "image-c5ff908a-0b85-428f-baf8-8d83095b573c",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c.webp",
-          "kind": "image",
-          "width": 1672,
-          "height": 940,
-          "upload": {
-            "originalBytes": 182454,
-            "bytes": 182454,
-            "width": 1672,
-            "height": 940,
+            "originalBytes": 9300564,
+            "bytes": 2027906,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c-cover.webp"
+          "thumbnail": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d-cover.webp"
         },
         {
-          "id": "image-c7bdd815-36cb-438f-8262-4370af2e272c",
+          "id": "image-ef276ba1-deb0-488e-a0f2-919a7fd40f4f",
           "caption": "",
           "alt": "",
-          "src": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c.webp",
+          "src": "images/uploads/image-ef276ba1-deb0-488e-a0f2-919a7fd40f4f.webp",
           "kind": "image",
-          "width": 1672,
-          "height": 941,
+          "width": 3840,
+          "height": 2162,
           "upload": {
-            "originalBytes": 160304,
-            "bytes": 160304,
-            "width": 1672,
-            "height": 941,
+            "originalBytes": 3520320,
+            "bytes": 1286772,
+            "width": 3840,
+            "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c-cover.webp"
+          "thumbnail": "images/uploads/image-ef276ba1-deb0-488e-a0f2-919a7fd40f4f-cover.webp"
+        },
+        {
+          "id": "image-b382bc4e-bb00-4f7d-bd6f-de0fb3bba9f1",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-b382bc4e-bb00-4f7d-bd6f-de0fb3bba9f1.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4305090,
+            "bytes": 1750294,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-b382bc4e-bb00-4f7d-bd6f-de0fb3bba9f1-cover.webp"
         }
-      ]
+      ],
+      "videos": []
     },
-    "digital-assets": {
-      "title": "产品数字化与三维资产",
-      "cover": "image-digital-assets-cover.webp",
+    "yunba-depot": {
+      "title": "轨道交通车辆基地",
+      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
       "images": [
         {
-          "id": "digital-assets-overview",
-          "src": "image-digital-assets-full.webp",
-          "caption": "项目作品总览",
-          "alt": "产品数字化与三维资产作品总览",
-          "kind": "collage",
-          "captionEn": "Project overview",
-          "altEn": "Product Digitization & 3D Assets — project overview",
-          "width": 1028,
-          "height": 1920,
-          "thumbnail": "image-digital-assets-full-preview.webp"
+          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4540651,
+            "bytes": 1932318,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
+          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
+          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp"
+        },
+        {
+          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4876097,
+            "bytes": 2137144,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
+          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
+          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp"
+        },
+        {
+          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
+          "caption": "",
+          "alt": "轨道交通车辆基地效果图",
+          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 4070326,
+            "bytes": 1582156,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
+          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp"
         }
-      ]
+      ],
+      "layout": "stack"
+    },
+    "residential": {
+      "title": "住宅与公共空间",
+      "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
+      "images": [
+        {
+          "id": "residential-overview",
+          "src": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd.webp",
+          "caption": "项目作品总览",
+          "alt": "住宅与公共空间作品总览",
+          "kind": "image",
+          "captionEn": "Project overview",
+          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 7715149,
+            "bytes": 1280352,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd-cover.webp"
+        },
+        {
+          "id": "image-46f390db-5aa8-41cc-be32-e077973ef467",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 10091055,
+            "bytes": 2087408,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467-cover.webp"
+        },
+        {
+          "id": "image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 9739250,
+            "bytes": 2059494,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d-cover.webp"
+        },
+        {
+          "id": "image-93bab4b2-7ef6-46a6-8f46-4b72590264c0",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3548098,
+            "bytes": 1257978,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0-cover.webp"
+        },
+        {
+          "id": "image-d4d48854-b8bb-434d-abd0-e0f4bb184e52",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
+          "kind": "image",
+          "width": 3840,
+          "height": 2162,
+          "upload": {
+            "originalBytes": 3226860,
+            "bytes": 1056122,
+            "width": 3840,
+            "height": 2162,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52-cover.webp"
+        }
+      ],
+      "videos": []
     },
     "grandstand": {
       "title": "赛车场看台与配套空间",
@@ -551,163 +515,106 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "videos": []
     },
-    "yunba-depot": {
-      "title": "轨道交通车辆基地",
-      "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
+    "project-9a627a8d": {
+      "title": "project-09",
+      "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
       "images": [
         {
-          "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
+          "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
           "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
+          "alt": "project-09效果图",
+          "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
           "upload": {
-            "originalBytes": 4540651,
-            "bytes": 1932318,
+            "originalBytes": 4493122,
+            "bytes": 1945410,
             "width": 3840,
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
-          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
-          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp"
+          "captionEn": "project-09",
+          "layout": "half",
+          "body": "compare",
+          "bodyEn": "compare",
+          "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
+          "beforeLabel": "效果",
+          "beforeLabelEn": "After",
+          "afterLabel": "原图",
+          "afterLabelEn": "Before",
+          "thumbnail": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
+          "compareThumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp"
         },
         {
-          "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
+          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
           "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
+          "alt": "project-09效果图",
+          "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
           "upload": {
-            "originalBytes": 4876097,
-            "bytes": 2137144,
+            "originalBytes": 3917481,
+            "bytes": 1616294,
             "width": 3840,
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
-          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
-          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp"
-        },
-        {
-          "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
-          "caption": "",
-          "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4070326,
-            "bytes": 1582156,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
-          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp"
+          "captionEn": "project-09",
+          "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
+          "beforeLabel": "效果",
+          "beforeLabelEn": "After",
+          "afterLabel": "原图",
+          "afterLabelEn": "Before",
+          "thumbnail": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
+          "compareThumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp"
         }
       ],
+      "videos": [],
       "layout": "stack"
     },
-    "residential": {
-      "title": "住宅与公共空间",
-      "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
+    "project-6abfe00e": {
+      "title": "光隙之庭",
+      "cover": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
       "images": [
         {
-          "id": "residential-overview",
-          "src": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd.webp",
-          "caption": "项目作品总览",
-          "alt": "住宅与公共空间作品总览",
-          "kind": "image",
-          "captionEn": "Project overview",
-          "altEn": "Shiguangxu Rental Housing · Guiyang Shawen — project overview",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 7715149,
-            "bytes": 1280352,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-f5ebc309-9fde-47ca-aac5-8436c03735cd-cover.webp"
-        },
-        {
-          "id": "image-46f390db-5aa8-41cc-be32-e077973ef467",
+          "id": "image-069ad53e-af78-443b-b4fe-26c84b159d45",
           "caption": "",
           "alt": "",
-          "src": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467.webp",
+          "src": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
           "kind": "image",
           "width": 3840,
-          "height": 2162,
+          "height": 3840,
           "upload": {
-            "originalBytes": 10091055,
-            "bytes": 2087408,
+            "originalBytes": 6027448,
+            "bytes": 2250118,
             "width": 3840,
-            "height": 2162,
+            "height": 3840,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-46f390db-5aa8-41cc-be32-e077973ef467-cover.webp"
+          "thumbnail": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45-cover.webp"
         },
         {
-          "id": "image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d",
+          "id": "image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939",
           "caption": "",
           "alt": "",
-          "src": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d.webp",
+          "src": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939.webp",
           "kind": "image",
           "width": 3840,
-          "height": 2162,
+          "height": 3840,
           "upload": {
-            "originalBytes": 9739250,
-            "bytes": 2059494,
+            "originalBytes": 5836768,
+            "bytes": 2156570,
             "width": 3840,
-            "height": 2162,
+            "height": 3840,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-dd61fe55-ef7d-48c9-bb61-7d8e3e37b33d-cover.webp"
-        },
-        {
-          "id": "image-93bab4b2-7ef6-46a6-8f46-4b72590264c0",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3548098,
-            "bytes": 1257978,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-93bab4b2-7ef6-46a6-8f46-4b72590264c0-cover.webp"
-        },
-        {
-          "id": "image-d4d48854-b8bb-434d-abd0-e0f4bb184e52",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3226860,
-            "bytes": 1056122,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52-cover.webp"
+          "thumbnail": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939-cover.webp"
         }
       ],
-      "videos": []
+      "videos": [],
+      "layout": "stack"
     },
     "interior": {
       "title": "室内空间与氛围",
@@ -842,6 +749,240 @@ window.PORTFOLIO_GALLERIES = {
       ],
       "layout": "stack"
     },
+    "product-rendering": {
+      "title": "家具产品渲染",
+      "cover": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
+      "images": [
+        {
+          "id": "product-rendering-overview",
+          "src": "images/uploads/image-e350a973-c7d6-48f1-93b3-0e2e963c4b20.webp",
+          "caption": "项目作品总览",
+          "alt": "家具产品渲染作品总览",
+          "kind": "image",
+          "captionEn": "Project overview",
+          "altEn": "Furniture Product Rendering — project overview",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 166182,
+            "bytes": 166182,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-b86d1280-94f1-44a7-aeb5-2be34513b340",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-b86d1280-94f1-44a7-aeb5-2be34513b340.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 148362,
+            "bytes": 148362,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-f100dade-f591-4b64-bdd7-b7020a94ccee",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-f100dade-f591-4b64-bdd7-b7020a94ccee.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 178062,
+            "bytes": 178062,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-4b8642b6-07e4-4b8e-9b71-cd66e3ce1a11.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238474,
+            "bytes": 238474,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ed519f88-ade6-4c4f-a1fa-1b714646e4f7.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 160382,
+            "bytes": 160382,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-ca1f36a9-9706-443b-85ec-ae9967e12895",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-ca1f36a9-9706-443b-85ec-ae9967e12895.webp",
+          "kind": "image",
+          "width": 1254,
+          "height": 1254,
+          "upload": {
+            "originalBytes": 190246,
+            "bytes": 190246,
+            "width": 1254,
+            "height": 1254,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-9c5c5f53-0bba-4027-83f3-14c6fcdb5f79.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 185816,
+            "bytes": 185816,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-83cdbe8b-4591-409b-97a6-c407370bd094",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-83cdbe8b-4591-409b-97a6-c407370bd094.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 226924,
+            "bytes": 226924,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-3a632c8e-55a6-4a1f-a14d-f99e455f4413",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-3a632c8e-55a6-4a1f-a14d-f99e455f4413.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 238594,
+            "bytes": 238594,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-4f7b1620-17f2-4089-94fc-b50284b28647",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-4f7b1620-17f2-4089-94fc-b50284b28647.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 163784,
+            "bytes": 163784,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-dbbab0bd-3c44-421b-82b2-1d758c33068a",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-dbbab0bd-3c44-421b-82b2-1d758c33068a.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 218560,
+            "bytes": 218560,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-12bf88b4-9f24-4071-966e-76c327c63ef7",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-12bf88b4-9f24-4071-966e-76c327c63ef7.webp",
+          "kind": "image",
+          "width": 1086,
+          "height": 1448,
+          "upload": {
+            "originalBytes": 391180,
+            "bytes": 391180,
+            "width": 1086,
+            "height": 1448,
+            "preset": "balanced"
+          }
+        },
+        {
+          "id": "image-c5ff908a-0b85-428f-baf8-8d83095b573c",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 940,
+          "upload": {
+            "originalBytes": 182454,
+            "bytes": 182454,
+            "width": 1672,
+            "height": 940,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-c5ff908a-0b85-428f-baf8-8d83095b573c-cover.webp"
+        },
+        {
+          "id": "image-c7bdd815-36cb-438f-8262-4370af2e272c",
+          "caption": "",
+          "alt": "",
+          "src": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c.webp",
+          "kind": "image",
+          "width": 1672,
+          "height": 941,
+          "upload": {
+            "originalBytes": 160304,
+            "bytes": 160304,
+            "width": 1672,
+            "height": 941,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-c7bdd815-36cb-438f-8262-4370af2e272c-cover.webp"
+        }
+      ]
+    },
     "cgi": {
       "title": "材质与 CGI 探索",
       "cover": "image-cgi-cover.webp",
@@ -860,107 +1001,6 @@ window.PORTFOLIO_GALLERIES = {
         }
       ]
     },
-    "project-9a627a8d": {
-      "title": "project-09",
-      "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-      "images": [
-        {
-          "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 4493122,
-            "bytes": 1945410,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "captionEn": "project-09",
-          "layout": "half",
-          "body": "compare",
-          "bodyEn": "compare",
-          "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before",
-          "thumbnail": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
-          "compareThumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp"
-        },
-        {
-          "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
-          "caption": "",
-          "alt": "project-09效果图",
-          "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 2162,
-          "upload": {
-            "originalBytes": 3917481,
-            "bytes": 1616294,
-            "width": 3840,
-            "height": 2162,
-            "preset": "balanced"
-          },
-          "captionEn": "project-09",
-          "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before",
-          "thumbnail": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
-          "compareThumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp"
-        }
-      ],
-      "videos": [],
-      "layout": "stack"
-    },
-    "project-6abfe00e": {
-      "title": "光隙之庭",
-      "cover": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
-      "images": [
-        {
-          "id": "image-069ad53e-af78-443b-b4fe-26c84b159d45",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 3840,
-          "upload": {
-            "originalBytes": 6027448,
-            "bytes": 2250118,
-            "width": 3840,
-            "height": 3840,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-069ad53e-af78-443b-b4fe-26c84b159d45-cover.webp"
-        },
-        {
-          "id": "image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939",
-          "caption": "",
-          "alt": "",
-          "src": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939.webp",
-          "kind": "image",
-          "width": 3840,
-          "height": 3840,
-          "upload": {
-            "originalBytes": 5836768,
-            "bytes": 2156570,
-            "width": 3840,
-            "height": 3840,
-            "preset": "balanced"
-          },
-          "thumbnail": "images/uploads/image-ea34a3e8-ffd9-473d-af3e-3d23c2f4c939-cover.webp"
-        }
-      ],
-      "videos": [],
-      "layout": "stack"
-    },
     "project-3ba57396": {
       "title": "UE5-片段",
       "cover": "project-placeholder.webp",
@@ -978,6 +1018,24 @@ window.PORTFOLIO_GALLERIES = {
           "poster": "https://i0.hdslb.com/bfs/archive/5a531e32f228fef144243d813c754cef70754ffb.jpg",
           "providerTitle": "雨后の一角",
           "posterUpdatedAt": "2026-10-27T11:13:56.049Z"
+        }
+      ]
+    },
+    "digital-assets": {
+      "title": "产品数字化与三维资产",
+      "cover": "image-digital-assets-cover.webp",
+      "images": [
+        {
+          "id": "digital-assets-overview",
+          "src": "image-digital-assets-full.webp",
+          "caption": "项目作品总览",
+          "alt": "产品数字化与三维资产作品总览",
+          "kind": "collage",
+          "captionEn": "Project overview",
+          "altEn": "Product Digitization & 3D Assets — project overview",
+          "width": 1028,
+          "height": 1920,
+          "thumbnail": "image-digital-assets-full-preview.webp"
         }
       ]
     }
