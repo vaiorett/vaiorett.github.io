@@ -263,7 +263,9 @@ window.PORTFOLIO_CONTENT = {
     "project.yunba-depot.zh.tools": [
       "AutoCAD",
       "SketchUp",
-      "3ds Max"
+      "3ds Max",
+      "Corona",
+      "D5"
     ],
     "project.yunba-depot.zh.tasks": [
       "参与建筑与场地模型搭建，表达建筑体量和外立面。",

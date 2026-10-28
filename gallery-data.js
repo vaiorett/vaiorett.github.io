@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T07:59:12.625Z",
+  "updatedAt": "2026-10-28T16:47:27.829Z",
   "projects": {
     "project-d15b5f36": {
       "title": "比亚迪-贵阳时光序保租房项目",
