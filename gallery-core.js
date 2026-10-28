@@ -4,7 +4,7 @@
   const OWNER='vaiorett', REPO='vaiorett.github.io';
   const PREFIX='window.PORTFOLIO_GALLERIES = ';
   function clone(value){return JSON.parse(JSON.stringify(value));}
-  function safePath(path){return typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');}
+  function safePath(path){return typeof path==='string' && /^(?:images\/(?:uploads|responsive)\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');}
   const videoInfo=V.info;
   function validate(data){
     if(!data || data.version!==1 || !data.projects || typeof data.projects!=='object') throw new Error('作品数据格式不正确。');
@@ -27,6 +27,7 @@
         if(item.thumbnail!==undefined&&!safePath(item.thumbnail))throw new Error('封面小图路径不正确。');
         if(item.compareThumbnail!==undefined&&!safePath(item.compareThumbnail))throw new Error('封面小图路径不正确。');
         if(item.compare!==undefined&&!safePath(item.compare))throw new Error('对比图片路径不正确。');
+        for(const key of ['responsive','compareResponsive'])if(item[key]!==undefined&&(!Array.isArray(item[key])||item[key].length>4||item[key].some(v=>!v||!safePath(v.src)||!Number.isInteger(v.width)||v.width<1)))throw new Error('响应式图片资料不正确。');
         for(const key of ['beforeLabel','beforeLabelEn','afterLabel','afterLabelEn'])if(item[key]!==undefined&&(typeof item[key]!=='string'||item[key].length>100))throw new Error('对比标签文字最多 100 字。');
         if((item.width!==undefined||item.height!==undefined)&&(!Number.isInteger(item.width)||!Number.isInteger(item.height)||item.width<1||item.height<1))throw new Error('图片尺寸资料不正确。');
         if(item.layout!==undefined&&!['auto','full','half'].includes(item.layout))throw new Error('图片排版选项不正确。');
@@ -39,8 +40,8 @@
   function serialize(data){validate(data);return PREFIX+JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')+';\n';}
   function parse(source){if(!source.startsWith(PREFIX))throw new Error('仓库中的作品数据格式不正确。');return validate(JSON.parse(source.slice(PREFIX.length).trim().replace(/;$/,'')));}
   const posterKeys=['poster','posterFor','posterUpdatedAt','providerTitle','posterStatus','posterError','posterAttemptedAt'];
-  function withoutPosters(project){if(!project)return project;const p=clone(project);for(const video of p.videos||[])for(const key of posterKeys)delete video[key];return p;}
-  function mergePosterUpdate(local,remote){const result=clone(local);for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterAttemptedAt||latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
+  function withoutPosters(project){if(!project)return project;const p=clone(project);for(const video of p.videos||[])for(const key of posterKeys)delete video[key];for(const item of p.images||[]){delete item.responsive;delete item.compareResponsive;}return p;}
+  function mergePosterUpdate(local,remote){const result=clone(local);for(const item of result.images||[]){const latest=(remote.images||[]).find(v=>v.id===item.id);if(!latest)continue;for(const [key,source] of [['responsive','src'],['compareResponsive','compare']])if(item[source]&&item[source]===latest[source]){if(latest[key]!==undefined)item[key]=clone(latest[key]);else delete item[key];}}for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterAttemptedAt||latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
   function newerPublication(local,remote){const a=Date.parse(local?.updatedAt||''),b=Date.parse(remote?.updatedAt||'');return Number.isFinite(a)&&Number.isFinite(b)&&a>b;}
   function merge(base,local,remote){
     validate(remote);const merged=clone(remote);const conflicts=[];
@@ -70,8 +71,10 @@
     const video=project.coverVideo?(project.videos||[]).find(v=>v.id===project.coverVideo):project.cover==='project-placeholder.webp'&&!project.images.length?(project.videos||[])[0]:null;
     return video?V.poster(video,fallback):fallback;
   }
+  function imageSrcset(variants,lang){const prefix=lang==='en'?'../':'./';return (variants||[]).map(v=>prefix+v.src+' '+v.width+'w').join(', ');}
+  function coverSrcset(project,lang,forCard=false){if(forCard&&(project.coverVideo||(!project.images.length&&project.videos?.length)))return '';const item=project.images.find(i=>i.src===project.cover||i.compare===project.cover);return item?imageSrcset(item.src===project.cover?item.responsive:item.compareResponsive,lang):'';}
   function usedFiles(data,files){
-    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);if(i.compare)paths.add(i.compare);if(i.compareThumbnail)paths.add(i.compareThumbnail);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
+    const paths=new Set();Object.values(data.projects).forEach(p=>{paths.add(p.cover);p.images.forEach(i=>{paths.add(i.src);if(i.thumbnail)paths.add(i.thumbnail);if(i.compare)paths.add(i.compare);if(i.compareThumbnail)paths.add(i.compareThumbnail);for(const v of [...(i.responsive||[]),...(i.compareResponsive||[])])paths.add(v.src);});(p.videos||[]).forEach(v=>{if(safePath(v.posterOverride))paths.add(v.posterOverride);if(safePath(v.poster))paths.add(v.poster);});});
     return Array.from(files.entries()).filter(([path])=>paths.has(path));
   }
   function base64(bytes){let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);}
@@ -128,6 +131,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,newerPublication,merge,coverPath,homeCover,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,imageSrcset,coverSrcset,videoInfo,videoMarkup:V.markup,validate,serialize,parse,newerPublication,merge,coverPath,homeCover,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

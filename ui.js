@@ -463,6 +463,7 @@
    function loadOriginal(){
     if(!original?.dataset.src)return;
     original.addEventListener('load',()=>{originalReady=true;setPos(requestedPos);},{once:true});
+    if(original.dataset.srcset){original.srcset=original.dataset.srcset;delete original.dataset.srcset;}
     original.src=original.dataset.src;delete original.dataset.src;
    }
    async function effectReady(){

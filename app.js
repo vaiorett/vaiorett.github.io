@@ -107,53 +107,30 @@ if (backTop) {
 }
 
 document.querySelectorAll('[data-card-fallback]').forEach(image=>{
-  const fallback=()=>{if(image.dataset.cardFallback&&image.src!==new URL(image.dataset.cardFallback,location.href).href)image.src=image.dataset.cardFallback;};
+  const fallback=()=>{if(image.dataset.cardFallback&&(image.currentSrc!==new URL(image.dataset.cardFallback,location.href).href||image.hasAttribute('srcset'))){image.removeAttribute('srcset');image.src=image.dataset.cardFallback;}};
   image.addEventListener('error',fallback,{once:true});
   if(image.complete&&!image.naturalWidth)fallback();
 });
-const galleryData=window.PORTFOLIO_GALLERIES;
-const validImagePath=path=>typeof path==='string' && /^(?:images\/uploads\/)?[a-z0-9_.-]+\.(?:jpe?g|png|webp|avif)$/i.test(path) && !path.includes('..');
-const displayCover=p=>{const item=p.images.find(i=>i.src===p.cover||i.compare===p.cover);return (item?.src===p.cover?item.thumbnail:item?.compareThumbnail)||p.cover;};
-if(galleryData && galleryData.projects){
-  document.querySelectorAll('[data-project-card]').forEach(card=>{
-    const project=galleryData.projects[card.dataset.projectCard];
-    if(project && validImagePath(project.cover))card.querySelector('img').src=assetRoot+displayCover(project);
-  });
-  const heroImage=document.querySelector('.hero-art>img');
-  const heroProject=galleryData.projects['yunba-depot'];
-  if(heroImage && heroProject && validImagePath(heroProject.cover))heroImage.src=assetRoot+displayCover(heroProject);
-}
-document.querySelectorAll('[data-project-preview]').forEach(image => {
-  const p=galleryData?.projects?.[image.dataset.projectPreview];const cover=p?displayCover(p):null;
-  if (validImagePath(cover)) image.src = assetRoot + cover;
-});
 const gallery=document.querySelector('[data-gallery]');
-const projectTitle = gallery?.dataset.title || '';
-const imageCaption = item => english ? (item.captionEn || 'Project image') : (item.caption || projectTitle);
-const imageAlt = item => english ? (item.altEn || projectTitle) : (item.alt || projectTitle);
-const projectGallery=gallery && galleryData && galleryData.projects[gallery.dataset.gallery];
-let lightboxItems=[];
-if(projectGallery){
-  const root=gallery.dataset.root;
-  if(!gallery.querySelector('.auto-gallery'))gallery.innerHTML=window.LayoutCore.markup(projectGallery,english?'en':'zh',{title:projectTitle,overview:localized('项目作品','Project image'),open:localized('打开原图','Open original image')});
-  if(window.initComparers)window.initComparers(gallery);
-  gallery.querySelectorAll('.gallery-button').forEach(link=>{
-    const href=link.getAttribute('href')||'';
-    const item=projectGallery.images.find(img=>(root+img.src)===href||img.src===href);
-    if(!item||!validImagePath(item.src))return;
+const projectTitle=gallery?.dataset.title||'';
+const lightboxItems=[];
+if(gallery){
+  gallery.querySelectorAll('a.gallery-button').forEach(link=>{
+    const image=link.querySelector('img');if(!image)return;
     const index=lightboxItems.length;
-    const button=document.createElement('button');button.type='button';button.className='gallery-button';button.dataset.galleryIndex=String(index);button.setAttribute('aria-label',localized('放大查看第 '+(index+1)+' 张：','Enlarge image '+(index+1)+': ')+imageCaption(item));
-    while(link.firstChild)button.append(link.firstChild);link.replaceWith(button);lightboxItems.push({...item,url:root+item.src});
+    const caption=(link.getAttribute('aria-label')||'').split(': ').slice(1).join(': ')||projectTitle;
+    const button=document.createElement('button');button.type='button';button.className='gallery-button';button.dataset.galleryIndex=String(index);button.setAttribute('aria-label',localized('放大查看第 '+(index+1)+' 张：','Enlarge image '+(index+1)+': ')+caption);
+    lightboxItems.push({url:link.href,alt:image.alt||projectTitle,caption});
+    while(link.firstChild)button.append(link.firstChild);link.replaceWith(button);
   });
-  document.querySelector('[data-gallery-count]').textContent=localized(projectGallery.images.length+' 张图片 · 点击放大查看',projectGallery.images.length+' image'+(projectGallery.images.length===1?'':'s')+' · Click to enlarge');
 }
 const dialog=document.querySelector('.lightbox');
 if(dialog && lightboxItems.length){
   let currentIndex=0,lastTrigger=null;
   const picture=dialog.querySelector('.lightbox-scroll img'),previous=dialog.querySelector('.previous-image'),next=dialog.querySelector('.next-image');
   function show(index){
-    currentIndex=index;const item=lightboxItems[index];picture.src=item.url;picture.alt=imageAlt(item);
-    dialog.querySelector('.lightbox-toolbar>span').textContent=imageCaption(item);
+    currentIndex=index;const item=lightboxItems[index];picture.src=item.url;picture.alt=item.alt;
+    dialog.querySelector('.lightbox-toolbar>span').textContent=item.caption;
     dialog.querySelector('.lightbox-position').textContent=(index+1)+' / '+lightboxItems.length;
     previous.disabled=index===0;next.disabled=index===lightboxItems.length-1;dialog.querySelector('.lightbox-scroll').scrollTop=0;
   }

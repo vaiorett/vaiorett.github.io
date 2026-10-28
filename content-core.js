@@ -116,6 +116,7 @@
    if(key.startsWith('source.')){const[,id,lang]=key.split('.');return meta[id].source?'<a href="'+esc(meta[id].source)+'" target="_blank" rel="noopener">'+esc(v['ui.'+lang+'.source'])+' ↗</a>':'';}
    if(key.startsWith('next.')){const[,id,lang]=key.split('.'),next=order[(order.indexOf(id)+1)%order.length];return '<a class="next-project" href="./work-'+next+'.html"><span>'+esc(v['ui.'+lang+'.next'])+'</span><strong>'+esc(v['project.'+next+'.'+lang+'.title'])+' ↗</strong></a>';}
    if(key.startsWith('cardcover.')){const[,id,lang]=key.split('.'),path=G.homeCover(galleries.projects[id]);return esc(G.safePath(path)?(lang==='en'?'../':'./')+path:path);}
+   if(key.startsWith('coverSrcset.')||key.startsWith('cardSrcset.')){const [kind,id,lang]=key.split('.');return esc(G.coverSrcset(galleries.projects[id],lang,kind==='cardSrcset'));}
    if(key.startsWith('cardfallback.')){const[,id,lang]=key.split('.');return esc((lang==='en'?'../':'./')+G.coverPath(galleries.projects[id]));}
    if(key.startsWith('cover.'))return esc(G.coverPath(galleries.projects[key.slice(6)]));
    if(key.startsWith('count.'))return String(galleries.projects[key.slice(6)].images.length);

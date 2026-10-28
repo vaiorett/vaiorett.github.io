@@ -71,6 +71,12 @@ def render(content,templates,galleries):
             video=next((v for v in video_items if v['id']==project.get('coverVideo')),None) if project.get('coverVideo') else (video_items[0] if project['cover']=='project-placeholder.webp' and not project['images'] and video_items else None)
             path=video_poster(video,fallback) if video else fallback
             return esc(('../' if lang=='en' else './')+path if local_image(path) else path)
+        if key.startswith('coverSrcset.') or key.startswith('cardSrcset.'):
+            kind,id,lang=key.split('.');project=galleries['projects'][id]
+            if kind=='cardSrcset' and (project.get('coverVideo') or (not project['images'] and project.get('videos'))):return ''
+            item=next((i for i in project['images'] if i.get('src')==project['cover'] or i.get('compare')==project['cover']),{})
+            variants=item.get('responsive' if item.get('src')==project['cover'] else 'compareResponsive',[])
+            return esc(', '.join(('../' if lang=='en' else './')+v['src']+' '+str(v['width'])+'w' for v in variants))
         if key.startswith('cardfallback.'):
             _,id,lang=key.split('.');return esc(('../' if lang=='en' else './')+cover(id))
         if key.startswith('cover.'):return esc(cover(key[6:]))

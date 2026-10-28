@@ -33,7 +33,9 @@
    if(blob.size>8*1024*1024)throw new Error('转换后仍超过 8 MB，请选择“更小文件”或先缩小长图。');
    const scale=Math.min(1,1600/Math.max(size.width,size.height));let thumbnail=null;
    if(scale<1&&Math.max(size.width,size.height)/Math.min(size.width,size.height)<3){const candidate=await encode(image,Math.round(size.width*scale),Math.round(size.height*scale),.82);if(candidate.size<blob.size)thumbnail=candidate;}
-   return {blob,thumbnail,width:size.width,height:size.height,originalBytes:file.size,bytes:blob.size,preset};
+   const previewWidth=thumbnail?Math.round(size.width*scale):size.width;let mobile=null;const mobileWidth=800;
+   if(previewWidth>mobileWidth&&Math.max(size.width,size.height)/Math.min(size.width,size.height)<3){const candidate=await encode(image,mobileWidth,Math.max(1,Math.round(size.height*mobileWidth/size.width)),.86);if(candidate.size<(thumbnail||blob).size)mobile=candidate;}
+   return {blob,thumbnail,mobile,mobileWidth,previewWidth,width:size.width,height:size.height,originalBytes:file.size,bytes:blob.size,preset};
   }catch(error){if(error instanceof Error&&error.message)throw error;throw new Error('无法读取这张图片，请重新导出后再试。');}finally{URL.revokeObjectURL(url);image.src='';}
  }
  const api={presets,dimensions,validateFile,isWebP,animated,convert};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.ImageProcess=api;

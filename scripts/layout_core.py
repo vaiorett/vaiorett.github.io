@@ -20,6 +20,10 @@ def markup(project,lang,labels):
         alt=(item.get('altEn') if lang=='en' else item.get('alt')) or labels['title']
         body=(item.get('bodyEn') if lang=='en' else item.get('body')) or ''
         dimensions=f' width="{item["width"]}" height="{item["height"]}"' if item.get('width') and item.get('height') else ''
+        def responsive(variants,deferred=False):
+            if not variants:return ''
+            paths=', '.join(prefix+v['src']+' '+str(v['width'])+'w' for v in variants)
+            return ' '+('data-srcset' if deferred else 'srcset')+'="'+esc(paths)+'" sizes="(max-width: 700px) calc(100vw - 32px), '+('45vw' if size(item,mode)=='half' else '90vw')+'"'
         num=str(i+1).zfill(2)
         fig_text=f'{num} / {esc(caption)}' if caption else num
         copy='<div class="gallery-copy"><figcaption>'+fig_text+'</figcaption>'
@@ -29,8 +33,8 @@ def markup(project,lang,labels):
             beforeLabel=(item.get('beforeLabelEn') if lang=='en' else item.get('beforeLabel')) or ('Before' if lang=='en' else '原图')
             afterLabel=(item.get('afterLabelEn') if lang=='en' else item.get('afterLabel')) or ('After' if lang=='en' else '效果')
             hint='Move to compare' if lang=='en' else '滑动画面对比效果'
-            media='<div class="image-comparer" data-comparer style="--pos:0%"><div class="compare-stage"><img class="compare-img compare-after" src="'+prefix+esc(item.get('compareThumbnail') or item['compare'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+dimensions+'><div class="compare-overlay"><img class="compare-img compare-before" fetchpriority="low" data-src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+dimensions+'></div><span class="compare-badge compare-badge-before">'+esc(beforeLabel)+'</span><span class="compare-badge compare-badge-after">'+esc(afterLabel)+'</span><div class="compare-handle-line" role="slider" aria-label="'+esc(hint)+'" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0"></div></div></div>'
+            media='<div class="image-comparer" data-comparer style="--pos:0%"><div class="compare-stage"><img class="compare-img compare-after" src="'+prefix+esc(item.get('compareThumbnail') or item['compare'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+responsive(item.get('compareResponsive'))+dimensions+'><div class="compare-overlay"><img class="compare-img compare-before" fetchpriority="low" data-src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+responsive(item.get('responsive'),True)+dimensions+'></div><span class="compare-badge compare-badge-before">'+esc(beforeLabel)+'</span><span class="compare-badge compare-badge-after">'+esc(afterLabel)+'</span><div class="compare-handle-line" role="slider" aria-label="'+esc(hint)+'" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0"></div></div></div>'
             result+='<figure class="gallery-item layout-'+size(item,mode)+' is-comparer'+(' has-copy' if body.strip() else '')+'">'+media+'<a class="compare-full" href="'+prefix+esc(item['compare'])+'" target="_blank" rel="noopener">'+esc('View full-size effect ↗' if lang=='en' else '查看高清效果图 ↗')+'</a>'+copy+'</figure>'
         else:
-            result+='<figure class="gallery-item layout-'+size(item,mode)+(' legacy' if item.get('kind')=='collage' else '')+(' has-copy' if body.strip() else '')+'"><a class="gallery-button" href="'+prefix+esc(item['src'])+'" aria-label="'+esc(labels['open'])+': '+esc(caption or labels['title'])+'"><img src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+dimensions+'></a>'+copy+'</figure>'
+            result+='<figure class="gallery-item layout-'+size(item,mode)+(' legacy' if item.get('kind')=='collage' else '')+(' has-copy' if body.strip() else '')+'"><a class="gallery-button" href="'+prefix+esc(item['src'])+'" aria-label="'+esc(labels['open'])+': '+esc(caption or labels['title'])+'"><img src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+responsive(item.get('responsive'))+dimensions+'></a>'+copy+'</figure>'
     return result+'</div>'

@@ -46,6 +46,9 @@
    if(!item.beforeLabelEn)delete item.beforeLabelEn;
    if(!item.afterLabelEn)delete item.afterLabelEn;
   }
+  const oldResponsive=item.responsive,oldCompareResponsive=item.compareResponsive;
+  if(oldCompareResponsive)item.responsive=oldCompareResponsive;else delete item.responsive;
+  if(oldResponsive)item.compareResponsive=oldResponsive;else delete item.compareResponsive;
   const oldThumb=item.thumbnail,oldCompareThumb=item.compareThumbnail;
   item.thumbnail=oldCompareThumb;
   item.compareThumbnail=oldThumb;
@@ -262,7 +265,7 @@
     swapHeadBtn.title='将左右两张对比图互换位置（左侧基础阶段 ⇄ 右侧最终效果）';
     const cancelBtn=button('取消对比（恢复普通单图）',()=>{
      const oldCompare=item.compare;
-     delete item.compare;delete item.compareThumbnail;delete item.beforeLabel;delete item.beforeLabelEn;delete item.afterLabel;delete item.afterLabelEn;
+     delete item.compare;delete item.compareThumbnail;delete item.compareResponsive;delete item.beforeLabel;delete item.beforeLabelEn;delete item.afterLabel;delete item.afterLabelEn;
      if(p.cover===oldCompare)p.cover=item.src;
      render();changed();
     },false,'quiet-button remove-image');
@@ -450,9 +453,10 @@
     const id='image-'+crypto.randomUUID(),path='images/uploads/'+id+'.webp';files.set(path,result.blob);let thumbnail;
     if(result.thumbnail){thumbnail='images/uploads/'+id+'-cover.webp';files.set(thumbnail,result.thumbnail);}
     const record={src:path,kind:'image',width:result.width,height:result.height,upload:{originalBytes:result.originalBytes,bytes:result.bytes,width:result.width,height:result.height,preset:result.preset}};if(thumbnail)record.thumbnail=thumbnail;
-    if(replacement){const item=p.images.find(i=>i.id===replacement);if(p.cover===item.src)p.cover=path;delete item.thumbnail;Object.assign(item,record);}
+    if(result.mobile){const mobilePath='images/uploads/'+id+'-mobile.webp';files.set(mobilePath,result.mobile);record.responsive=[{src:mobilePath,width:result.mobileWidth},{src:thumbnail||path,width:result.previewWidth}];}
+    if(replacement){const item=p.images.find(i=>i.id===replacement);if(p.cover===item.src)p.cover=path;delete item.thumbnail;delete item.responsive;Object.assign(item,record);}
     else{if(!p.images.length)p.cover=path;p.images.push({id,caption:'',alt:'',...record});}
-    before+=result.originalBytes;after+=result.bytes+(result.thumbnail?.size||0);
+    before+=result.originalBytes;after+=result.bytes+(result.thumbnail?.size||0)+(result.mobile?.size||0);
    }
    render();changed();clearTimeout(savingTimer);await saveDraft();
    const difference=before?Math.round((1-after/before)*100):0;
@@ -471,12 +475,13 @@
    const previousCompare=item.compare;
    item.compare=path;
    if(p.cover===previousCompare)p.cover=path;
-   delete item.compareThumbnail;
+   delete item.compareThumbnail;delete item.compareResponsive;
    if(result.thumbnail){
     const thumbPath='images/uploads/'+id+'-cover.webp';
     files.set(thumbPath,result.thumbnail);
     item.compareThumbnail=thumbPath;
    }
+   if(result.mobile){const mobilePath='images/uploads/'+id+'-mobile.webp';files.set(mobilePath,result.mobile);item.compareResponsive=[{src:mobilePath,width:result.mobileWidth},{src:item.compareThumbnail||path,width:result.previewWidth}];}
    if(!item.beforeLabel)item.beforeLabel='原图';
    if(!item.beforeLabelEn)item.beforeLabelEn='Before';
    if(!item.afterLabel)item.afterLabel='效果';
