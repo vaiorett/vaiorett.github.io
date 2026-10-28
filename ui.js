@@ -408,10 +408,10 @@
   }
   renderStage();
   if(typeof ResizeObserver!=='undefined'){
-   let raf=0;
+   let timer=0;
    new ResizeObserver(()=>{
-    if(raf)cancelAnimationFrame(raf);
-    raf=requestAnimationFrame(renderStage);
+    clearTimeout(timer);
+    timer=setTimeout(renderStage,180);
    }).observe(document.body);
   }
   window.addEventListener('load',renderStage,{once:true});

@@ -9,28 +9,27 @@ function theme({dark=false,saved=null,blocked=false}={}){
 test('light mode is the default even when the device prefers dark',()=>{const t=theme({dark:true});assert.equal(t.root.dataset.theme,'light');t.system(false);t.system(true);assert.equal(t.root.dataset.theme,'light');t.choose('dark');assert.equal(t.root.dataset.theme,'dark');t.choose('light');assert.equal(t.root.dataset.theme,'light');});
 test('saved manual choice survives loading and synchronizes across tabs',()=>{const t=theme({saved:'dark'});assert.equal(t.root.dataset.theme,'dark');t.storage('light');assert.equal(t.root.dataset.theme,'light');t.storage(null);assert.equal(t.root.dataset.themePreference,'light');});
 test('blocked storage and old system settings fall back to light',()=>{const t=theme({dark:true,saved:'bad',blocked:true});assert.equal(t.root.dataset.theme,'light');t.choose('dark');assert.equal(t.root.dataset.theme,'dark');assert.equal(theme({saved:'system',dark:true}).root.dataset.themePreference,'light');});
-test('browser language auto-selects Chinese or English while respecting manual switcher and query params',()=>{
- const store=new Map(),storage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)};
+test('Chinese is the default regardless of browser language and manual language choices persist',()=>{
+ const store=new Map(),storage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)};
  function visit({langAttr='zh-CN',pathname='/index.html',search='',hash='',browserLang='en-US'}){
   let redirected=null,clickHandler=null;
-  const root={lang:langAttr,dataset:{},style:{}},media={matches:false,addEventListener:()=>{}};
+  const root={lang:langAttr,dataset:{},style:{}};
   vm.runInNewContext(fs.readFileSync(require.resolve('../theme.js'),'utf8'),{
    document:{documentElement:root,querySelectorAll:()=>[],addEventListener:(name,fn)=>{if(name==='click')clickHandler=fn;}},
-   window:{matchMedia:()=>media,addEventListener:()=>{}},
-   navigator:{languages:[browserLang],language:browserLang},
-   location:{pathname,search,hash,replace:url=>{redirected=url;}},
-   URLSearchParams,
-   localStorage:storage
+   window:{addEventListener:()=>{}},navigator:{languages:[browserLang],language:browserLang},
+   location:{pathname,search,hash,href:'https://example.com'+pathname+search+hash,replace:url=>{redirected=url;}},URLSearchParams,URL,localStorage:storage
   });
-  return {redirected,clickLanguage:code=>clickHandler&&clickHandler({target:{closest:()=>({getAttribute:()=>code})}})};
+  return {redirected,clickLanguage:code=>clickHandler({target:{closest:()=>({href:'https://example.com/en/index.html?lang=en&filter=assets',getAttribute:()=>code})}})};
  }
- assert.equal(visit({langAttr:'zh-CN',pathname:'/',search:'?role=visual',hash:'#about',browserLang:'en-US'}).redirected,'/en/?role=visual#about');
- assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'zh-CN'}).redirected,'/work-cgi.html');
- assert.equal(visit({langAttr:'zh-CN',pathname:'/manage.html',browserLang:'en-US'}).redirected,null);
- const zhPage=visit({langAttr:'zh-CN',pathname:'/index.html',browserLang:'zh-CN'});
- assert.equal(zhPage.redirected,null);
- zhPage.clickLanguage('en');
+ assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about',browserLang:'en-US'}).redirected,null);
+ assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'zh-CN'}).redirected,null);
+ assert.equal(visit({pathname:'/manage.html',browserLang:'en-US'}).redirected,null);
+ visit({pathname:'/index.html'}).clickLanguage('en');
+ assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about'}).redirected,'/en/?role=visual#about');
  assert.equal(visit({langAttr:'en',pathname:'/en/index.html',browserLang:'zh-CN'}).redirected,null);
+ visit({langAttr:'en',pathname:'/en/index.html'}).clickLanguage('zh');
+ assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html'}).redirected,'/work-cgi.html');
+ assert.equal(visit({pathname:'/index.html',search:'?lang=en'}).redirected,'/en/index.html?lang=en');
 });
 test('image sizing keeps long boards and detail mode intact while limiting ordinary large images',()=>{assert.deepEqual(I.dimensions(8000,4000),{width:3840,height:1920,quality:.88});assert.equal(I.dimensions(1000,15000).height,15000);assert.equal(I.dimensions(8000,4000,'detail').width,8000);assert.equal(I.dimensions(4000,3000,'small').width,2560);assert.equal(I.dimensions(400,300).width,400);assert.throws(()=>I.dimensions(10000,10000),/尺寸/);});
 test('WebP detection checks bytes, not filename; animated WebP is detected',()=>{const b=Buffer.from('RIFFxxxxWEBPVP8 xxxx');assert.equal(I.isWebP(b),true);assert.equal(I.isWebP(Buffer.from('not a webp')),false);const a=Buffer.alloc(20);a.write('RIFF',0);a.write('WEBP',8);a.write('ANIM',12);assert.equal(I.animated(a),true);assert.equal(I.animated(b),false);});
