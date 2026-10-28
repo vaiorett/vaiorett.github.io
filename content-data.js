@@ -285,7 +285,7 @@ window.PORTFOLIO_CONTENT = {
       "Produced aerial and perspective visualizations for design presentations.",
       "Helped the team organize models and rendered images for delivery."
     ],
-    "project.residential.zh.title": "住宅与公共空间",
+    "project.residential.zh.title": "时光序中小学",
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
     "project.residential.zh.role": "模型制作 / 住宅表现",
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
@@ -301,7 +301,7 @@ window.PORTFOLIO_CONTENT = {
       "协助方案与建筑图纸表达\\制作展示效果图。",
       "配合团队整理用于沟通的建筑表现成果。"
     ],
-    "project.residential.en.title": "Housing & Shared Spaces",
+    "project.residential.en.title": "Time Sequence Elementary and Middle School",
     "project.residential.en.desc": "Architectural models and rendered views exploring the relationship between residential buildings, public spaces and the site.",
     "project.residential.en.role": "Model production / Residential visualization",
     "project.residential.en.context": "A team residential project involving modeling and architectural visualization of housing and shared spaces.",

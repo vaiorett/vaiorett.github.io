@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-27T17:26:11.658Z",
+  "updatedAt": "2026-10-28T02:26:45.691Z",
   "projects": {
     "project-d15b5f36": {
       "title": "保租房时光序项目",
@@ -78,7 +78,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "residential": {
-      "title": "住宅与公共空间",
+      "title": "时光序中小学",
       "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
       "images": [
         {
