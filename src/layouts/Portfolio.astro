@@ -8,6 +8,7 @@ const image=project?'@@cover.__project__@@':'@@cover.yunba-depot@@';
 const canonical=(code)=>'https://vaiorett.github.io/'+(code==='en'?'en/':'')+(file==='index.html'?'':file);
 const schema={'@context':'https://schema.org','@type':'WebPage',name:title,description,url:canonical(lang),inLanguage:lang==='en'?'en':'zh-CN',about:{'@type':'Person',name:t('name'),alternateName:'@@site.brand@@',url:'https://vaiorett.github.io/'},primaryImageOfPage:{'@type':'ImageObject',contentUrl:'https://vaiorett.github.io/'+image}};
 const version='20261029-mobile1';
+const styleVersion=project?version:'20261029-mdmono1';
 ---
 <!doctype html>
 <html lang={lang==='en'?'en':'zh-CN'}>
@@ -19,7 +20,7 @@ const version='20261029-mobile1';
 <link rel="alternate" hreflang="zh-CN" href={canonical('zh')}><link rel="alternate" hreflang="en" href={canonical('en')}><link rel="alternate" hreflang="x-default" href={canonical('zh')}>
 <meta property="og:type" content="website"><meta property="og:title" content={title}><meta property="og:description" content={description}><meta property="og:url" content={canonical(lang)}><meta property="og:image" content={'https://vaiorett.github.io/'+image}><meta property="og:image:alt" content={title}><meta property="og:locale" content={lang==='en'?'en_US':'zh_CN'}><meta property="og:locale:alternate" content={lang==='en'?'zh_CN':'en_US'}><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href={root+'favicon.svg'} type="image/svg+xml">
-<link rel="stylesheet" href={root+'style.css?v='+version}><link rel="stylesheet" href={root+'theme.css?v='+version}><link rel="stylesheet" href={root+'portfolio.css?v='+version}>
+<link rel="stylesheet" href={root+'style.css?v='+version}><link rel="stylesheet" href={root+'theme.css?v='+version}><link rel="stylesheet" href={root+'portfolio.css?v='+styleVersion}>
 <Fragment set:html={'<script type="application/ld+json">'+JSON.stringify(schema)+'</script>'}/>
 {project && <><script is:inline src={root+'video-core.js?v='+version} defer></script></>}<script is:inline src={root+'ui.js?v='+version} defer></script><script is:inline src={root+'app.js?v='+version} defer></script>
 </head>
