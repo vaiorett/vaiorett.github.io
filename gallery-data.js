@@ -1,9 +1,9 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T07:48:54.183Z",
+  "updatedAt": "2026-10-28T07:59:12.625Z",
   "projects": {
     "project-d15b5f36": {
-      "title": "时光序-保租房项目",
+      "title": "比亚迪-贵阳时光序保租房项目",
       "cover": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d.webp",
       "images": [
         {
@@ -118,7 +118,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "residential": {
-      "title": "时光序-中小学项目",
+      "title": "比亚迪-贵阳时光序中小学项目",
       "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
       "images": [
         {
@@ -262,7 +262,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "yunba-depot": {
-      "title": "轨道交通车辆基地",
+      "title": "比亚迪-云巴车辆基地",
       "cover": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
       "images": [
         {
@@ -386,7 +386,7 @@ window.PORTFOLIO_GALLERIES = {
       "layout": "stack"
     },
     "grandstand": {
-      "title": "赛车场看台与配套空间",
+      "title": "比亚迪-赛车场看台与配套空间",
       "cover": "images/uploads/image-a7cdcdcb-0f3a-41bb-bc52-5b3dc3da53d1.webp",
       "images": [
         {
@@ -718,7 +718,7 @@ window.PORTFOLIO_GALLERIES = {
       ]
     },
     "pedestrian-bridge": {
-      "title": "人行天桥与场地",
+      "title": "比亚迪-人行天桥",
       "cover": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b.webp",
       "images": [
         {
@@ -883,7 +883,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "project-9a627a8d": {
-      "title": "比亚迪超级充电站",
+      "title": "比亚迪-超级充电站",
       "cover": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
       "images": [
         {

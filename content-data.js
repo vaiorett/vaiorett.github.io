@@ -195,7 +195,7 @@ window.PORTFOLIO_CONTENT = {
       "Documented workflows, accuracy requirements, production standards and delivery specifications.",
       "Prepared deliverable assets to support B2B digital product deployment."
     ],
-    "project.grandstand.zh.title": "赛车场看台与配套空间",
+    "project.grandstand.zh.title": "比亚迪-赛车场看台与配套空间",
     "project.grandstand.zh.desc": "参与赛车场看台及配套空间的方案协作，借助模型与效果图表达立面、体量及空间关系。",
     "project.grandstand.zh.role": "方案建模 / 建筑表现",
     "project.grandstand.zh.context": "团队建筑项目，参与赛车场看台及配套空间的方案建模与建筑表现。",
@@ -210,7 +210,7 @@ window.PORTFOLIO_CONTENT = {
       "搭建赛车场、看台与配套设施模型，制作渲染画面。",
       "结合方案沟通需求调整模型与表现视角。"
     ],
-    "project.grandstand.en.title": "Racetrack Grandstand & Facilities",
+    "project.grandstand.en.title": "BYD—Racetrack Grandstands and Supporting Facilities",
     "project.grandstand.en.desc": "Models and rendered views supporting the design of a racetrack grandstand and associated spaces, with a focus on façades, massing and spatial relationships.",
     "project.grandstand.en.role": "Design modeling / Architectural visualization",
     "project.grandstand.en.context": "A team architecture project involving design modeling and visualization of a racetrack grandstand and supporting spaces.",
@@ -225,7 +225,7 @@ window.PORTFOLIO_CONTENT = {
       "Modeled the racetrack, grandstand and associated facilities and produced rendered views.",
       "Updated models and viewpoints to support design discussions."
     ],
-    "project.pedestrian-bridge.zh.title": "人行天桥与场地",
+    "project.pedestrian-bridge.zh.title": "比亚迪-人行天桥",
     "project.pedestrian-bridge.zh.desc": "根据设计师的人行天桥方案构建场地与桥体模型，用多视角效果图辅助方案沟通。",
     "project.pedestrian-bridge.zh.role": "场地建模 / 效果图制作",
     "project.pedestrian-bridge.zh.context": "团队建筑项目，根据设计师方案参与桥体与场地建模，制作多视角效果图。",
@@ -240,7 +240,7 @@ window.PORTFOLIO_CONTENT = {
       "制作桥体、道路及周边环境的多视角效果图。",
       "配合方案调整，整理用于沟通与报规的图像。"
     ],
-    "project.pedestrian-bridge.en.title": "Pedestrian Bridge & Site",
+    "project.pedestrian-bridge.en.title": "BYD - Pedestrian Overpass",
     "project.pedestrian-bridge.en.desc": "Bridge and site models based on the designer’s proposal, with rendered views from multiple angles to support design communication.",
     "project.pedestrian-bridge.en.role": "Site modeling / Rendering",
     "project.pedestrian-bridge.en.context": "A team architecture project, modeling the bridge and surrounding site from the design proposal and producing rendered views.",
@@ -255,7 +255,7 @@ window.PORTFOLIO_CONTENT = {
       "Produced multiple views of the bridge, roads and surrounding environment.",
       "Updated the work as the design evolved and prepared images for coordination and planning submissions."
     ],
-    "project.yunba-depot.zh.title": "轨道交通车辆基地",
+    "project.yunba-depot.zh.title": "比亚迪-云巴车辆基地",
     "project.yunba-depot.zh.desc": "以车辆基地建筑与场地关系为重点，通过鸟瞰和透视画面展示建筑体量、立面与整体环境。",
     "project.yunba-depot.zh.role": "建筑建模 / 视觉表现",
     "project.yunba-depot.zh.context": "团队轨道交通项目，参与车辆基地建筑与场地建模，并制作建筑表现图。",
@@ -270,7 +270,7 @@ window.PORTFOLIO_CONTENT = {
       "制作鸟瞰与透视表现，辅助方案展示。",
       "配合团队整理模型及效果图交付。"
     ],
-    "project.yunba-depot.en.title": "Rail Transit Depot",
+    "project.yunba-depot.en.title": "BYD—SkyShuttle Vehicle Depot",
     "project.yunba-depot.en.desc": "Aerial and perspective views of the depot, showing building massing, façades and the relationship between architecture and its site.",
     "project.yunba-depot.en.role": "Architectural modeling / Visualization",
     "project.yunba-depot.en.context": "A team rail-transit project involving building and site modeling and visualization for a vehicle depot.",
@@ -285,7 +285,7 @@ window.PORTFOLIO_CONTENT = {
       "Produced aerial and perspective visualizations for design presentations.",
       "Helped the team organize models and rendered images for delivery."
     ],
-    "project.residential.zh.title": "时光序-中小学项目",
+    "project.residential.zh.title": "比亚迪-贵阳时光序中小学项目",
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
     "project.residential.zh.role": "模型制作 / 住宅表现",
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
@@ -301,7 +301,7 @@ window.PORTFOLIO_CONTENT = {
       "协助方案与建筑图纸表达\\制作展示效果图。",
       "配合团队整理用于沟通的建筑表现成果。"
     ],
-    "project.residential.en.title": "Time Sequence—Elementary and Secondary School Project",
+    "project.residential.en.title": "BYD—Guiyang Shiguangxu Primary and Secondary School Project",
     "project.residential.en.desc": "Architectural models and rendered views exploring the relationship between residential buildings, public spaces and the site.",
     "project.residential.en.role": "Model production / Residential visualization",
     "project.residential.en.context": "A team residential project involving modeling and architectural visualization of housing and shared spaces.",
@@ -447,7 +447,7 @@ window.PORTFOLIO_CONTENT = {
       "Interior Decoration Designer, Level 3",
       "ISO 9001:2015 Internal Auditor Certificate"
     ],
-    "project.project-9a627a8d.zh.title": "比亚迪超级充电站",
+    "project.project-9a627a8d.zh.title": "比亚迪-超级充电站",
     "project.project-9a627a8d.zh.desc": "为母公司的新能源电车产业提供可视化表现",
     "project.project-9a627a8d.zh.role": "",
     "project.project-9a627a8d.zh.context": "围绕充电站场景，展示充电车位、顶棚、车辆与周边绿化的空间关系。",
@@ -457,7 +457,7 @@ window.PORTFOLIO_CONTENT = {
       "D5"
     ],
     "project.project-9a627a8d.zh.tasks": [],
-    "project.project-9a627a8d.en.title": "BYD Supercharging Station",
+    "project.project-9a627a8d.en.title": "BYD - Supercharging Station",
     "project.project-9a627a8d.en.desc": "Provide visualizations for the parent company's new energy vehicle business",
     "project.project-9a627a8d.en.role": "",
     "project.project-9a627a8d.en.context": "The visualizations show the relationship between the charging bays, canopy, vehicles and surrounding greenery.",
@@ -511,7 +511,7 @@ window.PORTFOLIO_CONTENT = {
       "Davinci"
     ],
     "project.project-3ba57396.en.tasks": [],
-    "project.project-d15b5f36.zh.title": "时光序-保租房项目",
+    "project.project-d15b5f36.zh.title": "比亚迪-贵阳时光序保租房项目",
     "project.project-d15b5f36.zh.desc": "表现场地与住宅关系, 并提交报规",
     "project.project-d15b5f36.zh.role": "",
     "project.project-d15b5f36.zh.context": "围绕保障性租赁住房的建筑与场地关系，通过整体鸟瞰和住宅空间画面辅助报规沟通。",
@@ -524,7 +524,7 @@ window.PORTFOLIO_CONTENT = {
       "Corona"
     ],
     "project.project-d15b5f36.zh.tasks": [],
-    "project.project-d15b5f36.en.title": "Time Sequence—Affordable Housing Project",
+    "project.project-d15b5f36.en.title": "BYD-Guiyang Shiguangxu Affordable Housing Project",
     "project.project-d15b5f36.en.desc": "Visualizing the relationship between the residential buildings and their site for planning submission.",
     "project.project-d15b5f36.en.role": "",
     "project.project-d15b5f36.en.context": "An affordable rental housing project presented through aerial and residential views to communicate the relationship between buildings and site for planning submission.",
