@@ -23,7 +23,7 @@ def markup(project,lang,labels):
         def responsive(variants,deferred=False):
             if not variants:return ''
             paths=', '.join(prefix+v['src']+' '+str(v['width'])+'w' for v in variants)
-            return ' '+('data-srcset' if deferred else 'srcset')+'="'+esc(paths)+'" sizes="(max-width: 700px) calc(100vw - 32px), '+('45vw' if size(item,mode)=='half' else '90vw')+'"'
+            return ' '+('data-srcset' if deferred else 'srcset')+'="'+esc(paths)+'" sizes="(max-width: 700px) calc(100vw - 32px), '+('(max-width: 1104px) calc(60vw - 54px), 608px' if mode=='story' and body.strip() else '(max-width: 1104px) calc(50vw - 43px), 509px' if size(item,mode)=='half' else '(max-width: 1104px) calc(100vw - 64px), 1040px')+'"'
         num=str(i+1).zfill(2)
         fig_text=f'{num} / {esc(caption)}' if caption else num
         copy='<div class="gallery-copy"><figcaption>'+fig_text+'</figcaption>'

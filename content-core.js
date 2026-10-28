@@ -103,6 +103,12 @@
   function resolve(html){return html.replace(/@@([\w.-]+)@@/g,replace);}
   function replace(_,key){
    if(Object.hasOwn(fields,key))return text(key);
+   if(key.startsWith('skills.')){
+    const lang=key.split('.')[1],tools=v['profile.tools'],used=new Set();
+    const groups=(templates.toolGroups||[]).map(group=>{const items=tools.filter(tool=>group.tools.includes(tool));items.forEach(tool=>used.add(tool));return {...group,items};});
+    const extra=tools.filter(tool=>!used.has(tool));if(extra.length)groups.push({id:'other',zh:'其他工具',en:'Other Tools',items:extra});
+    return groups.filter(group=>group.items.length).map(group=>'<section class="skill-group" aria-labelledby="skills-'+group.id+'"><h4 id="skills-'+group.id+'">'+esc(group[lang])+'</h4><div class="skill-tags">'+group.items.map(tool=>'<span>'+esc(tool)+'</span>').join('')+'</div></section>').join('');
+   }
    if(key==='galleryVersion')return String(galleries.updatedAt||'1').replace(/[^a-zA-Z0-9]/g,'');
    if(key.startsWith('cards.')){const lang=key.split('.')[1];return order.map(id=>resolve(templates.cards[lang].replaceAll('__project__',id))).join('');}
    if(key.startsWith('total.')){const group=key.split('.')[1];return String(order.filter(id=>group==='all'||meta[id].category===group).length).padStart(2,'0');}
@@ -129,6 +135,7 @@
    const value=Object.hasOwn(fields,key)?v[key]:G.coverPath(galleries.projects[key.slice(6)]);
    return JSON.stringify(value).slice(1,-1).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
   }):part.replace(/@@([\w.-]+)@@/g,replace)).join('');
+  for(const [path,html]of Object.entries(result)){const id=path.match(/work-([a-z0-9-]+)\.html$/)?.[1];if(id&&!galleries.projects[id].videos?.length)result[path]=html.replace(/<script[^>]+src="[^"]*video-core\.js[^"]*"[^>]*><\/script>/g,'');}
   result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   return result;
  }

@@ -34,6 +34,13 @@ def render(content,templates,galleries):
     def replace(m):
         key=m[1]
         if key in fields:return text(key)
+        if key.startswith('skills.'):
+            lang=key.split('.')[1];tools=values['profile.tools'];used=set();groups=[]
+            for group in templates.get('toolGroups',[]):
+                items=[tool for tool in tools if tool in group['tools']];used.update(items);groups.append(dict(group,items=items))
+            extra=[tool for tool in tools if tool not in used]
+            if extra:groups.append(dict(id='other',zh='其他工具',en='Other Tools',items=extra))
+            return ''.join('<section class="skill-group" aria-labelledby="skills-'+g['id']+'"><h4 id="skills-'+g['id']+'">'+esc(g[lang])+'</h4><div class="skill-tags">'+''.join('<span>'+esc(tool)+'</span>' for tool in g['items'])+'</div></section>' for g in groups if g['items'])
         if key=='galleryVersion':return re.sub('[^a-zA-Z0-9]','',str(galleries.get('updatedAt') or '1'))
         if key.startswith('cards.'):
             lang=key.split('.')[1];return ''.join(resolve(templates['cards'][lang].replace('__project__',id)) for id in order)
@@ -97,5 +104,8 @@ def render(content,templates,galleries):
         # Replace each original token exactly once, including tokens inside JSON-LD.
         chunks=re.split(r'(<script type="application/ld\+json">.*?</script>)',html,flags=re.S)
         result[path]=''.join(schema(re.match(r'.*',part,re.S)) if part.startswith('<script type="application/ld+json">') else re.sub(r'@@([\w.-]+)@@',replace,part) for part in chunks)
+    for path,html in result.items():
+        match=re.search(r'work-([a-z0-9-]+)\.html$',path)
+        if match and not galleries['projects'][match[1]].get('videos'):result[path]=re.sub(r'<script[^>]+src="[^"]*video-core\.js[^"]*"[^>]*></script>','',html)
     result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n'
     return result

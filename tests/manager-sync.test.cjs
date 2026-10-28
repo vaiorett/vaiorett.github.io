@@ -5,9 +5,9 @@ function fetcher(files,requests){return async (url,options)=>{requests.push({url
 test('management fetches current project and title data without reusing cached files',async()=>{
  const requests=[],latest=await T.loadPublished(fetcher(raw,requests),123);
  assert.equal(requests.length,3);for(const r of requests){assert.match(r.url,/\?fresh=123$/);assert.equal(r.options.cache,'no-store');}
- assert.equal(latest.content.values['project.residential.zh.title'],'时光序中小学');assert.ok(latest.gallery.projects['project-d15b5f36']);
+ assert.equal(latest.content.values['project.residential.zh.title'],JSON.parse(raw['content-data.js'].split(' = ')[1].trim().replace(/;$/,'')).values['project.residential.zh.title']);assert.ok(latest.gallery.projects['project-d15b5f36']);
  const old=T.clone(latest.content),local=T.clone(old);old.values['project.residential.zh.title']='住宅与公共空间';local.values['project.residential.zh.title']='住宅与公共空间';
- assert.equal(T.merge(old,local,latest.content,latest.templates).values['project.residential.zh.title'],'时光序中小学');
+ assert.equal(T.merge(old,local,latest.content,latest.templates).values['project.residential.zh.title'],JSON.parse(raw['content-data.js'].split(' = ')[1].trim().replace(/;$/,'')).values['project.residential.zh.title']);
 });
 test('partial, inconsistent publication cannot replace the saved draft',async()=>{
  const data=JSON.parse(raw['gallery-data.js'].split(' = ')[1].trim().replace(/;$/,''));delete data.projects['project-d15b5f36'];
@@ -22,6 +22,7 @@ test('a recently published local base is retained while public Pages is behind',
 });
 test('empty role, duties and credit render without empty public headings',()=>{
  const templates=T.parseTemplates(raw['content-templates.js']),content=T.parse(raw['content-data.js'],templates),gallery=G.parse(raw['gallery-data.js']);
+ content.values['project.project-d15b5f36.zh.role']='';content.values['project.project-d15b5f36.zh.tasks']=[];content.values['project.project-d15b5f36.zh.note']='';content.values['project.project-d15b5f36.zh.context']='保留项目背景';
  const page=T.render(content,templates,gallery)['work-project-d15b5f36.html'];
  assert.ok(page.includes('项目背景'));assert.ok(!page.includes('<h2>我的工作</h2>'));assert.ok(!page.includes('<h2>职责与署名</h2>'));assert.ok(!page.includes('<span>个人职责</span>'));
 });

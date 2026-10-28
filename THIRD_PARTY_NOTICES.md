@@ -33,3 +33,16 @@ Astro and Sass are build dependencies distributed under their respective license
 - LXGW WenKai 5.3.0 via Fontsource: SIL Open Font License, copied in assets/fonts/WenKai-LICENSE.txt. Subsets have been renamed Portfolio WenKai; current interface glyphs load first, with additional common Chinese glyphs loaded on demand. Uncovered glyphs use the system font.
 - Simple Icons 16.35.0: CC0, license copied in assets/icons/LICENSE.md. Trademarks belong to their respective owners. Autodesk and Epic Games symbols identify the vendor where an individual product mark is unavailable; other unsupported tools use text monograms.
 - MingCute sun-fill and moon-fill icons in ui.js (Apache 2.0 / MIT via Iconify) and mail/copy line icons.
+
+- @jsquash/webp 1.5.0 (Apache-2.0), local WebP encoder used only by the image manager. License: assets/vendor/webp/LICENSE. Public pages do not load this encoder.
+
+## Added tool marks (2026-10-29)
+
+- Gemini CLI: official monochrome asset, https://geminicli.com/brand-kit/ .
+- Google Antigravity: official one-color icon, https://www.antigravity.google/press .
+- Adobe Substance 3D Designer: official black icon from the Substance 3D artists' icon kit, https://experienceleague.adobe.com/en/docs/substance-3d/general-knowledge/ecosystem/susbtance-3d-app-icons .
+- Marvelous Designer: official website favicon, https://www.marvelousdesigner.com/ ; a 64px display copy encoded as lossless WebP is embedded in its SVG wrapper.
+- ZBrush: file-icons brand silhouette, https://github.com/file-icons/source (MIT); see assets/icons/file-icons-LICENSE.txt.
+- Windows and Adobe Premiere Pro: Simple Icons v11 (CC0). DaVinci Resolve: Simple Icons v16 (CC0). Existing Simple Icons license is retained.
+
+Marks identify the tools listed by the portfolio owner; trademark ownership remains with each brand. No external icon host is requested by visitors.

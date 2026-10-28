@@ -1704,7 +1704,13 @@ window.PORTFOLIO_GALLERIES = {
           "altEn": "Product Digitization & 3D Assets — project overview",
           "width": 1028,
           "height": 1920,
-          "thumbnail": "image-digital-assets-full-preview.webp"
+          "thumbnail": "image-digital-assets-full-preview.webp",
+          "responsive": [
+            {
+              "src": "image-digital-assets-full-preview.webp",
+              "width": 857
+            }
+          ]
         }
       ]
     }

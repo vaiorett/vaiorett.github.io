@@ -1,0 +1,8 @@
+[
+  {"id":"modeling","zh":"三维建模与资产","en":"3D Modeling & Assets","tools":["Blender","3ds Max","ZBrush","Marvelous Designer","SketchUp","Rhino","UG","RealityCapture"]},
+  {"id":"rendering","zh":"材质与渲染","en":"Materials & Rendering","tools":["Substance 3D Designer","V-Ray","Corona","Chaos Vantage","D5","Enscape","UE5"]},
+  {"id":"postproduction","zh":"视觉设计与影视后期","en":"Visual Design & Post-production","tools":["Photoshop","InDesign","DaVinci Resolve","Adobe Premiere Pro"]},
+  {"id":"ai","zh":"AI 与自动化","en":"AI & Automation","tools":["Gemini","Gemini CLI","Google Antigravity","ChatGPT","Claude","ComfyUI","Stable Diffusion","AIGC"]},
+  {"id":"engineering","zh":"工程制图与 BIM","en":"CAD & BIM","tools":["AutoCAD","天正建筑","Revit"]},
+  {"id":"systems","zh":"操作系统与办公","en":"Operating Systems & Office","tools":["Windows","Linux","Fedora KDE","Ubuntu GNOME","MS Office"]}
+]

@@ -1,0 +1,1 @@
+@mixin card {border:none;border-radius:1rem;background-color:color-mix(in srgb,var(--color-card),transparent 25%);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:.125rem .125rem .5rem color-mix(in srgb,var(--color-muted-foreground),transparent 80%);}
