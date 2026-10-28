@@ -285,7 +285,7 @@ window.PORTFOLIO_CONTENT = {
       "Produced aerial and perspective visualizations for design presentations.",
       "Helped the team organize models and rendered images for delivery."
     ],
-    "project.residential.zh.title": "时光序中小学",
+    "project.residential.zh.title": "时光序-中小学项目",
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
     "project.residential.zh.role": "模型制作 / 住宅表现",
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
@@ -511,7 +511,7 @@ window.PORTFOLIO_CONTENT = {
       "Davinci"
     ],
     "project.project-3ba57396.en.tasks": [],
-    "project.project-d15b5f36.zh.title": "保租房时光序项目",
+    "project.project-d15b5f36.zh.title": "时光序-保租房项目",
     "project.project-d15b5f36.zh.desc": "表现场地与住宅关系, 并提交报规",
     "project.project-d15b5f36.zh.role": "",
     "project.project-d15b5f36.zh.context": "围绕保障性租赁住房的建筑与场地关系，通过整体鸟瞰和住宅空间画面辅助报规沟通。",

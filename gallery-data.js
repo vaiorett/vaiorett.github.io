@@ -1,9 +1,9 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T03:20:11.517Z",
+  "updatedAt": "2026-10-28T07:47:58.742Z",
   "projects": {
     "project-d15b5f36": {
-      "title": "保租房时光序项目",
+      "title": "时光序-保租房项目",
       "cover": "images/uploads/image-83c15165-4442-4287-92b2-a6714898de1d.webp",
       "images": [
         {
@@ -118,7 +118,7 @@ window.PORTFOLIO_GALLERIES = {
       "videos": []
     },
     "residential": {
-      "title": "时光序中小学",
+      "title": "时光序-中小学项目",
       "cover": "images/uploads/image-d4d48854-b8bb-434d-abd0-e0f4bb184e52.webp",
       "images": [
         {
