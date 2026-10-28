@@ -1,0 +1,13 @@
+/* 浅色模式配色：可把下列颜色改为 #十六进制颜色，如 #526f87。
+   修改后在 GitHub 点击 Commit changes，等待网站更新，再刷新页面。 */
+:root[data-theme="light"] {
+  --color-primary: oklch(.42 .052 12);       /* 按钮与强调色 */
+  --color-highlight: oklch(.48 .055 12);     /* 装饰线条强调色 */
+  --color-card: oklch(.99 .004 15);          /* 卡片底色 */
+  --page-gradient-start: #f7f5f5;             /* 背景渐变起点 */
+  --page-gradient-middle: #f2edef;            /* 背景渐变中间 */
+  --page-gradient-end: #f5f3f1;               /* 背景渐变终点 */
+}
+:root[data-theme="light"] body {
+  background-image: radial-gradient(circle at 12% 8%, oklch(.93 .018 16 / .65), transparent 48%), radial-gradient(circle at 88% 92%, oklch(.93 .014 350 / .55), transparent 52%), linear-gradient(135deg, var(--page-gradient-start) 0%, var(--page-gradient-middle) 50%, var(--page-gradient-end) 100%);
+}

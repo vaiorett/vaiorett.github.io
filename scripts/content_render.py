@@ -43,6 +43,23 @@ def render(content,templates,galleries):
         if key.startswith('number.'):return str(order.index(key[7:])+1).zfill(2)
         if key.startswith('category.'):
             _,id,lang=key.split('.');return esc(values['ui.'+lang+'.'+meta[id]['category']])
+        if key.startswith('facts.'):
+            _,id,lang=key.split('.');prefix=f'project.{id}.{lang}.'
+            out='<div class="project-facts"><div><span>'+text('ui.'+lang+'.category')+'</span><strong>'+esc(values['ui.'+lang+'.'+meta[id]['category']])+'</strong></div>'
+            for field in ['role','tools']:
+                value=values[prefix+field]
+                if value and (not isinstance(value,str) or value.strip()):out+='<div><span>'+text('ui.'+lang+'.'+field)+'</span><strong>'+text(prefix+field)+'</strong></div>'
+            return out+'</div>'
+        if key.startswith('overview.'):
+            _,id,lang=key.split('.');prefix=f'project.{id}.{lang}.';out=''
+            for field in ['context','tasks']:
+                value=values[prefix+field]
+                if value and (not isinstance(value,str) or value.strip()):out+='<section><h2>'+text('ui.'+lang+'.'+field)+'</h2>'+('<ul>'+text(prefix+field)+'</ul>' if field=='tasks' else '<p>'+text(prefix+field)+'</p>')+'</section>'
+            return '<div class="detail-overview">'+out+'</div>' if out else ''
+        if key.startswith('worknote.'):
+            _,id,lang=key.split('.');note=values[f'project.{id}.{lang}.note']
+            source='<a href="'+esc(meta[id]['source'])+'" target="_blank" rel="noopener">'+esc(values['ui.'+lang+'.source'])+' ↗</a>' if meta[id].get('source') else ''
+            return '<section class="work-note">'+('<div><h2>'+text('ui.'+lang+'.note')+'</h2><p>'+esc(note)+'</p></div>' if note.strip() else '')+source+'</section>' if note.strip() or source else ''
         if key.startswith('videos.'):
             _,id,lang=key.split('.');return videos(id,lang)
         if key.startswith('source.'):

@@ -41,6 +41,7 @@
   const posterKeys=['poster','posterFor','posterUpdatedAt','providerTitle','posterStatus','posterError','posterAttemptedAt'];
   function withoutPosters(project){if(!project)return project;const p=clone(project);for(const video of p.videos||[])for(const key of posterKeys)delete video[key];return p;}
   function mergePosterUpdate(local,remote){const result=clone(local);for(const video of result.videos||[]){const latest=(remote.videos||[]).find(v=>v.id===video.id&&videoInfo(v.url).url===videoInfo(video.url).url);if(latest&&(!video.posterRefresh||video.posterRefresh<=(latest.posterAttemptedAt||latest.posterUpdatedAt||'')))for(const key of posterKeys){if(latest[key]!==undefined)video[key]=latest[key];else delete video[key];}}return result;}
+  function newerPublication(local,remote){const a=Date.parse(local?.updatedAt||''),b=Date.parse(remote?.updatedAt||'');return Number.isFinite(a)&&Number.isFinite(b)&&a>b;}
   function merge(base,local,remote){
     validate(remote);const merged=clone(remote);const conflicts=[];
     for(const [id,value] of Object.entries(local.projects)){
@@ -127,6 +128,6 @@
     if(error instanceof TypeError)return new Error('浏览器未能完成与 GitHub 的网络连接。请检查网络或浏览器限制；本页仍保留修改，请先导出备份。若已到最后提交阶段，请先查看仓库记录。');
     return error;
   }
-  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,merge,coverPath,homeCover,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
+  const core={OWNER,REPO,clone,safePath,videoInfo,videoMarkup:V.markup,validate,serialize,parse,newerPublication,merge,coverPath,homeCover,reorderProjects,usedFiles,base64,publish,httpError,requestTimeout,networkError};
   if(typeof module!=='undefined' && module.exports)module.exports=core;else root.GalleryCore=core;
 })(typeof window!=='undefined'?window:globalThis);

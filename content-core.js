@@ -55,6 +55,17 @@
  function serialize(data){return PREFIX+JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')+';\n';}
  function parse(source,templates){if(!source.startsWith(PREFIX))throw new Error('文字文件格式不正确。');return validate(JSON.parse(source.slice(PREFIX.length).trim().replace(/;$/,'')),templates);}
  function parseTemplates(source){if(!source.startsWith(TEMPLATE_PREFIX))throw new Error('模板文件格式不正确。');return validateTemplates(JSON.parse(source.slice(TEMPLATE_PREFIX.length).trim().replace(/;$/,'')));}
+ async function loadPublished(fetcher,stamp=Date.now()){
+  const suffix='?fresh='+encodeURIComponent(String(stamp));
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+  try{
+   const results=await Promise.all(['gallery-data.js','content-data.js','content-templates.js'].map(async file=>{const response=await fetcher('./'+file+suffix,{cache:'no-store',signal:controller.signal});if(!response.ok)throw new Error('无法读取最新网站数据');return response.text();}));
+   const templates=parseTemplates(results[2]),gallery=G.parse(results[0]),content=parse(results[1],templates);
+   const textIds=Object.keys(projects(content,templates)).sort(),galleryIds=Object.keys(gallery.projects).sort();
+   if(JSON.stringify(textIds)!==JSON.stringify(galleryIds))throw new Error('网站更新正在同步');
+   return {templates,gallery,content};
+  }finally{clearTimeout(timer);}
+ }
  function merge(base,local,remote,templates){
   validate(remote,templates);const merged=clone(remote),conflicts=[];
   const bm=projects(base,templates),lm=projects(local,templates),rm=projects(remote,templates);merged.projects=clone(rm);
@@ -98,6 +109,9 @@
    if(key.startsWith('group.'))return esc(meta[key.slice(6)].category);
    if(key.startsWith('number.'))return String(order.indexOf(key.slice(7))+1).padStart(2,'0');
    if(key.startsWith('category.')){const[,id,lang]=key.split('.');return esc(v['ui.'+lang+'.'+meta[id].category]);}
+   if(key.startsWith('facts.')){const[,id,lang]=key.split('.'),prefix='project.'+id+'.'+lang+'.';let out='<div class="project-facts"><div><span>'+text('ui.'+lang+'.category')+'</span><strong>'+esc(v['ui.'+lang+'.'+meta[id].category])+'</strong></div>';for(const field of ['role','tools'])if(Array.isArray(v[prefix+field])?v[prefix+field].length:String(v[prefix+field]).trim())out+='<div><span>'+text('ui.'+lang+'.'+field)+'</span><strong>'+text(prefix+field)+'</strong></div>';return out+'</div>';}
+   if(key.startsWith('overview.')){const[,id,lang]=key.split('.'),prefix='project.'+id+'.'+lang+'.';let out='';for(const field of ['context','tasks'])if(Array.isArray(v[prefix+field])?v[prefix+field].length:String(v[prefix+field]).trim())out+='<section><h2>'+text('ui.'+lang+'.'+field)+'</h2>'+(field==='tasks'?'<ul>'+text(prefix+field)+'</ul>':'<p>'+text(prefix+field)+'</p>')+'</section>';return out?'<div class="detail-overview">'+out+'</div>':'';}
+   if(key.startsWith('worknote.')){const[,id,lang]=key.split('.'),note=v['project.'+id+'.'+lang+'.note'];const source=meta[id].source?'<a href="'+esc(meta[id].source)+'" target="_blank" rel="noopener">'+esc(v['ui.'+lang+'.source'])+' ↗</a>':'';return note.trim()||source?'<section class="work-note">'+(note.trim()?'<div><h2>'+text('ui.'+lang+'.note')+'</h2><p>'+esc(note)+'</p></div>':'')+source+'</section>':'';}
    if(key.startsWith('videos.')){const[,id,lang]=key.split('.');return videos(id,lang);}
    if(key.startsWith('source.')){const[,id,lang]=key.split('.');return meta[id].source?'<a href="'+esc(meta[id].source)+'" target="_blank" rel="noopener">'+esc(v['ui.'+lang+'.source'])+' ↗</a>':'';}
    if(key.startsWith('next.')){const[,id,lang]=key.split('.'),next=order[(order.indexOf(id)+1)%order.length];return '<a class="next-project" href="./work-'+next+'.html"><span>'+esc(v['ui.'+lang+'.next'])+'</span><strong>'+esc(v['project.'+next+'.'+lang+'.title'])+' ↗</strong></a>';}
@@ -117,6 +131,6 @@
   result['sitemap.xml']='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n';
   return result;
  }
- const core={clone,esc,arrayTypes,pagePath,categories,projects,fieldsFor,addProject,reorderProjects,readyToPublish,validateTemplates,validate,serialize,parse,parseTemplates,merge,render};
+ const core={clone,esc,arrayTypes,pagePath,categories,projects,fieldsFor,addProject,reorderProjects,readyToPublish,validateTemplates,validate,serialize,parse,parseTemplates,loadPublished,merge,render};
  if(typeof module!=='undefined'&&module.exports)module.exports=core;else root.ContentCore=core;
 })(typeof window!=='undefined'?window:globalThis);

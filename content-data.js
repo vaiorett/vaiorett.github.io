@@ -450,7 +450,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.zh.title": "比亚迪超级充电站",
     "project.project-9a627a8d.zh.desc": "为母公司的新能源电车产业提供可视化表现",
     "project.project-9a627a8d.zh.role": "",
-    "project.project-9a627a8d.zh.context": "",
+    "project.project-9a627a8d.zh.context": "围绕充电站场景，展示充电车位、顶棚、车辆与周边绿化的空间关系。",
     "project.project-9a627a8d.zh.note": "",
     "project.project-9a627a8d.zh.tools": [
       "Sketchup",
@@ -460,14 +460,17 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.en.title": "BYD Supercharging Station",
     "project.project-9a627a8d.en.desc": "Provide visualizations for the parent company's new energy vehicle business",
     "project.project-9a627a8d.en.role": "",
-    "project.project-9a627a8d.en.context": "",
+    "project.project-9a627a8d.en.context": "The visualizations show the relationship between the charging bays, canopy, vehicles and surrounding greenery.",
     "project.project-9a627a8d.en.note": "",
-    "project.project-9a627a8d.en.tools": [],
+    "project.project-9a627a8d.en.tools": [
+      "Sketchup",
+      "D5"
+    ],
     "project.project-9a627a8d.en.tasks": [],
     "project.project-6abfe00e.zh.title": "光隙之庭",
     "project.project-6abfe00e.zh.desc": "一座融合自然岩石、水景与现代结构语言的开放式建筑，以倾斜钢构屋顶、清水混凝土柱廊及通透玻璃界面，探索建筑与自然环境之间的关系。",
     "project.project-6abfe00e.zh.role": "",
-    "project.project-6abfe00e.zh.context": "",
+    "project.project-6abfe00e.zh.context": "以开放式建筑和自然景观为主题，呈现钢构屋顶、柱廊、水景与岩石之间的空间关系。",
     "project.project-6abfe00e.zh.note": "",
     "project.project-6abfe00e.zh.tools": [
       "3Ds Max",
@@ -478,14 +481,18 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.en.title": "Courtyard of Light",
     "project.project-6abfe00e.en.desc": "An open-concept building that blends natural rock, water features, and modern architectural language explores the relationship between architecture and the natural environment through its sloping steel roof, exposed concrete colonnade, and transparent glass facades.",
     "project.project-6abfe00e.en.role": "",
-    "project.project-6abfe00e.en.context": "",
+    "project.project-6abfe00e.en.context": "An open architectural setting exploring the spatial relationship between a steel roof, colonnade, water and rock.",
     "project.project-6abfe00e.en.note": "",
-    "project.project-6abfe00e.en.tools": [],
+    "project.project-6abfe00e.en.tools": [
+      "3Ds Max",
+      "Corona",
+      "Vray"
+    ],
     "project.project-6abfe00e.en.tasks": [],
     "project.project-3ba57396.zh.title": "UE5-片段",
     "project.project-3ba57396.zh.desc": "UE5影视级试验项目",
     "project.project-3ba57396.zh.role": "",
-    "project.project-3ba57396.zh.context": "",
+    "project.project-3ba57396.zh.context": "以 UE5 为基础的影视级画面试验，通过视频呈现场景中的材质、光影与氛围。",
     "project.project-3ba57396.zh.note": "",
     "project.project-3ba57396.zh.tools": [
       "UE5",
@@ -494,16 +501,20 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.project-3ba57396.zh.tasks": [],
     "project.project-3ba57396.en.title": "UE5 - Clip",
-    "project.project-3ba57396.en.desc": "UE5 - Clip",
+    "project.project-3ba57396.en.desc": "A cinematic visual experiment created in Unreal Engine 5.",
     "project.project-3ba57396.en.role": "",
-    "project.project-3ba57396.en.context": "",
+    "project.project-3ba57396.en.context": "A cinematic UE5 scene study presented as a video, exploring materials, lighting and atmosphere.",
     "project.project-3ba57396.en.note": "",
-    "project.project-3ba57396.en.tools": [],
+    "project.project-3ba57396.en.tools": [
+      "UE5",
+      "Bridge",
+      "Davinci"
+    ],
     "project.project-3ba57396.en.tasks": [],
     "project.project-d15b5f36.zh.title": "保租房时光序项目",
     "project.project-d15b5f36.zh.desc": "表现场地与住宅关系, 并提交报规",
     "project.project-d15b5f36.zh.role": "",
-    "project.project-d15b5f36.zh.context": "",
+    "project.project-d15b5f36.zh.context": "围绕保障性租赁住房的建筑与场地关系，通过整体鸟瞰和住宅空间画面辅助报规沟通。",
     "project.project-d15b5f36.zh.note": "",
     "project.project-d15b5f36.zh.tools": [
       "Auto CAD",
@@ -514,11 +525,17 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.project-d15b5f36.zh.tasks": [],
     "project.project-d15b5f36.en.title": "The “Time Sequence” Affordable Housing Project",
-    "project.project-d15b5f36.en.desc": "保租房时光序项目",
+    "project.project-d15b5f36.en.desc": "Visualizing the relationship between the residential buildings and their site for planning submission.",
     "project.project-d15b5f36.en.role": "",
-    "project.project-d15b5f36.en.context": "",
+    "project.project-d15b5f36.en.context": "An affordable rental housing project presented through aerial and residential views to communicate the relationship between buildings and site for planning submission.",
     "project.project-d15b5f36.en.note": "",
-    "project.project-d15b5f36.en.tools": [],
+    "project.project-d15b5f36.en.tools": [
+      "Auto CAD",
+      "3Ds Max",
+      "Sketchup",
+      "Vray",
+      "Corona"
+    ],
     "project.project-d15b5f36.en.tasks": []
   },
   "projects": {
