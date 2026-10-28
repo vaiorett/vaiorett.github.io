@@ -451,7 +451,7 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.project-9a627a8d.zh.title": "比亚迪-超级充电站",
     "project.project-9a627a8d.zh.desc": "为母公司的新能源电车产业提供可视化表现",
-    "project.project-9a627a8d.zh.role": "",
+    "project.project-9a627a8d.zh.role": "场地建模 / 效果图制作",
     "project.project-9a627a8d.zh.context": "围绕充电站场景，展示充电车位、顶棚、车辆与周边绿化的空间关系。",
     "project.project-9a627a8d.zh.note": "",
     "project.project-9a627a8d.zh.tools": [
@@ -471,7 +471,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.en.tasks": [],
     "project.project-6abfe00e.zh.title": "光隙之庭",
     "project.project-6abfe00e.zh.desc": "一座融合自然岩石、水景与现代结构语言的开放式建筑，以倾斜钢构屋顶、清水混凝土柱廊及通透玻璃界面，探索建筑与自然环境之间的关系。",
-    "project.project-6abfe00e.zh.role": "",
+    "project.project-6abfe00e.zh.role": "场地建模 / 效果图制作",
     "project.project-6abfe00e.zh.context": "以开放式建筑和自然景观为主题，呈现钢构屋顶、柱廊、水景与岩石之间的空间关系。",
     "project.project-6abfe00e.zh.note": "",
     "project.project-6abfe00e.zh.tools": [
