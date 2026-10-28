@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T02:41:35.596563Z",
+  "updatedAt": "2026-10-28T02:48:47.824Z",
   "projects": {
     "project-d15b5f36": {
       "title": "保租房时光序项目",
@@ -556,10 +556,6 @@ window.PORTFOLIO_GALLERIES = {
           "body": "compare",
           "bodyEn": "compare",
           "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before",
           "thumbnail": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
           "compareThumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp"
         },
@@ -580,10 +576,6 @@ window.PORTFOLIO_GALLERIES = {
           },
           "captionEn": "project-09",
           "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-          "beforeLabel": "效果",
-          "beforeLabelEn": "After",
-          "afterLabel": "原图",
-          "afterLabelEn": "Before",
           "thumbnail": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
           "compareThumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp"
         }
