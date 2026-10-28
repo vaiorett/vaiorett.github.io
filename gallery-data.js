@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T07:47:58.742Z",
+  "updatedAt": "2026-10-28T07:48:54.183Z",
   "projects": {
     "project-d15b5f36": {
       "title": "时光序-保租房项目",

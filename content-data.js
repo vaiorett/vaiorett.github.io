@@ -301,7 +301,7 @@ window.PORTFOLIO_CONTENT = {
       "协助方案与建筑图纸表达\\制作展示效果图。",
       "配合团队整理用于沟通的建筑表现成果。"
     ],
-    "project.residential.en.title": "Time Sequence Elementary and Middle School",
+    "project.residential.en.title": "Time Sequence—Elementary and Secondary School Project",
     "project.residential.en.desc": "Architectural models and rendered views exploring the relationship between residential buildings, public spaces and the site.",
     "project.residential.en.role": "Model production / Residential visualization",
     "project.residential.en.context": "A team residential project involving modeling and architectural visualization of housing and shared spaces.",
@@ -524,7 +524,7 @@ window.PORTFOLIO_CONTENT = {
       "Corona"
     ],
     "project.project-d15b5f36.zh.tasks": [],
-    "project.project-d15b5f36.en.title": "The “Time Sequence” Affordable Housing Project",
+    "project.project-d15b5f36.en.title": "Time Sequence—Affordable Housing Project",
     "project.project-d15b5f36.en.desc": "Visualizing the relationship between the residential buildings and their site for planning submission.",
     "project.project-d15b5f36.en.role": "",
     "project.project-d15b5f36.en.context": "An affordable rental housing project presented through aerial and residential views to communicate the relationship between buildings and site for planning submission.",
