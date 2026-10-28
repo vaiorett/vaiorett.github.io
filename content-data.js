@@ -257,7 +257,7 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.yunba-depot.zh.title": "比亚迪-云巴车辆基地",
     "project.yunba-depot.zh.desc": "以车辆基地建筑与场地关系为重点，通过鸟瞰和透视画面展示建筑体量、立面与整体环境。",
-    "project.yunba-depot.zh.role": "建筑建模 / 视觉表现",
+    "project.yunba-depot.zh.role": "建筑建模 / 视觉表现 / 协助设计",
     "project.yunba-depot.zh.context": "团队轨道交通项目，参与车辆基地建筑与场地建模，并制作建筑表现图。",
     "project.yunba-depot.zh.note": "团队项目；个人参与建筑建模与视觉表现，项目整体设计归原团队。",
     "project.yunba-depot.zh.tools": [
@@ -289,7 +289,7 @@ window.PORTFOLIO_CONTENT = {
     ],
     "project.residential.zh.title": "比亚迪-贵阳时光序中小学项目",
     "project.residential.zh.desc": "通过建筑模型和多视角效果图，呈现住宅建筑、公共空间与场地的关系。",
-    "project.residential.zh.role": "模型制作 / 住宅表现",
+    "project.residential.zh.role": "模型制作 / 住宅表现 / 协助报规",
     "project.residential.zh.context": "团队住宅项目，参与模型制作和多视角建筑表现，展示住宅建筑与公共空间。",
     "project.residential.zh.note": "团队项目；个人参与图纸\\模型与建筑外立面表现，项目整体设计归原团队。",
     "project.residential.zh.tools": [
@@ -495,7 +495,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-6abfe00e.en.tasks": [],
     "project.project-3ba57396.zh.title": "UE5-片段",
     "project.project-3ba57396.zh.desc": "UE5影视级试验项目",
-    "project.project-3ba57396.zh.role": "",
+    "project.project-3ba57396.zh.role": "搭建场景 / 渲染制作 / 剪辑",
     "project.project-3ba57396.zh.context": "以 UE5 为基础的影视级画面试验，通过视频呈现场景中的材质、光影与氛围。",
     "project.project-3ba57396.zh.note": "",
     "project.project-3ba57396.zh.tools": [
@@ -517,7 +517,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-3ba57396.en.tasks": [],
     "project.project-d15b5f36.zh.title": "比亚迪-贵阳时光序保租房项目",
     "project.project-d15b5f36.zh.desc": "表现场地与住宅关系, 并提交报规",
-    "project.project-d15b5f36.zh.role": "",
+    "project.project-d15b5f36.zh.role": "方案建模 / 建筑表现 / 协助报规设计",
     "project.project-d15b5f36.zh.context": "围绕保障性租赁住房的建筑与场地关系，通过整体鸟瞰和住宅空间画面辅助报规沟通。",
     "project.project-d15b5f36.zh.note": "",
     "project.project-d15b5f36.zh.tools": [
