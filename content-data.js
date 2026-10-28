@@ -170,7 +170,6 @@ window.PORTFOLIO_CONTENT = {
     "project.digital-assets.zh.note": "商业项目作品；图中展示数字化采集与资产制作过程。",
     "project.digital-assets.zh.tools": [
       "RealityCapture",
-      "UE5",
       "Blender",
       "3ds Max"
     ],
@@ -232,8 +231,9 @@ window.PORTFOLIO_CONTENT = {
     "project.pedestrian-bridge.zh.note": "团队项目；个人职责为场地与桥体建模、效果图制作。",
     "project.pedestrian-bridge.zh.tools": [
       "AutoCAD",
-      "SketchUp",
-      "D5"
+      "Sketchup",
+      "3Ds Max",
+      "Corona"
     ],
     "project.pedestrian-bridge.zh.tasks": [
       "根据方案搭建人行天桥与实际场地模型。",
@@ -296,6 +296,7 @@ window.PORTFOLIO_CONTENT = {
       "Auto CAD",
       "SketchUp",
       "3ds Max",
+      "Corona",
       "Photoshop"
     ],
     "project.residential.zh.tasks": [
@@ -455,6 +456,7 @@ window.PORTFOLIO_CONTENT = {
     "project.project-9a627a8d.zh.context": "围绕充电站场景，展示充电车位、顶棚、车辆与周边绿化的空间关系。",
     "project.project-9a627a8d.zh.note": "",
     "project.project-9a627a8d.zh.tools": [
+      "AutoCAD",
       "Sketchup",
       "D5"
     ],
@@ -520,8 +522,8 @@ window.PORTFOLIO_CONTENT = {
     "project.project-d15b5f36.zh.note": "",
     "project.project-d15b5f36.zh.tools": [
       "Auto CAD",
-      "3Ds Max",
       "Sketchup",
+      "3Ds Max",
       "Vray",
       "Corona"
     ],
