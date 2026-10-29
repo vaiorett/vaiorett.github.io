@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-29T11:38:07.692Z",
+  "updatedAt": "2026-10-29T11:38:58.295Z",
   "projects": {
     "project-d15b5f36": {
       "title": "比亚迪-贵阳时光序保租房项目",
@@ -1692,7 +1692,7 @@ window.PORTFOLIO_GALLERIES = {
     },
     "digital-assets": {
       "title": "产品数字化与三维资产",
-      "cover": "image-digital-assets-cover.webp",
+      "cover": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c.jpg",
       "images": [
         {
           "id": "digital-assets-overview",
