@@ -1,6 +1,6 @@
 window.PORTFOLIO_GALLERIES = {
   "version": 1,
-  "updatedAt": "2026-10-28T16:56:30.684Z",
+  "updatedAt": "2026-10-29T11:38:07.692Z",
   "projects": {
     "project-d15b5f36": {
       "title": "比亚迪-贵阳时光序保租房项目",
@@ -1696,19 +1696,34 @@ window.PORTFOLIO_GALLERIES = {
       "images": [
         {
           "id": "digital-assets-overview",
-          "src": "image-digital-assets-full.webp",
+          "src": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c.jpg",
           "caption": "项目作品总览",
           "alt": "产品数字化与三维资产作品总览",
-          "kind": "collage",
+          "kind": "image",
           "captionEn": "Project overview",
           "altEn": "Product Digitization & 3D Assets — project overview",
-          "width": 1028,
-          "height": 1920,
-          "thumbnail": "image-digital-assets-full-preview.webp",
+          "width": 2886,
+          "height": 5392,
+          "upload": {
+            "originalBytes": 727973,
+            "bytes": 727973,
+            "width": 2886,
+            "height": 5392,
+            "preset": "balanced"
+          },
+          "thumbnail": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c-800.webp",
           "responsive": [
             {
-              "src": "image-digital-assets-full-preview.webp",
-              "width": 857
+              "src": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c-480.webp",
+              "width": 480
+            },
+            {
+              "src": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c-800.webp",
+              "width": 800
+            },
+            {
+              "src": "images/uploads/image-70e0f7e9-ca8f-4c1e-869f-0d79ba76d41c.jpg",
+              "width": 2886
             }
           ]
         }
