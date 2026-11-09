@@ -1,9 +1,21 @@
-__pycache__/
-*.pyc
-.responsive-qa.html
-
+# Dependencies
 node_modules/
+
+# Build artifacts and templates
 .astro/
 .astro-templates/
+__pycache__/
+*.py[cod]
 
+# Local testing and scratch files
+.responsive-qa.html
 .upload-test.png
+*.log
+
+# System and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
