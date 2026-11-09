@@ -9,7 +9,7 @@ function theme({dark=false,saved=null,blocked=false}={}){
 test('light mode is the default even when the device prefers dark',()=>{const t=theme({dark:true});assert.equal(t.root.dataset.theme,'light');t.system(false);t.system(true);assert.equal(t.root.dataset.theme,'light');t.choose('dark');assert.equal(t.root.dataset.theme,'dark');t.choose('light');assert.equal(t.root.dataset.theme,'light');});
 test('saved manual choice survives loading and synchronizes across tabs',()=>{const t=theme({saved:'dark'});assert.equal(t.root.dataset.theme,'dark');t.storage('light');assert.equal(t.root.dataset.theme,'light');t.storage(null);assert.equal(t.root.dataset.themePreference,'light');});
 test('blocked storage and old system settings fall back to light',()=>{const t=theme({dark:true,saved:'bad',blocked:true});assert.equal(t.root.dataset.theme,'light');t.choose('dark');assert.equal(t.root.dataset.theme,'dark');assert.equal(theme({saved:'system',dark:true}).root.dataset.themePreference,'light');});
-test('Chinese is the default regardless of browser language and manual language choices persist',()=>{
+test('language follows browser on first visit and manual language choices persist',()=>{
  const store=new Map(),storage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)};
  function visit({langAttr='zh-CN',pathname='/index.html',search='',hash='',browserLang='en-US'}){
   let redirected=null,clickHandler=null;
@@ -21,14 +21,16 @@ test('Chinese is the default regardless of browser language and manual language 
   });
   return {redirected,clickLanguage:code=>clickHandler({target:{closest:()=>({href:'https://example.com/en/index.html?lang=en&filter=assets',getAttribute:()=>code})}})};
  }
- assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about',browserLang:'en-US'}).redirected,null);
- assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'zh-CN'}).redirected,null);
+ assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about',browserLang:'en-US'}).redirected,'/en/?role=visual#about');
+ assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about',browserLang:'zh-CN'}).redirected,null);
+ assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'zh-CN'}).redirected,'/work-cgi.html');
+ assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'en-US'}).redirected,null);
  assert.equal(visit({pathname:'/manage.html',browserLang:'en-US'}).redirected,null);
  visit({pathname:'/index.html'}).clickLanguage('en');
- assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about'}).redirected,'/en/?role=visual#about');
+ assert.equal(visit({pathname:'/',search:'?role=visual',hash:'#about',browserLang:'zh-CN'}).redirected,'/en/?role=visual#about');
  assert.equal(visit({langAttr:'en',pathname:'/en/index.html',browserLang:'zh-CN'}).redirected,null);
  visit({langAttr:'en',pathname:'/en/index.html'}).clickLanguage('zh');
- assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html'}).redirected,'/work-cgi.html');
+ assert.equal(visit({langAttr:'en',pathname:'/en/work-cgi.html',browserLang:'en-US'}).redirected,'/work-cgi.html');
  assert.equal(visit({pathname:'/index.html',search:'?lang=en'}).redirected,'/en/index.html?lang=en');
 });
 test('original image dimensions stay intact and unsafe inputs are rejected',()=>{assert.deepEqual(I.dimensions(8000,4000),{width:8000,height:4000});assert.deepEqual(I.dimensions(1000,15000),{width:1000,height:15000});assert.throws(()=>I.dimensions(10000,10000),/尺寸/);assert.throws(()=>I.dimensions(0,100),/尺寸/);});

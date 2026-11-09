@@ -13,7 +13,21 @@
      localStorage.setItem(langKey,JSON.stringify({lang:param}));
     }else{
      const saved=JSON.parse(localStorage.getItem(langKey)||'null');
-     if(saved&&(saved.lang==='zh'||saved.lang==='en'))target=saved.lang;
+     if(saved&&(saved.lang==='zh'||saved.lang==='en')){
+      target=saved.lang;
+     }else{
+      const navLangs=(typeof navigator!=='undefined'&&(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language]))||[];
+      for(const l of navLangs){
+       if(!l)continue;
+       const s=String(l).toLowerCase();
+       if(s.startsWith('zh')){target='zh';break;}
+       if(s.startsWith('en')){target='en';break;}
+      }
+      if(!target){
+       const primary=String(navLangs[0]||(typeof navigator!=='undefined'?navigator.language:'')||'').toLowerCase();
+       target=primary?(primary.startsWith('zh')?'zh':'en'):pageLang;
+      }
+     }
     }
    }catch{}
    if((target==='zh'||target==='en')&&target!==pageLang){
