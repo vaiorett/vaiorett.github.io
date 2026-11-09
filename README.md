@@ -89,12 +89,11 @@ npm test
 
 ```text
 vaiorett.github.io/
-├── index.html                  # 中文首页（静态生成）
-├── en/                         # 英文版页面目录
-│   ├── index.html              # 英文首页
-│   └── work-*.html             # 英文项目详情页
-├── work-*.html                 # 各项目中文详情页（如 work-yunba-depot.html）
+├── .github/workflows/          # 自动化构建与部署工作流（GitHub Actions 持续集成）
+│   ├── deploy.yml              # 自动静态编译、测试并发布至 GitHub Pages
+│   └── video-covers.yml        # 视频平台官方封面自动抓取与同步
 │
+├── index.html                  # 网站首页入口
 ├── manage.html                 # 网页可视化管理后台（核心入口）
 ├── manage.js                   # 管理后台业务交互逻辑（图片上传、排序、发布等）
 ├── manage.css                  # 管理后台界面样式
@@ -116,7 +115,7 @@ vaiorett.github.io/
 ├── style.css                   # 全局基础重置与排版样式
 ├── theme.css                   # 主题色变量与备用色盘
 │
-├── assets/                     # 本地静态静态资源库
+├── assets/                     # 本地静态资源库
 │   ├── fonts/                  # 本地托管字体（IBM Plex Sans、Comic Neue 等）
 │   └── icons/                  # 软件品牌矢量 SVG 图标（Blender、3ds Max、UE5 等）
 ├── images/                     # 图片存储库
@@ -135,7 +134,7 @@ vaiorett.github.io/
 │   └── refresh_video_posters.py# 视频平台官方封面自动抓取与同步脚本
 │
 ├── tests/                      # 自动化测试套件（62+ 项端到端及单元测试）
-├── docs/                       # 历史架构文档与性能优化评测记录
+├── docs/                       # 历史架构文档、开源许可证与优化评测记录
 │
 ├── package.json                # 项目依赖与构建指令配置
 ├── astro.config.mjs            # Astro 构建配置文件
@@ -147,8 +146,8 @@ vaiorett.github.io/
 
 ## ❓ 常见问题解答（FAQ）
 
-#### Q1: 为什么项目根目录有这么多 `work-*.html` 文件？
-> **答**：GitHub Pages 属于纯静态网页托管服务。把静态生成的 HTML 页面直接存放在根目录下，可以让访客在浏览器中实现**零延迟秒开**，无需等待任何服务端渲染（SSR）或前端框架水合（Hydration），兼具极致速度与高可靠性。
+#### Q1: 为什么仓库主页如此清爽整洁，看不到堆积的 `work-*.html` 文件？
+> **答**：本项目采用了**专业级「源码与构建产物彻底分离」架构**。仓库 `main` 分支仅保留干净纯粹的源代码与配置，避免几十个生成的静态 HTML 页面刷屏堆积在 GitHub 首页。当您推送代码或在管理后台一键发布时，**GitHub Actions 会自动触发云端静态构建**，自动生成全部双语页面并秒级发布至 GitHub Pages。如果您需要离线浏览完整静态网页，也可以直接在管理后台点击“导出更新文件”，即可获得包含所有生成的 HTML 网页压缩包。
 
 #### Q2: 我在管理后台点击“发布所有修改”后，为什么线上网页没有立刻更新？
 > **答**：GitHub 接收到提交后，GitHub Pages 需要约 1 ~ 3 分钟进行全网静态分发；同时浏览器本地会有短时间缓存。如果未看到更新，可以按 `Ctrl + F5`（Mac 上为 `Cmd + Shift + R`）强制刷新浏览器。

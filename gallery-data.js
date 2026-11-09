@@ -1498,11 +1498,11 @@ window.PORTFOLIO_GALLERIES = {
     },
     "cgi": {
       "title": "材质与 CGI 探索",
-      "cover": "image-cgi-cover.webp",
+      "cover": "images/uploads/image-cgi-cover.webp",
       "images": [
         {
           "id": "cgi-overview",
-          "src": "image-cgi-full.webp",
+          "src": "images/uploads/image-cgi-full.webp",
           "caption": "项目作品总览",
           "alt": "材质与 CGI 探索作品总览",
           "kind": "collage",
@@ -1510,14 +1510,14 @@ window.PORTFOLIO_GALLERIES = {
           "altEn": "CGI & Material Studies — project overview",
           "width": 1085,
           "height": 1920,
-          "thumbnail": "image-cgi-full-preview.webp",
+          "thumbnail": "images/uploads/image-cgi-full-preview.webp",
           "responsive": [
             {
               "src": "images/responsive/73ad712c7fee1324989b-800.webp",
               "width": 800
             },
             {
-              "src": "image-cgi-full-preview.webp",
+              "src": "images/uploads/image-cgi-full-preview.webp",
               "width": 904
             }
           ]

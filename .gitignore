@@ -6,6 +6,8 @@ node_modules/
 .astro-templates/
 __pycache__/
 *.py[cod]
+/work-*.html
+/en/
 
 # Local testing and scratch files
 .responsive-qa.html

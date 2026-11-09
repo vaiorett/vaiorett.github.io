@@ -38,8 +38,7 @@ jobs:
               echo 'changed=false' >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            python3 scripts/build.py
-            git add gallery-data.js content-data.js content-templates.js index.html work-*.html en/*.html sitemap.xml robots.txt
+            git add gallery-data.js
             git commit -m 'Update video cover metadata'
             if git push origin HEAD:main; then
               echo 'changed=true' >> "$GITHUB_OUTPUT"
@@ -48,7 +47,3 @@ jobs:
           done
           echo 'Repository changed during cover refresh; please run this workflow again.'
           exit 1
-      - name: Publish current pages
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"

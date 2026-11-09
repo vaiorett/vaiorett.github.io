@@ -371,7 +371,7 @@
  $('disconnect-button').addEventListener('click',()=>{token='';session=null;$('github-token').value='';$('github-token').placeholder='在此粘贴，仅本次使用';$('disconnect-button').hidden=true;status('connection-status','已断开连接，草稿仍保存在当前浏览器。');updatePublish();});
  $('publish-button').addEventListener('click',async()=>{
   if(!session||busy||!hasChanges())return;setBusy(true);$('commit-link').hidden=true;status('publish-status','正在核对仓库版本…');const desired=desiredGallery();desired.updatedAt=new Date().toISOString();
-  try{T.readyToPublish(textData,templates,desired);const output=pageFiles(desired);const sha=await C.publish(desired,files,session,api,message=>status('publish-status',message),output);data=desired;base=C.clone(desired);textBase=T.clone(textData);session.base=sha;files.clear();renderSelect();render();renderText();await saveDraft();status('publish-status','已提交到 GitHub。请等待 Pages 更新后打开作品页确认。');const link=$('commit-link');link.href='https://github.com/'+C.OWNER+'/'+C.REPO+'/commit/'+encodeURIComponent(sha);link.hidden=false;}
+  try{T.readyToPublish(textData,templates,desired);const output={'content-data.js':T.serialize(textData)};const sha=await C.publish(desired,files,session,api,message=>status('publish-status',message),output);data=desired;base=C.clone(desired);textBase=T.clone(textData);session.base=sha;files.clear();renderSelect();render();renderText();await saveDraft();status('publish-status','已提交到 GitHub。GitHub Actions 将自动构建并发布网站，稍后刷新即可查看。');const link=$('commit-link');link.href='https://github.com/'+C.OWNER+'/'+C.REPO+'/commit/'+encodeURIComponent(sha);link.hidden=false;}
   catch(error){const phase=$('publish-status').textContent;status('publish-status',phase+'：'+error.message,true);}finally{setBusy(false);}
  });
  let zipLoader;

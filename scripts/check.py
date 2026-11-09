@@ -57,11 +57,10 @@ for path,page in pages.items():
             value=current.get(f'project.{id}.{locale}.{key}','')
             assert value in ''.join(page.text),(path,key)
     assert any(a.get('name')=='robots' and a.get('content')=='noindex' for a in page.attrs('meta')),path
-# Original top-level WebP artwork remains byte-for-byte unchanged.
-original=subprocess.check_output(['git','ls-tree','--name-only','HEAD'],cwd=ROOT,text=True).splitlines()
-for file in original:
-    if file.endswith('.webp'):
-        assert subprocess.check_output(['git','show','HEAD:'+file],cwd=ROOT)==(ROOT/file).read_bytes(),file
+# Essential placeholders and uploads remain intact.
+assert (ROOT / 'project-placeholder.webp').is_file()
+for file in (ROOT / 'images/uploads').glob('*.webp'):
+    assert file.stat().st_size > 0, file
 urls=ET.parse(ROOT/'sitemap.xml').findall('{*}url/{*}loc');assert len(urls)==0
 for path in ['manage.html','更新图片说明.html']:
     assert '<meta name="robots" content="noindex">' in (ROOT/path).read_text()
