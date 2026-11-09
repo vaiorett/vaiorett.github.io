@@ -269,7 +269,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791",
           "caption": "",
           "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab.webp",
+          "src": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -280,20 +280,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791.webp",
-          "thumbnail": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
-          "compareThumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp",
+          "thumbnail": "images/uploads/image-9adc72ed-c14d-4b9d-8c1c-bc8a116a7791-preview.webp",
           "responsive": [
-            {
-              "src": "images/responsive/4fa14c7f3742579665b8-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-a3137070-52f9-4bb9-abba-ee2b517ee0ab-preview.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/32c224bd0b867ab81c34-800.webp",
               "width": 800
@@ -308,7 +296,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6",
           "caption": "",
           "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f.webp",
+          "src": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -319,20 +307,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6.webp",
-          "thumbnail": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
-          "compareThumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp",
+          "thumbnail": "images/uploads/image-3c514af2-05e6-4e62-8a08-a1e7fd3d05c6-preview.webp",
           "responsive": [
-            {
-              "src": "images/responsive/7753a28e417ce4ee5843-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-f2722378-ab35-404a-b639-ff06814d4d5f-preview.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/8ca3cfba70aa9b0708d4-800.webp",
               "width": 800
@@ -347,7 +323,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-1a77d4a1-e1f0-4098-aa04-6823762a36d1",
           "caption": "",
           "alt": "轨道交通车辆基地效果图",
-          "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d.webp",
+          "src": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -358,20 +334,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "compare": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1.webp",
-          "thumbnail": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
-          "compareThumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp",
+          "thumbnail": "images/uploads/image-1a77d4a1-e1f0-4098-aa04-6823762a36d1-preview.webp",
           "responsive": [
-            {
-              "src": "images/responsive/2f809a38815ddfc9ba73-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-3cf8a542-2497-47a7-a588-f01064e32c9d-preview.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/85135a501e7cb335509c-800.webp",
               "width": 800
@@ -723,7 +687,7 @@ window.PORTFOLIO_GALLERIES = {
       "images": [
         {
           "id": "pedestrian-bridge-overview",
-          "src": "images/uploads/image-e425e9c3-9d3b-4bd9-9865-542a3b69d5a0.webp",
+          "src": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b.webp",
           "caption": "项目作品总览",
           "alt": "人行天桥与场地作品总览",
           "kind": "image",
@@ -738,20 +702,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-e425e9c3-9d3b-4bd9-9865-542a3b69d5a0-cover.webp",
-          "compare": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b.webp",
-          "compareThumbnail": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b-cover.webp",
+          "thumbnail": "images/uploads/image-d2470cb8-5659-4b1d-aad2-890b2f990e9b-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/019bf12e6104c4794bd8-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-e425e9c3-9d3b-4bd9-9865-542a3b69d5a0-cover.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/9db2b07e1ee184b6bd66-800.webp",
               "width": 800
@@ -766,7 +718,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-90784621-02e1-4015-ba56-48d426981ee9",
           "caption": "",
           "alt": "人行天桥与场地效果图",
-          "src": "images/uploads/image-6e45cc81-396b-4638-b61e-7dff40e23b47.webp",
+          "src": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -777,20 +729,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-6e45cc81-396b-4638-b61e-7dff40e23b47-cover.webp",
-          "compare": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9.webp",
-          "compareThumbnail": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9-cover.webp",
+          "thumbnail": "images/uploads/image-90784621-02e1-4015-ba56-48d426981ee9-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/02f4c8074ae830289516-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-6e45cc81-396b-4638-b61e-7dff40e23b47-cover.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/ac8ae391eccbfa62e55c-800.webp",
               "width": 800
@@ -805,7 +745,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec",
           "caption": "",
           "alt": "人行天桥与场地效果图",
-          "src": "images/uploads/image-112dead1-a443-4fae-b4a0-2f3f53bdb249.webp",
+          "src": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -816,20 +756,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-112dead1-a443-4fae-b4a0-2f3f53bdb249-cover.webp",
-          "compare": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec.webp",
-          "compareThumbnail": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec-cover.webp",
+          "thumbnail": "images/uploads/image-18fbce19-33ae-47f3-9588-ee06e3d7a3ec-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/9536528c7345a0dd8cd2-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-112dead1-a443-4fae-b4a0-2f3f53bdb249-cover.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/fa06e96f20072141ad4c-800.webp",
               "width": 800
@@ -844,7 +772,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa",
           "caption": "",
           "alt": "人行天桥与场地效果图",
-          "src": "images/uploads/image-9b4a669c-9c38-4400-80a7-5535ca4a59a9.webp",
+          "src": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -855,20 +783,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2162,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-9b4a669c-9c38-4400-80a7-5535ca4a59a9-cover.webp",
-          "compare": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa.webp",
-          "compareThumbnail": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa-cover.webp",
+          "thumbnail": "images/uploads/image-7d8f6678-cf4d-42dd-ad53-361f595a5bfa-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/254131ec63c6069b5554-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-9b4a669c-9c38-4400-80a7-5535ca4a59a9-cover.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/0e7618a647b01382e1c2-800.webp",
               "width": 800
@@ -890,7 +806,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-6638eeb7-707d-4a08-8e90-1baa6e47899d",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae.webp",
+          "src": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -903,22 +819,8 @@ window.PORTFOLIO_GALLERIES = {
           },
           "captionEn": "project-09",
           "layout": "half",
-          "body": "compare",
-          "bodyEn": "compare",
-          "compare": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560.webp",
-          "thumbnail": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
-          "compareThumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp",
+          "thumbnail": "images/uploads/image-a44e1cf9-c145-45f9-b009-9da6d0170560-preview.webp",
           "responsive": [
-            {
-              "src": "images/responsive/466eb9152916574a87f3-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-65fad7a1-7b5e-4c7b-bf0b-073b10669eae-preview.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/c107804d9c37683299a8-800.webp",
               "width": 800
@@ -933,7 +835,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-baba87a5-1b8b-4736-8bf3-186a68f097b4",
           "caption": "",
           "alt": "project-09效果图",
-          "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0.webp",
+          "src": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
           "kind": "image",
           "width": 3840,
           "height": 2162,
@@ -945,20 +847,8 @@ window.PORTFOLIO_GALLERIES = {
             "preset": "balanced"
           },
           "captionEn": "project-09",
-          "compare": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1.webp",
-          "thumbnail": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
-          "compareThumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp",
+          "thumbnail": "images/uploads/image-62f3adaa-b41f-432a-ab31-a6da240297b1-preview.webp",
           "responsive": [
-            {
-              "src": "images/responsive/53718522ef0348522ead-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-5b8da356-2323-4c72-a5da-f4b4810502c0-preview.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/720ac064dd4bbe0811d3-800.webp",
               "width": 800
@@ -1069,7 +959,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a",
           "caption": "厨房视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-88c24b68-d45f-45bd-8f48-6491568da39d.webp",
+          "src": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a.webp",
           "kind": "image",
           "width": 2133,
           "height": 3200,
@@ -1080,20 +970,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 3200,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-88c24b68-d45f-45bd-8f48-6491568da39d-cover.webp",
-          "compare": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a.webp",
-          "compareThumbnail": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a-cover.webp",
+          "thumbnail": "images/uploads/image-f583ea56-f7ae-4181-901b-a63e1c4d1a4a-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/e94d9ef73b9135ae4361-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-88c24b68-d45f-45bd-8f48-6491568da39d-cover.webp",
-              "width": 1067
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/1e63a6ff067c4a55ac3c-800.webp",
               "width": 800
@@ -1162,7 +1040,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-b0009336-5eed-4ea4-8720-e8d4b9631986",
           "caption": "餐桌近景视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-ca6d2252-542a-4f09-9c6a-70af30ddbaa5.webp",
+          "src": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986.webp",
           "kind": "image",
           "width": 2133,
           "height": 3200,
@@ -1173,20 +1051,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 3200,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-ca6d2252-542a-4f09-9c6a-70af30ddbaa5-cover.webp",
-          "compare": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986.webp",
-          "compareThumbnail": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986-cover.webp",
+          "thumbnail": "images/uploads/image-b0009336-5eed-4ea4-8720-e8d4b9631986-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/ff3f6f6b4a1807bd7889-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-ca6d2252-542a-4f09-9c6a-70af30ddbaa5-cover.webp",
-              "width": 1067
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/b431f83ba41c063fbcac-800.webp",
               "width": 800
@@ -1201,7 +1067,7 @@ window.PORTFOLIO_GALLERIES = {
           "id": "image-204b943b-b813-4146-bb1d-c5c941ce46eb",
           "caption": "沙发视角",
           "alt": "室内空间与氛围效果图",
-          "src": "images/uploads/image-e5b09b07-575a-45b3-b305-edb31a06ec64.webp",
+          "src": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb.webp",
           "kind": "image",
           "width": 3200,
           "height": 2133,
@@ -1212,20 +1078,8 @@ window.PORTFOLIO_GALLERIES = {
             "height": 2133,
             "preset": "balanced"
           },
-          "thumbnail": "images/uploads/image-e5b09b07-575a-45b3-b305-edb31a06ec64-cover.webp",
-          "compare": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb.webp",
-          "compareThumbnail": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb-cover.webp",
+          "thumbnail": "images/uploads/image-204b943b-b813-4146-bb1d-c5c941ce46eb-cover.webp",
           "responsive": [
-            {
-              "src": "images/responsive/7d6217b222767a65d0df-800.webp",
-              "width": 800
-            },
-            {
-              "src": "images/uploads/image-e5b09b07-575a-45b3-b305-edb31a06ec64-cover.webp",
-              "width": 1600
-            }
-          ],
-          "compareResponsive": [
             {
               "src": "images/responsive/ac665d465bdae69e7e72-800.webp",
               "width": 800

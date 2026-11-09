@@ -3,15 +3,14 @@ const L=require('../layout-core.js'),G=require('../gallery-core.js'),T=require('
 const p={title:'真实项目',cover:'a.webp',layout:'auto',images:[{id:'a',src:'a.webp',caption:'全景',captionEn:'Wide view',alt:'景观',altEn:'Landscape',width:2000,height:1000,body:'说明 <script>\n\n第二段',bodyEn:'First paragraph\n\nSecond paragraph'},{id:'b',src:'b.webp',caption:'细节',alt:'细节',width:1200,height:1000},{id:'c',src:'c.webp',caption:'长图',alt:'长图',kind:'collage',width:1000,height:8000}]};
 test('automatic layout respects wide images, legacy boards, overrides and reading order',()=>{assert.equal(L.size(p.images[0]),'full');assert.equal(L.size(p.images[1]),'half');assert.equal(L.size(p.images[2],'grid'),'full');assert.equal(L.size({...p.images[1],layout:'full'}),'full');assert.equal(L.size({...p.images[0],layout:'half'}),'half');assert.equal(L.size(p.images[1],'stack'),'full');const html=L.markup(p,'zh',{overview:'作品',title:'项目',open:'打开'});assert.ok(html.indexOf('a.webp')<html.indexOf('b.webp'));assert.ok(html.includes('&lt;script&gt;'));assert.ok(!html.includes('<script>'));});
 test('every layout, language and paragraph renders identically in browser and build',()=>{for(const layout of L.modes)for(const lang of ['zh','en']){const args=[{...p,layout},lang,{overview:'Overview',title:'Project',open:'Open'}];const out=cp.execFileSync('python3',['-c','import sys,json;sys.path.insert(0,"scripts");from layout_core import markup;print(markup(*json.load(sys.stdin)),end="")'],{input:JSON.stringify(args),timeout:10000}).toString();assert.equal(L.markup(...args),out);}});
-test('comparison slider items render identically in browser and Python with custom labels and body',()=>{
- const pCompare={title:'对比项目',cover:'a.webp',layout:'auto',images:[{id:'cmp',src:'before.webp',compare:'after.webp',caption:'对比效果',captionEn:'Comparison effect',alt:'对比',altEn:'Comparison',beforeLabel:'原始线框',beforeLabelEn:'Wireframe',afterLabel:'最终渲染',afterLabelEn:'Final Render',width:1536,height:864,body:'第一段说明\n\n第二段说明',bodyEn:'First note\n\nSecond note'}]};
+test('gallery items with body render identically in browser and Python',()=>{
+ const pItem={title:'测试项目',cover:'a.webp',layout:'auto',images:[{id:'item1',src:'after.webp',caption:'效果',captionEn:'Effect',alt:'效果',altEn:'Effect',width:1536,height:864,body:'第一段说明\n\n第二段说明',bodyEn:'First note\n\nSecond note'}]};
  for(const lang of ['zh','en']){
-  const args=[pCompare,lang,{overview:'Overview',title:'Project',open:'Open'}];
+  const args=[pItem,lang,{overview:'Overview',title:'Project',open:'Open'}];
   const out=cp.execFileSync('python3',['-c','import sys,json;sys.path.insert(0,"scripts");from layout_core import markup;print(markup(*json.load(sys.stdin)),end="")'],{input:JSON.stringify(args),timeout:10000}).toString();
   assert.equal(L.markup(...args),out);
-  assert.ok(out.includes('class="image-comparer"'));
-  assert.ok(out.includes(lang==='en'?'Wireframe':'原始线框'));
-  assert.ok(out.includes(lang==='en'?'Final Render':'最终渲染'));
+  assert.ok(out.includes('class="gallery-button"'));
+  assert.ok(!out.includes('image-comparer'));
   assert.ok(out.includes(lang==='en'?'Second note':'第二段说明'));
  }
 });

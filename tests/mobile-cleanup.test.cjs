@@ -11,7 +11,7 @@ test('every generated page has one doctype and requests video parsing only when 
   assert.equal(html.includes('video-core.js'),Boolean(id&&galleries.projects[id].videos?.length),path);
  }
 });
-test('public previews retain safe sources in both languages and defer comparison originals',()=>{
+test('public previews retain safe sources in both languages',()=>{
  const galleries=G.validate(read('gallery-data.js'));
  for(const p of Object.values(galleries.projects))for(const item of p.images)for(const key of ['responsive','compareResponsive']){
   const variants=item[key];if(!variants)continue;
@@ -20,6 +20,7 @@ test('public previews retain safe sources in both languages and defer comparison
  }
  const templates=read('content-templates.js'),pages=T.render(read('content-data.js'),templates,galleries);
  assert.match(pages['index.html'],/sizes="[^\"]*543px"/);
- assert.match(pages['work-yunba-depot.html'],/data-srcset=/);
+ assert.match(pages['work-yunba-depot.html'],/srcset=/);
+ assert.ok(!pages['work-yunba-depot.html'].includes('data-srcset='));
  assert.match(pages['en/work-yunba-depot.html'],/srcset="\.\.\//);
 });

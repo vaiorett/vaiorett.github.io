@@ -27,42 +27,7 @@
   const allOpen=p.images.every(i=>openCards.has(i.id));
   btn.textContent=allOpen?'全部折叠':'全部展开';
  }
- function swapCompare(item){
-  const oldSrc=item.src;
-  const oldCompare=item.compare;
-  item.src=oldCompare;
-  item.compare=oldSrc;
-  const oldBefore=item.beforeLabel,oldAfter=item.afterLabel;
-  if(oldBefore!==undefined||oldAfter!==undefined){
-   item.beforeLabel=oldAfter!==undefined?oldAfter:'';
-   item.afterLabel=oldBefore!==undefined?oldBefore:'';
-   if(!item.beforeLabel)delete item.beforeLabel;
-   if(!item.afterLabel)delete item.afterLabel;
-  }
-  const oldBeforeEn=item.beforeLabelEn,oldAfterEn=item.afterLabelEn;
-  if(oldBeforeEn!==undefined||oldAfterEn!==undefined){
-   item.beforeLabelEn=oldAfterEn!==undefined?oldAfterEn:'';
-   item.afterLabelEn=oldBeforeEn!==undefined?oldBeforeEn:'';
-   if(!item.beforeLabelEn)delete item.beforeLabelEn;
-   if(!item.afterLabelEn)delete item.afterLabelEn;
-  }
-  const oldResponsive=item.responsive,oldCompareResponsive=item.compareResponsive;
-  if(oldCompareResponsive)item.responsive=oldCompareResponsive;else delete item.responsive;
-  if(oldResponsive)item.compareResponsive=oldResponsive;else delete item.compareResponsive;
-  const oldThumb=item.thumbnail,oldCompareThumb=item.compareThumbnail;
-  item.thumbnail=oldCompareThumb;
-  item.compareThumbnail=oldThumb;
-  if(!item.thumbnail)delete item.thumbnail;
-  if(!item.compareThumbnail)delete item.compareThumbnail;
-  const p=data.projects[selected];
-  if(p){
-   if(p.cover===oldCompare)p.cover=item.src;
-   else if(p.cover===oldSrc)p.cover=item.compare;
-  }
-  openCards.add(item.id);
-  render();changed();
-  status('image-process-status','已对调两张对比图片：左侧（原图）与右侧（效果图）画面及标签已互换。');
- }
+
  function element(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
  function button(label,fn,disabled=false,extra=''){const b=element('button','mini-button '+extra,label);b.type='button';b.disabled=disabled;b.addEventListener('click',fn);return b;}
  function moveProject(id,dir){
@@ -171,47 +136,24 @@
    card.addEventListener('dragleave',()=>card.classList.remove('drag-target'));
    card.addEventListener('drop',e=>{if(e.dataTransfer.files.length)return;e.preventDefault();card.classList.remove('drag-target');const from=Number(e.dataTransfer.getData('text/plain'));if(Number.isInteger(from))move(from,index);});
    const visual=element('div');
-   const isEffectCover=Boolean(!p.coverVideo&&item.compare&&p.cover===item.compare);
    const isBaseCover=!p.coverVideo&&p.cover===item.src;
    const image=element('img','editor-preview');
    image.loading='lazy';image.decoding='async';
-   image.src=preview(item.compare?(item.compareThumbnail||item.compare):(item.thumbnail||item.src));
+   image.src=preview(item.thumbnail||item.src);
    image.alt=item.alt||p.title;
    visual.append(image);
 
    const controls=element('div','editor-image-tools');
    controls.append(button('替换此图',()=>{$('replace-file').dataset.imageId=item.id;$('replace-file').click();}));
 
-   if(item.compare){
-    const coverGroup=element('div','cover-picker-group');
-    const effectLabel=element('label','cover-label');
-    const effectRadio=element('input','cover-picker');
-    effectRadio.type='radio';effectRadio.name='cover';
-    effectRadio.checked=isEffectCover;
-    effectRadio.setAttribute('aria-label','第 '+(index+1)+' 张：设效果图为封面');
-    effectRadio.addEventListener('change',()=>{p.cover=item.compare;delete p.coverVideo;render();renderVideos();changed();});
-    effectLabel.append(effectRadio,document.createTextNode('设效果图为封面'));
-
-    const baseLabel=element('label','cover-label');
-    const baseRadio=element('input','cover-picker');
-    baseRadio.type='radio';baseRadio.name='cover';
-    baseRadio.checked=isBaseCover;
-    baseRadio.setAttribute('aria-label','第 '+(index+1)+' 张：设原图为封面');
-    baseRadio.addEventListener('change',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();});
-    baseLabel.append(baseRadio,document.createTextNode('设原图为封面'));
-
-    coverGroup.append(effectLabel,baseLabel);
-    controls.append(coverGroup);
-   }else{
-    const coverLabel=element('label','cover-label');
-    const radio=element('input','cover-picker');
-    radio.type='radio';radio.name='cover';
-    radio.checked=isBaseCover;
-    radio.setAttribute('aria-label','第 '+(index+1)+' 张设为封面');
-    radio.addEventListener('change',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();});
-    coverLabel.append(radio,document.createTextNode('设为封面'));
-    controls.append(coverLabel);
-   }
+   const coverLabel=element('label','cover-label');
+   const radio=element('input','cover-picker');
+   radio.type='radio';radio.name='cover';
+   radio.checked=isBaseCover;
+   radio.setAttribute('aria-label','第 '+(index+1)+' 张设为封面');
+   radio.addEventListener('change',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();});
+   coverLabel.append(radio,document.createTextNode('设为封面'));
+   controls.append(coverLabel);
    visual.append(controls);
    card.append(visual);
 
@@ -220,14 +162,10 @@
    top.append(element('span','',String(index+1).padStart(2,'0')+' / '+String(p.images.length).padStart(2,'0')));
    const titleSpan=element('span','editor-item-title',item.caption||(item.kind==='collage'?'作品总览':'图片 '+(index+1)));
    top.append(titleSpan);
-   if(isEffectCover){
-    top.append(element('span','cover-tag-pill','项目封面（效果图）'));
-   }else if(isBaseCover){
+   if(isBaseCover){
     top.append(element('span','cover-tag-pill','项目封面'));
    }
-   if(item.compare){
-    top.append(element('span','compare-tag-pill','滑动对比'));
-   }else if(item.kind==='collage'){
+   if(item.kind==='collage'){
     top.append(element('span','','作品总览'));
    }
    fields.append(top);
@@ -256,75 +194,6 @@
    for(const[value,label]of [['auto','自动'],['full','整行大图'],['half','半宽（双列）']]){const option=element('option','',label);option.value=value;layout.append(option);}
    layout.value=item.layout||'auto';layout.addEventListener('change',()=>{item.layout=layout.value;changed();});collapseBody.append(layoutLabel,layout);
 
-   const compareBox=element('div','compare-editor-box');
-   if(item.compare){
-    const head=element('div','compare-editor-head');
-    head.append(element('strong','','✔ 已启用两图滑动对比'));
-    const headTools=element('div','compare-head-tools');
-    const swapHeadBtn=button('⇄ 对调两图',()=>swapCompare(item),false,'mini-button compare-swap-btn');
-    swapHeadBtn.title='将左右两张对比图互换位置（左侧基础阶段 ⇄ 右侧最终效果）';
-    const cancelBtn=button('取消对比（恢复普通单图）',()=>{
-     const oldCompare=item.compare;
-     delete item.compare;delete item.compareThumbnail;delete item.compareResponsive;delete item.beforeLabel;delete item.beforeLabelEn;delete item.afterLabel;delete item.afterLabelEn;
-     if(p.cover===oldCompare)p.cover=item.src;
-     render();changed();
-    },false,'quiet-button remove-image');
-    headTools.append(swapHeadBtn,cancelBtn);
-    head.append(headTools);
-    compareBox.append(head);
-
-    const row=element('div','compare-preview-row');
-    const leftCol=element('div','compare-thumb-col');
-    leftCol.append(element('span','compare-thumb-label','左侧 · '+(item.beforeLabel||'原图')));
-    const leftThumb=element('img','compare-thumb-preview');
-    leftThumb.loading='lazy';leftThumb.decoding='async';
-    leftThumb.src=preview(item.thumbnail||item.src);
-    leftThumb.alt='左侧基础图';
-    leftCol.append(leftThumb);
-    if(p.cover===item.src){
-     leftCol.append(element('span','cover-active-tag','✔ 当前封面'));
-    }else{
-     const setBaseBtn=button('设为封面',()=>{p.cover=item.src;delete p.coverVideo;render();renderVideos();changed();},false,'mini-button cover-set-btn');
-     setBaseBtn.title='将左侧原图设为项目封面';
-     leftCol.append(setBaseBtn);
-    }
-
-    const swapMidBtn=button('⇄ 对调',()=>swapCompare(item),false,'mini-button compare-swap-mid');
-    swapMidBtn.title='互换左右两图及对应标签';
-
-    const rightCol=element('div','compare-thumb-col');
-    rightCol.append(element('span','compare-thumb-label','右侧 · '+(item.afterLabel||'效果')));
-    const rightThumb=element('img','compare-thumb-preview');
-    rightThumb.loading='lazy';rightThumb.decoding='async';
-    rightThumb.src=preview(item.compareThumbnail||item.compare);
-    rightThumb.alt='右侧效果图';
-    rightCol.append(rightThumb);
-    if(p.cover===item.compare){
-     rightCol.append(element('span','cover-active-tag','✔ 当前封面'));
-    }else{
-     const setEffectBtn=button('设为封面',()=>{p.cover=item.compare;delete p.coverVideo;render();renderVideos();changed();},false,'mini-button cover-set-btn');
-     setEffectBtn.title='将右侧效果图设为项目封面（推荐）';
-     rightCol.append(setEffectBtn);
-    }
-
-    const replaceBtn=button('替换对比图',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();},false,'mini-button');
-    row.append(leftCol,swapMidBtn,rightCol,replaceBtn);
-    compareBox.append(row);
-
-    const grid=element('div','compare-label-grid');
-    for(const[k,lText,dflt]of[['beforeLabel','左侧标签（中文）','原图'],['beforeLabelEn','Left label (EN)','Before'],['afterLabel','右侧标签（中文）','效果'],['afterLabelEn','Right label (EN)','After']]){
-     const id='cmp-'+k+'-'+index;const l=element('label','',lText);l.htmlFor=id;const inp=element('input');inp.id=id;inp.placeholder=dflt;inp.value=item[k]||'';inp.maxLength=100;
-     inp.addEventListener('input',()=>{const val=inp.value.trim();if(val)item[k]=val;else delete item[k];changed();});
-     grid.append(l,inp);
-    }
-    compareBox.append(grid);
-   }else{
-    const addBtn=button('＋ 添加对比效果图（制作滑动对比）',()=>{$('compare-file').dataset.imageId=item.id;$('compare-file').click();},false,'compare-add-button');
-    addBtn.title='上传最终渲染/光影效果图，与当前图片形成左右滑动对比';
-    const tip=element('p','compare-editor-tip','让当前图片与最终效果图形成左右滑动对比（如白模与最终灯光渲染对比）');
-    compareBox.append(addBtn,tip);
-   }
-   collapseBody.append(compareBox);
 
    details.append(collapseBody);
    fields.append(details);
@@ -333,7 +202,7 @@
    actions.append(button('↑ 上移',()=>move(index,index-1),index===0),button('↓ 下移',()=>move(index,index+1),index===p.images.length-1));
    const remove=button('从展示中移除',()=>{
     p.images.splice(index,1);openCards.delete(item.id);
-    if(p.cover===item.src||p.cover===item.compare)p.cover=p.images[0]?.src||'project-placeholder.webp';
+    if(p.cover===item.src)p.cover=p.images[0]?.src||'project-placeholder.webp';
     render();changed();
    },p.images.length===1&&!p.videos?.length,'remove-image');
    if(p.images.length===1)remove.title='请先添加替代图片，再移除最后一张。';
@@ -462,31 +331,6 @@
    status('image-process-status','已添加 '+prepared.length+' 张图片：保留原图，并生成自动匹配屏幕的无损 WebP 预览。原图 '+formatBytes(before)+'；含预览共 '+formatBytes(after)+'。');
   }catch(error){status('image-process-status',error.message+' 本批图片未加入，原草稿已保留。',true);}finally{setBusy(false);}
  }
- async function addCompareFile(incoming,targetId){
-  if(busy)return;const file=incoming&&incoming[0];if(!file)return;
-  const p=data.projects[selected],item=p.images.find(i=>i.id===targetId);if(!item)return;
-  setBusy(true);clearTimeout(savingTimer);status('image-process-status','正在准备对比效果图转换…');
-  try{
-   I.validateFile(file);
-   const result=await I.convert(file,$('image-quality').value);
-   const id='image-'+crypto.randomUUID(),path='images/uploads/'+id+'.'+result.extension;
-   files.set(path,result.blob);
-   const previousCompare=item.compare;
-   item.compare=path;
-   if(p.cover===previousCompare)p.cover=path;
-   delete item.compareThumbnail;delete item.compareResponsive;
-   const responsive=(result.variants||[]).map(v=>{const src='images/uploads/'+id+'-'+v.width+'.webp';files.set(src,v.blob);return {src,width:v.width};});
-   if(responsive.length){item.compareThumbnail=responsive[responsive.length-1].src;item.compareResponsive=responsive;if(!responsive.some(v=>v.width===result.width)&&(result.width<=1600||responsive[responsive.length-1].width<1200))item.compareResponsive.push({src:path,width:result.width});}
-   if(!item.beforeLabel)item.beforeLabel='原图';
-   if(!item.beforeLabelEn)item.beforeLabelEn='Before';
-   if(!item.afterLabel)item.afterLabel='效果';
-   if(!item.afterLabelEn)item.afterLabelEn='After';
-   openCards.add(targetId);
-   render();changed();clearTimeout(savingTimer);await saveDraft();
-   status('image-process-status','已添加对比效果图：'+formatBytes(result.originalBytes)+'，原图已保留，无损预览已生成 '+formatBytes(result.bytes)+'。可点击“预览未发布修改”查看滑动效果。');
-  }catch(error){status('image-process-status',error.message+' 对比图未加入，原草稿已保留。',true);}
-  finally{setBusy(false);}
- }
  $('project-layout').addEventListener('change',e=>{data.projects[selected].layout=e.target.value;changed();});
  $('auto-layout').addEventListener('click',()=>{data.projects[selected].layout='auto';data.projects[selected].images.forEach(i=>delete i.layout);render();changed();});
  const toggleCollapseBtn=$('toggle-collapse-all');
@@ -500,7 +344,6 @@
  }
  $('image-files').addEventListener('change',async e=>{await addFiles(e.target.files);e.target.value='';});
  $('replace-file').addEventListener('change',async e=>{await addFiles(e.target.files,e.target.dataset.imageId);e.target.value='';});
- $('compare-file').addEventListener('change',async e=>{await addCompareFile(e.target.files,e.target.dataset.imageId);e.target.value='';});
  const drop=$('dropzone');drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('dragover');});drop.addEventListener('dragleave',()=>drop.classList.remove('dragover'));drop.addEventListener('drop',async e=>{e.preventDefault();drop.classList.remove('dragover');await addFiles(e.dataTransfer.files);});
  $('project-select').addEventListener('change',e=>{selected=e.target.value;renderSelect();render();renderText();changed();});
  $('reset-project').addEventListener('click',()=>{if(!confirm('撤销这个项目尚未发布的图片与顺序修改？'))return;const current=data.projects[selected],original=base.projects[selected];current.cover=original?.cover||'project-placeholder.webp';delete current.coverVideo;current.images=C.clone(original?.images||[]);render();changed();});
