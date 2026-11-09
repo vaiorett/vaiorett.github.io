@@ -24,10 +24,6 @@ def markup(project,lang,labels):
             if not variants:return ''
             paths=', '.join(prefix+v['src']+' '+str(v['width'])+'w' for v in variants)
             return ' srcset="'+esc(paths)+'" sizes="(max-width: 700px) calc(100vw - 32px), '+('(max-width: 1104px) calc(60vw - 54px), 608px' if mode=='story' and body.strip() else '(max-width: 1104px) calc(50vw - 43px), 509px' if size(item,mode)=='half' else '(max-width: 1104px) calc(100vw - 64px), 1040px')+'"'
-        num=str(i+1).zfill(2)
-        fig_text=f'{num} / {esc(caption)}' if caption else num
-        copy='<div class="gallery-copy"><figcaption>'+fig_text+'</figcaption>'
-        if body.strip():copy+='<div class="gallery-text">'+''.join('<p>'+esc(p)+'</p>' for p in re.split(r'\n\s*\n',body.strip()))+'</div>'
-        copy+='</div>'
+        copy='<div class="gallery-copy"><div class="gallery-text">'+''.join('<p>'+esc(p)+'</p>' for p in re.split(r'\n\s*\n',body.strip()))+'</div></div>' if body.strip() else ''
         result+='<figure class="gallery-item layout-'+size(item,mode)+(' legacy' if item.get('kind')=='collage' else '')+(' has-copy' if body.strip() else '')+'"><a class="gallery-button" href="'+prefix+esc(item['src'])+'" aria-label="'+esc(labels['open'])+': '+esc(caption or labels['title'])+'"><img src="'+prefix+esc(item.get('thumbnail') or item['src'])+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"'+responsive(item.get('responsive'))+dimensions+'></a>'+copy+'</figure>'
     return result+'</div>'
